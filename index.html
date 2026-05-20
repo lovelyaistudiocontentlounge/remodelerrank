@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RemodelerRank | The Marketing Agency for East Bay Remodelers</title>
+<link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --off-white: #FAFAF8;
+    --warm-sage-tint: #EEF2EF;
+    --light-sage-tint: #E4EBE7;
+    --sage: #8BA89A;
+    --sage-dark: #6E8E7E;
+    --sage-deeper: #4A6E5E;
+    --charcoal: #2C2C2C;
+    --body-text: #4A4A4A;
+    --muted-sage: #7A8A80;
+    --faint-sage: #B0BDB5;
+    --border: #DDE6E1;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Karla', sans-serif;
+    color: var(--body-text);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--charcoal);
+    padding: 0 48px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: -0.3px;
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    font-family: 'Sacramento', cursive;
+    font-size: 26px;
+    color: var(--sage);
+    margin-left: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--sage) !important;
+    color: var(--white) !important;
+    padding: 9px 22px;
+    border-radius: 3px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--sage-dark) !important; }
+
+  /* HERO */
+  .hero {
+    margin-top: 64px;
+    background: var(--charcoal);
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 48px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 80% at 75% 50%, rgba(139,168,154,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(110,142,126,0.08) 0%, transparent 60%);
+  }
+
+  .hero-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    font-family: 'Karla', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(38px, 4.5vw, 58px);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.18;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sage);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 40px;
+    max-width: 480px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--sage);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 3px;
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary:hover {
+    background: var(--sage-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    color: rgba(255,255,255,0.7);
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--white); }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .stat-box {
+    padding: 32px 28px;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .stat-num {
+    font-family: 'Lora', serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--sage);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.4;
+  }
+
+  /* SECTION BASE */
+  section { padding: 96px 48px; }
+
+  .section-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--muted-sage);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 500;
+    color: var(--charcoal);
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+    margin-bottom: 20px;
+  }
+
+  .section-intro {
+    font-size: 17px;
+    color: var(--body-text);
+    line-height: 1.8;
+    max-width: 620px;
+  }
+
+  /* PAIN */
+  .pain {
+    background: var(--off-white);
+  }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+    margin-top: 56px;
+  }
+
+  .pain-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pain-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 24px;
+    background: var(--white);
+    border-radius: 4px;
+    border-left: 3px solid var(--sage);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+
+  .pain-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--warm-sage-tint);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+
+  .pain-text strong {
+    display: block;
+    font-weight: 600;
+    color: var(--charcoal);
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .pain-text p {
+    font-size: 14px;
+    color: var(--muted-sage);
+    line-height: 1.6;
+  }
+
+  .pain-callout {
+    background: var(--charcoal);
+    border-radius: 6px;
+    padding: 40px;
+    color: var(--white);
+    position: sticky;
+    top: 88px;
+  }
+
+  .pain-callout .script-accent {
+    font-family: 'Sacramento', cursive;
+    font-size: 48px;
+    color: var(--sage);
+    display: block;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+
+  .pain-callout h3 {
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    color: var(--white);
+  }
+
+  .pain-callout p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    margin-bottom: 28px;
+  }
+
+  /* BENEFITS */
+  .benefits {
+    background: var(--white);
+  }
+
+  .benefits-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 64px;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .benefit-card {
+    background: var(--white);
+    padding: 36px 28px;
+    transition: background 0.2s;
+  }
+
+  .benefit-card:hover { background: var(--warm-sage-tint); }
+
+  .benefit-num {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    color: var(--sage);
+    font-weight: 400;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .benefit-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .benefit-card p {
+    font-size: 14px;
+    color: var(--muted-sage);
+    line-height: 1.7;
+  }
+
+  /* INTRO / ABOUT */
+  .intro {
+    background: var(--warm-sage-tint);
+    padding: 96px 48px;
+  }
+
+  .intro-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .intro-img {
+    background: var(--light-sage-tint);
+    border-radius: 6px;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .intro-img-placeholder {
+    text-align: center;
+    color: var(--muted-sage);
+  }
+
+  .intro-img-placeholder span {
+    font-family: 'Sacramento', cursive;
+    font-size: 64px;
+    color: var(--sage);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .intro-img-placeholder p {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .intro-content .section-h2 {
+    margin-bottom: 20px;
+  }
+
+  .intro-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--body-text);
+    margin-bottom: 16px;
+  }
+
+  /* SERVICES / STACK */
+  .stack {
+    background: var(--charcoal);
+    padding: 96px 48px;
+  }
+
+  .stack .section-tag { color: var(--sage); }
+  .stack .section-h2 { color: var(--white); }
+  .stack .section-intro { color: rgba(255,255,255,0.6); }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    overflow: visible;
+  }
+
+  .stack-card {
+    background: rgba(255,255,255,0.03);
+    padding: 40px 32px;
+    border-top: 3px solid transparent;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .stack-card:hover {
+    background: rgba(139,168,154,0.12);
+    border-top-color: var(--sage);
+  }
+
+  .stack-price {
+    font-family: 'Lora', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--sage);
+    margin-bottom: 4px;
+  }
+
+  .stack-price-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 24px;
+  }
+
+  .stack-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .stack-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .stack-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stack-features li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .stack-features li::before {
+    content: '✓';
+    color: var(--sage);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .stack-card.featured {
+    background: rgba(139,168,154,0.15);
+    border-top-color: var(--sage);
+  }
+
+  .stack-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--sage);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+
+  /* LEAD CAPTURE */
+  .lead-capture {
+    background: var(--warm-sage-tint);
+    padding: 56px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .lead-capture-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .lead-capture h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 500;
+    color: var(--charcoal);
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .lead-capture p {
+    font-size: 15px;
+    color: var(--muted-sage);
+    line-height: 1.7;
+  }
+
+  .lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .lead-form input {
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    padding: 13px 18px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: var(--white);
+    color: var(--charcoal);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .lead-form input:focus { border-color: var(--sage); }
+  .lead-form input::placeholder { color: var(--faint-sage); }
+
+  .lead-form button {
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 24px;
+    background: var(--sage-dark);
+    color: var(--white);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.02em;
+  }
+
+  .lead-form button:hover {
+    background: var(--sage-deeper);
+    transform: translateY(-1px);
+  }
+
+  .lead-form-note {
+    font-size: 12px;
+    color: var(--faint-sage);
+    text-align: center;
+  }
+
+  /* RESULTS */
+  .results {
+    background: var(--off-white);
+  }
+
+  .results-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .result-card {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 36px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    border-bottom: 3px solid var(--sage);
+  }
+
+  .result-company {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted-sage);
+    margin-bottom: 16px;
+  }
+
+  .result-quote {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--charcoal);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .result-metrics {
+    display: flex;
+    gap: 24px;
+  }
+
+  .result-metric strong {
+    display: block;
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    color: var(--sage-dark);
+    font-weight: 500;
+  }
+
+  .result-metric span {
+    font-size: 12px;
+    color: var(--muted-sage);
+    font-weight: 500;
+  }
+
+  .results-note {
+    font-size: 13px;
+    color: var(--faint-sage);
+    font-style: italic;
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  /* MID CTA */
+  .mid-cta {
+    background: var(--sage-dark);
+    padding: 80px 48px;
+    text-align: center;
+  }
+
+  .mid-cta .script-accent {
+    font-family: 'Sacramento', cursive;
+    font-size: 52px;
+    color: rgba(255,255,255,0.4);
+    display: block;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .mid-cta h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  .mid-cta p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.75;
+  }
+
+  .btn-white {
+    background: var(--white);
+    color: var(--sage-dark);
+    padding: 15px 36px;
+    border-radius: 3px;
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  /* FAQ */
+  .faq {
+    background: var(--white);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 56px;
+    align-items: start;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+  }
+
+  .faq-item h3 {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .faq-item p {
+    font-size: 14px;
+    color: var(--muted-sage);
+    line-height: 1.75;
+  }
+
+  .faq-callout {
+    background: var(--warm-sage-tint);
+    border-radius: 6px;
+    padding: 40px;
+    position: sticky;
+    top: 88px;
+  }
+
+  .faq-callout .section-tag { margin-bottom: 20px; }
+
+  .faq-callout h3 {
+    font-family: 'Lora', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .faq-callout p {
+    font-size: 15px;
+    color: var(--body-text);
+    line-height: 1.75;
+    margin-bottom: 28px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .contact-detail {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 14px;
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+
+  .contact-detail span:first-child {
+    color: var(--sage);
+    font-size: 16px;
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: var(--charcoal);
+    padding: 112px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(139,168,154,0.12) 0%, transparent 70%);
+  }
+
+  .final-cta-inner { position: relative; z-index: 1; }
+
+  .final-cta .script-accent {
+    font-family: 'Sacramento', cursive;
+    font-size: 60px;
+    color: var(--sage);
+    display: block;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .final-cta h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(30px, 3.5vw, 48px);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.3px;
+  }
+
+  .final-cta p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    max-width: 480px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+  }
+
+  .final-cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .phone-link {
+    color: rgba(255,255,255,0.55);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .phone-link:hover { color: var(--white); }
+
+  /* FOOTER */
+  footer {
+    background: #1E1E1E;
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span {
+    font-family: 'Sacramento', cursive;
+    font-size: 24px;
+    color: var(--sage);
+  }
+
+  .footer-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .footer-contact {
+    text-align: right;
+  }
+
+  .footer-contact a {
+    display: block;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    line-height: 1.8;
+    transition: color 0.2s;
+  }
+
+  .footer-contact a:hover { color: var(--sage); }
+
+  .footer-copy {
+    width: 100%;
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 24px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content > * {
+    animation: fadeUp 0.7s ease forwards;
+    opacity: 0;
+  }
+
+  .hero-tag { animation-delay: 0.1s; }
+  .hero h1 { animation-delay: 0.2s; }
+  .hero-sub { animation-delay: 0.3s; }
+  .hero-actions { animation-delay: 0.4s; }
+  .hero-stats { animation-delay: 0.2s; }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">RemodelerRank</a>
+  <ul class="nav-links">
+    <li><a href="#results">Results</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Free Audit</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <span class="hero-tag">East Bay + Solano County · California</span>
+      <h1>More leads.<br><em>Better jobs.</em><br>Less guesswork.</h1>
+      <p class="hero-sub">RemodelerRank is the marketing agency built exclusively for remodeling contractors in the East Bay. We rank your business, build your site, and fill your pipeline — so you can focus on the work.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get a Free Website Audit</a>
+        <a href="#services" class="btn-ghost">See how it works →</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box">
+        <div class="stat-num">$85K+</div>
+        <div class="stat-label">Average East Bay kitchen remodel. One missed job costs more than your site.</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">3×</div>
+        <div class="stat-label">More leads from Google than from referrals — for remodelers who rank.</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">97%</div>
+        <div class="stat-label">Of homeowners research contractors online before making contact.</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">Local</div>
+        <div class="stat-label">We only work with East Bay + Solano County remodelers. Not everyone. Just you.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD CAPTURE -->
+<div class="lead-capture">
+  <div class="lead-capture-inner">
+    <div>
+      <span class="section-tag">Free · No obligation · 48-hour turnaround</span>
+      <h2>Find out exactly where your website is losing you jobs.</h2>
+      <p>We'll audit your site, your Google rankings, and your local competition — and send you a plain-English report on what to fix. Most contractors are surprised by what they learn.</p>
+    </div>
+    <form class="lead-form" onsubmit="handleAuditSubmit(event)">
+      <input type="text" placeholder="Your name" required />
+      <input type="text" placeholder="Company name" required />
+      <input type="url" placeholder="Your website URL" required />
+      <input type="tel" placeholder="Best phone number" required />
+      <button type="submit">Send Me My Free Audit →</button>
+      <p class="lead-form-note">We only work with East Bay + Solano County remodelers. No spam, ever.</p>
+    </form>
+  </div>
+</div>
+
+<!-- PAIN -->
+<section class="pain" id="pain">
+  <div class="section-inner">
+    <span class="section-tag">Why contractors come to us</span>
+    <h2 class="section-h2">Your work is excellent.<br>Your website isn't working.</h2>
+    <div class="pain-grid">
+      <ul class="pain-list">
+        <li class="pain-item">
+          <div class="pain-icon">📍</div>
+          <div class="pain-text">
+            <strong>You're invisible on Google</strong>
+            <p>Homeowners in Danville and Walnut Creek are searching right now. They're calling your competitor — not because they're better, but because they rank.</p>
+          </div>
+        </li>
+        <li class="pain-item">
+          <div class="pain-icon">📱</div>
+          <div class="pain-text">
+            <strong>Your site was built to exist, not to convert</strong>
+            <p>A GoDaddy template or an outdated site isn't just embarrassing — it's actively losing you jobs. Homeowners make a decision in 8 seconds.</p>
+          </div>
+        </li>
+        <li class="pain-item">
+          <div class="pain-icon">🔄</div>
+          <div class="pain-text">
+            <strong>You're living referral to referral</strong>
+            <p>Referrals are great — but you can't control them. You need a pipeline that works even when your last job doesn't send anyone your way.</p>
+          </div>
+        </li>
+        <li class="pain-item">
+          <div class="pain-icon">⏱</div>
+          <div class="pain-text">
+            <strong>You don't have time to figure out marketing</strong>
+            <p>You're running jobs, managing crews, and handling clients. Marketing is the thing that always gets pushed to next week.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="pain-callout">
+        <span class="script-accent">The truth</span>
+        <h3>A missed kitchen remodel costs more than a year of marketing.</h3>
+        <p>One $85K job that went to a competitor because they ranked and you didn't. That's the math. RemodelerRank exists to make sure that doesn't keep happening.</p>
+        <a href="#contact" class="btn-primary">Let's talk about your pipeline</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="benefits">
+  <div class="section-inner">
+    <div class="benefits-header">
+      <div>
+        <span class="section-tag">What changes when you work with us</span>
+        <h2 class="section-h2">We combine strategy, design, and SEO into one focused system.</h2>
+      </div>
+      <p class="section-intro">We're not a generalist agency. We work exclusively with remodeling contractors, which means everything we do — the copy, the structure, the keywords — is built for your market.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-num">01 — Rankings</div>
+        <h3>You show up when homeowners search</h3>
+        <p>Local SEO built around the exact searches East Bay homeowners use — "kitchen remodel Danville," "bathroom contractor Walnut Creek." We own those results for you.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">02 — Website</div>
+        <h3>A site that converts visitors into calls</h3>
+        <p>Not a brochure — a conversion machine. Every page has a clear purpose, a clear call to action, and copy written to speak directly to homeowners ready to spend.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">03 — Listings</div>
+        <h3>Google Business Profile that closes deals</h3>
+        <p>Most contractors have a half-finished GBP. We build it out completely — photos, services, responses, Q&A — so you dominate the local map pack.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">04 — Reviews</div>
+        <h3>A steady stream of 5-star reviews</h3>
+        <p>We build the system that makes asking for reviews easy and automatic — so your reputation compounds over time without you thinking about it.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">05 — Reporting</div>
+        <h3>You know exactly what's working</h3>
+        <p>Monthly reports that show leads generated, rankings moved, and what we're doing next. No jargon. No vanity metrics. Just: here's what changed, here's why.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">06 — Focus</div>
+        <h3>We only work with remodelers</h3>
+        <p>Not plumbers. Not roofers. Remodelers. That means every lesson we've learned, every template we've refined, every keyword we've ranked — it's all for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="about">
+  <div class="intro-inner">
+    <div class="intro-img" style="aspect-ratio:3/4; background:#d8e4de;">
+      <img src="images/jennifer.png" alt="Jennifer, founder of RemodelerRank" style="width:100%;height:100%;object-fit:cover;border-radius:6px;" onerror="this.style.display='none'" />
+    </div>
+    <div class="intro-content">
+      <span class="section-tag">About RemodelerRank</span>
+      <h2 class="section-h2">I didn't come to this from the outside.<br>I lived it.</h2>
+      <p class="intro-body">I spent over a decade as the General Manager and marketing director at a kitchen and bath design-build firm. I know what feast-and-famine feels like from the inside. I know what it costs — emotionally and financially — to wonder if you'll have to lay off your crew because the pipeline dried up.</p>
+      <p class="intro-body">I've managed the marketing, sat across from homeowners, and watched excellent contractors lose jobs simply because a competitor showed up higher on Google. That's a solvable problem. That's why RemodelerRank exists.</p>
+      <p class="intro-body">I'm based in the East Bay. I work with a small number of contractors at a time — intentionally. You get a real partner, not a ticket number.</p>
+      <a href="#contact" class="btn-primary" style="margin-top: 12px;">Work with us</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="stack" id="services">
+  <div class="section-inner">
+    <span class="section-tag">Services + Pricing</span>
+    <h2 class="section-h2" style="color: var(--white);">Clear pricing.<br>No surprises.</h2>
+    <p class="section-intro">Start with just a site, or plug into ongoing marketing from day one. Every path begins with a free audit.</p>
+    <div class="stack-grid" style="grid-template-columns: repeat(4,1fr)">
+      <div class="stack-card">
+        <div class="stack-price">$2,500<span style="font-size:14px;color:rgba(255,255,255,0.35)"> once</span></div>
+        <div class="stack-price-sub">No monthly retainer required</div>
+        <h3>Launch</h3>
+        <p>A conversion-focused website built for your market. Great if you want to own your site and manage marketing yourself — for now.</p>
+        <ul class="stack-features">
+          <li>Conversion-focused website (5–7 pages)</li>
+          <li>Google Business Profile setup</li>
+          <li>Core local listings (Google, Apple, Yelp)</li>
+          <li>On-page SEO foundation</li>
+          <li>30-day post-launch support</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <div class="stack-price">$497<span style="font-size:16px;color:rgba(255,255,255,0.35)">/mo</span></div>
+        <div class="stack-price-sub">+ $2,500 site build · one time</div>
+        <h3>Presence</h3>
+        <p>For contractors who need a solid foundation — a site that looks professional and starts showing up locally.</p>
+        <ul class="stack-features">
+          <li>Everything in Launch</li>
+          <li>Local SEO (5 target keywords)</li>
+          <li>GBP ongoing optimization</li>
+          <li>Monthly performance report</li>
+          <li>Review generation system</li>
+        </ul>
+      </div>
+      <div class="stack-card featured">
+        <div class="stack-badge">Most Popular</div>
+        <div class="stack-price">$897<span style="font-size:16px;color:rgba(255,255,255,0.35)">/mo</span></div>
+        <div class="stack-price-sub">+ $2,500 site build · one time</div>
+        <h3>Active</h3>
+        <p>For contractors ready to actively grow — more content, more keywords, more leads month over month.</p>
+        <ul class="stack-features">
+          <li>Everything in Presence</li>
+          <li>Expanded SEO (15 keywords)</li>
+          <li>2 blog + location pages/mo</li>
+          <li>Google Ads management</li>
+          <li>Bi-weekly check-in calls</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <div class="stack-price">$1,497<span style="font-size:16px;color:rgba(255,255,255,0.35)">/mo</span></div>
+        <div class="stack-price-sub">+ $2,500 site build · one time</div>
+        <h3>Growth</h3>
+        <p>For established contractors who want to dominate their market and build a business they can eventually sell.</p>
+        <ul class="stack-features">
+          <li>Everything in Active</li>
+          <li>Full SEO (30+ keywords)</li>
+          <li>4 content pieces/mo</li>
+          <li>Email newsletter + social</li>
+          <li>Quarterly strategy sessions</li>
+          <li>Competitor monitoring</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <div class="section-inner">
+    <div class="results-header">
+      <div>
+        <span class="section-tag">Real results</span>
+        <h2 class="section-h2">Contractors who rank,<br>win more jobs.</h2>
+      </div>
+      <p class="section-intro">We're early. These are the results we're building toward — and the benchmark we hold ourselves to for every client we take on.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-company">East Bay Kitchen + Bath Contractor</div>
+        <p class="result-quote">"We went from page 3 to the top 3 results in Walnut Creek within 90 days. The phone started ringing differently — better projects, bigger budgets."</p>
+        <div class="result-metrics">
+          <div class="result-metric">
+            <strong>+340%</strong>
+            <span>Organic traffic</span>
+          </div>
+          <div class="result-metric">
+            <strong>14</strong>
+            <span>Qualified leads / mo</span>
+          </div>
+        </div>
+      </div>
+      <div class="result-card">
+        <div class="result-company">Whole-Home Remodeler · Dublin, CA</div>
+        <p class="result-quote">"Before RemodelerRank, I was living referral to referral. Now I have a pipeline. I actually turn down jobs that aren't the right fit."</p>
+        <div class="result-metrics">
+          <div class="result-metric">
+            <strong>2×</strong>
+            <span>Average project value</span>
+          </div>
+          <div class="result-metric">
+            <strong>$0</strong>
+            <span>Spent on ads</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="results-note">*Illustrative projections based on comparable market results. Case studies published as clients are onboarded.</p>
+  </div>
+</section>
+
+<!-- MID CTA -->
+<section class="mid-cta">
+  <span class="script-accent">ready?</span>
+  <h2>Find out exactly what's holding<br>your website back.</h2>
+  <p>We'll review your current site, your Google rankings, and your local competition — and tell you exactly what to fix. Free, no obligation.</p>
+  <a href="#contact" class="btn-white">Get Your Free Website Audit</a>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-inner">
+    <span class="section-tag">Common questions</span>
+    <h2 class="section-h2">What contractors ask us<br>before signing on.</h2>
+    <div class="faq-grid">
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Can I just get a website without a monthly retainer?</h3>
+          <p>Yes. Our Launch package is a one-time $2,500 site build with no ongoing commitment. You get a conversion-focused site, GBP setup, and core listings. Many contractors start here and add a retainer once they see results.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I have to sign a long-term contract?</h3>
+          <p>No. We work month-to-month after an initial 3-month commitment. SEO takes time to work — 3 months is the minimum to see real movement. After that, you stay because it's working, not because you're locked in.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How long until I see results?</h3>
+          <p>Most clients start seeing ranking improvements within 60–90 days. Lead volume typically increases meaningfully by month 3–4. We track everything and show you the numbers monthly.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What if I already have a website?</h3>
+          <p>We audit it first. If your existing site has a solid foundation, we may be able to optimize it rather than rebuild. We'll tell you honestly which makes more sense for your situation.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you work with contractors outside the East Bay?</h3>
+          <p>Right now, no. We're focused exclusively on East Bay and Solano County remodelers. That focus is what makes us good at this. We may expand later — but not yet.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What makes you different from a general marketing agency?</h3>
+          <p>We only work with remodeling contractors. Every template, every keyword list, every piece of copy has been built for this industry. A generalist agency learns your business on your dime. We already know it.</p>
+        </div>
+      </div>
+      <div class="faq-callout" id="contact">
+        <span class="section-tag">Start here</span>
+        <h3>Get a free audit of your current web presence.</h3>
+        <p>We'll look at your website, your Google rankings, your Business Profile, and your local competition. You'll walk away knowing exactly where you stand — and what to do about it.</p>
+        <a href="mailto:hey@remodelerrank.com" class="btn-primary">hey@remodelerrank.com</a>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <span>📞</span>
+            <span>925-940-9484</span>
+          </div>
+          <div class="contact-detail">
+            <span>📍</span>
+            <span>Serving East Bay + Solano County, CA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <span class="script-accent">let's build something</span>
+    <h2>Your best clients are searching.<br>Make sure they find you.</h2>
+    <p>RemodelerRank works with a small number of East Bay contractors at a time. If you're ready to stop losing jobs to contractors who rank better, let's talk.</p>
+    <div class="final-cta-actions">
+      <a href="mailto:hey@remodelerrank.com" class="btn-primary">Get Your Free Audit</a>
+      <a href="tel:9259409484" class="phone-link">or call 925-940-9484</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a href="#" class="footer-logo">RemodelerRank</a>
+    <div class="footer-tagline">The marketing agency for East Bay remodelers.</div>
+  </div>
+  <div class="footer-contact">
+    <a href="mailto:hey@remodelerrank.com">hey@remodelerrank.com</a>
+    <a href="tel:9259409484">925-940-9484</a>
+    <a href="#">East Bay + Solano County, CA</a>
+  </div>
+  <div class="footer-copy">
+    <span>© 2026 RemodelerRank. All rights reserved.</span>
+    <span>Built for remodelers. Focused on results.</span>
+  </div>
+</footer>
+
+<script>
+function handleAuditSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = '✓ Request received — we\'ll be in touch within 48 hours';
+  btn.style.background = 'var(--sage-deeper)';
+  btn.disabled = true;
+  e.target.querySelectorAll('input').forEach(i => i.disabled = true);
+}
+</script>
+</body>
+</html>
