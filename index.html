@@ -580,6 +580,7 @@
     background: var(--warm-sage-tint);
     padding: 56px 48px;
     border-bottom: 1px solid var(--border);
+    scroll-margin-top: 64px;
   }
 
   .lead-capture-inner {
@@ -1122,11 +1123,12 @@
       <h2>Find out exactly where your website is losing you jobs.</h2>
       <p>We'll audit your site, your Google rankings, and your local competition — and send you a plain-English report on what to fix. Most contractors are surprised by what they learn.</p>
     </div>
-    <form class="lead-form" name="audit-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form class="lead-form" name="audit-request" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="audit-request" />
       <p style="display:none;"><input name="bot-field" /></p>
       <input type="text" name="name" placeholder="Your name" required />
       <input type="text" name="company" placeholder="Company name" required />
+      <input type="email" name="email" placeholder="Your email address" required />
       <input type="text" name="website" placeholder="Your website URL (e.g. mycompany.com)" />
       <input type="tel" name="phone" placeholder="Best phone number" required />
       <button type="submit">Send Me My Free Audit →</button>
@@ -1229,7 +1231,7 @@
 <section class="intro" id="about">
   <div class="intro-inner">
     <div class="intro-img" style="aspect-ratio:3/4; background:#d8e4de;">
-      <img src="hf_20260519_040241_bc5a53f5-a179-460b-a277-a779c6118ac8.png" alt="Jennifer, founder of RemodelerRank" style="width:100%;height:100%;object-fit:cover;border-radius:6px;" onerror="this.style.display='none'" />
+      <img src="images/jennifer.png" alt="Jennifer, founder of RemodelerRank" style="width:100%;height:100%;object-fit:cover;border-radius:6px;" onerror="this.style.display='none'" />
     </div>
     <div class="intro-content">
       <span class="section-tag">About RemodelerRank</span>
