@@ -1005,6 +1005,66 @@
     max-width: 1160px;
     margin: 0 auto;
   }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+
+    /* Nav */
+    nav { padding: 0 20px; height: 56px; }
+    .nav-links { display: none; }
+
+    /* Hero */
+    .hero { padding: 48px 20px 56px; min-height: unset; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .stat-box { padding: 20px 16px; }
+    .stat-num { font-size: 28px; }
+
+    /* Lead capture */
+    .lead-capture { padding: 36px 20px; }
+    .lead-capture-inner { grid-template-columns: 1fr; gap: 28px; }
+
+    /* Sections */
+    section { padding: 56px 20px; }
+
+    /* Pain */
+    .pain-grid { grid-template-columns: 1fr; gap: 36px; }
+    .pain-callout { position: static; }
+
+    /* Benefits */
+    .benefits-header { grid-template-columns: 1fr; gap: 20px; }
+    .benefits-grid { grid-template-columns: 1fr; }
+
+    /* Intro / About */
+    .intro { padding: 56px 20px; }
+    .intro-inner { grid-template-columns: 1fr; gap: 32px; }
+    .intro-img { aspect-ratio: 4/3; }
+
+    /* Services */
+    .stack-grid { grid-template-columns: 1fr !important; }
+    .stack-card { padding: 28px 20px; }
+
+    /* Results */
+    .results-header { grid-template-columns: 1fr; gap: 20px; }
+    .results-grid { grid-template-columns: 1fr; }
+
+    /* Mid CTA */
+    .mid-cta { padding: 48px 20px; }
+
+    /* FAQ */
+    .faq-grid { grid-template-columns: 1fr; gap: 32px; }
+    .faq-callout { position: static; }
+
+    /* Final CTA */
+    .final-cta { padding: 64px 20px; }
+    .final-cta-actions { flex-direction: column; align-items: stretch; }
+    .btn-primary { text-align: center; display: block; }
+
+    /* Footer */
+    footer { padding: 32px 20px; flex-direction: column; gap: 20px; }
+    .footer-contact { text-align: left; }
+    .footer-copy { flex-direction: column; gap: 6px; }
+  }
 </style>
 </head>
 <body>
@@ -1168,7 +1228,7 @@
 <section class="intro" id="about">
   <div class="intro-inner">
     <div class="intro-img" style="aspect-ratio:3/4; background:#d8e4de;">
-      <img src="images/jennifer.png" alt="Jennifer, founder of RemodelerRank" style="width:100%;height:100%;object-fit:cover;border-radius:6px;" onerror="this.style.display='none'" />
+      <img src="hf_20260519_040241_bc5a53f5-a179-460b-a277-a779c6118ac8.png" alt="Jennifer, founder of RemodelerRank" style="width:100%;height:100%;object-fit:cover;border-radius:6px;" onerror="this.style.display='none'" />
     </div>
     <div class="intro-content">
       <span class="section-tag">About RemodelerRank</span>
