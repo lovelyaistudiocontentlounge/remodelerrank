@@ -1122,13 +1122,14 @@
       <h2>Find out exactly where your website is losing you jobs.</h2>
       <p>We'll audit your site, your Google rankings, and your local competition — and send you a plain-English report on what to fix. Most contractors are surprised by what they learn.</p>
     </div>
-    <form class="lead-form" onsubmit="handleAuditSubmit(event)">
-      <input type="text" placeholder="Your name" required />
-      <input type="text" placeholder="Company name" required />
-      <input type="url" placeholder="Your website URL" required />
-      <input type="tel" placeholder="Best phone number" required />
+    <form class="lead-form" name="audit-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="audit-request" />
+      <p style="display:none;"><input name="bot-field" /></p>
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="text" name="company" placeholder="Company name" required />
+      <input type="url" name="website" placeholder="Your website URL" required />
+      <input type="tel" name="phone" placeholder="Best phone number" required />
       <button type="submit">Send Me My Free Audit →</button>
-      <p class="lead-form-note">We only work with East Bay + Solano County remodelers. No spam, ever.</p>
     </form>
   </div>
 </div>
@@ -1397,11 +1398,11 @@
         <a href="mailto:hey@remodelerrank.com" class="btn-primary">hey@remodelerrank.com</a>
         <div class="contact-details">
           <div class="contact-detail">
-            <span>📞</span>
-            <span>925-940-9484</span>
+            <span>—</span>
+            <a href="tel:9259409484" style="color:var(--charcoal);text-decoration:none;font-weight:500;">925-940-9484</a>
           </div>
           <div class="contact-detail">
-            <span>📍</span>
+            <span>—</span>
             <span>Serving East Bay + Solano County, CA</span>
           </div>
         </div>
@@ -1441,14 +1442,7 @@
 </footer>
 
 <script>
-function handleAuditSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button');
-  btn.textContent = '✓ Request received — we\'ll be in touch within 48 hours';
-  btn.style.background = 'var(--sage-deeper)';
-  btn.disabled = true;
-  e.target.querySelectorAll('input').forEach(i => i.disabled = true);
-}
+// placeholder for future interactions
 </script>
 </body>
 </html>
