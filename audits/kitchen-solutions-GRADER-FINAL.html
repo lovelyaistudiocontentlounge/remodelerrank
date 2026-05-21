@@ -107,6 +107,30 @@
 
   /* grade colors */
   .col-a { color: #55c490; } .col-b { color: #8BC48A; } .col-c { color: var(--amber); } .col-d { color: #c0601a; } .col-f { color: var(--red); }
+
+  @media (max-width: 768px) {
+    .header { padding: 28px 20px 32px; }
+    .header-inner { grid-template-columns: 1fr; gap: 24px; }
+    .grade-badge { display: flex; align-items: center; gap: 16px; padding: 16px 20px; }
+    .grade-letter { font-size: 48px; margin-bottom: 0; }
+    .report-meta { gap: 16px; }
+    .stats-strip { padding: 16px 20px; }
+    .stat-pill { padding: 4px 12px 4px 0; margin-right: 12px; margin-bottom: 8px; }
+    .revenue-banner { padding: 28px 20px; }
+    .revenue-inner { grid-template-columns: 1fr; gap: 24px; }
+    .revenue-math { min-width: unset; width: 100%; }
+    .main { padding: 28px 20px; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .score-grid { grid-template-columns: 1fr; }
+    .score-card { flex-direction: row; }
+    .win-card { grid-template-columns: 1fr; gap: 12px; }
+    .win-tag { align-self: start; }
+    .cta-section { grid-template-columns: 1fr; padding: 32px 20px; gap: 28px; }
+    .cta-buttons { align-items: stretch; min-width: unset; width: 100%; }
+    .btn-primary { text-align: center; display: block; }
+    .report-footer { flex-direction: column; gap: 8px; }
+    .footer-note { text-align: left; }
+  }
 </style>
 </head>
 <body>
