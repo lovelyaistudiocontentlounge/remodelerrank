@@ -1,3 +1,10 @@
-remodelerrank/
-.DS_Store
 node_modules/
+.env
+*.db
+*.sqlite
+logs/
+.DS_Store
+client_secret*.json
+*.json.key
+remodelerrank/
+.omc/
