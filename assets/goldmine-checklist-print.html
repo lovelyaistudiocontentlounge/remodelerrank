@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Content Goldmine Checklist | RemodelerRank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: letter;
+    margin: 0.65in 0.75in 0.65in 0.75in;
+  }
+
+  :root {
+    --sage: #8BA89A;
+    --sage-dark: #6E8E7E;
+    --sage-deeper: #4A6E5E;
+    --charcoal: #2C2C2C;
+    --body-text: #3A3A3A;
+    --muted: #7A8A80;
+    --warm-sage: #EEF2EF;
+    --border: #C8D8D0;
+    --faint: #B0BDB5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    font-family: 'Karla', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10pt;
+    color: var(--body-text);
+    background: white;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── COVER HEADER ── */
+  .cover-header {
+    background: var(--charcoal);
+    margin: -0.65in -0.75in 0 -0.75in;
+    padding: 0.45in 0.75in 0.4in;
+    margin-bottom: 0;
+  }
+
+  .cover-header .brand-line {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 0.18in;
+  }
+
+  .cover-header h1 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 20pt;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 0.1in;
+  }
+
+  .cover-header .subtitle {
+    font-size: 9.5pt;
+    color: rgba(255,255,255,0.6);
+    font-weight: 400;
+  }
+
+  /* ── INTRO BAND ── */
+  .intro-band {
+    background: var(--warm-sage);
+    margin: 0 -0.75in;
+    padding: 0.22in 0.75in;
+    border-bottom: 1.5pt solid var(--border);
+  }
+
+  .how-to-use {
+    font-size: 9pt;
+    color: var(--sage-deeper);
+    line-height: 1.55;
+  }
+
+  .how-to-use strong {
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+
+  .opening-line {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 9.5pt;
+    color: var(--muted);
+    margin-top: 0.1in;
+    line-height: 1.55;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-block {
+    margin-top: 0.28in;
+    break-inside: avoid;
+  }
+
+  .section-label {
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    margin-bottom: 0.06in;
+  }
+
+  .section-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 13pt;
+    font-weight: 600;
+    color: var(--charcoal);
+    border-bottom: 1.5pt solid var(--warm-sage);
+    padding-bottom: 0.07in;
+    margin-bottom: 0.16in;
+  }
+
+  /* ── CHECKLIST ITEMS ── */
+  .checklist-item {
+    margin-bottom: 0.2in;
+    break-inside: avoid;
+    padding-left: 0.22in;
+    position: relative;
+  }
+
+  .checklist-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .item-number {
+    position: absolute;
+    left: 0;
+    top: 0.01in;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--sage-deeper);
+  }
+
+  .item-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.01in;
+    display: flex;
+    align-items: baseline;
+    gap: 0.08in;
+  }
+
+  .item-tag {
+    font-family: 'Karla', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    background: var(--warm-sage);
+    padding: 1pt 5pt;
+    border-radius: 2pt;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .item-body {
+    font-size: 9pt;
+    color: var(--body-text);
+    line-height: 1.55;
+    margin-bottom: 0.08in;
+  }
+
+  .why-line {
+    font-size: 8.5pt;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.5;
+    border-left: 2pt solid var(--border);
+    padding-left: 0.1in;
+    margin-bottom: 0.09in;
+  }
+
+  .action-line {
+    font-size: 8pt;
+    color: var(--sage-deeper);
+    font-weight: 600;
+    margin-bottom: 0.08in;
+  }
+
+  .action-line span {
+    font-weight: 700;
+  }
+
+  .check-row {
+    display: flex;
+    gap: 0.18in;
+    margin-top: 0.06in;
+  }
+
+  .check-option {
+    display: flex;
+    align-items: center;
+    gap: 0.06in;
+    font-size: 8.5pt;
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+
+  .check-box {
+    width: 9pt;
+    height: 9pt;
+    border: 1.25pt solid var(--sage-dark);
+    border-radius: 1pt;
+    display: inline-block;
+    flex-shrink: 0;
+    background: white;
+  }
+
+  .quick-test {
+    background: var(--warm-sage);
+    border-radius: 3pt;
+    padding: 0.07in 0.1in;
+    font-size: 8pt;
+    color: var(--sage-deeper);
+    margin-bottom: 0.08in;
+    line-height: 1.5;
+  }
+
+  .quick-test strong {
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+
+  .formula-line {
+    background: var(--charcoal);
+    border-radius: 3pt;
+    padding: 0.07in 0.1in;
+    font-size: 8pt;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 0.08in;
+    font-family: 'Karla', sans-serif;
+  }
+
+  .formula-line strong {
+    color: var(--sage);
+    font-weight: 600;
+  }
+
+  /* ── SCORE TABLE ── */
+  .score-section {
+    margin-top: 0.3in;
+    break-before: avoid;
+  }
+
+  .score-section h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 13pt;
+    font-weight: 600;
+    color: var(--charcoal);
+    border-bottom: 1.5pt solid var(--warm-sage);
+    padding-bottom: 0.07in;
+    margin-bottom: 0.14in;
+  }
+
+  .score-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+  }
+
+  .score-table th {
+    font-family: 'Karla', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 0.06in 0.1in;
+    border-bottom: 1pt solid var(--border);
+  }
+
+  .score-table td {
+    padding: 0.07in 0.1in;
+    border-bottom: 0.5pt solid #E8F0EC;
+    vertical-align: top;
+    line-height: 1.45;
+  }
+
+  .score-table td:first-child {
+    font-weight: 700;
+    color: var(--charcoal);
+    white-space: nowrap;
+    width: 0.8in;
+  }
+
+  .score-table tr:nth-child(odd) td {
+    background: var(--warm-sage);
+  }
+
+  /* ── CLOSING TEXT ── */
+  .closing-text {
+    margin-top: 0.22in;
+    font-size: 9pt;
+    color: var(--body-text);
+    line-height: 1.6;
+  }
+
+  /* ── CTA BLOCK ── */
+  .cta-block {
+    margin-top: 0.28in;
+    background: var(--charcoal);
+    border-radius: 5pt;
+    padding: 0.22in 0.28in;
+    break-inside: avoid;
+  }
+
+  .cta-block .cta-label {
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 0.07in;
+  }
+
+  .cta-block h3 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 12pt;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.07in;
+    line-height: 1.3;
+  }
+
+  .cta-block p {
+    font-size: 8.5pt;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 0.1in;
+    line-height: 1.5;
+  }
+
+  .cta-url {
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--sage);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    margin-top: 0.28in;
+    padding-top: 0.1in;
+    border-top: 0.75pt solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.5pt;
+    color: var(--faint);
+  }
+
+  /* ── PAGE BREAK CONTROL ── */
+  .page-break-before {
+    break-before: page;
+  }
+
+  .no-break {
+    break-inside: avoid;
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER HEADER -->
+<div class="cover-header">
+  <div class="brand-line">RemodelerRank &nbsp;&#183;&nbsp; Built for NorCal Remodeling Contractors</div>
+  <h1>The Project Content<br>Goldmine Checklist</h1>
+  <div class="subtitle">A 10-Point Audit &nbsp;&#183;&nbsp; From Jennifer at RemodelerRank &nbsp;&#183;&nbsp; remodelerrank.com</div>
+</div>
+
+<!-- INTRO BAND -->
+<div class="intro-band">
+  <div class="how-to-use"><strong>How to use this:</strong> Go through your last 3 projects. Check yes or no on each point. By the end, you'll know exactly what's missing and what to do about it.</div>
+  <div class="opening-line">You did the work. You took the photos. They're sitting in your camera roll right now, doing nothing. This checklist shows you exactly why - and what to fix.</div>
+</div>
+
+<!-- ── SECTION 1 ── -->
+<div class="section-block">
+  <div class="section-label">Section 1 of 3</div>
+  <div class="section-title">The Photos You Need (and Probably Don't Have)</div>
+
+  <!-- Item 1 -->
+  <div class="checklist-item no-break">
+    <div class="item-number">1.</div>
+    <div class="item-title">The Before Photo <span class="item-tag">Most Missed Shot</span></div>
+    <p class="item-body">Most contractors forget this until the job is done - and by then it's gone. The before shot is the most important photo of the entire project because transformation is the story homeowners hire you for. It doesn't need to look good. In fact, ugly is better. The worse the before looks, the more impressive your after becomes.</p>
+    <div class="why-line"><strong>Why it matters:</strong> Without a before, you just have a photo of a nice kitchen. With a before, you have proof of what you can do. Proof is what converts a homeowner who's researching contractors at 11pm.</div>
+    <div class="action-line"><span>Action:</span> Set a phone reminder for the first day of every job: "Before photos - wide shot, detail shot, the problem area."</div>
+    <div class="check-row">
+      <div class="check-option"><span class="check-box"></span> Yes, I have it</div>
+      <div class="check-option"><span class="check-box"></span> No - I'll start tomorrow</div>
+    </div>
+  </div>
+
+  <!-- Item 2 -->
+  <div class="checklist-item no-break">
+    <div class="item-number">2.</div>
+    <div class="item-title">The Detail Shot <span class="item-tag">Scroll-Stopper</span></div>
+    <p class="item-body">Not a wide shot. Not the whole room. One specific thing - the tile pattern, the way the cabinet doors sit flush, the trim meeting the ceiling at a perfect 45 - that shows a homeowner you care about the details most contractors rush past. Get close. Fill the frame. No wide angle.</p>
+    <div class="why-line"><strong>Why it matters:</strong> Homeowners can't see quality from across the room. The detail shot is what makes them stop scrolling - and start wondering what you'd do in their kitchen.</div>
+    <div class="check-row">
+      <div class="check-option"><span class="check-box"></span> Yes, I have it</div>
+      <div class="check-option"><span class="check-box"></span> No - I'll get it on the next job</div>
+    </div>
+  </div>
+
+  <!-- Item 3 -->
+  <div class="checklist-item no-break">
+    <div class="item-number">3.</div>
+    <div class="item-title">The Natural Light Shot <span class="item-tag">The One That Changes Everything</span></div>
+    <p class="item-body">Same project. Same phone. Open the blinds, turn off the overhead lights, wait for morning light from the window. The difference will look like you hired a photographer. Harsh overhead flash kills colors, flattens surfaces, and makes even $80K work look cheap.</p>
+    <div class="why-line"><strong>Why it matters:</strong> Most contractor photos look the same - overlit, slightly blue, flat. One natural light photo in your feed immediately makes you look like the premium option. That distinction is worth more than any ad you could run.</div>
+    <div class="quick-test"><strong>Quick test:</strong> If you can see a reflection of the flash or ceiling light anywhere in the photo - retake it. Open a window first.</div>
+    <div class="check-row">
+      <div class="check-option"><span class="check-box"></span> Yes, I have it</div>
+      <div class="check-option"><span class="check-box"></span> No - retaking my last project this week</div>
+    </div>
+  </div>
+
+  <!-- Item 4 -->
+  <div class="checklist-item no-break">
+    <div class="item-number">4.</div>
+    <div class="item-title">The Scale Shot <span class="item-tag">Budget Justifier</span></div>
+    <p class="item-body">Something in the frame that shows a homeowner how big the job actually was. An open floor plan with furniture placed back in. A kitchen island with a chair pulled up to it. A bathroom vanity with towels on the hooks. Scale makes the project feel real - and makes the budget feel justified.</p>
+    <div class="why-line"><strong>Why it matters:</strong> A wide shot of an empty room looks like a showroom. A shot with a human element - a stool, a plant, a towel - makes a homeowner picture themselves there. That's the moment they decide to call.</div>
+    <div class="check-row">
+      <div class="check-option"><span class="check-box"></span> Yes, I have it</div>
+      <div class="check-option"><span class="check-box"></span> No - I'll stage the next one before I leave the site</div>
+    </div>
+  </div>
+
+  <!-- Item 5 -->
+  <div class="checklist-item no-break">
+    <div class="item-number">5.</div>
+    <div class="item-title">The Progress Shot <span class="item-tag">Trust Builder</span></div>
+    <p class="item-body">The messy middle. The demo, the framing, the subfloor before tile. This is counterintuitive - why would you show homeowners the chaos? Because it proves you did the work. Any contractor can show a finished kitchen. Only a confident one shows what it took to get there.</p>
+    <div class="why-line"><strong>Why it matters:</strong> Homeowners worry about contractors who disappear mid-job, cut corners, or hide problems. A progress photo says: we're on-site, we know what we're doing, and we have nothing to hide. That's the kind of trust that closes estimates.</div>
+    <div class="check-row">
+      <div class="check-option"><span class="check-box"></span> Yes, I have it</div>
+      <div class="check-option"><span class="check-box"></span> No - taking one on my current job this week</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION 2 ── -->
+<div class="section-block page-break-before">
+  <div class="section-label">Section 2 of 3</div>
+  <div class="section-title">What Your Caption Needs to Say</div>
+
+  <!-- Item 6 -->
+  <div class="checklist-item no-break">
+    <div class="item-number">6.</div>
+    <div class="item-title">City in the First Line <span class="item-tag">#1 Local SEO Move</span></div>
+    <p class="item-body">"Kitchen remodel in Walnut Creek" ranks in local search. "Beautiful kitchen remodel!" does not. Every caption, every platform, every single time - city first. It costs you nothing and it's the easiest thing you can do to get found by homeowners searching in your area.</p>
+    <div class="why-line"><strong>Why it matters:</strong> When a homeowner types "kitchen remodel Danville" into Google or Instagram search, your post only shows up if those words are actually in it. Most contractors skip the city. That's your advantage - use it.</div>
+    <div class="check-row">
+      <div class="check-option"><span class="check-box"></span> Yes, always</div>
+      <div class="check-option"><span class="check-box"></span> No - updating my last 5 posts today</div>
+    </div>
+  </div>
+
+  <!-- Item 7 -->
+  <div class="checklist-item no-break">
+    <div class="item-number">7.</div>
+    <div class="item-title">Name the Challenge <span class="item-tag">Good vs. Great</span></div>
+    <p class="item-body">"This kitchen had a load-bearing wall exactly where the island needed to go" is a caption. "Beautiful kitchen remodel - swipe to see the transformation!" is not. The challenge is what makes a homeowner realize this wasn't easy - and that you knew how to handle it. It's the difference between a photo and a story.</p>
+    <div class="why-line"><strong>Why it matters:</strong> Homeowners choose contractors they believe can handle their specific problem. When you name a challenge you solved, every homeowner with a similar problem reads that and thinks: "This is the person I need to call."</div>
+    <div class="formula-line"><strong>Caption formula:</strong> [City] + [Project type] + [One specific challenge you solved] + [How you solved it]</div>
+    <div class="check-row">
+      <div class="check-option"><span class="check-box"></span> Yes, my captions name a challenge</div>
+      <div class="check-option"><span class="check-box"></span> No - rewriting my last 3 captions now</div>
+    </div>
+  </div>
+
+  <!-- Item 8 -->
+  <div class="checklist-item no-break">
+    <div class="item-number">8.</div>
+    <div class="item-title">A Specific Result <span class="item-tag">The Line That Books Jobs</span></div>
+    <p class="item-body">"The homeowner now has 40% more counter space and a kitchen that finally fits how their family actually cooks" beats "the client was thrilled" every single time. Specific results make future homeowners picture themselves as your client. Vague outcomes do nothing.</p>
+    <div class="why-line"><strong>Why it matters:</strong> When someone is deciding between two contractors, they're really deciding: "Which one gets results that matter to me?" A specific result - more storage, a brighter room, a bathroom their guests comment on - is the answer to that question before they even ask it.</div>
+    <div class="check-row">
+      <div class="check-option"><span class="check-box"></span> Yes, my captions include specific results</div>
+      <div class="check-option"><span class="check-box"></span> No - I'm adding results language starting today</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION 3 ── -->
+<div class="section-block">
+  <div class="section-label">Section 3 of 3</div>
+  <div class="section-title">Your Posting System</div>
+
+  <!-- Item 9 -->
+  <div class="checklist-item no-break">
+    <div class="item-number">9.</div>
+    <div class="item-title">Your Project Library <span class="item-tag">The One Folder That Changes Everything</span></div>
+    <p class="item-body">Every project gets its own folder, named by city and type: "Walnut Creek Kitchen Nov 2024." Before, during, and after - all in one place. Right now you probably have 300 photos in your camera roll with no idea which job most of them are from. That's why they never get posted.</p>
+    <div class="why-line"><strong>Why it matters:</strong> The contractors who post consistently aren't the ones with the most time. They're the ones who can find their photos in 60 seconds. A folder system turns an overwhelming camera roll into a content library you can pull from anytime.</div>
+    <div class="action-line"><span>Action:</span> Start with your last 3 jobs. Create the folders today. That's your first month of content right there.</div>
+    <div class="check-row">
+      <div class="check-option"><span class="check-box"></span> Yes, I have a system</div>
+      <div class="check-option"><span class="check-box"></span> No - creating 3 folders right now</div>
+    </div>
+  </div>
+
+  <!-- Item 10 -->
+  <div class="checklist-item no-break">
+    <div class="item-number">10.</div>
+    <div class="item-title">The Blocked Weekly Slot <span class="item-tag">The Habit That Builds a Pipeline</span></div>
+    <p class="item-body">Not "when I have time." A specific day, a specific time, in your calendar as a recurring event. Tuesday at 7am. Thursday at noon. Pick one and block it like a client meeting - because that's exactly what it is. The homeowner who finds you next month is the reason you're showing up today.</p>
+    <div class="why-line"><strong>Why it matters:</strong> Every week you don't post is a week a homeowner in Danville or San Ramon searched for a remodeler, didn't find you, and called someone else. Consistency isn't a nice-to-have. It's the difference between a pipeline and a dry spell.</div>
+    <div class="action-line"><span>Action:</span> Block it right now. Open your calendar. Recurring event, weekly. Call it "Content - 20 minutes." Do it before you close this checklist.</div>
+    <div class="check-row">
+      <div class="check-option"><span class="check-box"></span> Yes, it's in my calendar</div>
+      <div class="check-option"><span class="check-box"></span> No - blocking it right now</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SCORE TABLE ── -->
+<div class="score-section no-break">
+  <h2>How Did You Score?</h2>
+  <table class="score-table">
+    <thead>
+      <tr>
+        <th>Score</th>
+        <th>What It Means</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0 - 3</td>
+        <td>Your photos are working against you. Start with items 1, 3, and 6 - they have the fastest payoff.</td>
+      </tr>
+      <tr>
+        <td>4 - 6</td>
+        <td>You have assets, not a system. Items 9 and 10 will change that immediately.</td>
+      </tr>
+      <tr>
+        <td>7 - 8</td>
+        <td>Strong foundation. Fix the gaps and your content starts working consistently.</td>
+      </tr>
+      <tr>
+        <td>9 - 10</td>
+        <td>Your content is working for you. The next step is knowing what homeowners actually see when they search for you online.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="closing-text" style="margin-top:0.14in;">If you answered No to more than 3 - your photos are doing less than half the work they could be. Every one of these is fixable without a photographer, a marketing degree, or more than 20 minutes a week.</p>
+</div>
+
+<!-- ── CTA ── -->
+<div class="cta-block">
+  <div class="cta-label">Ready for the Next Step?</div>
+  <h3>Want to know what homeowners actually see when they search for you?</h3>
+  <p>We'll audit your website, your Google Business Profile, and your local rankings - and send you a plain-English report on what to fix. Free. 48-hour turnaround.</p>
+  <div class="cta-url">remodelerrank.com/audit</div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <span>&#169; 2026 RemodelerRank &nbsp;&#183;&nbsp; hey@remodelerrank.com &nbsp;&#183;&nbsp; 925-940-9484</span>
+  <span>remodelerrank.com &nbsp;&#183;&nbsp; Built for NorCal remodeling contractors</span>
+</div>
+
+</body>
+</html>
