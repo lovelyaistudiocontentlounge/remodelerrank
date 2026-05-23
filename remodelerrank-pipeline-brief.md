@@ -5,7 +5,7 @@
 
 ## What This Builds
 
-A fully automated overnight lead generation and enrichment pipeline for RemodelerRank. Every night at 2am, the system scrapes 120+ remodeling contractors from the East Bay and Solano County, enriches each lead with scoring data, and writes results to a Google Sheet. Each morning Jennifer reviews, approves leads, and approved leads automatically get a drafted site audit report and staged outreach email in Gmail.
+A fully automated overnight lead generation and enrichment pipeline for RemodelerRank. Every night at 2am, the system scrapes 120+ remodeling contractors from the Northern California, enriches each lead with scoring data, and writes results to a Google Sheet. Each morning Jennifer reviews, approves leads, and approved leads automatically get a drafted site audit report and staged outreach email in Gmail.
 
 ---
 
@@ -134,7 +134,7 @@ Call Claude API with this prompt for each lead:
 ```javascript
 const scoringPrompt = `
 You are scoring a remodeling contractor as a sales lead for a marketing agency 
-that serves East Bay and Solano County remodelers.
+that serves Northern California remodelers.
 
 Score this lead 1-10 based on likelihood they need and can afford marketing services.
 Higher score = better lead.
@@ -341,7 +341,7 @@ remodelerrank-pipeline/
 
 ## What this is
 Automated overnight lead scraping system for RemodelerRank, a marketing agency 
-serving East Bay + Solano County remodeling contractors.
+serving Northern California remodeling contractors.
 
 ## Owner
 Jennifer | hey@remodelerrank.com | 925-940-9484
@@ -353,7 +353,7 @@ writes to Google Sheet. Approved leads get auto-generated audit PDF
 and staged Gmail draft.
 
 ## Target geography
-East Bay + Solano County, CA
+Northern California, CA
 Cities: Dublin, San Ramon, Danville, Walnut Creek, Pleasanton, 
         Livermore, Concord, Lafayette, Vacaville, Fairfield, Vallejo
 

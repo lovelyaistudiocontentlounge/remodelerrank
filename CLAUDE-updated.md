@@ -6,7 +6,7 @@
 
 ## What This Project Is
 
-Automated overnight lead generation, scoring, and outreach pipeline for **RemodelerRank**, a marketing agency serving remodeling contractors in the East Bay and surrounding California counties.
+Automated overnight lead generation, scoring, and outreach pipeline for **RemodelerRank**, a marketing agency serving remodeling contractors across Northern California.
 
 **Owner:** Jennifer
 **Email:** hey@remodelerrank.com
