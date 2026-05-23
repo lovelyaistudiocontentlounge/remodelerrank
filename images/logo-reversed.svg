@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 60" width="340" height="60" role="img" aria-label="RemodelerRank logo reversed">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&amp;display=swap');
+    </style>
+  </defs>
+  <rect width="340" height="60" fill="transparent"/>
+  <text x="16" y="42" font-family="'Karla', Arial, sans-serif" font-weight="400" font-size="36" fill="rgba(255,255,255,0.75)">Remodeler</text>
+  <rect x="204" y="24" width="8" height="8" fill="#9BA8A2"/>
+  <text x="220" y="42" font-family="'Karla', Arial, sans-serif" font-weight="700" font-size="36" fill="#FFFFFF">Rank</text>
+</svg>
