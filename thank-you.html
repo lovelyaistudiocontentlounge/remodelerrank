@@ -13,101 +13,173 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Request Received | RemodelerRank</title>
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="RR" />
-<link rel="manifest" href="/site.webmanifest" />
-<link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta name="robots" content="noindex">
+
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="RR">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage: #8BA89A;
+    --sage-dark: #6E8E7E;
+    --sage-deeper: #4A6E5E;
+    --charcoal: #2C2C2C;
+    --off-white: #FAFAF8;
+    --warm-sage: #EEF2EF;
+    --border: #DDE6E1;
+    --body-text: #4A4A4A;
+    --muted: #7A8A80;
+    --faint: #B0BDB5;
+  }
+
+  html { font-size: 16px; }
+
   body {
-    font-family: 'Karla', sans-serif;
-    background: #EEF2EF;
+    font-family: 'Karla', Arial, sans-serif;
+    background: var(--warm-sage);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
-    color: #2C2C2C;
+    padding: 48px 20px;
+    color: var(--charcoal);
+    -webkit-font-smoothing: antialiased;
   }
+
   .card {
-    background: white;
+    background: #FFFFFF;
     border-radius: 6px;
+    border: 0.5px solid var(--border);
     padding: 56px 48px;
     max-width: 520px;
     width: 100%;
     text-align: center;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
   }
-  .script {
-    font-family: 'Sacramento', cursive;
-    font-size: 52px;
-    color: #8BA89A;
-    line-height: 1;
-    margin-bottom: 16px;
+
+  .check-mark {
+    width: 48px;
+    height: 48px;
+    background: var(--warm-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
   }
+
+  .check-mark svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--sage-deeper);
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
   h1 {
-    font-family: 'Lora', serif;
+    font-family: 'Lora', Georgia, serif;
     font-size: 28px;
-    font-weight: 500;
-    margin-bottom: 16px;
-    line-height: 1.3;
-  }
-  p {
-    font-size: 16px;
-    color: #7A8A80;
-    line-height: 1.75;
-    margin-bottom: 12px;
-  }
-  .divider {
-    height: 1px;
-    background: #DDE6E1;
-    margin: 28px 0;
-  }
-  .next-label {
-    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #B0BDB5;
-    margin-bottom: 16px;
+    color: var(--charcoal);
+    line-height: 1.25;
+    margin-bottom: 14px;
   }
-  .calendly-link {
-    display: inline-block;
-    background: #8BA89A;
-    color: white;
-    padding: 14px 32px;
-    border-radius: 3px;
+
+  .subhead {
     font-size: 15px;
-    font-weight: 700;
-    text-decoration: none;
-    margin-bottom: 16px;
-    transition: background 0.2s;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 32px;
   }
-  .calendly-link:hover { background: #6E8E7E; }
+
+  .divider {
+    height: 0.5px;
+    background: var(--border);
+    margin: 0 0 28px;
+  }
+
+  .cta-label {
+    font-family: 'Karla', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 14px;
+  }
+
+  .calendly-btn {
+    display: block;
+    background: var(--sage-deeper);
+    color: #FFFFFF;
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 15px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.15s;
+    margin-bottom: 20px;
+  }
+
+  .calendly-btn:hover {
+    background: var(--sage-dark);
+  }
+
   .home-link {
     display: block;
-    font-size: 14px;
-    color: #B0BDB5;
+    font-size: 13px;
+    color: var(--faint);
     text-decoration: none;
-    margin-top: 12px;
+    transition: color 0.15s;
   }
-  .home-link:hover { color: #7A8A80; }
+
+  .home-link:hover {
+    color: var(--muted);
+  }
+
+  @media (max-width: 480px) {
+    .card {
+      padding: 40px 28px;
+    }
+    h1 { font-size: 24px; }
+  }
 </style>
 </head>
 <body>
+
   <div class="card">
-    <div class="script">got it</div>
-    <h1>Your audit request is in.</h1>
-    <p>We'll review your site, your Google rankings, and your local competition — and be in touch within 48 hours.</p>
-    <p>If you'd rather skip the wait and talk now, grab a time below.</p>
+
+    <div class="check-mark">
+      <svg viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+
+    <h1>We've Got Your Request.</h1>
+    <p class="subhead">Your free audit is on its way within 48 hours. Check your inbox — and keep an eye on your spam folder just in case.</p>
+
     <div class="divider"></div>
-    <div class="next-label">Optional — book a call now</div>
-    <a href="https://calendly.com/hey-remodelerrank/review-meeting-15-minutes" class="calendly-link">Schedule a 15-min call →</a>
+
+    <p class="cta-label">Want to talk through what we find?</p>
+    <a href="https://calendly.com/hey-remodelerrank/review-meeting-15-minutes" class="calendly-btn">Schedule a 15-min call &#8594;</a>
     <a href="/" class="home-link">Back to RemodelerRank</a>
+
   </div>
+
+<!-- TODO: Add Google Ads conversion snippet here. Paste gtag conversion event once label is retrieved from Google Ads Goals -> Conversions -> Tag setup -->
 </body>
 </html>
