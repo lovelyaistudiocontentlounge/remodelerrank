@@ -52,7 +52,7 @@ Use this exact section order. Do not skip sections or reorder them.
 ### Section order (mandatory)
 
 1. **Info bar** - one line at the very top. Address, hours, phone. Small text, muted background.
-2. **Nav** - logo left, navigation links center, CTA button right. Sticky. Logo: `<img src="logo.png" alt="[Business Name]" style="height:44px; width:auto;" onerror="this.style.display='none'">`. Tell Jennifer to save their logo as `logo.png` in the same folder as the HTML.
+2. **Nav** - logo left, navigation links center, CTA button right. Sticky. Logo: `<img src="logo.svg" alt="[Business Name]" style="height:44px; width:auto;" onerror="this.style.display='none'">`. SVG is the preferred format - tell Jennifer to save their logo as `logo.svg` in the same folder as the HTML. If only a PNG/JPG is available, use `logo.png` instead and note the format in your reply.
 3. **Hero** - full-bleed project photo as background. Use the hero image she provides. Gradient overlay: `linear-gradient(to top, rgba(10,20,40,0.90) 0%, rgba(10,20,40,0.40) 50%, transparent 100%)`. White headline (Playfair/Lora), white subhead, two CTA buttons (primary filled, secondary outlined).
 4. **Trust bar** - horizontal strip with 3-4 trust signals: CSLB license number, years in business, number of projects, a quality statement. Icons as simple SVG or Unicode symbols only - no emoji.
 5. **Pain section** - headline like "Most homeowners run into the same problems." Four pain points in a 2x2 grid. Each has a short label and one sentence. End with a callout box: "There is a better way."
@@ -74,6 +74,8 @@ Use this exact section order. Do not skip sections or reorder them.
 - Do not mention RemodelerRank anywhere in the mockup.
 - Do not use the prospect's real reviews - use placeholder copy.
 - Do not invent specific claims (awards, exact years in business) unless Jennifer provides them.
+
+Every section of copy must address why it matters to the homeowner OR why it matters to the contractor owner who hired us. For contractor clients, use the five pain points documented in /skills/ad-creative/SKILL.md (Contractor Pain Language section) to inform every headline, subhead, and CTA. Never describe a feature without naming what it costs them if that feature is missing.
 
 ---
 
