@@ -31,7 +31,7 @@ function getDb() {
 function pickCombinations(cities, terms, count) {
   const db = getDb();
   const ran = new Set(
-    db.prepare('SELECT city || "|" || term AS key FROM ran_queries').all().map(r => r.key)
+    db.prepare("SELECT city || '|' || term AS key FROM ran_queries").all().map(r => r.key)
   );
 
   const all = [];
