@@ -93,6 +93,8 @@
   .tab-content.active { display: block; }
 
   footer { text-align: center; font-size: 11px; color: var(--faint); padding: 24px; }
+  .item-text a { color: var(--sage-deeper); text-decoration: underline; text-underline-offset: 2px; }
+  .item-text a:hover { color: var(--sage-dark); }
 </style>
 </head>
 <body>
@@ -112,7 +114,7 @@
 
   <div class="tabs">
     <div class="tab active" onclick="showTab('daily')">Daily Ops</div>
-    <div class="tab" onclick="showTab('today')">
+    <div class="tab" onclick="showTab('today')">Today</div>
     <div class="tab" onclick="showTab('site')">Site Fixes</div>
     <div class="tab" onclick="showTab('code')">Claude Code</div>
     <div class="tab" onclick="showTab('backend')">Backend / SEO</div>
@@ -134,12 +136,12 @@
         <div class="section-count" id="count-morning"></div>
       </div>
       <div class="section-list" id="list-morning">
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Open morning web app (localhost:3000) — review new leads, approve or skip</div><div class="item-tag tag-content">Pipeline</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Open morning web app (<a href="http://localhost:3000" target="_blank" onclick="event.stopPropagation()">localhost:3000</a>) — review new leads, approve or skip</div><div class="item-tag tag-content">Pipeline</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Check Day 3 follow-up alerts — review drafts and send</div><div class="item-tag tag-send">Email</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Check Day 7 close alerts — review drafts and send</div><div class="item-tag tag-send">Email</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Check hey@remodelerrank.com — any replies from prospects?</div><div class="item-tag tag-send">Email</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Check OpenPhone — any missed calls or texts from prospects?</div><div class="item-tag tag-send">Phone</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Check Calendly — any new bookings? Confirm with a personal reply</div><div class="item-tag tag-send">Calls</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Check <a href="https://calendly.com/hey-remodelerrank" target="_blank" onclick="event.stopPropagation()">Calendly</a> — any new bookings? Confirm with a personal reply</div><div class="item-tag tag-send">Calls</div></div>
       </div>
     </div>
 
@@ -151,12 +153,12 @@
         <div class="section-count" id="count-pipeline"></div>
       </div>
       <div class="section-list" id="list-pipeline">
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Morning web app: approve minimum 20 leads (triggers 20 Gmail drafts + 20 text drafts)</div><div class="item-tag tag-urgent">Goal</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text"><a href="http://localhost:3000" target="_blank" onclick="event.stopPropagation()">Morning web app</a>: approve minimum 20 leads (triggers 20 Gmail drafts + 20 text drafts)</div><div class="item-tag tag-urgent">Goal</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Review and send all new Gmail drafts from today's approvals</div><div class="item-tag tag-urgent">Send</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Review and send all OpenPhone text drafts from today's approvals</div><div class="item-tag tag-urgent">Send</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Send Day 3 follow-ups (email + text) to anyone who didn't reply to Day 0</div><div class="item-tag tag-urgent">Follow-up</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Send Day 7 closes to anyone at end of sequence</div><div class="item-tag tag-urgent">Follow-up</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Log all sends in Google Sheet — update Status, D0/D3/D7 date columns</div><div class="item-tag tag-urgent">Log</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Log all sends in <a href="https://docs.google.com/spreadsheets/d/1wftfFfXnUcRJCGfn59RphyU5dYnPs4mojzBv5V9fdUE/edit" target="_blank" onclick="event.stopPropagation()">Google Sheet</a> — update Status, D0/D3/D7 date columns</div><div class="item-tag tag-urgent">Log</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Count total outreaches sent today — did you hit 100? Note it.</div><div class="item-tag tag-urgent">Track</div></div>
       </div>
     </div>
@@ -232,7 +234,7 @@
       </div>
       <div class="section-list" id="list-weekly">
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Review last week: total outreaches sent, replies received, calls booked, proposals sent</div><div class="item-tag tag-site">Review</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Check pipeline: who is at Day 3? Day 7? Who replied and needs grader?</div><div class="item-tag tag-send">Pipeline</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Check <a href="https://docs.google.com/spreadsheets/d/1wftfFfXnUcRJCGfn59RphyU5dYnPs4mojzBv5V9fdUE/edit" target="_blank" onclick="event.stopPropagation()">pipeline sheet</a>: who is at Day 3? Day 7? Who replied and needs grader?</div><div class="item-tag tag-send">Pipeline</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Review Instagram: which post got most saves, DMs, comments? Repeat that format this week</div><div class="item-tag tag-content">Analytics</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Publish one new AEO page or blog post to the site</div><div class="item-tag tag-site">AEO</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Add 4 new photos to each active client's GBP</div><div class="item-tag tag-site">GBP</div></div>
@@ -266,15 +268,15 @@
     <div class="section">
       <div class="section-header">
         <div class="section-dot dot-urgent"></div>
-        <div class="section-title">Push to GitHub First</div>
+        <div class="section-title">Site Fixes — Push to GitHub</div>
         <div class="section-count" id="count-push"></div>
       </div>
       <div class="section-list" id="list-push">
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Push updated index.html (form links fixed, email field added, jennifer.png path)</div><div class="item-tag tag-push">GitHub</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Push thank-you.html to repo root (same level as index.html)</div><div class="item-tag tag-push">GitHub</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Push updated kitchen-solutions-GRADER-FINAL.html to /audits/ folder</div><div class="item-tag tag-push">GitHub</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Test form at remodelerrank.com — fill it out, check Netlify Forms dashboard for submission</div><div class="item-tag tag-push">Test</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Confirm jennifer.png shows in About section at remodelerrank.com/#about</div><div class="item-tag tag-push">Test</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Push updated index.html (form links fixed, email field added, jennifer.png path)</div><div class="item-tag tag-push">GitHub</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Push thank-you.html to repo root (same level as index.html)</div><div class="item-tag tag-push">GitHub</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Push kitchen-solutions-GRADER-FINAL.html to <a href="https://remodelerrank.com/audits/" target="_blank" onclick="event.stopPropagation()">remodelerrank.com/audits/</a></div><div class="item-tag tag-push">GitHub</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Test form at <a href="https://remodelerrank.com" target="_blank" onclick="event.stopPropagation()">remodelerrank.com</a> — check <a href="https://app.netlify.com" target="_blank" onclick="event.stopPropagation()">Netlify Forms</a> dashboard for submission</div><div class="item-tag tag-push">Test</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Confirm jennifer.png shows in About section at <a href="https://remodelerrank.com/#about" target="_blank" onclick="event.stopPropagation()">remodelerrank.com/#about</a></div><div class="item-tag tag-push">Test</div></div>
       </div>
     </div>
 
@@ -290,7 +292,7 @@
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Send Elevate Construction — Day 0 email (best hook: no website)</div><div class="item-tag tag-send">Email</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Send Build With Leon — Day 0 email</div><div class="item-tag tag-send">Email</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Send WCH Inc — Day 0 email</div><div class="item-tag tag-send">Email</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Log all 5 sends in Google Sheet prospect tracker (Status → Contacted, Email D0 date)</div><div class="item-tag tag-send">Log</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Log all 5 sends in <a href="https://docs.google.com/spreadsheets/d/1wftfFfXnUcRJCGfn59RphyU5dYnPs4mojzBv5V9fdUE/edit" target="_blank" onclick="event.stopPropagation()">Google Sheet</a> — Status → Contacted, Email D0 date</div><div class="item-tag tag-send">Log</div></div>
       </div>
     </div>
 
@@ -301,28 +303,13 @@
         <div class="section-count" id="count-setup"></div>
       </div>
       <div class="section-list" id="list-setup">
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Install email signature in Gmail (open email-signature.html, copy HTML block, paste into Gmail settings)</div><div class="item-tag tag-site">Gmail</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Add Calendly intake questions: business name, website URL, city, biggest marketing challenge</div><div class="item-tag tag-site">Calendly</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Sign up for Outscraper + Cold Email Outreach Pack</div><div class="item-tag tag-site">Outscraper</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Sign up for Apollo.io — get Enrichment API key → add to .env</div><div class="item-tag tag-site">Apollo</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Copy Drive Audits folder ID → add to .env as REPORTS_DRIVE_FOLDER_ID (just the ID after /folders/)</div><div class="item-tag tag-site">Drive</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Set up Google Search Console for remodelerrank.com — verify via Google Workspace</div><div class="item-tag tag-site">Google</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Set up Google Analytics 4 for remodelerrank.com — add tracking code to index.html</div><div class="item-tag tag-site">Google</div></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-header">
-        <div class="section-dot dot-code"></div>
-        <div class="section-title">Claude Code — Add Before Session 6</div>
-        <div class="section-count" id="count-ccode"></div>
-      </div>
-      <div class="section-list" id="list-ccode">
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Add updated CLAUDE.md to repo root (replace old version)</div><div class="item-tag tag-code">Claude Code</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Add remodelerrank-build-instructions.md to repo</div><div class="item-tag tag-code">Claude Code</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Add photo-filename-protection-SKILL.md to /skills/ folder</div><div class="item-tag tag-code">Claude Code</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Add client-deliverable-system.md to /templates/ folder</div><div class="item-tag tag-code">Claude Code</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Add content-calendar.md to /assets/ folder</div><div class="item-tag tag-code">Claude Code</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Install email signature in <a href="https://mail.google.com" target="_blank" onclick="event.stopPropagation()">Gmail</a> — open email-signature.html, copy HTML block, paste into Gmail settings</div><div class="item-tag tag-site">Gmail</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Add <a href="https://calendly.com/hey-remodelerrank" target="_blank" onclick="event.stopPropagation()">Calendly</a> intake questions: business name, website URL, city, biggest marketing challenge</div><div class="item-tag tag-site">Calendly</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Sign up for Outscraper + Cold Email Outreach Pack</div><div class="item-tag tag-site">Outscraper</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Sign up for Apollo.io — get Enrichment API key and add to .env</div><div class="item-tag tag-site">Apollo</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Copy <a href="https://drive.google.com" target="_blank" onclick="event.stopPropagation()">Drive</a> Audits folder ID → add to .env as REPORTS_DRIVE_FOLDER_ID (ID after /folders/)</div><div class="item-tag tag-site">Drive</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Set up <a href="https://search.google.com/search-console" target="_blank" onclick="event.stopPropagation()">Google Search Console</a> for remodelerrank.com — verify via Google Workspace</div><div class="item-tag tag-site">Google</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Set up Google Analytics 4 for remodelerrank.com — tracking code added to index.html</div><div class="item-tag tag-site">Google</div></div>
       </div>
     </div>
 
@@ -333,12 +320,27 @@
         <div class="section-count" id="count-content"></div>
       </div>
       <div class="section-list" id="list-content">
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Set up Instagram profile (@remodelerrank) — bio, link in bio to Calendly, profile photo</div><div class="item-tag tag-content">Social</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Set up LinkedIn business page — RemodelerRank</div><div class="item-tag tag-content">Social</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Set up <a href="https://www.instagram.com/remodelerrank/" target="_blank" onclick="event.stopPropagation()">Instagram</a> profile — bio, link in bio to Calendly, profile photo</div><div class="item-tag tag-content">Social</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Set up LinkedIn business page — RemodelerRank</div><div class="item-tag tag-content">Social</div></div>
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Create Canva carousel template (sage palette, 1080x1080px) — save as master template</div><div class="item-tag tag-content">Design</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Post Week 1 Day 1 content (see content calendar)</div><div class="item-tag tag-content">Post</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Design the Project Content Goldmine Audit PDF in Canva (use sage palette)</div><div class="item-tag tag-content">Design</div></div>
-        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Research contractor Facebook groups — lurk, screenshot real language, save to doc</div><div class="item-tag tag-content">Research</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Post Week 1 Day 1 content on <a href="https://www.instagram.com/remodelerrank/" target="_blank" onclick="event.stopPropagation()">Instagram</a> (see content calendar)</div><div class="item-tag tag-content">Post</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Design the Project Content Goldmine Audit PDF in Canva (use sage palette)</div><div class="item-tag tag-content">Design</div></div>
+        <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Research contractor Facebook groups — lurk, screenshot real language, save to doc</div><div class="item-tag tag-content">Research</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-dot dot-code"></div>
+        <div class="section-title">Pipeline — Next Up</div>
+        <div class="section-count" id="count-pipeline-next"></div>
+      </div>
+      <div class="section-list" id="list-pipeline-next">
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Wire D4 text follow-up scheduler — textD4() in openphone.js is ready, needs cron added to index.js</div><div class="item-tag tag-code">Claude Code</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Review scoring on 325 live leads — open <a href="https://docs.google.com/spreadsheets/d/1wftfFfXnUcRJCGfn59RphyU5dYnPs4mojzBv5V9fdUE/edit" target="_blank" onclick="event.stopPropagation()">Google Sheet</a>, sort by Lead Score desc, spot-check 10</div><div class="item-tag tag-code">Review</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Create Facebook Group for Northern California remodeling contractors</div><div class="item-tag tag-content">Social</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Set up sending domain + begin Instantly warm-up sequence</div><div class="item-tag tag-code">Email</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Set up Zapier — wire goldmine form to email sequence</div><div class="item-tag tag-code">Zapier</div></div>
       </div>
     </div>
 
@@ -473,10 +475,11 @@
   const d = new Date();
   document.getElementById('dateDisplay').textContent = d.toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric', year:'numeric'});
 
-  // Load saved state
+  // Load saved state — explicit true/false overrides HTML defaults; undefined keeps HTML default
   const saved = JSON.parse(localStorage.getItem('rr-checklist') || '{}');
   document.querySelectorAll('.item').forEach((item, i) => {
-    if (saved[i]) item.classList.add('done');
+    if (saved[i] === true) item.classList.add('done');
+    else if (saved[i] === false) item.classList.remove('done');
   });
 
   function toggle(el) {
