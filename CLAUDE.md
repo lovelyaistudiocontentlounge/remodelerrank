@@ -57,25 +57,29 @@ Never mix files between repos. Site files go in the website repo. Pipeline code 
   reports.js                    <- HTML audit report generation + Drive upload
   scraper.js                    <- Outscraper API calls
   server.js                     <- morning web app + Watch/AddLead/OpenPhone text modal (Sessions 6+9)
-  sheets.js                     <- Google Sheets read/write (32 columns A-AF)
+  sheets.js                     <- Google Sheets read/write (36 columns A-AJ)
   remodelerrank-build-instructions.md  <- session build specs
 
   /automations/
     grader-completion.md        <- step-by-step grader completion flow (Session 8)
 
   /skills/
+    /ad-creative/
+      SKILL.md                  <- brand identity, 4 ad formats, GBP photos, tool routing (Session 10)
     /mini-site/
       SKILL.md                  <- prospect mockup builder skill (Session 7)
+    /monthly-report/
+      SKILL.md                  <- client monthly report builder (Session 10)
+    /onboarding/
+      SKILL.md                  <- client intake process (Session 9)
     /photo-filename-protection/
       SKILL.md                  <- MANDATORY: never rename image files in HTML (Session 9)
     /photo-pipeline/
       SKILL.md                  <- photo naming, sizing, WebP conversion (Session 9)
-    /seo-build/
-      SKILL.md                  <- post-approval SEO layer (Session 9)
     /pre-launch/
       SKILL.md                  <- 36-item pre-launch checklist (Session 9)
-    /onboarding/
-      SKILL.md                  <- client intake process (Session 9)
+    /seo-build/
+      SKILL.md                  <- post-approval SEO layer (Session 9)
 
   /templates/
     client-deliverable-system.md  <- master data collection + platform buildout checklist
@@ -403,13 +407,14 @@ Three phases:
 
 | Skill | Status | Location |
 |---|---|---|
+| ad-creative | Built | skills/ad-creative/SKILL.md |
 | mini-site | Built | skills/mini-site/SKILL.md |
+| monthly-report | Built | skills/monthly-report/SKILL.md |
+| onboarding | Built | skills/onboarding/SKILL.md |
 | photo-filename-protection | Built | skills/photo-filename-protection/SKILL.md |
 | photo-pipeline | Built | skills/photo-pipeline/SKILL.md |
-| seo-build | Built | skills/seo-build/SKILL.md |
 | pre-launch | Built | skills/pre-launch/SKILL.md |
-| onboarding | Built | skills/onboarding/SKILL.md |
-| monthly-report | Built | skills/monthly-report/SKILL.md |
+| seo-build | Built | skills/seo-build/SKILL.md |
 
 ---
 
@@ -424,12 +429,12 @@ Three phases:
 - [x] Session 6: Morning web app - server.js (localhost:3000, npm run morning)
 - [x] Session 7 partial: mini-site/SKILL.md written
 - [x] Session 8: automations/grader-completion.md
-- [x] Session 9: openphone.js + OPENPHONE_NUMBER_ID wired (PNkSJ6WM4F confirmed); 5 skills added; 5 templates added; Watch status + manual lead entry added to morning app; sheet header fixed to 32-column schema
+- [x] Session 9: openphone.js + OPENPHONE_NUMBER_ID wired (PNkSJ6WM4F confirmed); 5 skills added; 5 templates added; Watch status + manual lead entry added to morning app; sheet header extended to 36-column schema (A-AJ)
+- [x] Session 10: monthly-report skill built; ad-creative skill completed (merged strategy + execution); 325 leads scraped; platform URL columns AG-AJ live; demo monthly report built for Coda Construction
 
-**Session 10 (current):**
-- [x] Build monthly-report/SKILL.md
+**Pending (next session):**
 - Wire text D4 follow-up scheduler (openphone.js textD4() is ready, needs cron in index.js)
-- First real nightly scrape run + review scoring against live leads
+- Review scoring on 325 live leads in sheet
 
 ---
 
