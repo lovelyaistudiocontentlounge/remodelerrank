@@ -1,7 +1,7 @@
 const { google } = require('googleapis');
 const config = require('./config');
 
-// Column order A-AF (32 columns) — must match header exactly
+// Column order A-AJ (36 columns) — must match header exactly
 const COLUMNS = [
   'date_added',            // A
   'lead_score',            // B
@@ -35,6 +35,10 @@ const COLUMNS = [
   'grader_generated',      // AD
   'notes',                 // AE
   'place_id',              // AF
+  'yelp_url',              // AG
+  'houzz_url',             // AH
+  'bbb_url',               // AI
+  'buildzoom_url',         // AJ
 ];
 
 const HEADER_ROW = [
@@ -47,9 +51,11 @@ const HEADER_ROW = [
   'Email D0 Sent', 'Email D3 Sent', 'Email D7 Sent',
   'Text D0 Sent', 'Text D4 Sent', 'Reply Received',
   'Audit URL', 'Grader Generated', 'Notes', 'Place ID',
+  'Yelp URL', 'Houzz URL', 'BBB URL', 'BuildZoom URL',
 ];
 
-const LAST_COL = 'AF';
+const LAST_COL = 'AJ';
+const PLACE_ID_COL = 'AF';
 const NUMERIC_COLS = new Set(['lead_score', 'findability_score', 'rating', 'review_count', 'gbp_score', 'photo_count']);
 
 function getAuth() {
@@ -70,7 +76,7 @@ async function ensureHeader() {
   const range = `${config.SHEET_TAB_NAME}!A1:${LAST_COL}1`;
   const res = await sheets.spreadsheets.values.get({ spreadsheetId: config.GOOGLE_SHEETS_ID, range });
   const existing = res.data.values?.[0];
-  if (!existing || existing[0] !== 'Date Added') {
+  if (!existing || existing[0] !== 'Date Added' || existing.length < HEADER_ROW.length) {
     await sheets.spreadsheets.values.update({
       spreadsheetId: config.GOOGLE_SHEETS_ID,
       range,
@@ -117,7 +123,7 @@ async function getExistingPlaceIds() {
   const sheets = getSheets();
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: config.GOOGLE_SHEETS_ID,
-    range: `${config.SHEET_TAB_NAME}!${LAST_COL}:${LAST_COL}`,
+    range: `${config.SHEET_TAB_NAME}!${PLACE_ID_COL}:${PLACE_ID_COL}`,
   });
   const rows = res.data.values || [];
   return new Set(rows.flat().filter(id => id && id !== 'Place ID'));

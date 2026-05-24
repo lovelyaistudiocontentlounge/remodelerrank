@@ -134,6 +134,7 @@ async function scoreFindability(lead) {
   const keyword = lead.name.split(/\s+/).find(w => w.length > 3) || lead.name.split(/\s+/)[0];
   const nameFragment = keyword.toLowerCase();
 
+  // Returns the search URL when the business is found on that platform, null otherwise.
   const checkPresence = async (url) => {
     try {
       const res = await axios.get(url, {
@@ -142,8 +143,8 @@ async function scoreFindability(lead) {
         maxRedirects: 3,
         validateStatus: s => s < 500,
       });
-      return res.data?.toLowerCase().includes(nameFragment) ?? false;
-    } catch { return false; }
+      return res.data?.toLowerCase().includes(nameFragment) ? url : null;
+    } catch { return null; }
   };
 
   const [yelp, houzz, bbb, buildzoom] = await Promise.allSettled([
@@ -153,10 +154,15 @@ async function scoreFindability(lead) {
     checkPresence(`https://www.buildzoom.com/search?q=${encodeURIComponent(lead.name)}`),
   ]);
 
-  checks.yelp_active = yelp.status === 'fulfilled' && yelp.value;
-  checks.houzz_profile = houzz.status === 'fulfilled' && houzz.value;
-  checks.bbb_accredited = bbb.status === 'fulfilled' && bbb.value;
-  checks.buildzoom_active = buildzoom.status === 'fulfilled' && buildzoom.value;
+  const yelpUrl      = yelp.status      === 'fulfilled' ? yelp.value      : null;
+  const houzzUrl     = houzz.status     === 'fulfilled' ? houzz.value     : null;
+  const bbbUrl       = bbb.status       === 'fulfilled' ? bbb.value       : null;
+  const buildzoomUrl = buildzoom.status === 'fulfilled' ? buildzoom.value : null;
+
+  checks.yelp_active      = !!yelpUrl;
+  checks.houzz_profile    = !!houzzUrl;
+  checks.bbb_accredited   = !!bbbUrl;
+  checks.buildzoom_active = !!buildzoomUrl;
 
   const score =
     (checks.gbp_claimed   ? 3 : 0) +
@@ -167,7 +173,14 @@ async function scoreFindability(lead) {
     (checks.buildzoom_active ? 1 : 0) +
     (checks.facebook_page ? 1 : 0);
 
-  return { findability_score: Math.min(score, 10), findability_breakdown: checks };
+  return {
+    findability_score: Math.min(score, 10),
+    findability_breakdown: checks,
+    yelp_url:       yelpUrl      || '',
+    houzz_url:      houzzUrl     || '',
+    bbb_url:        bbbUrl       || '',
+    buildzoom_url:  buildzoomUrl || '',
+  };
 }
 
 // ─── CSLB License Check ───────────────────────────────────────────────────────

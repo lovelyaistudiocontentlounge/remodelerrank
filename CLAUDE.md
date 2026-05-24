@@ -6,7 +6,7 @@
 
 ## What This Project Is
 
-Automated overnight lead generation, scoring, and outreach pipeline for **RemodelerRank**, a marketing agency serving remodeling contractors in the East Bay and surrounding California counties.
+Automated overnight lead generation, scoring, and outreach pipeline for **RemodelerRank**, a marketing agency serving remodeling contractors across Northern California.
 
 **Owner:** Jennifer
 **Email:** hey@remodelerrank.com
@@ -35,7 +35,7 @@ Never mix files between repos. Site files go in the website repo. Pipeline code 
 
 ---
 
-## Actual File Structure (verified May 22 2026)
+## Actual File Structure (verified May 23 2026)
 
 ```
 /remodelerrank/
@@ -51,11 +51,12 @@ Never mix files between repos. Site files go in the website repo. Pipeline code 
   index.js                      <- scheduler + nightly scrape + approval watcher
   leads.db                      <- SQLite database
   logger.js                     <- file logger -> logs/pipeline.log
+  openphone.js                  <- OpenPhone SMS module - sendText, textD0, textD4 (Session 9)
   package.json
   prompts.js                    <- ALL Claude prompts + email templates D0/D3/D7
   reports.js                    <- HTML audit report generation + Drive upload
   scraper.js                    <- Outscraper API calls
-  server.js                     <- morning web app (Session 6)
+  server.js                     <- morning web app + Watch/AddLead/OpenPhone text modal (Sessions 6+9)
   sheets.js                     <- Google Sheets read/write (32 columns A-AF)
   remodelerrank-build-instructions.md  <- session build specs
 
@@ -65,39 +66,30 @@ Never mix files between repos. Site files go in the website repo. Pipeline code 
   /skills/
     /mini-site/
       SKILL.md                  <- prospect mockup builder skill (Session 7)
+    /photo-filename-protection/
+      SKILL.md                  <- MANDATORY: never rename image files in HTML (Session 9)
+    /photo-pipeline/
+      SKILL.md                  <- photo naming, sizing, WebP conversion (Session 9)
+    /seo-build/
+      SKILL.md                  <- post-approval SEO layer (Session 9)
+    /pre-launch/
+      SKILL.md                  <- 36-item pre-launch checklist (Session 9)
+    /onboarding/
+      SKILL.md                  <- client intake process (Session 9)
 
-  /templates/                   <- currently empty - add docs below
+  /templates/
+    client-deliverable-system.md  <- master data collection + platform buildout checklist
+    content-calendar.md           <- 6-week launch content schedule
+    email-d0.md                   <- Day 0 outreach template
+    email-d3.md                   <- Day 3 follow-up template
+    email-d7.md                   <- Day 7 close template
+
   /logs/                        <- pipeline.log lives here
 ```
 
----
+## Files Still To Build
 
-## Files That Need to Be Added to /templates/
-
-These were built in our planning conversations but not yet added to the repo. Add them:
-
-```
-/templates/
-  client-deliverable-system.md  <- master data collection + platform buildout checklist
-  content-calendar.md           <- 6-week launch content schedule
-  email-d0.md                   <- Day 0 outreach template
-  email-d3.md                   <- Day 3 follow-up template
-  email-d7.md                   <- Day 7 close template
-
-/skills/
-  /photo-filename-protection/
-    SKILL.md                    <- MANDATORY: never rename image files in HTML
-  /photo-pipeline/
-    SKILL.md                    <- photo naming, sizing, WebP conversion (TO BUILD)
-  /seo-build/
-    SKILL.md                    <- post-approval SEO layer (TO BUILD)
-  /pre-launch/
-    SKILL.md                    <- 30-item pre-launch checklist (TO BUILD)
-  /onboarding/
-    SKILL.md                    <- client intake process (TO BUILD)
-  /monthly-report/
-    SKILL.md                    <- monthly report generation (TO BUILD)
-```
+All skills complete as of Session 10.
 
 ---
 
@@ -133,8 +125,9 @@ REPORTS_DRIVE_FOLDER_ID=1sLwrl43xmfZUT9m1Da3jQLrI8D9zmL_o
 # Gmail
 GMAIL_FROM=hey@remodelerrank.com
 
-# OpenPhone (PENDING - not yet wired)
+# OpenPhone
 OPENPHONE_API_KEY=
+OPENPHONE_NUMBER_ID=PNkSJ6WM4F  # Jennifer's OpenPhone number - confirmed May 2026
 JENNIFER_PHONE=9259409484
 
 # App
@@ -169,7 +162,7 @@ design build contractor, custom home remodeling, licensed remodeling contractor
 
 ---
 
-## Google Sheet Columns (A-AF, 32 columns)
+## Google Sheet Columns (A-AJ, 36 columns)
 
 ```
 A=Date Added, B=Lead Score, C=Findability Score, D=Priority,
@@ -179,10 +172,16 @@ O=Review Count, P=GBP Score, Q=CSLB License, R=License Status,
 S=Portfolio Buried, T=Best Hook, U=Findability Breakdown, V=Status,
 W=Email D0 Sent, X=Email D3 Sent, Y=Email D7 Sent,
 Z=Text D0 Sent, AA=Text D4 Sent, AB=Reply Received,
-AC=Audit URL, AD=Grader Generated, AE=Notes, AF=Place ID
+AC=Audit URL, AD=Grader Generated, AE=Notes, AF=Place ID,
+AG=Yelp URL, AH=Houzz URL, AI=BBB URL, AJ=BuildZoom URL
 ```
 
-Status values: New -> Approved -> Skipped -> Contacted -> Replied -> Meeting -> Client
+Platform URL columns (AG-AJ): populated with the search URL when the business is detected on
+that platform; blank when not found. Clickable in Google Sheets for quick verification.
+
+Status values: New -> Approved -> Watch -> Skipped -> Contacted -> Replied -> Meeting -> Client
+
+**Watch** = flagged for later review. Stays in the sheet, removed from the daily queue. Use for prospects that look interesting but need more research or timing isn't right.
 
 ---
 
@@ -251,6 +250,42 @@ All grader reports use RemodelerRank's own branding - NOT the client's brand.
 
 ---
 
+## RemodelerRank Brand Assets — Logo Files
+
+Logo files live in the **website repo** at `Desktop/RemodelerRank/images/`.
+
+| File | Dimensions | Use when |
+|---|---|---|
+| `logo.svg` | 340x60 | Light/white surfaces - white background rect baked in |
+| `logo-reversed.svg` | 340x60 | Dark surfaces - transparent bg, white text. Use in nav and footer. |
+| `logo-icon.svg` | 100x100 | Icon-only contexts - charcoal square with "RR" in white + sage underline |
+
+**Usage rules:**
+- Nav (dark bg) and footer (dark bg): always `logo-reversed.svg`
+- Article header, light-bg sections, email: `logo.svg`
+- Favicon contexts (PWA, social): `logo-icon.svg` is the source for all PNG exports
+- SVG preferred over PNG - no quality loss at any size
+- `img` tag: `<img src="images/logo-reversed.svg" alt="RemodelerRank" height="30" width="auto">` (or `height="26"` in footer)
+- Never inline or modify the SVG source. Reference as external file.
+
+**Favicon files** (website repo root - added May 2026):
+```
+favicon.ico, favicon.svg, favicon-96x96.png, apple-touch-icon.png,
+web-app-manifest-192x192.png, web-app-manifest-512x512.png, site.webmanifest
+```
+
+**Standard favicon link block** (paste into every new HTML page):
+```html
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="RR">
+<link rel="manifest" href="/site.webmanifest">
+```
+
+---
+
 ## Mini-Site Mockups (Client's Brand, NOT RemodelerRank)
 
 The mini-site skill (skills/mini-site/SKILL.md) builds mockups in the PROSPECT'S palette.
@@ -260,7 +295,7 @@ Key rules from the skill:
 - If bright yellow-gold: shift to muted brass #C9A96E
 - Builder Funnel structure: Info bar -> Nav -> Hero -> Trust bar -> Pain -> Services -> Process -> Reviews -> Mid CTA -> Areas -> Final CTA -> Footer
 - No emoji anywhere - use typographic markers (rules, numbered lists, dashes)
-- Logo as img tag with onerror fallback
+- Logo as img tag with onerror fallback - SVG preferred, PNG fallback
 - Save to /clients/[slug]/mockup/index.html
 - After generating: tell Jennifer to screenshot at 1280px wide, top 900px
 
@@ -291,7 +326,7 @@ If filename is unknown - use REPLACE_WITH_ACTUAL_FILENAME.jpg and ask.
 
 This rule exists because renaming a file in code breaks the image silently and wastes significant time debugging.
 
-Full rules in: skills/photo-filename-protection/SKILL.md (add to repo)
+Full rules in: skills/photo-filename-protection/SKILL.md
 
 ---
 
@@ -303,6 +338,22 @@ Full rules in: skills/photo-filename-protection/SKILL.md (add to repo)
 - Calendly link in every email draft
 - Subject format: "[Business Name] - quick question" (plain hyphen)
 - Sequence: D0, D3, D7 - all templates in prompts.js
+
+---
+
+## Guides (remodelerrank.com/guides/)
+
+Long-form SEO and AEO content for contractor education. Each guide is a standalone page at a clean URL with no .html extension.
+
+**URL structure:** `/guides/[slug]/index.html` - example: `remodelerrank.com/guides/ai-search-remodeling-contractors/`
+**Not linked from main nav yet** - waiting until there are 3+ guides. A `/guides/` index page will be built then.
+**Image paths:** always root-relative (`/images/filename.png`) - never relative (`../../images/`) since guides are two levels deep.
+**Old /articles/ path:** replaced with meta-refresh redirects pointing to /guides/. Do not create new files in /articles/.
+
+**Published guides:**
+- `/guides/ai-search-remodeling-contractors/` - "What AI Search Looks For When Recommending a Remodeling Contractor" (May 2026)
+
+**Each guide includes:** Article + FAQPage + BreadcrumbList schema, merged GA4 + Ads tag, Lora + Karla fonts, sage palette, author byline with jennifer.png, charcoal nav (logo + Get a Free Audit CTA), footer with /guides/ link.
 
 ---
 
@@ -344,16 +395,16 @@ Three phases:
 | Skill | Status | Location |
 |---|---|---|
 | mini-site | Built | skills/mini-site/SKILL.md |
-| photo-filename-protection | Built (needs adding) | Add to skills/ |
-| photo-pipeline | TO BUILD | Session 9 |
-| seo-build | TO BUILD | Session 9 |
-| pre-launch | TO BUILD | Session 9 |
-| onboarding | TO BUILD | Session 9 |
-| monthly-report | TO BUILD | Session 10 |
+| photo-filename-protection | Built | skills/photo-filename-protection/SKILL.md |
+| photo-pipeline | Built | skills/photo-pipeline/SKILL.md |
+| seo-build | Built | skills/seo-build/SKILL.md |
+| pre-launch | Built | skills/pre-launch/SKILL.md |
+| onboarding | Built | skills/onboarding/SKILL.md |
+| monthly-report | Built | skills/monthly-report/SKILL.md |
 
 ---
 
-## Build Status (Actual - Verified May 22 2026)
+## Build Status (Actual - Verified May 23 2026)
 
 - [x] Session 1: scraper.js - Outscraper API
 - [x] Session 2: database.js + sheets.js
@@ -362,15 +413,14 @@ Three phases:
 - [x] Session 5: Scheduling + PM2 (ecosystem.config.js)
 - [x] Immediate updates: 57 cities, 16 terms, Apollo, findability, HTML reports, score tiers, email templates
 - [x] Session 6: Morning web app - server.js (localhost:3000, npm run morning)
-- [x] Session 7 partial: mini-site/SKILL.md written, OpenPhone config PENDING
+- [x] Session 7 partial: mini-site/SKILL.md written
 - [x] Session 8: automations/grader-completion.md
+- [x] Session 9: openphone.js + OPENPHONE_NUMBER_ID wired (PNkSJ6WM4F confirmed); 5 skills added; 5 templates added; Watch status + manual lead entry added to morning app; sheet header fixed to 32-column schema
 
-**Next session (Session 9):**
-- Wire OpenPhone API (config exists, needs implementation)
-- Add photo-filename-protection/SKILL.md to skills/
-- Build photo-pipeline/SKILL.md
-- Build seo-build/SKILL.md
-- Build pre-launch/SKILL.md
+**Session 10 (current):**
+- [x] Build monthly-report/SKILL.md
+- Wire text D4 follow-up scheduler (openphone.js textD4() is ready, needs cron in index.js)
+- First real nightly scrape run + review scoring against live leads
 
 ---
 
