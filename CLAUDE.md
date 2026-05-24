@@ -250,6 +250,15 @@ All grader reports use RemodelerRank's own branding - NOT the client's brand.
 
 ---
 
+## RemodelerRank Social Profiles
+
+- Facebook: https://www.facebook.com/remodelerrank
+- Instagram: https://www.instagram.com/remodelerrank/
+
+Include both URLs in the `sameAs` array of any LocalBusiness JSON-LD schema written for RemodelerRank pages.
+
+---
+
 ## RemodelerRank Brand Assets — Logo Files
 
 Logo files live in the **website repo** at `Desktop/RemodelerRank/images/`.

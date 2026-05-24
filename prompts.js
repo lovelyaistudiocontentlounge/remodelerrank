@@ -1,7 +1,7 @@
 // All Claude prompts live here. Edit copy here, not inline in enricher.js.
 
 function scoringPrompt(leadData) {
-  return `You are scoring a remodeling contractor as a sales lead for RemodelerRank, a marketing agency serving East Bay and Solano County remodelers.
+  return `You are scoring a remodeling contractor as a sales lead for RemodelerRank, a marketing agency serving Northern California remodelers.
 
 Score this lead 1-10 based on how likely they need and can afford marketing services. Higher = better lead.
 
@@ -106,7 +106,7 @@ function emailD7(lead) {
 
 Last follow up from me.
 
-I work with a small number of East Bay remodelers at a time and wanted to give ${lead.name} first look before I move on. If timing is not right, no hard feelings at all.
+I work with a small number of Northern California remodelers at a time and wanted to give ${lead.name} first look before I move on. If timing is not right, no hard feelings at all.
 
 If it ever makes sense to talk, you know where to find me.
 
@@ -125,7 +125,7 @@ function emailGeneric(lead) {
 
 Do you have capacity for new projects right now, or are you booked out?
 
-I work with remodeling contractors in the East Bay on their web presence and online lead generation. Wanted to reach out directly.
+I work with remodeling contractors in Northern California on their web presence and online lead generation. Wanted to reach out directly.
 
 Worth a quick call?
 

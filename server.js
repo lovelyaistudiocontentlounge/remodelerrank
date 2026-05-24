@@ -6,6 +6,7 @@ const log = require('./logger');
 const { getApprovedLeads, updateLeadField } = require('./sheets');
 const { generateReport } = require('./reports');
 const { createDraft } = require('./gmail');
+const { sendText, textD0 } = require('./openphone');
 
 const PORT = config.PORT || 3000;
 
@@ -155,7 +156,14 @@ async function handleApprove(lead, notes) {
   }
 
   await updateLeadField(lead.place_id, 'status', 'Contacted');
-  return { driveLink, warnings };
+
+  // Prepare D0 text for HOT/WARM leads. Returned to client for manual review - never auto-sent.
+  let textDraft = null;
+  if (score >= 6 && lead.phone) {
+    textDraft = { body: textD0(lead), phone: lead.phone };
+  }
+
+  return { driveLink, warnings, textDraft };
 }
 
 // ─── Request router ───────────────────────────────────────────────────────────
@@ -210,6 +218,77 @@ async function handleRequest(req, res) {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ ok: true }));
       } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+    });
+    return;
+  }
+
+  if (req.method === 'POST' && url.pathname === '/api/watch') {
+    let body = '';
+    req.on('data', d => { body += d; });
+    req.on('end', async () => {
+      try {
+        const { place_id, notes } = JSON.parse(body);
+        if (notes) await updateLeadField(place_id, 'notes', notes);
+        await updateLeadField(place_id, 'status', 'Watch');
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ ok: true }));
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+    });
+    return;
+  }
+
+  if (req.method === 'POST' && url.pathname === '/api/add-lead') {
+    let body = '';
+    req.on('data', d => { body += d; });
+    req.on('end', async () => {
+      try {
+        const { name, owner_name, phone, email, website, city, lead_score, notes } = JSON.parse(body);
+        if (!name || !phone || !city) throw new Error('Name, phone, and city are required.');
+        const score = Number(lead_score) || 5;
+        const priority = score >= 8 ? 'hot' : score >= 6 ? 'warm' : 'cold';
+        const place_id = 'MANUAL_' + Date.now();
+        const lead = {
+          name, owner_name, phone, email, website,
+          website_platform: website ? 'Unknown' : 'None',
+          city, county: '', rating: '', review_count: '',
+          gbp_score: '', findability_score: '',
+          cslb_license: '', license_status: 'Unknown',
+          lead_score: score, priority,
+          best_hook: notes || '', portfolio_buried: false,
+          findability_breakdown: {},
+          status: 'New', notes, place_id,
+        };
+        const { appendLeads } = require('./sheets');
+        await appendLeads([lead]);
+        log.info(`Manual lead added: ${name} (${city}) - score ${score}`);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ ok: true }));
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+    });
+    return;
+  }
+
+  if (req.method === 'POST' && url.pathname === '/api/send-text') {
+    let body = '';
+    req.on('data', d => { body += d; });
+    req.on('end', async () => {
+      try {
+        const { phone, text, place_id } = JSON.parse(body);
+        await sendText(phone, text);
+        if (place_id) await updateLeadField(place_id, 'text_d0_sent', new Date().toISOString().slice(0, 10));
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ ok: true }));
+      } catch (err) {
+        log.error(`Send text failed: ${err.message}`);
         res.writeHead(500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: err.message }));
       }
@@ -382,6 +461,34 @@ body { font-family: 'Karla', sans-serif; background: var(--bg); color: var(--tex
 }
 .btn-skip:hover { border-color: #C0392B; color: #C0392B; }
 
+.btn-watch {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-family: 'Karla', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-watch:hover { border-color: #D4801A; color: #D4801A; }
+
+.btn-add {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-family: 'Karla', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-add:hover { background: rgba(255,255,255,0.15); }
+
 .btn-approve {
   background: var(--approve-green);
   border: none;
@@ -427,6 +534,7 @@ kbd { background: #EEE; border: 1px solid #CCC; border-radius: 3px; padding: 1px
     <div class="stat">New: <strong id="stat-total">-</strong></div>
     <div class="stat hot">HOT: <strong id="stat-hot">-</strong></div>
     <div class="stat warm">WARM: <strong id="stat-warm">-</strong></div>
+    <button class="btn-add" onclick="showAddLeadModal()">+ Add Lead</button>
   </div>
 </div>
 
@@ -573,11 +681,12 @@ function renderCard() {
       <textarea class="notes-input" id="notes-input" placeholder="Add notes before approving or skipping..."></textarea>
 
       <div class="action-row">
-        <button class="btn-skip" onclick="skipLead()">Skip &rarr;</button>
+        <button class="btn-skip" onclick="skipLead()">Skip</button>
+        <button class="btn-watch" onclick="watchLead()">Watch</button>
         <div class="nav-info">\${currentIndex + 1} of \${leads.length}</div>
         <button class="btn-approve" id="btn-approve" onclick="approveLead()">Approve + Generate</button>
       </div>
-      <div class="kbd-hint"><kbd>A</kbd> Approve &nbsp; <kbd>S</kbd> Skip &nbsp; <kbd>O</kbd> Open site &nbsp; <kbd>&larr;</kbd><kbd>&rarr;</kbd> Navigate</div>
+      <div class="kbd-hint"><kbd>A</kbd> Approve &nbsp; <kbd>W</kbd> Watch &nbsp; <kbd>S</kbd> Skip &nbsp; <kbd>O</kbd> Open site &nbsp; <kbd>&larr;</kbd><kbd>&rarr;</kbd> Navigate</div>
     </div>
   \`;
 }
@@ -590,7 +699,12 @@ function fiCheck(label, val) {
 function parseFindability(raw) {
   if (!raw) return {};
   if (typeof raw === 'object') return raw;
-  try { return JSON.parse(raw); } catch { return {}; }
+  try {
+    const parsed = JSON.parse(raw);
+    // Handle double-stringified values from the sheet
+    if (typeof parsed === 'string') return JSON.parse(parsed);
+    return parsed;
+  } catch { return {}; }
 }
 
 function escHtml(str) {
@@ -621,21 +735,63 @@ async function approveLead() {
     });
     const data = await res.json();
     if (!data.ok) throw new Error(data.error || 'Unknown error');
-    showToast('Approved. Draft + report generated.');
     leads.splice(currentIndex, 1);
     if (currentIndex >= leads.length && currentIndex > 0) currentIndex--;
     updateStats();
     renderCard();
+    if (data.textDraft) {
+      showTextModal(data.textDraft, lead.place_id);
+    } else {
+      showToast('Approved. Draft + report generated.');
+    }
   } catch (err) {
     showToast('Error: ' + err.message);
     if (btn) { btn.disabled = false; btn.textContent = 'Approve + Generate'; }
   }
 }
 
+function showTextModal(draft, place_id) {
+  const existing = document.getElementById('text-modal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'text-modal';
+  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:100';
+  modal.innerHTML = \`
+    <div style="background:white;border-radius:10px;padding:28px 32px;max-width:520px;width:90%;font-family:Karla,sans-serif;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.8px;color:#8BA89A;margin-bottom:8px;">D0 Text Ready - Review Before Sending</div>
+      <div style="font-size:13px;color:#6E7E78;margin-bottom:10px;">To: \${escHtml(draft.phone)}</div>
+      <textarea id="text-body" style="width:100%;border:1px solid #DDE6E1;border-radius:6px;padding:10px 12px;font-family:Karla,sans-serif;font-size:14px;color:#2C2C2C;min-height:100px;resize:vertical;">\${escHtml(draft.body)}</textarea>
+      <div style="display:flex;gap:10px;margin-top:16px;justify-content:flex-end;">
+        <button onclick="document.getElementById('text-modal').remove();showToast('Approved. Draft + report generated.');" style="background:none;border:1px solid #DDE6E1;border-radius:6px;padding:9px 18px;font-family:Karla,sans-serif;font-size:14px;cursor:pointer;color:#6E7E78;">Skip Text</button>
+        <button onclick="sendTextNow('\${escHtml(draft.phone)}','\${place_id}')" style="background:#4A7C6F;border:none;border-radius:6px;padding:9px 22px;font-family:Karla,sans-serif;font-size:14px;font-weight:700;color:white;cursor:pointer;">Send Text</button>
+      </div>
+    </div>
+  \`;
+  document.body.appendChild(modal);
+}
+
+async function sendTextNow(phone, place_id) {
+  const text = document.getElementById('text-body')?.value?.trim();
+  if (!text) return;
+  try {
+    const res = await fetch('/api/send-text', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone, text, place_id }),
+    });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || 'Send failed');
+    document.getElementById('text-modal')?.remove();
+    showToast('Approved. Draft + report + text sent.');
+  } catch (err) {
+    showToast('Text error: ' + err.message);
+  }
+}
+
 async function skipLead() {
   const lead = leads[currentIndex];
   const notes = getNotes();
-
   try {
     await fetch('/api/skip', {
       method: 'POST',
@@ -645,6 +801,117 @@ async function skipLead() {
     showToast('Skipped.');
     leads.splice(currentIndex, 1);
     if (currentIndex >= leads.length && currentIndex > 0) currentIndex--;
+    updateStats();
+    renderCard();
+  } catch (err) {
+    showToast('Error: ' + err.message);
+  }
+}
+
+async function watchLead() {
+  const lead = leads[currentIndex];
+  const notes = getNotes();
+  try {
+    await fetch('/api/watch', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ place_id: lead.place_id, notes }),
+    });
+    showToast('Marked as Watch - will stay in sheet for follow-up.');
+    leads.splice(currentIndex, 1);
+    if (currentIndex >= leads.length && currentIndex > 0) currentIndex--;
+    updateStats();
+    renderCard();
+  } catch (err) {
+    showToast('Error: ' + err.message);
+  }
+}
+
+function showAddLeadModal() {
+  const existing = document.getElementById('add-lead-modal');
+  if (existing) { existing.remove(); return; }
+
+  const modal = document.createElement('div');
+  modal.id = 'add-lead-modal';
+  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:100';
+  modal.innerHTML = \`
+    <div style="background:white;border-radius:10px;padding:28px 32px;max-width:560px;width:94%;font-family:Karla,sans-serif;max-height:90vh;overflow-y:auto;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.8px;color:#8BA89A;margin-bottom:16px;">Add Lead Manually</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="grid-column:1/-1">
+          <label style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#8BA89A;display:block;margin-bottom:4px;">Business Name *</label>
+          <input id="ml-name" type="text" placeholder="Acme Remodeling" style="width:100%;border:1px solid #DDE6E1;border-radius:6px;padding:8px 12px;font-family:Karla,sans-serif;font-size:14px;">
+        </div>
+        <div>
+          <label style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#8BA89A;display:block;margin-bottom:4px;">Owner Name</label>
+          <input id="ml-owner" type="text" placeholder="John Smith" style="width:100%;border:1px solid #DDE6E1;border-radius:6px;padding:8px 12px;font-family:Karla,sans-serif;font-size:14px;">
+        </div>
+        <div>
+          <label style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#8BA89A;display:block;margin-bottom:4px;">Phone *</label>
+          <input id="ml-phone" type="tel" placeholder="9251234567" style="width:100%;border:1px solid #DDE6E1;border-radius:6px;padding:8px 12px;font-family:Karla,sans-serif;font-size:14px;">
+        </div>
+        <div>
+          <label style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#8BA89A;display:block;margin-bottom:4px;">Email</label>
+          <input id="ml-email" type="email" placeholder="owner@example.com" style="width:100%;border:1px solid #DDE6E1;border-radius:6px;padding:8px 12px;font-family:Karla,sans-serif;font-size:14px;">
+        </div>
+        <div>
+          <label style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#8BA89A;display:block;margin-bottom:4px;">Website URL</label>
+          <input id="ml-website" type="url" placeholder="https://example.com" style="width:100%;border:1px solid #DDE6E1;border-radius:6px;padding:8px 12px;font-family:Karla,sans-serif;font-size:14px;">
+        </div>
+        <div>
+          <label style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#8BA89A;display:block;margin-bottom:4px;">City *</label>
+          <input id="ml-city" type="text" placeholder="Walnut Creek" style="width:100%;border:1px solid #DDE6E1;border-radius:6px;padding:8px 12px;font-family:Karla,sans-serif;font-size:14px;">
+        </div>
+        <div>
+          <label style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#8BA89A;display:block;margin-bottom:4px;">Lead Score (1-10)</label>
+          <input id="ml-score" type="number" min="1" max="10" value="6" style="width:100%;border:1px solid #DDE6E1;border-radius:6px;padding:8px 12px;font-family:Karla,sans-serif;font-size:14px;">
+        </div>
+        <div style="grid-column:1/-1">
+          <label style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#8BA89A;display:block;margin-bottom:4px;">Why did you flag this lead?</label>
+          <textarea id="ml-notes" placeholder="Saw their van at a job site in Danville. Nice work. No web presence visible." style="width:100%;border:1px solid #DDE6E1;border-radius:6px;padding:8px 12px;font-family:Karla,sans-serif;font-size:14px;min-height:64px;resize:vertical;"></textarea>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:20px;justify-content:flex-end;">
+        <button onclick="document.getElementById('add-lead-modal').remove();" style="background:none;border:1px solid #DDE6E1;border-radius:6px;padding:9px 18px;font-family:Karla,sans-serif;font-size:14px;cursor:pointer;color:#6E7E78;">Cancel</button>
+        <button onclick="submitAddLead()" style="background:#4A7C6F;border:none;border-radius:6px;padding:9px 22px;font-family:Karla,sans-serif;font-size:14px;font-weight:700;color:white;cursor:pointer;">Add to Queue</button>
+      </div>
+    </div>
+  \`;
+  document.body.appendChild(modal);
+  document.getElementById('ml-name').focus();
+}
+
+async function submitAddLead() {
+  const name    = document.getElementById('ml-name')?.value?.trim();
+  const phone   = document.getElementById('ml-phone')?.value?.trim();
+  const city    = document.getElementById('ml-city')?.value?.trim();
+  if (!name || !phone || !city) { showToast('Name, phone, and city are required.'); return; }
+
+  const payload = {
+    name,
+    owner_name:  document.getElementById('ml-owner')?.value?.trim(),
+    phone,
+    email:       document.getElementById('ml-email')?.value?.trim(),
+    website:     document.getElementById('ml-website')?.value?.trim(),
+    city,
+    lead_score:  document.getElementById('ml-score')?.value,
+    notes:       document.getElementById('ml-notes')?.value?.trim(),
+  };
+
+  try {
+    const res = await fetch('/api/add-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || 'Failed to add lead');
+    document.getElementById('add-lead-modal')?.remove();
+    showToast(name + ' added to queue.');
+    // Reload leads so it appears in the queue
+    const r = await fetch('/api/leads');
+    const d = await r.json();
+    leads = d.leads || leads;
     updateStats();
     renderCard();
   } catch (err) {
@@ -665,12 +932,17 @@ function showToast(msg) {
 }
 
 document.addEventListener('keydown', e => {
-  if (e.target.tagName === 'TEXTAREA') return;
+  if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
   if (e.key === 'a' || e.key === 'A') approveLead();
+  if (e.key === 'w' || e.key === 'W') watchLead();
   if (e.key === 's' || e.key === 'S') skipLead();
   if (e.key === 'o' || e.key === 'O') openSite();
   if (e.key === 'ArrowLeft')  navigate(-1);
   if (e.key === 'ArrowRight') navigate(1);
+  if (e.key === 'Escape') {
+    document.getElementById('text-modal')?.remove();
+    document.getElementById('add-lead-modal')?.remove();
+  }
 });
 
 init();

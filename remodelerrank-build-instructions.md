@@ -263,7 +263,7 @@ Hi [First Name],
 
 Last follow up from me.
 
-I work with a small number of East Bay remodelers at a time and wanted to give [Business Name] first look before I move on. If timing is not right, no hard feelings at all.
+I work with a small number of Northern California remodelers at a time and wanted to give [Business Name] first look before I move on. If timing is not right, no hard feelings at all.
 
 If it ever makes sense to talk, you know where to find me.
 

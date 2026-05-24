@@ -37,8 +37,9 @@ module.exports = {
   GMAIL_FROM: process.env.GMAIL_FROM || 'hey@remodelerrank.com',
 
   // OpenPhone
-  OPENPHONE_API_KEY: process.env.OPENPHONE_API_KEY,
-  JENNIFER_PHONE:    process.env.JENNIFER_PHONE || '9259409484',
+  OPENPHONE_API_KEY:    process.env.OPENPHONE_API_KEY,
+  OPENPHONE_NUMBER_ID:  process.env.OPENPHONE_NUMBER_ID,   // phoneNumberId from OpenPhone dashboard
+  JENNIFER_PHONE:       process.env.JENNIFER_PHONE || '9259409484',
 
   // App
   PORT: parseInt(process.env.PORT || '3000', 10),
