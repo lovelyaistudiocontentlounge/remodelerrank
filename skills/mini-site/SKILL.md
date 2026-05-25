@@ -17,14 +17,18 @@ Use the business name, slug, and file paths she provides. Do not guess or invent
 
 ## Step 1 - Identify the brand palette
 
-Read the logo file and the before screenshot she provides. Extract:
-- **Primary color** - used in nav background and CTA buttons. Usually the dominant logo color.
-- **Accent color** - used for highlights and borders. Usually a secondary logo color.
-- **Background** - lightest color found. Default to #FAFAF8 if unclear.
+Read **both** the logo file and the before screenshot. The logo alone is often not enough — many contractor logos are just text on white. The screenshot shows the actual site palette: nav color, button color, section backgrounds, accent uses.
+
+Extract from both sources combined:
+- **Primary color** - the strongest brand color across logo + site. Used in nav, CTA buttons, trust bar. Often found in the nav background or primary buttons on the screenshot.
+- **Accent color** - a secondary color for highlights, rules, and decorative elements.
+- **Background** - lightest tone. Default to `#FAFAF8` if unclear.
+
+**If the logo is monochrome or just text on white:** pull primary from the screenshot nav or button color instead. Do not default to sage just because the logo is simple.
 
 **Muted accent rule:** If the extracted accent is a bright or saturated yellow-gold (hue 40-55, saturation above 70%), shift it to muted brass `#C9A96E`. Let the photography lead - do not let a loud accent color fight the hero image.
 
-If the logo and screenshot have no detectable brand colors (e.g., just text on white), use these defaults:
+If both logo and screenshot have no detectable brand colors:
 - Primary: `#2C4A3E` (deep sage)
 - Accent: `#C9A96E` (brass)
 - Background: `#FAFAF8`
@@ -53,7 +57,45 @@ Use this exact section order. Do not skip sections or reorder them.
 
 1. **Info bar** - one line at the very top. Address, hours, phone. Small text, muted background.
 2. **Nav** - logo left, navigation links center, CTA button right. Sticky. Logo: `<img src="logo.svg" alt="[Business Name]" style="height:44px; width:auto;" onerror="this.style.display='none'">`. SVG is the preferred format - tell Jennifer to save their logo as `logo.svg` in the same folder as the HTML. If only a PNG/JPG is available, use `logo.png` instead and note the format in your reply.
-3. **Hero** - full-bleed project photo as background. Use the hero image she provides. Gradient overlay: `linear-gradient(to top, rgba(10,20,40,0.90) 0%, rgba(10,20,40,0.40) 50%, transparent 100%)`. White headline (Playfair/Lora), white subhead, two CTA buttons (primary filled, secondary outlined).
+3. **Hero** - full-bleed project photo with Ken Burns animation and text veil. Use this exact structure every time:
+
+```html
+<section class="hero">
+  <div class="hero-bg"></div>      <!-- animated layer -->
+  <div class="hero-overlay"></div> <!-- base gradient -->
+  <div class="hero-text-veil"></div> <!-- soft radial shadow behind text -->
+  <div class="hero-content">...</div>
+</section>
+```
+
+```css
+@keyframes kenburns {
+  0%   { transform: scale(1)    translateY(0); }
+  100% { transform: scale(1.06) translateY(-1.5%); }
+}
+.hero { position: relative; height: 620px; overflow: hidden; display: flex; align-items: flex-end; }
+.hero-bg {
+  position: absolute; inset: -6%;
+  background: url('[hero-image]') center center / cover no-repeat;
+  animation: kenburns 7s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top,
+    rgba(6,6,14,0.92) 0%, rgba(6,6,14,0.55) 40%,
+    rgba(6,6,14,0.15) 70%, transparent 100%);
+}
+.hero-text-veil {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 20% 90%,
+    rgba(0,0,0,0.45) 0%, transparent 70%);
+}
+```
+
+Add `text-shadow: 0 2px 20px rgba(0,0,0,0.5)` to the h1 and `text-shadow: 0 1px 12px rgba(0,0,0,0.4)` to the subhead.
+
+Animation spec: starts at scale 1.0, pushes in toward the focal point of the image with a diagonal pan. Use `translate(0,0)` → `translate(-3%, -3%)` and scale 1.0 → 1.15. 7 seconds, ease-in-out, infinite alternate. This is the setting confirmed to feel alive without being dizzying.
 4. **Trust bar** - horizontal strip with 3-4 trust signals: CSLB license number, years in business, number of projects, a quality statement. Icons as simple SVG or Unicode symbols only - no emoji.
 5. **Pain section** - headline like "Most homeowners run into the same problems." Four pain points in a 2x2 grid. Each has a short label and one sentence. End with a callout box: "There is a better way."
 6. **Services** - headline, then 6 cards in a 3x2 grid. Common services: Kitchen Remodeling, Bathroom Remodeling, ADU / In-Law Suite, Room Addition, Whole-Home Renovation, Outdoor Living. Use the prospect's actual services if known.
