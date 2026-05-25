@@ -66,6 +66,82 @@ Use this exact section order. Do not skip sections or reorder them.
 
 ---
 
+## Step 3b - Mobile Requirements (MANDATORY)
+
+**Every mockup must work on a 375px wide phone screen.** Contractors and their homeowner clients live on mobile. A mockup that only looks good at 1280px is not finished.
+
+Include these media queries at the end of every `<style>` block:
+
+```css
+@media (max-width: 768px) {
+  /* Info bar - hide on mobile, too cluttered */
+  .info-bar { display: none; }
+
+  /* Nav - hide desktop links, keep logo and CTA only */
+  .nav { padding: 0 20px; height: 64px; }
+  .nav-links { display: none; }
+  .nav-cta { font-size: 13px; padding: 9px 16px; }
+
+  /* Hero - shorter, tighter copy */
+  .hero { height: 480px; }
+  .hero-content { padding: 0 24px 40px; max-width: 100%; }
+  .hero h1 { font-size: 32px; }
+  .hero-sub { font-size: 15px; }
+  .hero-btns { flex-direction: column; gap: 10px; }
+  .btn-primary, .btn-outline { width: 100%; text-align: center; padding: 14px 20px; }
+
+  /* Trust bar - wrap into 2x2 */
+  .trust-bar { padding: 20px; gap: 16px; justify-content: center; }
+  .trust-divider { display: none; }
+  .trust-item { min-width: 44%; }
+
+  /* All sections - tighter padding */
+  .section { padding: 48px 24px; }
+  .section-title { font-size: 28px; }
+
+  /* All grids - single column */
+  .pain-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .wins-grid { grid-template-columns: 1fr; }
+  .comparison-grid { grid-template-columns: 1fr; }
+
+  /* Process - 2 columns on mobile */
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .process-step { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); padding: 20px 16px; }
+  .process-step:first-child { border-top: none; }
+
+  /* Mid CTA */
+  .mid-cta { padding: 48px 24px; }
+  .mid-cta h2 { font-size: 26px; }
+  .btn-white { width: 100%; text-align: center; display: block; }
+
+  /* Areas - smaller pills */
+  .area-pill { font-size: 12px; padding: 6px 14px; }
+
+  /* Final CTA - stack vertically */
+  .final-cta-section { flex-direction: column; padding: 48px 24px; text-align: center; }
+  .final-cta-copy h2 { font-size: 26px; }
+  .final-cta-phone { font-size: 22px; }
+  .btn-primary { width: 100%; text-align: center; }
+
+  /* Footer - single column */
+  .footer { padding: 40px 24px 24px; }
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 6px; text-align: center; }
+
+  /* Pain callout - stack */
+  .pain-callout { flex-direction: column; text-align: center; }
+  .pain-callout a { width: 100%; text-align: center; padding: 12px 20px; display: block; }
+}
+```
+
+**Tap target rule:** All buttons and links must be at least 44px tall on mobile. Never make a CTA button smaller than this.
+
+**Test at 375px** (iPhone SE - the smallest common screen) before reporting the mockup as done.
+
+---
+
 ## Step 4 - Copy rules
 
 - Headline style: short, direct, benefit-led. "Kitchen remodels that finish on time." Not "Welcome to our website."
