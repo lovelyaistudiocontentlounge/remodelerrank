@@ -115,6 +115,9 @@ a { color: inherit; text-decoration: none; }
 .math-row.total { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 10px; margin-top: 4px; font-weight: 700; color: white; font-size: 14px; }
 .math-row span:last-child { color: rgba(255,255,255,0.90); font-weight: 600; }
 .math-row.total span:last-child { color: #FFD580; font-size: 18px; }
+.revenue-total-callout { background: rgba(255,215,80,0.12); border: 1px solid rgba(255,215,80,0.3); border-radius: 8px; padding: 20px 24px; margin-top: 16px; text-align: center; }
+.revenue-total-num { font-family: 'Lora', serif; font-size: 52px; font-weight: 600; color: #FFD580; line-height: 1; }
+.revenue-total-lbl { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.50); margin-top: 6px; }
 
 /* Before / After */
 .comparison-section { padding: 56px 48px; background: var(--white); }
@@ -132,6 +135,7 @@ a { color: inherit; text-decoration: none; }
 
 /* Score Grid */
 .score-section { padding: 56px 48px; background: var(--off-white); }
+.score-inner, .wins-inner { max-width: 900px; margin: 0 auto; }
 .score-section-title { font-family: 'Lora', serif; font-size: 26px; color: var(--charcoal); margin-bottom: 8px; }
 .score-section-sub { font-size: 14px; color: var(--muted-sage); margin-bottom: 32px; }
 .score-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -230,6 +234,47 @@ a { color: inherit; text-decoration: none; }
 .rr-footer-brand { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sage); }
 .rr-footer-copy { font-size: 12px; color: rgba(255,255,255,0.30); }
 .rr-footer-link { font-size: 12px; color: var(--sage); }
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .rr-header { padding: 24px 28px; }
+  .rr-biz-name { font-size: 26px; }
+  .grade-badge { width: 80px; height: 80px; }
+  .grade-letter { font-size: 34px; }
+  .stats-strip { padding: 16px 24px; gap: 0; }
+  .stat-pill { padding: 8px 12px 8px 0; min-width: 0; flex: 1 1 30%; }
+  .revenue-banner { flex-direction: column; padding: 36px 28px; }
+  .revenue-math { width: 100%; }
+  .comparison-section { padding: 40px 24px; }
+  .comparison-grid { grid-template-columns: 1fr; gap: 20px; }
+  .score-section { padding: 40px 24px; }
+  .score-grid { grid-template-columns: 1fr; }
+  .wins-section { padding: 40px 24px; }
+  .wins-grid { grid-template-columns: 1fr; gap: 16px; }
+  .cta-section { padding: 48px 28px; }
+  .cta-headline { font-size: 26px; }
+  .aeo-section { padding: 48px 24px 56px; }
+  .aeo-headline { font-size: 26px; }
+  .rr-header { flex-wrap: wrap; }
+}
+@media (max-width: 560px) {
+  .rr-header { padding: 20px; }
+  .rr-biz-name { font-size: 22px; }
+  .stats-strip { padding: 12px 16px; }
+  .stat-pill { flex: 1 1 45%; }
+  .stat-pill:nth-child(5), .stat-pill:nth-child(6) { border-right: none; }
+  .revenue-banner { padding: 28px 20px; }
+  .score-section { padding: 32px 20px; }
+  .score-row { flex-direction: row; }
+  .score-row-label { font-size: 13px; }
+  .score-row-note { font-size: 11px; }
+  .wins-section { padding: 32px 20px; }
+  .cta-section { padding: 40px 20px; }
+  .cta-headline { font-size: 22px; }
+  .cta-btn { display: block; text-align: center; }
+  .aeo-section { padding: 36px 20px 48px; }
+  .aeo-q { font-size: 17px; }
+}
 </style>
 </head>
 <body>
@@ -279,15 +324,17 @@ a { color: inherit; text-decoration: none; }
 <div class="revenue-banner">
   <div class="revenue-copy">
     <div class="revenue-eyebrow">Estimated Missed Revenue</div>
-    <h2 class="revenue-headline">Your work is exceptional. Your online presence is costing you jobs.</h2>
-    <p class="revenue-body">Homeowners searching for remodelers in Walnut Creek, Danville, and San Ramon are finding your competitors first - not because they do better work, but because their sites are built to be found. Here is what that gap looks like in real numbers.</p>
+    <h2 class="revenue-headline">You're losing jobs to contractors who do worse work but show up first online.</h2>
+    <p class="revenue-body">Every week, homeowners in Walnut Creek, Danville, and San Ramon search for exactly what you do. Most of them never find you. They call whoever shows up first - and that contractor gets the job. Here is what that adds up to.</p>
   </div>
   <div class="revenue-math">
     <div class="math-row"><span>Missed searches / month</span><span>~120</span></div>
-    <div class="math-row"><span>Conversion rate (avg GC)</span><span>3%</span></div>
-    <div class="math-row"><span>Leads missed / month</span><span>3-4</span></div>
     <div class="math-row"><span>Avg project value</span><span>$65,000</span></div>
-    <div class="math-row total"><span>Est. missed / year</span><span>$2.3M+</span></div>
+    <div class="math-row"><span>Leads missed / month</span><span>3-4</span></div>
+    <div class="revenue-total-callout">
+      <div class="revenue-total-num">$2.3M+</div>
+      <div class="revenue-total-lbl">Estimated jobs left on the table per year</div>
+    </div>
   </div>
 </div>
 
@@ -309,74 +356,49 @@ a { color: inherit; text-decoration: none; }
 
 <!-- Score Grid -->
 <section class="score-section">
-  <h2 class="score-section-title">14-Point Audit Breakdown</h2>
+  <div class="score-inner"><h2 class="score-section-title">14-Point Audit Breakdown</h2>
   <p class="score-section-sub">Every factor that determines whether homeowners find you, trust you, and call you.</p>
   <div class="score-grid">
-    <div class="score-row"><div><div class="score-row-label">Website Design</div><div class="score-row-note">Dated template, no visual hierarchy</div></div><span class="grade-chip D">D</span></div>
-    <div class="score-row"><div><div class="score-row-label">Mobile Experience</div><div class="score-row-note">Responsive but cramped on small screens</div></div><span class="grade-chip C">C</span></div>
-    <div class="score-row"><div><div class="score-row-label">Page Speed</div><div class="score-row-note">Heavy images, no optimization visible</div></div><span class="grade-chip D">D</span></div>
-    <div class="score-row"><div><div class="score-row-label">SEO Optimization</div><div class="score-row-note">No evident keyword targeting or meta structure</div></div><span class="grade-chip F">F</span></div>
-    <div class="score-row"><div><div class="score-row-label">Google Business Profile</div><div class="score-row-note">Active, 5-star rating - solid foundation</div></div><span class="grade-chip B">B</span></div>
-    <div class="score-row"><div><div class="score-row-label">Online Reviews</div><div class="score-row-note">5 stars but review count not prominent</div></div><span class="grade-chip B">B</span></div>
-    <div class="score-row"><div><div class="score-row-label">Portfolio Presentation</div><div class="score-row-note">Exists but buried under Portfolio nav tab</div></div><span class="grade-chip D">D</span></div>
-    <div class="score-row"><div><div class="score-row-label">Service Pages</div><div class="score-row-note">Single dropdown - no individual service pages</div></div><span class="grade-chip D">D</span></div>
-    <div class="score-row"><div><div class="score-row-label">Schema Markup</div><div class="score-row-note">No structured data detected</div></div><span class="grade-chip F">F</span></div>
-    <div class="score-row"><div><div class="score-row-label">Local Citations</div><div class="score-row-note">Limited directory presence outside Google</div></div><span class="grade-chip C">C</span></div>
-    <div class="score-row"><div><div class="score-row-label">CSLB License</div><div class="score-row-note">Active and displayed on site</div></div><span class="grade-chip A">A</span></div>
-    <div class="score-row"><div><div class="score-row-label">Trust Signals</div><div class="score-row-note">License shown, but no badges or accreditations</div></div><span class="grade-chip C">C</span></div>
-    <div class="score-row"><div><div class="score-row-label">Calls to Action</div><div class="score-row-note">Contact tab only - no above-fold CTA</div></div><span class="grade-chip D">D</span></div>
-    <div class="score-row"><div><div class="score-row-label">Content Quality</div><div class="score-row-note">Generic copy, no differentiation or story</div></div><span class="grade-chip C">C</span></div>
+    <div class="score-row"><div><div class="score-row-label">Website Design</div><div class="score-row-note">Looks like 2012. Homeowners click away in seconds.</div></div><span class="grade-chip D">D</span></div>
+    <div class="score-row"><div><div class="score-row-label">Mobile Experience</div><div class="score-row-note">70% of traffic is mobile. Hard to read on a phone means lost calls.</div></div><span class="grade-chip C">C</span></div>
+    <div class="score-row"><div><div class="score-row-label">Page Speed</div><div class="score-row-note">Slow load = homeowners gone before they see your work.</div></div><span class="grade-chip D">D</span></div>
+    <div class="score-row"><div><div class="score-row-label">SEO Optimization</div><div class="score-row-note">You don't show up when people search for contractors in your cities.</div></div><span class="grade-chip F">F</span></div>
+    <div class="score-row"><div><div class="score-row-label">Google Business Profile</div><div class="score-row-note">Strong. Your Google profile is working for you.</div></div><span class="grade-chip B">B</span></div>
+    <div class="score-row"><div><div class="score-row-label">Online Reviews</div><div class="score-row-note">Great rating - but it's buried. Most visitors miss it.</div></div><span class="grade-chip B">B</span></div>
+    <div class="score-row"><div><div class="score-row-label">Portfolio Presentation</div><div class="score-row-note">Your best work is hidden. They leave before they find it.</div></div><span class="grade-chip D">D</span></div>
+    <div class="score-row"><div><div class="score-row-label">Service Pages</div><div class="score-row-note">No dedicated pages = invisible for kitchen, bath, and ADU searches.</div></div><span class="grade-chip D">D</span></div>
+    <div class="score-row"><div><div class="score-row-label">Schema Markup</div><div class="score-row-note">Google doesn't know what you build or where you work.</div></div><span class="grade-chip F">F</span></div>
+    <div class="score-row"><div><div class="score-row-label">Local Citations</div><div class="score-row-note">Missing from the places homeowners check before they call.</div></div><span class="grade-chip C">C</span></div>
+    <div class="score-row"><div><div class="score-row-label">CSLB License</div><div class="score-row-note">Licensed and showing it. Builds trust fast.</div></div><span class="grade-chip A">A</span></div>
+    <div class="score-row"><div><div class="score-row-label">Trust Signals</div><div class="score-row-note">License is there - nothing else that sets you apart from the next bid.</div></div><span class="grade-chip C">C</span></div>
+    <div class="score-row"><div><div class="score-row-label">Calls to Action</div><div class="score-row-note">No phone number up front. Callers give up before they find it.</div></div><span class="grade-chip D">D</span></div>
+    <div class="score-row"><div><div class="score-row-label">Content Quality</div><div class="score-row-note">Nothing that answers: why Coda over the other 3 estimates they're getting?</div></div><span class="grade-chip C">C</span></div>
   </div>
+</div>
 </section>
 
 <!-- Priority Wins -->
 <section class="wins-section">
-  <h2 class="wins-title">3 Highest-Impact Fixes</h2>
-  <p class="wins-sub">Not everything - the three changes that move the needle most.</p>
+  <div class="wins-inner"><h2 class="wins-title">3 Reasons You're Losing Jobs Right Now</h2>
+  <p class="wins-sub">Not a technical list. The three things that are costing you real work.</p>
   <div class="wins-grid">
     <div class="win-card urgent">
-      <span class="win-tag">Fix First</span>
-      <h3>Surface the portfolio on the homepage</h3>
-      <p>Your project photos are impressive - they are just buried where most homeowners never find them. Moving 6 photos above the fold converts browsers into callers. This is your single strongest trust signal and it is invisible on the current site.</p>
+      <span class="win-tag">Costing You the Most</span>
+      <h3>Homeowners leave without seeing your work</h3>
+      <p>Your project photos are impressive - but they are buried under a nav tab. The homeowner lands on your site, sees generic text, and calls someone else. Moving 6 photos above the fold is the single fastest thing you can do to turn visitors into calls.</p>
     </div>
     <div class="win-card medium">
-      <span class="win-tag">High Impact</span>
-      <h3>Build individual service pages</h3>
-      <p>One Services dropdown means you rank for nothing. A dedicated page for Kitchen Remodeling in Walnut Creek, Bathroom Remodeling in Danville, and ADU Contractor in San Ramon means you show up when homeowners search those exact terms.</p>
+      <span class="win-tag">You're Invisible for Key Searches</span>
+      <h3>No page for kitchens, bathrooms, or ADUs</h3>
+      <p>When a homeowner searches "kitchen remodel Walnut Creek" or "ADU contractor Danville" - you don't show up. One services dropdown covers nothing. Dedicated pages for each service and city put you in front of the homeowner who is already ready to hire.</p>
     </div>
     <div class="win-card quick">
-      <span class="win-tag">Quick Win</span>
-      <h3>Add schema markup and a clear CTA</h3>
-      <p>LocalBusiness schema takes an afternoon and tells Google exactly who you are and where you work. Pairing it with a phone number and estimate button above the fold stops visitors from bouncing before they ever see your work.</p>
+      <span class="win-tag">Easy to Fix, Hurting You Now</span>
+      <h3>No phone number up front, Google doesn't know where you work</h3>
+      <p>If a homeowner has to hunt for your phone number, half of them won't. And without schema markup, Google can't confirm you serve Walnut Creek or Danville - so it doesn't show you there. Both fixes take a day and start paying off immediately.</p>
     </div>
   </div>
-</section>
-
-<!-- Outreach Summary -->
-<section style="background:#F0F5F2;border-top:1px solid var(--border);padding:48px 48px 52px;">
-  <div style="max-width:720px;margin:0 auto;">
-    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sage);margin-bottom:10px;">For Your Outreach</div>
-    <h2 style="font-family:'Lora',serif;font-size:24px;color:var(--charcoal);margin-bottom:6px;">4 Reasons This Matters to Coda Construction</h2>
-    <p style="font-size:13px;color:var(--muted-sage);margin-bottom:28px;">Copy any of these into your email or text.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-      <div style="background:white;border:1px solid var(--border);border-radius:6px;padding:20px 22px;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:8px;">01 - The Portfolio Problem</div>
-        <p style="font-size:14px;color:var(--charcoal);line-height:1.6;">"Your project photos are impressive - they are just buried where most homeowners never find them. Moving them above the fold is the fastest thing we could do to get more calls."</p>
-      </div>
-      <div style="background:white;border:1px solid var(--border);border-radius:6px;padding:20px 22px;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">02 - The Search Gap</div>
-        <p style="font-size:14px;color:var(--charcoal);line-height:1.6;">"Homeowners in Walnut Creek and Danville are searching for exactly what you do - they are just finding your competitors first. Not because of better work, but because of better visibility."</p>
-      </div>
-      <div style="background:white;border:1px solid var(--border);border-radius:6px;padding:20px 22px;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">03 - The Revenue Number</div>
-        <p style="font-size:14px;color:var(--charcoal);line-height:1.6;">"At 3 missed leads per month and an average project value of $65K, the search visibility gap is costing an estimated $2.3M in potential work per year. That is a solvable problem."</p>
-      </div>
-      <div style="background:white;border:1px solid var(--border);border-radius:6px;padding:20px 22px;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin-bottom:8px;">04 - The Easy Win</div>
-        <p style="font-size:14px;color:var(--charcoal);line-height:1.6;">"You already have the license, the reviews, and the real work. The foundation is there - the site just is not showing it. That is exactly the kind of problem we fix."</p>
-      </div>
-    </div>
-  </div>
+</div>
 </section>
 
 <!-- CTA -->
@@ -385,101 +407,6 @@ a { color: inherit; text-decoration: none; }
   <h2 class="cta-headline">Let's talk about what your site could be doing for you.</h2>
   <p class="cta-body">A 15-minute call is all it takes to walk through this report together and show you exactly what we would build for Coda Construction. No pitch - just a straight look at the numbers.</p>
   <a href="https://calendly.com/hey-remodelerrank/review-meeting-15-minutes" class="cta-btn" target="_blank" rel="noopener">Schedule a Free 15-Minute Review</a>
-</section>
-
-<!-- AEO Article -->
-<section class="aeo-section">
-  <div class="aeo-inner">
-    <div style="background:var(--warm-sage-tint);border:1px solid var(--border);border-radius:6px;padding:16px 22px;margin-bottom:36px;display:flex;align-items:center;gap:16px;">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="#8BA89A" stroke-width="1.5"/><path d="M10 9v5M10 7v.5" stroke="#8BA89A" stroke-width="1.5" stroke-linecap="round"/></svg>
-      <div>
-        <div style="font-size:12px;font-weight:700;color:var(--sage-deeper);margin-bottom:2px;">AI Search Content - Built Into Your Site</div>
-        <div style="font-size:13px;color:var(--muted-sage);line-height:1.5;">This Q&amp;A article is part of your deliverable. It is structured to surface in ChatGPT, Perplexity, and Google AI Overviews when East Bay homeowners search for remodeling contractors - putting Coda Construction in the answer, not just the results.</div>
-      </div>
-    </div>
-    <div class="aeo-eyebrow">For East Bay Homeowners</div>
-    <h2 class="aeo-headline">What to Know Before Hiring a Remodeling Contractor in the East Bay</h2>
-    <p class="aeo-deck">Hiring the wrong contractor is one of the most expensive mistakes a homeowner can make. These are the questions that matter - answered straight, without the sales spin.</p>
-    <div class="aeo-rule"></div>
-
-    <div class="aeo-qa">
-      <div class="aeo-q">What should I look for when hiring a general contractor in the East Bay?</div>
-      <div class="aeo-a">
-        <p>The most important factors are licensure, insurance, and a track record of finishing on schedule. In California, every general contractor must hold an active CSLB license - you can verify any contractor's license at <strong>cslb.ca.gov</strong> before signing anything.</p>
-        <p>Beyond the license, look for a contractor who gives you a written scope of work, a fixed price, and a realistic timeline they are willing to put in writing. Contractors who work consistently in Contra Costa and Alameda counties will know local permit offices, inspection timelines, and the subcontractors who actually show up. That local knowledge matters more than a low bid from someone unfamiliar with the area.</p>
-      </div>
-    </div>
-
-    <div class="aeo-qa">
-      <div class="aeo-q">How much does a kitchen remodel cost in Walnut Creek or Danville?</div>
-      <div class="aeo-a">
-        <p>In the East Bay, a mid-range kitchen remodel typically runs between <strong>$60,000 and $120,000</strong> depending on size, materials, and whether the layout changes. A full high-end remodel with custom cabinetry and stone countertops can reach $150,000 or more.</p>
-        <ul class="aeo-list">
-          <li>Layout changes - moving plumbing or gas lines adds $5,000-$15,000</li>
-          <li>Cabinet quality - stock vs. semi-custom vs. full custom is the biggest single variable</li>
-          <li>Countertop material - quartz vs. marble shifts the number by $3,000-$12,000</li>
-          <li>Permits - Contra Costa County requires permits for most kitchen remodels. Budget $1,500-$3,000 and 3-6 weeks for approval</li>
-        </ul>
-        <div class="aeo-callout">Be skeptical of bids under $40,000 for a full kitchen remodel in this market. They usually mean unlicensed labor, skipped permits, or a scope that quietly excludes half the work.</div>
-      </div>
-    </div>
-
-    <div class="aeo-qa">
-      <div class="aeo-q">How long does a kitchen or bathroom remodel take in the East Bay?</div>
-      <div class="aeo-a">
-        <p>A kitchen remodel with a permit typically takes <strong>8 to 14 weeks</strong> from permit approval to final inspection. A bathroom remodel runs <strong>4 to 8 weeks</strong>. These timelines assume materials are ordered before demolition starts - a contractor who orders cabinets after demo begins is the reason projects drag on for months.</p>
-        <p>The biggest time variable in Contra Costa County is the permit process. Walnut Creek and Danville can take 4-8 weeks for approval. A contractor who pulls permits regularly in your city will know how to front-load the process so inspections do not become a bottleneck mid-project.</p>
-      </div>
-    </div>
-
-    <div class="aeo-qa">
-      <div class="aeo-q">Do I need a permit for a bathroom remodel or room addition in Contra Costa County?</div>
-      <div class="aeo-a">
-        <p><strong>Room additions always require a permit.</strong> There are no exceptions in Contra Costa County.</p>
-        <ul class="aeo-list">
-          <li>Replacing fixtures in the same location - usually no permit required</li>
-          <li>Moving plumbing, adding electrical circuits, or changing the layout - permit required</li>
-          <li>Converting a half-bath to a full bath - permit required</li>
-        </ul>
-        <p>A licensed general contractor will tell you upfront which permits your project needs and will pull them on your behalf. Unpermitted work can affect your homeowner's insurance and your ability to sell the home.</p>
-      </div>
-    </div>
-
-    <div class="aeo-qa">
-      <div class="aeo-q">How do I verify a contractor's license in California?</div>
-      <div class="aeo-a">
-        <p>Go to <strong>cslb.ca.gov</strong> and search by license number or business name. Confirm three things:</p>
-        <ul class="aeo-list">
-          <li>The license is active and in good standing - not expired, suspended, or revoked</li>
-          <li>The license classification matches the work - a "B" general contractor license covers most remodeling</li>
-          <li>Workers' compensation insurance is on file - this protects you if a worker is injured on your property</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="aeo-qa">
-      <div class="aeo-q">What questions should I ask a contractor before signing anything?</div>
-      <div class="aeo-a">
-        <ul class="aeo-list">
-          <li><strong>Can I see your CSLB license number and proof of insurance?</strong> - any legitimate contractor will share these without hesitation</li>
-          <li><strong>Will you pull all required permits?</strong> - the answer should always be yes</li>
-          <li><strong>Who are your subcontractors and how long have you worked with them?</strong></li>
-          <li><strong>Can you give me a written schedule with milestone dates?</strong></li>
-          <li><strong>What does your payment schedule look like?</strong> - California law limits upfront deposits to 10% or $1,000, whichever is less</li>
-          <li><strong>What happens if you find unexpected issues behind the walls?</strong></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="aeo-qa">
-      <div class="aeo-q">Is an ADU worth building in the East Bay?</div>
-      <div class="aeo-a">
-        <p>In most cases, yes. East Bay ADUs rent for <strong>$1,800 to $2,800 per month</strong> for a one-bedroom unit in cities like Walnut Creek, San Ramon, and Danville. A well-built ADU typically costs $150,000-$250,000 all-in and generates enough income to cover most or all of the construction financing.</p>
-        <div class="aeo-callout">California law now requires most cities to approve ADU applications within 60 days. A contractor who has built ADUs in your city will know what the planning department looks for and can design to approval the first time.</div>
-      </div>
-    </div>
-
-  </div>
 </section>
 
 <!-- Footer -->
