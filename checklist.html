@@ -145,6 +145,22 @@
       </div>
     </div>
 
+    <!-- GOOGLE ADS DAILY CHECK -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-dot" style="background:#C9A96E"></div>
+        <div class="section-title">Google Ads — Daily Check</div>
+        <div class="section-count" id="count-ads-daily"></div>
+      </div>
+      <div class="section-list" id="list-ads-daily">
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Check campaign spend vs daily budget — <a href="https://ads.google.com" target="_blank" onclick="event.stopPropagation()">Google Ads</a> account AW-18182654739</div><div class="item-tag tag-push">Ads</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Check clicks and conversions for today — are conversions tracking correctly?</div><div class="item-tag tag-push">Ads</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Zero conversions for 48h+? Pause campaign and review ad copy, landing page, and form</div><div class="item-tag tag-urgent">Flag</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Spend stopped entirely? Check billing, payment method, and any disapproved ads</div><div class="item-tag tag-urgent">Flag</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Log impressions / clicks / conversions / spend vs budget in running tally (weekly)</div><div class="item-tag tag-site">Track</div></div>
+      </div>
+    </div>
+
     <!-- PIPELINE GOAL -->
     <div class="section">
       <div class="section-header">
@@ -310,6 +326,18 @@
         <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Copy <a href="https://drive.google.com" target="_blank" onclick="event.stopPropagation()">Drive</a> Audits folder ID → add to .env as REPORTS_DRIVE_FOLDER_ID (ID after /folders/)</div><div class="item-tag tag-site">Drive</div></div>
         <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Set up <a href="https://search.google.com/search-console" target="_blank" onclick="event.stopPropagation()">Google Search Console</a> for remodelerrank.com — verify via Google Workspace</div><div class="item-tag tag-site">Google</div></div>
         <div class="item done" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Set up Google Analytics 4 for remodelerrank.com — tracking code added to index.html</div><div class="item-tag tag-site">Google</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Create leads@remodelerrank.com in <a href="https://admin.google.com" target="_blank" onclick="event.stopPropagation()">Google Workspace</a> — automation only, unblocks Zapier flows</div><div class="item-tag tag-urgent">Email</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Create noreply@remodelerrank.com in Google Workspace — for automated sequences (goldmine, audit)</div><div class="item-tag tag-urgent">Email</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Virtual mailbox: sign up for iPostal1 ($10-25/mo) — unblocks GBP setup, removes home address, required for contracts + state filings</div><div class="item-tag tag-urgent">Business</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Business bank account: open Mercury or Relay (both free) — do NOT use personal account for any RR transactions</div><div class="item-tag tag-urgent">Business</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Create GBP for RemodelerRank — after virtual mailbox is confirmed with a real street address</div><div class="item-tag tag-push">GBP</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Build /privacy page — required before cookie consent banner can go live</div><div class="item-tag tag-push">Legal</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Build /terms page — Terms of Service required before more paid traffic</div><div class="item-tag tag-push">Legal</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Book 1 hour with CPA this month — is LLC active + in good standing in CA? DBA or separate entity for RR? S-Corp election timing?</div><div class="item-tag tag-push">Legal</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Add Free Website Audit event to <a href="https://calendly.com" target="_blank" onclick="event.stopPropagation()">Calendly</a> — 30 min, triggered from Google Ads → /audit/</div><div class="item-tag tag-site">Calendly</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Add Goldmine Review Call to Calendly — 15 min, linked in goldmine email sequence (emails 3 + 4)</div><div class="item-tag tag-site">Calendly</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Add Onboarding Call to Calendly — 60 min, sent after contract signed (access grants, photos, intake)</div><div class="item-tag tag-site">Calendly</div></div>
+        <div class="item" onclick="toggle(this)"><div class="checkbox"><span class="checkbox-tick">✓</span></div><div class="item-text">Add Monthly Check-in to Calendly — 30 min, auto-scheduled monthly for existing clients</div><div class="item-tag tag-site">Calendly</div></div>
       </div>
     </div>
 

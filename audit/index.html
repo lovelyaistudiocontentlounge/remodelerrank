@@ -491,7 +491,7 @@
 
         <div class="form-field">
           <label for="website">Your Website URL</label>
-          <input type="url" id="website" name="website_url" placeholder="https://yoursite.com" required>
+          <input type="text" id="website" name="website_url" placeholder="yoursite.com" required>
         </div>
 
         <div class="qualifier-box">
@@ -522,6 +522,16 @@
       </div>
     </div>
   </div>
+
+  <script>
+    // Auto-prepend https:// so Netlify receives a clean URL even if user types just the domain
+    document.getElementById('website').addEventListener('blur', function() {
+      var v = this.value.trim();
+      if (v && !v.match(/^https?:\/\//i)) {
+        this.value = 'https://' + v;
+      }
+    });
+  </script>
 
   <!-- 6. FOOTER -->
   <footer class="site-footer">

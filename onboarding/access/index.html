@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account Access — RemodelerRank Client Onboarding</title>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="RR">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sage: #8BA89A; --sage-dark: #6E8E7E; --sage-deeper: #4A6E5E;
+    --charcoal: #2C2C2C; --off-white: #FAFAF8; --warm-sage: #EEF2EF;
+    --border: #DDE6E1; --muted: #7A8A80; --faint: #B0BDB5;
+    --amber: #D4801A; --green: #2D7A4F; --red: #C0392B;
+  }
+  body { font-family: 'Karla', sans-serif; background: var(--off-white); color: var(--charcoal); -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav { background: var(--charcoal); padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { height: 28px; width: auto; }
+  .nav-help { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .nav-help a { color: var(--sage); text-decoration: none; }
+  .nav-help a:hover { text-decoration: underline; }
+
+  /* HERO BAND */
+  .hero-band { background: var(--sage-deeper); padding: 48px 32px; text-align: center; }
+  .hero-band h1 { font-family: 'Lora', serif; font-size: 32px; font-weight: 500; color: white; margin-bottom: 12px; }
+  .hero-band p { font-size: 16px; color: rgba(255,255,255,0.8); max-width: 560px; margin: 0 auto; line-height: 1.6; }
+
+  /* PROGRESS STRIP */
+  .progress-strip { background: white; border-bottom: 1px solid var(--border); padding: 0 32px; display: flex; justify-content: center; gap: 0; overflow-x: auto; }
+  .progress-item { display: flex; align-items: center; gap: 8px; padding: 16px 20px; font-size: 13px; font-weight: 600; color: var(--faint); white-space: nowrap; border-bottom: 2px solid transparent; }
+  .progress-item.active { color: var(--sage-deeper); border-bottom-color: var(--sage-deeper); }
+  .progress-item.done { color: var(--green); }
+  .progress-num { width: 22px; height: 22px; border-radius: 50%; border: 2px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+
+  /* PAGE */
+  .page { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  /* INTRO CARD */
+  .intro-card { background: var(--warm-sage); border: 1px solid var(--border); border-radius: 8px; padding: 24px 28px; margin-bottom: 40px; }
+  .intro-card p { font-size: 15px; line-height: 1.7; color: var(--charcoal); }
+  .intro-card strong { color: var(--sage-deeper); }
+  .time-pill { display: inline-flex; align-items: center; gap: 6px; background: white; border: 1px solid var(--border); border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 12px; letter-spacing: 0.5px; }
+
+  /* PLATFORM SECTIONS */
+  .platform { background: white; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 20px; overflow: hidden; }
+  .platform-header { padding: 20px 24px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--border); cursor: pointer; }
+  .platform-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .platform-title { font-family: 'Lora', serif; font-size: 17px; font-weight: 500; flex: 1; }
+  .platform-time { font-size: 12px; color: var(--muted); font-weight: 600; white-space: nowrap; }
+  .platform-body { padding: 24px; }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 20px; }
+  .step { display: flex; gap: 16px; }
+  .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--sage-deeper); color: white; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .step-content { flex: 1; }
+  .step-content h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; color: var(--charcoal); }
+  .step-content p { font-size: 14px; line-height: 1.6; color: #555; }
+  .step-content .path { font-size: 13px; color: var(--sage-deeper); font-weight: 600; background: var(--warm-sage); padding: 3px 10px; border-radius: 3px; display: inline-block; margin-top: 6px; font-family: monospace; }
+  .step-content .note { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 6px; line-height: 1.5; }
+
+  /* SCREENSHOT PLACEHOLDER */
+  .screenshot-placeholder { background: var(--warm-sage); border: 2px dashed var(--border); border-radius: 6px; height: 160px; display: flex; align-items: center; justify-content: center; margin-top: 12px; text-align: center; padding: 20px; }
+  .screenshot-placeholder span { font-size: 12px; color: var(--faint); font-style: italic; line-height: 1.6; }
+
+  /* CALLOUT */
+  .callout { display: flex; gap: 12px; background: #FDF6EE; border: 1px solid #F0D5A8; border-radius: 6px; padding: 14px 18px; margin-top: 20px; }
+  .callout-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .callout p { font-size: 13px; line-height: 1.6; color: #7A5200; }
+
+  .callout.green { background: #EEF7F2; border-color: #A8D5BC; }
+  .callout.green p { color: #1A5C35; }
+
+  /* CHECKLIST */
+  .platform-checklist { border-top: 1px solid var(--border); padding: 16px 24px; background: var(--warm-sage); }
+  .platform-checklist p { font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .check-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 6px; font-size: 13px; color: var(--charcoal); line-height: 1.4; }
+  .check-item::before { content: ""; width: 16px; height: 16px; border: 2px solid var(--border); border-radius: 3px; flex-shrink: 0; margin-top: 1px; background: white; }
+
+  /* BOTTOM CTA */
+  .bottom-cta { text-align: center; background: var(--charcoal); border-radius: 8px; padding: 40px 32px; margin-top: 48px; }
+  .bottom-cta h2 { font-family: 'Lora', serif; font-size: 24px; font-weight: 500; color: white; margin-bottom: 12px; }
+  .bottom-cta p { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 24px; line-height: 1.6; }
+  .btn-sage { display: inline-block; background: var(--sage); color: white; font-family: 'Karla', sans-serif; font-size: 14px; font-weight: 700; padding: 14px 32px; border-radius: 4px; text-decoration: none; letter-spacing: 0.5px; }
+  .btn-sage:hover { background: var(--sage-dark); }
+  .bottom-contact { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.5); }
+  .bottom-contact a { color: var(--sage); text-decoration: none; }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 32px 24px; font-size: 12px; color: var(--faint); }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    .hero-band { padding: 36px 20px; }
+    .hero-band h1 { font-size: 26px; }
+    .progress-strip { gap: 0; padding: 0 12px; }
+    .progress-item { padding: 14px 12px; font-size: 11px; }
+    .page { padding: 32px 16px 60px; }
+    .platform-body { padding: 20px 16px; }
+    .platform-header { padding: 16px; }
+    .bottom-cta { padding: 32px 20px; }
+    .bottom-cta h2 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <img src="/images/logo-reversed.svg" alt="RemodelerRank" class="nav-logo" onerror="this.style.display='none'">
+  <div class="nav-help">Questions? <a href="mailto:hey@remodelerrank.com">hey@remodelerrank.com</a></div>
+</nav>
+
+<div class="hero-band">
+  <h1>Account Access Setup</h1>
+  <p>Follow these steps to grant RemodelerRank access to your accounts. This takes about 20 minutes and you can do it on your own — or we can walk through it together on a screen share.</p>
+</div>
+
+<div class="progress-strip">
+  <div class="progress-item active"><div class="progress-num">1</div> Google Business Profile</div>
+  <div class="progress-item"><div class="progress-num">2</div> Google Ads</div>
+  <div class="progress-item"><div class="progress-num">3</div> Google Analytics</div>
+  <div class="progress-item"><div class="progress-num">4</div> Facebook</div>
+  <div class="progress-item"><div class="progress-num">5</div> Instagram</div>
+  <div class="progress-item"><div class="progress-num">6</div> Yelp</div>
+</div>
+
+<div class="page">
+
+  <div class="intro-card">
+    <div class="time-pill">About 20 minutes total</div>
+    <p>You are granting access so Jennifer can manage these platforms on your behalf. <strong>You keep full ownership and control</strong> — Jennifer gets manager-level access, not ownership. You can remove access at any time.</p>
+  </div>
+
+  <!-- 1. GOOGLE BUSINESS PROFILE -->
+  <div class="platform" id="gbp">
+    <div class="platform-header">
+      <div class="platform-icon" style="background:#E8F0FE;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="#4285F4"/></svg>
+      </div>
+      <div class="platform-title">Google Business Profile</div>
+      <div class="platform-time">5 min</div>
+    </div>
+    <div class="platform-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Go to your Google Business Profile</h4>
+            <p>Open a browser and go to your Google Business Profile dashboard.</p>
+            <div class="path">business.google.com</div>
+            <p class="note">Sign in with the Google account you used to create your business listing. If you are not sure which account, search Google for your business name and look for the "Edit Profile" button.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Open the menu and go to Business Profile Settings</h4>
+            <p>In the left sidebar, click on the three-dot menu or "Settings." Select "Managers."</p>
+            <div class="screenshot-placeholder"><span>Screenshot: Business Profile Settings → Managers menu</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Add Jennifer as a Manager</h4>
+            <p>Click "Add" or the "+" button. Enter Jennifer's email address and set the role to <strong>Manager</strong> (not Owner).</p>
+            <div class="path">hey@remodelerrank.com</div>
+            <p class="note">Manager access lets Jennifer post updates, respond to reviews, and edit your profile — but cannot delete the listing or remove you as Owner.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Confirm the invitation</h4>
+            <p>Click "Invite." Jennifer will receive an email and accept within 24 hours. You will get a notification when access is confirmed.</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout green" style="margin-top:20px;">
+        <div class="callout-icon">&#10003;</div>
+        <p><strong>You stay in control.</strong> You are the Owner. Jennifer is a Manager. You can see everything she does and remove access at any time from the same Managers screen.</p>
+      </div>
+    </div>
+    <div class="platform-checklist">
+      <p>Confirm when done</p>
+      <div class="check-item">Jennifer's email added as Manager (not Owner)</div>
+      <div class="check-item">Invitation sent — Jennifer will confirm receipt</div>
+    </div>
+  </div>
+
+  <!-- 2. GOOGLE ADS -->
+  <div class="platform" id="ads">
+    <div class="platform-header">
+      <div class="platform-icon" style="background:#FEF3E2;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3.5 18.5L9.5 12l4 4L19.5 8" stroke="#FBBC04" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="platform-title">Google Ads</div>
+      <div class="platform-time">5 min</div>
+    </div>
+    <div class="platform-body">
+      <div class="callout" style="margin-bottom:20px;">
+        <div class="callout-icon">&#9432;</div>
+        <p>Only complete this section if you are running Google Ads. If you do not have an active Google Ads account, skip to the next section.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Sign in to Google Ads</h4>
+            <div class="path">ads.google.com</div>
+            <p class="note">Use the same Google account connected to your campaigns.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Go to Admin, then Access and Security</h4>
+            <p>In the left menu, click the wrench icon (Tools and Settings). Under "Setup," select "Access and Security."</p>
+            <div class="screenshot-placeholder"><span>Screenshot: Tools and Settings → Access and Security</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Invite Jennifer with Standard access</h4>
+            <p>Click the blue "+" button. Enter Jennifer's email and select the role <strong>Standard</strong>.</p>
+            <div class="path">hey@remodelerrank.com</div>
+            <p class="note">Standard access lets Jennifer view performance, edit campaigns, and manage bids — but cannot add or remove other users or change billing.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Send the invitation</h4>
+            <p>Click "Send Invitation." Jennifer will accept within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-checklist">
+      <p>Confirm when done</p>
+      <div class="check-item">Jennifer added as Standard user in Google Ads</div>
+      <div class="check-item">Invitation sent</div>
+    </div>
+  </div>
+
+  <!-- 3. GOOGLE ANALYTICS (GA4) -->
+  <div class="platform" id="ga4">
+    <div class="platform-header">
+      <div class="platform-icon" style="background:#E6F4EA;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="12" width="4" height="9" rx="1" fill="#34A853"/><rect x="10" y="7" width="4" height="14" rx="1" fill="#34A853" opacity=".7"/><rect x="17" y="3" width="4" height="18" rx="1" fill="#34A853" opacity=".4"/></svg>
+      </div>
+      <div class="platform-title">Google Analytics 4</div>
+      <div class="platform-time">3 min</div>
+    </div>
+    <div class="platform-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Go to Google Analytics</h4>
+            <div class="path">analytics.google.com</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Open Admin settings</h4>
+            <p>Click the gear icon in the lower-left corner. Under "Account," select "Account Access Management."</p>
+            <div class="screenshot-placeholder"><span>Screenshot: GA4 Admin → Account Access Management</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Add Jennifer with Editor role</h4>
+            <p>Click the blue "+" button. Enter Jennifer's email and select the role <strong>Editor</strong>.</p>
+            <div class="path">hey@remodelerrank.com</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Save</h4>
+            <p>Click "Add." Access is immediate — no invitation email for GA4.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-checklist">
+      <p>Confirm when done</p>
+      <div class="check-item">Jennifer added as Editor in Google Analytics 4</div>
+    </div>
+  </div>
+
+  <!-- 4. FACEBOOK -->
+  <div class="platform" id="facebook">
+    <div class="platform-header">
+      <div class="platform-icon" style="background:#E7F3FF;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" fill="#1877F2"/></svg>
+      </div>
+      <div class="platform-title">Facebook Page</div>
+      <div class="platform-time">4 min</div>
+    </div>
+    <div class="platform-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Go to Meta Business Suite</h4>
+            <p>If you manage your Facebook Page through Meta Business Suite, use that. Otherwise, go directly to your Facebook Page.</p>
+            <div class="path">business.facebook.com</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Open Page Settings</h4>
+            <p>In Meta Business Suite: click Settings in the left menu, then "People." On a regular Facebook Page: go to your Page, click "Settings," then "Page Roles" or "New Pages Experience."</p>
+            <div class="screenshot-placeholder"><span>Screenshot: Meta Business Suite → Settings → People</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Invite Jennifer as an Editor</h4>
+            <p>Click "Add People" or "Add New Page Role." Enter Jennifer's email and select <strong>Editor</strong>.</p>
+            <div class="path">hey@remodelerrank.com</div>
+            <p class="note">Editor can post, respond to messages, and view insights. Editor cannot delete the Page or add/remove admins.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Save and confirm</h4>
+            <p>Click "Invite" or "Save." Jennifer will accept within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-checklist">
+      <p>Confirm when done</p>
+      <div class="check-item">Jennifer added as Editor to your Facebook Page</div>
+      <div class="check-item">Invitation sent</div>
+    </div>
+  </div>
+
+  <!-- 5. INSTAGRAM -->
+  <div class="platform" id="instagram">
+    <div class="platform-header">
+      <div class="platform-icon" style="background:#FDF0FF;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#C13584" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#C13584" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="#C13584"/></svg>
+      </div>
+      <div class="platform-title">Instagram</div>
+      <div class="platform-time">2 min</div>
+    </div>
+    <div class="platform-body">
+      <div class="callout" style="margin-bottom:20px;">
+        <div class="callout-icon">&#9432;</div>
+        <p>Instagram access is managed through Meta Business Suite — the same place as Facebook. If you completed Step 4 above and your Instagram is connected to your Facebook Page, Jennifer may already have access. Confirm below.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Confirm your Instagram is a Business or Creator account</h4>
+            <p>Open Instagram, go to Settings, then "Account." Make sure the account type is Business or Creator — not Personal. Personal accounts cannot be managed by agencies.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Connect Instagram to your Facebook Page (if not already)</h4>
+            <p>In Meta Business Suite, go to Settings, then "Instagram Accounts." Connect your Instagram account to your Page. Once connected, Jennifer's Editor access from Step 4 covers Instagram as well.</p>
+            <div class="screenshot-placeholder"><span>Screenshot: Meta Business Suite → Settings → Instagram Accounts</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-checklist">
+      <p>Confirm when done</p>
+      <div class="check-item">Instagram is a Business or Creator account</div>
+      <div class="check-item">Instagram connected to Facebook Page in Meta Business Suite</div>
+    </div>
+  </div>
+
+  <!-- 6. YELP -->
+  <div class="platform" id="yelp">
+    <div class="platform-header">
+      <div class="platform-icon" style="background:#FFF0EE;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" fill="#FF1A1A"/></svg>
+      </div>
+      <div class="platform-title">Yelp</div>
+      <div class="platform-time">3 min</div>
+    </div>
+    <div class="platform-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Sign in to Yelp for Business</h4>
+            <div class="path">biz.yelp.com</div>
+            <p class="note">Use the email address you used to claim your Yelp listing. If you have not claimed it yet, let Jennifer know and she can help you claim it first.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Go to Account Settings, then Manage Users</h4>
+            <p>In the top-right menu, click your account name, then "Account Settings." Select "Manage Users."</p>
+            <div class="screenshot-placeholder"><span>Screenshot: Yelp for Business → Account Settings → Manage Users</span></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Add Jennifer as a Manager</h4>
+            <p>Click "Add User." Enter Jennifer's email and select <strong>Manager</strong>.</p>
+            <div class="path">hey@remodelerrank.com</div>
+            <p class="note">If your Yelp listing is not yet claimed, skip this step and mention it on the onboarding call — Jennifer will walk you through claiming it.</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:16px;">
+        <div class="callout-icon">&#9432;</div>
+        <p>Yelp's Manager role lets Jennifer respond to reviews and update your business information. Yelp does not offer an agency-style access system like Google does, so the Manager role is standard.</p>
+      </div>
+    </div>
+    <div class="platform-checklist">
+      <p>Confirm when done</p>
+      <div class="check-item">Jennifer added as Manager in Yelp for Business (or listing flagged as unclaimed)</div>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="bottom-cta">
+    <h2>All set? Book your onboarding call.</h2>
+    <p>Once access is granted, book a 60-minute onboarding call. We will confirm everything is connected, walk through your photos, and map out Month 1 priorities.</p>
+    <a href="https://calendly.com/hey-remodelerrank" class="btn-sage">Book Onboarding Call</a>
+    <div class="bottom-contact">Questions? Email <a href="mailto:hey@remodelerrank.com">hey@remodelerrank.com</a> or call <a href="tel:9259409484">925-940-9484</a></div>
+  </div>
+
+</div>
+
+<footer>RemodelerRank &mdash; hey@remodelerrank.com &mdash; 925-940-9484</footer>
+
+</body>
+</html>
