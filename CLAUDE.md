@@ -91,9 +91,15 @@ Never mix files between repos. Site files go in the website repo. Pipeline code 
   /logs/                        <- pipeline.log lives here
 ```
 
+## Scripts
+
+| Script | Purpose |
+|---|---|
+| scripts/process-photos.sh | Batch convert + resize client photos to WebP. Usage: `./scripts/process-photos.sh [client-slug] [source-folder]` |
+
 ## Files Still To Build
 
-All skills complete as of Session 10.
+Front-end design skill and humanizer skill not yet built.
 
 ---
 
@@ -411,9 +417,9 @@ Three phases:
 | mini-site | Built | skills/mini-site/SKILL.md |
 | monthly-report | Built | skills/monthly-report/SKILL.md |
 | onboarding | Built | skills/onboarding/SKILL.md |
-| photo-filename-protection | Built | skills/photo-filename-protection/SKILL.md |
-| photo-pipeline | Built | skills/photo-pipeline/SKILL.md |
-| pre-launch | Built | skills/pre-launch/SKILL.md |
+| photo-pipeline | Built | skills/photo-pipeline/SKILL.md — SEO naming rules + conversion guide |
+| pre-launch | Retired to checklist | Items moved to checklist.html Site Fixes tab — Pre-Launch section |
+| proposal | Built | skills/proposal/SKILL.md + skills/proposal/agreement-template.md |
 | seo-build | Built | skills/seo-build/SKILL.md |
 
 ---
@@ -431,10 +437,14 @@ Three phases:
 - [x] Session 8: automations/grader-completion.md
 - [x] Session 9: openphone.js + OPENPHONE_NUMBER_ID wired (PNkSJ6WM4F confirmed); 5 skills added; 5 templates added; Watch status + manual lead entry added to morning app; sheet header extended to 36-column schema (A-AJ)
 - [x] Session 10: monthly-report skill built; ad-creative skill completed (merged strategy + execution); 325 leads scraped; platform URL columns AG-AJ live; demo monthly report built for Coda Construction
+- [x] Session 11: proposal skill built (skills/proposal/SKILL.md + agreement-template.md); /onboarding/access page built (website repo); Google Ads ID corrected to AW-18182654739 throughout; checklist updated with Ads daily check, email setup, business setup, and Calendly items
 
 **Pending (next session):**
-- Wire text D4 follow-up scheduler (openphone.js textD4() is ready, needs cron in index.js)
+- Wire text D4 follow-up scheduler (openphone.js textD4() is ready, needs cron in index.js that checks text_d0_sent date >= 4 days, no reply, status = Contacted)
+- Reply detection - poll OpenPhone API for inbound messages and mark AB=Reply Received + update status to Replied
+- Morning app: add a "Texts Due" indicator (like the follow-up bar) showing leads where D4 text is due today
 - Review scoring on 325 live leads in sheet
+- Morning app: sort by lead quality (built - sort selector added to header)
 
 ---
 

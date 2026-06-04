@@ -115,6 +115,50 @@ Jennifer provides both images as screenshots after the mockup is built. Do not a
 
 ---
 
+## SEO Upload Names — Public-Facing Filenames
+
+The internal naming above (`coda-construction_project_01.webp`) is for local storage and tracking. When uploading photos to a client's live website, use SEO-optimized names instead.
+
+**Format for upload:**
+```
+[service]-[detail]-[city]-[sequence].webp
+```
+
+**Examples:**
+```
+kitchen-remodel-walnut-creek-1.webp
+master-bath-renovation-danville-before.webp
+adu-addition-concord-exterior.webp
+whole-home-remodel-lafayette-living-room.webp
+cabinet-refacing-pleasanton-after.webp
+```
+
+**Rules:**
+- Hyphens only — no underscores, no spaces (Google treats hyphens as word separators)
+- Lead with the service, then qualifier, then city (matches how people search)
+- 4-6 words max — longer filenames lose signal
+- City is always last before sequence number
+- Never upload: `IMG_4829.jpg`, `DSC0012.jpg`, `photo (1).jpg`, `download.webp`
+
+**Alt tags matter more than filenames** — but filenames are a free SEO signal. After renaming, write the alt text: `"Kitchen remodel with white shaker cabinets in Walnut Creek, CA"` — describe what is actually in the photo, include the city.
+
+**Large portfolio folder structure on the live site:**
+```
+/images/projects/
+  kitchen-remodel-walnut-creek-2024/
+    hero.webp
+    before.webp
+    during.webp
+    cabinets.webp
+    countertops.webp
+    final-1.webp
+    final-2.webp
+```
+
+One subfolder per project. Name each project folder: `[service]-[city]-[year]`. Makes photos reusable for GBP posts, AEO pages, and social without hunting.
+
+---
+
 ## MANDATORY: The Filename Rule
 
 Once a photo is named and placed on disk, **never rename it in HTML or config**. Reference it exactly as it exists.

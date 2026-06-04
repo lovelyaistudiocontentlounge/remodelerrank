@@ -124,9 +124,10 @@ async function scoreFindability(lead) {
     facebook_page: false,
   };
 
-  // GBP: derive from Outscraper data — no extra request needed
-  checks.gbp_claimed = (lead.rating > 0);
-  checks.gbp_complete = (lead.rating > 0 && lead.review_count >= 5 && lead.has_hours);
+  // GBP: place_id proves the listing exists on Google Maps — every Outscraper result has one.
+  // rating > 0 was wrong: a new or unreviewed business still has a GBP.
+  checks.gbp_claimed = !!(lead.place_id || lead.business_status === 'OPERATIONAL');
+  checks.gbp_complete = (lead.review_count >= 5 && lead.has_hours && lead.photo_count > 0);
 
   // Lightweight checks via Google search presence (skip if too slow/rate-limited)
   // Search each platform and check if the business name appears in the HTML response.

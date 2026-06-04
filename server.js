@@ -177,6 +177,26 @@ async function handleRequest(req, res) {
     return;
   }
 
+  // Static favicon assets served from the website repo root
+  const faviconMap = {
+    '/favicon.ico':       { file: '../favicon.ico',          mime: 'image/x-icon' },
+    '/favicon.svg':       { file: '../favicon.svg',           mime: 'image/svg+xml' },
+    '/favicon-96x96.png': { file: '../favicon-96x96.png',    mime: 'image/png' },
+    '/apple-touch-icon.png': { file: '../apple-touch-icon.png', mime: 'image/png' },
+  };
+  if (faviconMap[url.pathname]) {
+    const { file, mime } = faviconMap[url.pathname];
+    const absPath = path.join(__dirname, file);
+    try {
+      const data = fs.readFileSync(absPath);
+      res.writeHead(200, { 'Content-Type': mime, 'Cache-Control': 'max-age=86400' });
+      res.end(data);
+    } catch {
+      res.writeHead(404); res.end();
+    }
+    return;
+  }
+
   if (req.method === 'GET' && url.pathname === '/api/leads') {
     try {
       const leads = await getNewLeads();
@@ -309,6 +329,11 @@ function buildAppHTML() {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RemodelerRank - Morning Review</title>
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="RR">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -341,12 +366,30 @@ body { font-family: 'Karla', sans-serif; background: var(--bg); color: var(--tex
   top: 0;
   z-index: 10;
 }
-.header-brand { font-family: 'Lora', serif; font-size: 18px; }
-.header-stats { display: flex; gap: 20px; font-size: 13px; }
+.header-brand { display: flex; align-items: center; line-height: 1; }
+.header-stats { display: flex; gap: 20px; font-size: 13px; align-items: center; }
 .stat { opacity: 0.85; }
 .stat strong { font-weight: 700; opacity: 1; }
 .stat.hot strong { color: #FFAAAA; }
 .stat.warm strong { color: #FFD088; }
+
+.sort-select {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-family: 'Karla', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.9);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='rgba(255,255,255,0.6)'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 24px;
+}
+.sort-select:focus { outline: none; border-color: rgba(255,255,255,0.6); }
 
 .followup-bar {
   background: #FFF8ED;
@@ -529,11 +572,22 @@ kbd { background: #EEE; border: 1px solid #CCC; border-radius: 3px; padding: 1px
 <body>
 
 <div class="header">
-  <div class="header-brand">RemodelerRank</div>
+  <div class="header-brand">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 60" height="30" aria-label="RemodelerRank">
+      <text x="16" y="42" font-family="'Karla', Arial, sans-serif" font-weight="400" font-size="36" fill="rgba(255,255,255,0.75)">Remodeler</text>
+      <rect x="204" y="24" width="8" height="8" fill="#9BA8A2"/>
+      <text x="220" y="42" font-family="'Karla', Arial, sans-serif" font-weight="700" font-size="36" fill="#FFFFFF">Rank</text>
+    </svg>
+  </div>
   <div class="header-stats">
     <div class="stat">New: <strong id="stat-total">-</strong></div>
     <div class="stat hot">HOT: <strong id="stat-hot">-</strong></div>
     <div class="stat warm">WARM: <strong id="stat-warm">-</strong></div>
+    <select class="sort-select" id="sort-select" onchange="applySort()" title="Sort leads">
+      <option value="priority">Sort: Priority</option>
+      <option value="score">Sort: Lead Score</option>
+      <option value="findability">Sort: Findability</option>
+    </select>
     <button class="btn-add" onclick="showAddLeadModal()">+ Add Lead</button>
   </div>
 </div>
@@ -577,6 +631,25 @@ function updateStats() {
   document.getElementById('stat-total').textContent = leads.length;
   document.getElementById('stat-hot').textContent   = hot;
   document.getElementById('stat-warm').textContent  = warm;
+}
+
+function applySort() {
+  const mode = document.getElementById('sort-select')?.value || 'priority';
+  const priorityOrder = { hot: 0, warm: 1, cold: 2 };
+  if (mode === 'priority') {
+    leads.sort((a, b) => {
+      const pa = priorityOrder[a.priority?.toLowerCase()] ?? 3;
+      const pb = priorityOrder[b.priority?.toLowerCase()] ?? 3;
+      if (pa !== pb) return pa - pb;
+      return Number(b.lead_score) - Number(a.lead_score);
+    });
+  } else if (mode === 'score') {
+    leads.sort((a, b) => Number(b.lead_score) - Number(a.lead_score));
+  } else if (mode === 'findability') {
+    leads.sort((a, b) => Number(b.findability_score) - Number(a.findability_score));
+  }
+  currentIndex = 0;
+  renderCard();
 }
 
 function renderFollowUps(dueD3, dueD7) {
