@@ -1,0 +1,143 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1780355378886,
+  "projectRoot": "/Users/jenniferrocha/Desktop/remodelerrank",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "assets"
+    ],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "CONTENT": {
+      "path": "CONTENT",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1780355378869,
+      "keyFiles": [
+        "contractor-marketing-five-pillar-campaign-workbook.md",
+        "contractor-marketing-launch-assets.md",
+        "contractor-remodeler-voc-research.md",
+        "project-content-goldmine-audit-copy.md",
+        "project-content-goldmine-audit.pdf"
+      ]
+    },
+    "articles": {
+      "path": "articles",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1780355378870,
+      "keyFiles": [
+        "ai-search-remodeling-contractors.html"
+      ]
+    },
+    "assets": {
+      "path": "assets",
+      "purpose": "Static assets",
+      "fileCount": 2,
+      "lastAccessed": 1780355378870,
+      "keyFiles": [
+        "goldmine-checklist-print.html",
+        "project-content-goldmine-checklist.pdf"
+      ]
+    },
+    "audit": {
+      "path": "audit",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1780355378871,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "audits": {
+      "path": "audits",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1780355378872,
+      "keyFiles": [
+        "coda-construction-preview.html",
+        "coda-construction.html",
+        "kitchen-solutions-GRADER-FINAL.html"
+      ]
+    },
+    "goldmine": {
+      "path": "goldmine",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1780355378872,
+      "keyFiles": [
+        "index.html",
+        "project-content-goldmine-checklist.md",
+        "thank-you.html"
+      ]
+    },
+    "guides": {
+      "path": "guides",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1780355378872,
+      "keyFiles": []
+    },
+    "images": {
+      "path": "images",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1780355378872,
+      "keyFiles": [
+        "jennifer.png",
+        "logo-icon.svg",
+        "logo-preview.html",
+        "logo-reversed.svg",
+        "logo-white-512.png"
+      ]
+    },
+    "onboarding": {
+      "path": "onboarding",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1780355378873,
+      "keyFiles": []
+    },
+    "remodelerrank": {
+      "path": "remodelerrank",
+      "purpose": null,
+      "fileCount": 26,
+      "lastAccessed": 1780355378873,
+      "keyFiles": [
+        "CLAUDE.md",
+        "client_secret_936049057266-hpl9jc7r2eip951d202idkbh568a3f6o.apps.googleusercontent.com.json",
+        "config.js",
+        "database.js",
+        "ecosystem.config.js"
+      ]
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}
