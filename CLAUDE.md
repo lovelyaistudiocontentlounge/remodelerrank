@@ -96,6 +96,9 @@ Never mix files between repos. Site files go in the website repo. Pipeline code 
 | Script | Purpose |
 |---|---|
 | scripts/process-photos.sh | Batch convert + resize client photos to WebP. Usage: `./scripts/process-photos.sh [client-slug] [source-folder]` |
+| scripts/photo-factory/export_crops.py | One clean master into the 8 marketing ratios. Auto-orients first. Usage: `python3 scripts/photo-factory/export_crops.py MASTER OUTDIR --name SLUG` |
+| scripts/photo-factory/beforeafter.py | Before/after side-by-side panel from two real photos. Usage: `python3 scripts/photo-factory/beforeafter.py BEFORE AFTER OUT.jpg` |
+| scripts/photo-factory/contactsheet.py | Numbered, captioned approval grid of a folder. Usage: `python3 scripts/photo-factory/contactsheet.py FOLDER OUT.jpg --cols 4 --title "..."` |
 
 ## Files Still To Build
 
@@ -418,6 +421,7 @@ Three phases:
 | monthly-report | Built | skills/monthly-report/SKILL.md |
 | onboarding | Built | skills/onboarding/SKILL.md |
 | photo-pipeline | Built | skills/photo-pipeline/SKILL.md — SEO naming rules + conversion guide |
+| portfolio-recovery | Built | skills/portfolio-recovery/SKILL.md - messy photos to portfolio sets, grade/cull/orient/crop/before-after + generation cards |
 | pre-launch | Retired to checklist | Items moved to checklist.html Site Fixes tab — Pre-Launch section |
 | proposal | Built | skills/proposal/SKILL.md + skills/proposal/agreement-template.md |
 | seo-build | Built | skills/seo-build/SKILL.md |

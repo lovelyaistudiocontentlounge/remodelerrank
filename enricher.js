@@ -129,13 +129,31 @@ async function scoreFindability(lead) {
   checks.gbp_claimed = !!(lead.place_id || lead.business_status === 'OPERATIONAL');
   checks.gbp_complete = (lead.review_count >= 5 && lead.has_hours && lead.photo_count > 0);
 
-  // Lightweight checks via Google search presence (skip if too slow/rate-limited)
-  // Search each platform and check if the business name appears in the HTML response.
-  // Uses the first significant word of the name to handle slight variations.
-  const keyword = lead.name.split(/\s+/).find(w => w.length > 3) || lead.name.split(/\s+/)[0];
-  const nameFragment = keyword.toLowerCase();
+  // Lightweight checks via platform search pages.
+  // Build a distinctive multi-word fragment from the business name, skipping generic
+  // contractor terms that appear in every search page header (remodeling, construction, etc.)
+  // and would cause false positives for any contractor on Houzz/BuildZoom/Yelp.
+  const GENERIC_TERMS = new Set([
+    'remodeling', 'remodel', 'remodels', 'construction', 'contractor', 'contractors',
+    'builder', 'builders', 'building', 'home', 'homes', 'house', 'kitchen', 'bath',
+    'bathroom', 'renovation', 'renovations', 'services', 'service', 'company', 'corp',
+    'inc', 'llc', 'dba', 'general', 'design', 'designs', 'residential', 'custom',
+    'licensed', 'professional', 'group', 'team', 'works', 'solutions', 'enterprises',
+  ]);
 
-  // Returns the search URL when the business is found on that platform, null otherwise.
+  const allWords = lead.name.toLowerCase().replace(/[^a-z0-9\s]/g, '').split(/\s+/);
+  const distinctiveWords = allWords.filter(w => w.length > 2 && !GENERIC_TERMS.has(w));
+
+  // Prefer 2 distinctive words joined (much harder to false-positive than a single word).
+  // Fall back to first 2 words from the full name if nothing distinctive found.
+  const nameFragment = distinctiveWords.length >= 2
+    ? distinctiveWords.slice(0, 2).join(' ')
+    : distinctiveWords.length === 1
+      ? distinctiveWords[0]
+      : allWords.filter(w => w.length > 2).slice(0, 2).join(' ');
+
+  // Returns the search URL when the business name fragment is found in the response HTML.
+  // Note: Houzz is a JS-rendered SPA — matches are less reliable; treat as a signal, not a fact.
   const checkPresence = async (url) => {
     try {
       const res = await axios.get(url, {
@@ -144,7 +162,10 @@ async function scoreFindability(lead) {
         maxRedirects: 3,
         validateStatus: s => s < 500,
       });
-      return res.data?.toLowerCase().includes(nameFragment) ? url : null;
+      const body = res.data?.toLowerCase() || '';
+      // Reject bot-challenge pages (Cloudflare, etc.) which never contain the business name
+      if (body.includes('just a moment') || body.includes('checking your browser')) return null;
+      return body.includes(nameFragment) ? url : null;
     } catch { return null; }
   };
 

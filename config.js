@@ -4,7 +4,7 @@ module.exports = {
   // Agency
   AGENCY_NAME:    'RemodelerRank',
   AGENCY_EMAIL:   'hey@remodelerrank.com',
-  AGENCY_PHONE:   '9259409484',
+  AGENCY_PHONE:   '7072086399',
   AGENCY_SITE:    'remodelerrank.com',
   CALENDLY_URL:   process.env.CALENDLY_URL || 'https://calendly.com/hey-remodelerrank/review-meeting-15-minutes',
 
@@ -39,7 +39,7 @@ module.exports = {
   // OpenPhone
   OPENPHONE_API_KEY:    process.env.OPENPHONE_API_KEY,
   OPENPHONE_NUMBER_ID:  process.env.OPENPHONE_NUMBER_ID,   // phoneNumberId from OpenPhone dashboard
-  JENNIFER_PHONE:       process.env.JENNIFER_PHONE || '9259409484',
+  JENNIFER_PHONE:       process.env.JENNIFER_PHONE || '7072086399',
 
   // App
   PORT: parseInt(process.env.PORT || '3000', 10),

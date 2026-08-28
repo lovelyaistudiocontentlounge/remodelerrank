@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coda Construction | Honest Kitchen, Bath & Remodeling Contractor | East Bay</title>
+<meta name="description" content="Coda Construction is an owner-led general contractor serving Dublin, Pleasanton, Livermore and the East Bay since 2010. Honest quotes, real craftsmanship, finished on schedule. Kitchens, baths, additions, ADUs. CSLB #949820.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --crimson:#7D1E24; --crimson-dark:#5C1519; --brass:#C9A96E; --brass-light:#E8D5A8;
+  --off-white:#FAFAF8; --charcoal:#1E1E1E; --text:#3A3A3A; --text-light:#6A6A6A;
+  --border:#E0D8D0; --surface:#FFFFFF;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; overflow-x:hidden; }
+body { font-family:'DM Sans',sans-serif; color:var(--text); background:var(--off-white); overflow-x:hidden; max-width:100%; }
+h1,h2,h3,h4 { font-family:'Playfair Display',serif; }
+a { text-decoration:none; color:inherit; }
+img { display:block; max-width:100%; }
+
+.info-bar { background:var(--charcoal); color:rgba(255,255,255,0.65); font-size:12px; padding:7px 40px; display:flex; justify-content:space-between; align-items:center; letter-spacing:0.3px; }
+.info-bar a { color:rgba(255,255,255,0.65); }
+.info-bar strong { color:rgba(255,255,255,0.9); }
+.info-bar-right { display:flex; gap:24px; }
+
+.nav { background:var(--surface); border-bottom:1px solid var(--border); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:72px; position:sticky; top:0; z-index:100; box-shadow:0 1px 6px rgba(0,0,0,0.06); }
+.nav-logo img { height:46px; width:auto; }
+.nav-links { display:flex; gap:32px; font-size:14px; font-weight:500; color:var(--text); }
+.nav-links a:hover { color:var(--crimson); }
+.nav-cta { background:var(--crimson); color:white; font-size:14px; font-weight:600; padding:10px 22px; border-radius:4px; transition:background 0.15s; }
+.nav-cta:hover { background:var(--crimson-dark); }
+
+@keyframes kenburns { 0% { transform:scale(1) translate(0,0);} 100% { transform:scale(1.15) translate(-3%,-3%);} }
+.hero { position:relative; height:620px; overflow:hidden; display:flex; align-items:flex-end; }
+.hero-bg { position:absolute; inset:-6%; background:url('images/hero.jpg') center center / cover no-repeat; animation:kenburns 7s ease-in-out infinite alternate; will-change:transform; }
+.hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(6,6,14,0.92) 0%, rgba(6,6,14,0.55) 40%, rgba(6,6,14,0.15) 70%, transparent 100%); }
+.hero-content { position:relative; z-index:2; padding:0 60px 64px; max-width:680px; }
+.hero-eyebrow { display:inline-block; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:white; background:rgba(0,0,0,0.45); padding:5px 14px; border-radius:20px; margin-bottom:16px; }
+.hero h1 { font-size:52px; line-height:1.12; color:#FFFFFF; margin-bottom:18px; text-shadow:0 2px 20px rgba(0,0,0,0.5); }
+.hero-sub { font-size:17px; line-height:1.6; color:rgba(255,255,255,0.85); margin-bottom:32px; max-width:520px; text-shadow:0 1px 12px rgba(0,0,0,0.4); }
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+.btn-primary { background:var(--crimson); color:white; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:600; padding:14px 30px; border-radius:4px; border:none; cursor:pointer; transition:background 0.15s; display:inline-block; }
+.btn-primary:hover { background:var(--crimson-dark); }
+.btn-outline { background:transparent; color:white; font-size:15px; font-weight:600; padding:13px 28px; border-radius:4px; border:2px solid rgba(255,255,255,0.55); cursor:pointer; display:inline-block; }
+.btn-outline:hover { border-color:white; }
+
+.trust-bar { background:var(--crimson); padding:22px 60px; display:flex; justify-content:space-around; align-items:center; gap:20px; flex-wrap:wrap; }
+.trust-item { text-align:center; color:white; }
+.trust-item .trust-num { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; line-height:1.1; }
+.trust-item .trust-lbl { font-size:11px; letter-spacing:0.8px; text-transform:uppercase; opacity:0.78; margin-top:4px; }
+.trust-divider { width:1px; height:48px; background:rgba(255,255,255,0.2); }
+
+.section { padding:80px 60px; }
+.section-eyebrow { font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--brass); margin-bottom:12px; display:block; }
+.section-title { font-size:38px; line-height:1.2; color:var(--charcoal); margin-bottom:16px; }
+.section-sub { font-size:16px; line-height:1.65; color:var(--text-light); max-width:600px; margin-bottom:20px; }
+.rule { width:48px; height:3px; background:var(--crimson); margin:16px 0 40px; }
+
+.pain-section { background:var(--surface); }
+.pain-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:36px; }
+.pain-card { background:var(--off-white); border:1px solid var(--border); border-radius:6px; padding:28px; }
+.pain-card .pain-label { font-family:'Playfair Display',serif; font-size:16px; font-weight:600; color:var(--charcoal); margin-bottom:8px; }
+.pain-card .pain-body { font-size:14px; line-height:1.65; color:var(--text-light); }
+.pain-callout { background:var(--crimson); color:white; border-radius:6px; padding:24px 32px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+.pain-callout p { font-size:18px; font-family:'Playfair Display',serif; font-weight:600; }
+.pain-callout a { background:white; color:var(--crimson); font-size:14px; font-weight:700; padding:11px 24px; border-radius:4px; white-space:nowrap; }
+
+.services-section { background:var(--off-white); }
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.service-card { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:32px 28px; transition:box-shadow 0.15s; }
+.service-card:hover { box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+.service-icon { width:44px; height:3px; background:var(--brass); margin-bottom:20px; }
+.service-card h3 { font-size:18px; color:var(--charcoal); margin-bottom:10px; }
+.service-card p { font-size:14px; line-height:1.65; color:var(--text-light); }
+
+/* Work / craftsmanship strip */
+.work-section { background:var(--surface); }
+.work-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:36px; }
+.work-photo { border-radius:6px; overflow:hidden; aspect-ratio:4/3; }
+.work-photo img { width:100%; height:100%; object-fit:cover; transition:transform 0.4s; }
+.work-photo:hover img { transform:scale(1.05); }
+.work-cta { text-align:center; }
+
+/* About Elias */
+.about-section { background:var(--off-white); }
+.about-grid { display:grid; grid-template-columns:0.85fr 1.15fr; gap:48px; align-items:center; }
+.about-photo { border-radius:8px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.12); }
+.about-photo img { width:100%; height:auto; }
+.about-copy .section-title { margin-top:0; }
+.about-copy p { font-size:15px; line-height:1.75; color:var(--text); margin-bottom:20px; }
+
+.process-section { background:var(--charcoal); }
+.process-section .section-title { color:white; }
+.process-section .section-eyebrow { color:var(--brass); }
+.process-section .rule { background:var(--brass); }
+.process-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.process-step { padding:28px 24px; border-left:1px solid rgba(255,255,255,0.12); }
+.process-step:first-child { border-left:none; }
+.step-num { font-family:'Playfair Display',serif; font-size:42px; font-weight:700; color:var(--brass); opacity:0.5; line-height:1; margin-bottom:14px; }
+.process-step h3 { font-size:16px; color:white; margin-bottom:10px; }
+.process-step p { font-size:14px; line-height:1.65; color:rgba(255,255,255,0.55); }
+
+.reviews-section { background:var(--surface); }
+.reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:28px; }
+.review-card { background:var(--off-white); border:1px solid var(--border); border-radius:6px; padding:28px; }
+.stars { color:var(--brass); font-size:15px; letter-spacing:2px; margin-bottom:14px; }
+.review-card blockquote { font-size:14px; line-height:1.7; color:var(--text); font-style:italic; margin-bottom:18px; }
+.reviewer-name { font-size:13px; font-weight:600; color:var(--charcoal); }
+.reviews-more { text-align:center; }
+.reviews-more a { color:var(--crimson); font-weight:600; font-size:14px; }
+
+.mid-cta { background:var(--crimson); padding:64px 60px; text-align:center; }
+.mid-cta h2 { color:white; font-size:36px; margin-bottom:12px; }
+.mid-cta p { color:rgba(255,255,255,0.78); font-size:16px; margin-bottom:32px; }
+.btn-white { display:inline-block; background:white; color:var(--crimson); font-size:15px; font-weight:700; padding:14px 32px; border-radius:4px; }
+
+.areas-section { background:var(--off-white); }
+.areas-pills { display:flex; flex-wrap:wrap; gap:10px; }
+.area-pill { background:var(--surface); border:1px solid var(--border); border-radius:30px; padding:7px 18px; font-size:13px; font-weight:500; color:var(--text); }
+
+.final-cta-section { background:var(--surface); padding:80px 60px; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+.final-cta-copy h2 { font-size:34px; color:var(--charcoal); max-width:500px; margin-bottom:12px; }
+.final-cta-copy p { font-size:15px; color:var(--text-light); max-width:460px; line-height:1.65; }
+.final-cta-action { flex-shrink:0; text-align:center; }
+.final-cta-phone { display:block; font-family:'Playfair Display',serif; font-size:26px; color:var(--crimson); font-weight:700; margin-bottom:12px; }
+.final-cta-or { font-size:12px; color:var(--text-light); margin-bottom:12px; }
+
+.footer { background:var(--charcoal); padding:52px 60px 28px; }
+.footer-top { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:40px; margin-bottom:40px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.10); }
+.footer-brand img { height:44px; width:auto; margin-bottom:14px; background:white; border-radius:4px; padding:4px 8px; }
+.footer-tagline { font-size:13px; color:rgba(255,255,255,0.50); line-height:1.6; margin-bottom:18px; }
+.footer-contact-item { font-size:13px; color:rgba(255,255,255,0.55); margin-bottom:6px; }
+.footer-contact-item strong { color:rgba(255,255,255,0.85); }
+.footer-col-title { font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--brass); margin-bottom:16px; }
+.footer-links { list-style:none; }
+.footer-links li { margin-bottom:9px; }
+.footer-links a { font-size:13px; color:rgba(255,255,255,0.50); }
+.footer-links a:hover { color:rgba(255,255,255,0.85); }
+.footer-bottom { display:flex; justify-content:space-between; align-items:center; font-size:12px; color:rgba(255,255,255,0.30); flex-wrap:wrap; gap:8px; }
+
+/* FAQ */
+.faq-section { background:var(--surface); }
+.faq-list { max-width:840px; }
+.faq-item { border-bottom:1px solid var(--border); }
+.faq-item summary { list-style:none; cursor:pointer; padding:20px 0; font-family:'Playfair Display',serif; font-size:18px; color:var(--charcoal); display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.faq-item summary::-webkit-details-marker { display:none; }
+.faq-item summary::after { content:'+'; color:var(--crimson); font-size:26px; font-weight:400; line-height:1; }
+.faq-item[open] summary::after { content:'\2013'; }
+.faq-item p { padding:0 0 22px; font-size:14px; line-height:1.75; color:var(--text-light); max-width:720px; }
+.faq-placeholder { color:var(--brass); font-style:italic; }
+
+/* Contact + estimate form */
+.contact-section { background:var(--off-white); }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+.contact-copy .section-title { margin-bottom:16px; }
+.contact-copy p { font-size:15px; line-height:1.7; color:var(--text-light); max-width:440px; margin-bottom:24px; }
+.contact-phone { font-family:'Playfair Display',serif; font-size:26px; color:var(--crimson); font-weight:700; }
+.estimate-form { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:32px; box-shadow:0 6px 24px rgba(0,0,0,0.06); }
+.estimate-form .field { margin-bottom:16px; }
+.estimate-form label { display:block; font-size:13px; font-weight:600; color:var(--charcoal); margin-bottom:6px; }
+.estimate-form input, .estimate-form select, .estimate-form textarea { width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:5px; font-family:inherit; font-size:14px; color:var(--text); background:var(--off-white); }
+.estimate-form input:focus, .estimate-form select:focus, .estimate-form textarea:focus { outline:none; border-color:var(--crimson); background:var(--surface); }
+.estimate-form textarea { min-height:104px; resize:vertical; }
+.estimate-form button { width:100%; background:var(--crimson); color:#fff; border:none; padding:15px; border-radius:5px; font-family:inherit; font-size:15px; font-weight:600; cursor:pointer; transition:background 0.15s; }
+.estimate-form button:hover { background:var(--crimson-dark); }
+.form-note { font-size:12px; color:var(--text-light); margin-top:12px; text-align:center; }
+.hidden-field { position:absolute; left:-9999px; }
+
+/* Sticky mobile call/estimate bar */
+.mobile-cta-bar { display:none; }
+
+@media (max-width:768px) {
+  .info-bar { display:none; }
+  .nav { padding:0 16px; height:60px; }
+  .nav-links { display:none; }
+  .nav-logo img { height:32px; }
+  .nav-cta { font-size:12px; padding:8px 12px; }
+  .hero { height:480px; }
+  .hero-content { padding:0 20px 36px; max-width:100%; }
+  .hero h1 { font-size:28px; line-height:1.2; }
+  .hero-sub { font-size:14px; }
+  .hero-btns { flex-direction:column; gap:10px; }
+  .btn-primary,.btn-outline { width:100%; text-align:center; padding:14px 20px; }
+  .trust-bar { padding:16px 12px; gap:0; display:grid; grid-template-columns:1fr 1fr; }
+  .trust-divider { display:none; }
+  .trust-item { padding:12px 6px; }
+  .trust-item .trust-num { font-size:14px; }
+  .trust-item .trust-lbl { font-size:9px; letter-spacing:0.4px; }
+  .trust-item:nth-child(3),.trust-item:nth-child(5),.trust-item:nth-child(7) { border-top:1px solid rgba(255,255,255,0.15); }
+  .section { padding:44px 20px; }
+  .section-title { font-size:25px; }
+  .pain-grid { grid-template-columns:1fr; }
+  .pain-callout { flex-direction:column; text-align:center; }
+  .pain-callout a { width:100%; text-align:center; }
+  .services-grid { grid-template-columns:1fr; }
+  .work-grid { grid-template-columns:1fr 1fr; gap:10px; }
+  .about-grid { grid-template-columns:1fr; gap:28px; }
+  .contact-grid { grid-template-columns:1fr; gap:32px; }
+  .contact-copy p { max-width:100%; }
+  .process-steps { grid-template-columns:1fr 1fr; gap:0; }
+  .process-step { border-left:none; border-top:1px solid rgba(255,255,255,0.12); padding:20px 16px; }
+  .process-step:nth-child(1),.process-step:nth-child(2) { border-top:none; }
+  .reviews-grid { grid-template-columns:1fr; }
+  .mid-cta { padding:48px 24px; }
+  .mid-cta h2 { font-size:26px; }
+  .btn-white { width:100%; text-align:center; }
+  .final-cta-section { flex-direction:column; padding:48px 24px; text-align:center; }
+  .final-cta-copy h2 { font-size:26px; }
+  .footer { padding:40px 24px 24px; }
+  .footer-top { grid-template-columns:1fr; gap:28px; }
+  .footer-bottom { flex-direction:column; gap:6px; text-align:center; }
+  body { padding-bottom:56px; }
+  .mobile-cta-bar { display:flex; position:fixed; left:0; right:0; bottom:0; z-index:200; box-shadow:0 -2px 14px rgba(0,0,0,0.18); }
+  .mobile-cta-bar a { flex:1; text-align:center; padding:16px 8px; font-weight:600; font-size:15px; color:#fff; }
+  .mcb-call { background:var(--charcoal); }
+  .mcb-quote { background:var(--crimson); }
+}
+</style>
+</head>
+<body>
+
+<div class="info-bar">
+  <span>Serving the East Bay &amp; Tri-Valley</span>
+  <div class="info-bar-right">
+    <span>Mon-Fri 7am-6pm</span>
+    <span><strong><a href="tel:9257856367">925-785-6367</a></strong></span>
+    <span>CSLB Licensed &amp; Insured #949820</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-logo"><img src="images/logo.png" alt="Coda Construction"></div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#work">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="tel:9257856367" class="nav-cta">Call 925-785-6367</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">East Bay General Contractor - Owner Led</span>
+    <h1>Remodels done right, and finished when we said.</h1>
+    <p class="hero-sub">Coda Construction is Elias Torrez and a crew that shows up every day, quotes you straight, and does the work to last. Kitchens, bathrooms, and additions across the East Bay for over 15 years.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Estimate</a>
+      <a href="#work" class="btn-outline">See Our Work</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-num">Licensed &amp; Insured</div><div class="trust-lbl">CSLB #949820</div></div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><div class="trust-num">Since 2010</div><div class="trust-lbl">15+ Years in the East Bay</div></div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><div class="trust-num">Owner on Every Job</div><div class="trust-lbl">Elias is on site</div></div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><div class="trust-num">Honest, Written Quotes</div><div class="trust-lbl">The price we quote is the price</div></div>
+</div>
+
+<section class="section pain-section">
+  <span class="section-eyebrow">The Hard Truth</span>
+  <h2 class="section-title">Most homeowners have heard the same horror stories.</h2>
+  <div class="rule"></div>
+  <div class="pain-grid">
+    <div class="pain-card"><div class="pain-label">The contractor vanishes</div><div class="pain-body">Strong at the estimate, then silent. Calls go to voicemail while your kitchen sits half torn apart for weeks.</div></div>
+    <div class="pain-card"><div class="pain-label">The price creeps up</div><div class="pain-body">Surprise costs appear once you are too far in to walk away. The final bill looks nothing like the quote.</div></div>
+    <div class="pain-card"><div class="pain-label">The timeline slips</div><div class="pain-body">"Two more weeks" turns into two more months. Your family is showering at the gym longer than anyone promised.</div></div>
+    <div class="pain-card"><div class="pain-label">You cannot tell who is real</div><div class="pain-body">Every contractor has a nice site and five stars. Knowing who will actually deliver, before you hand over a deposit, feels impossible.</div></div>
+  </div>
+  <div class="pain-callout">
+    <p>That is exactly the contractor Coda was built not to be.</p>
+    <a href="#contact">Talk to Elias</a>
+  </div>
+</section>
+
+<section class="section services-section" id="services">
+  <span class="section-eyebrow">What We Build</span>
+  <h2 class="section-title">One team, handling the whole project.</h2>
+  <div class="rule"></div>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon"></div><h3>Kitchen Remodeling</h3><p>New layouts, cabinets, counters, tile, and appliances, coordinated by one team from demo to final walkthrough.</p></div>
+    <div class="service-card"><div class="service-icon"></div><h3>Bathroom Remodeling</h3><p>Tile, plumbing, fixtures, and smarter storage, permitted and done right so it holds up for years.</p></div>
+    <div class="service-card"><div class="service-icon"></div><h3>Room Additions</h3><p>More space without moving. Built to match your home's structure and character so the addition never looks bolted on.</p></div>
+    <div class="service-card"><div class="service-icon"></div><h3>ADU &amp; In-Law Suites</h3><p>A permitted, livable unit for rental income, family, or a workspace. Built to code and to schedule.</p></div>
+    <div class="service-card"><div class="service-icon"></div><h3>Whole-Home Renovation</h3><p>When the whole house needs work, one contractor beats six. We coordinate every trade so nothing slips through the cracks.</p></div>
+    <div class="service-card"><div class="service-icon"></div><h3>Outdoor Living</h3><p>Decks, patios, and pergolas built to take the Bay Area weather and extend how you use your home.</p></div>
+  </div>
+</section>
+
+<section class="section work-section" id="work">
+  <span class="section-eyebrow">The Work</span>
+  <h2 class="section-title">The proof is in the finish.</h2>
+  <p class="section-sub">A remodel is only as good as its details. Take a look at recent Coda projects and judge the craftsmanship for yourself.</p>
+  <div class="rule"></div>
+  <div class="work-grid">
+    <div class="work-photo"><img src="images/work-1.jpg" alt="Coda Construction kitchen remodel in Dublin"></div>
+    <div class="work-photo"><img src="images/work-2.jpg" alt="Bathroom remodel with wood vanity and marble by Coda Construction"></div>
+    <div class="work-photo"><img src="images/work-3.jpg" alt="Custom kitchen island built by Coda Construction"></div>
+    <div class="work-photo"><img src="images/work-4.jpg" alt="Fireplace and living space remodel by Coda Construction"></div>
+  </div>
+  <div class="work-cta"><a href="#contact" class="btn-primary">Start Your Project</a></div>
+</section>
+
+<section class="section about-section" id="about">
+  <div class="about-grid">
+    <div class="about-photo"><img src="images/elias.jpg" alt="Elias Torrez, owner of Coda Construction, in a finished kitchen he built"></div>
+    <div class="about-copy">
+      <span class="section-eyebrow">Who You Are Hiring</span>
+      <h2 class="section-title">You are hiring Elias, not a call center.</h2>
+      <div class="rule"></div>
+      <p>Coda Construction is owner-led. Elias Torrez has remodeled East Bay homes since 2010, and he is on your job site, not just on the proposal.</p>
+      <p>He looks at your actual project before he quotes it, tells you honestly what it will take, and stands behind the work when it is done. That is the whole reason clients come back for every remodel and send their neighbors.</p>
+      <a href="#contact" class="btn-primary">More About Coda</a>
+    </div>
+  </div>
+</section>
+
+<section class="section process-section" id="process">
+  <span class="section-eyebrow">How It Works</span>
+  <h2 class="section-title">A clear path from idea to done. No surprises.</h2>
+  <div class="rule"></div>
+  <div class="process-steps">
+    <div class="process-step"><div class="step-num">01</div><h3>Free Consultation</h3><p>We walk your space, listen to what you want, and tell you honestly what it will take in time, cost, and scope before anything is signed.</p></div>
+    <div class="process-step"><div class="step-num">02</div><h3>Design &amp; Planning</h3><p>We lock the details, pull the permits, and hand you a written schedule before the first tool comes out.</p></div>
+    <div class="process-step"><div class="step-num">03</div><h3>The Build</h3><p>The crew shows up when they say they will. You get one point of contact and regular updates, so you always know where things stand.</p></div>
+    <div class="process-step"><div class="step-num">04</div><h3>Final Walkthrough</h3><p>We walk every inch with you before we call it done. Anything not right, we make right.</p></div>
+  </div>
+</section>
+
+<section class="section reviews-section" id="reviews">
+  <span class="section-eyebrow">What Homeowners Say</span>
+  <h2 class="section-title">Honest work, in their words.</h2>
+  <div class="rule"></div>
+  <div class="reviews-grid">
+    <div class="review-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>"I have used Coda Construction on every major remodel job over the years. I love the guidance Elias provides as well as his attention to detail. They are always on time and complete the job in the time frame described in his quotes. You seriously can't go wrong with this company."</blockquote><div class="reviewer-name">Pat Thomas</div></div>
+    <div class="review-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>"I had another contractor start the job and had to fire them. It was very apparent after the first day with Coda that I was in very good hands. I have not a single complaint. They were awesome."</blockquote><div class="reviewer-name">Matthew W.</div></div>
+    <div class="review-card"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>"Elias was the only one who actually looked at the photos and the details of my project. He walked me through the whole process and was completely honest throughout. If you're looking for an honest, knowledgeable company, check out Coda."</blockquote><div class="reviewer-name">Chris L.</div></div>
+  </div>
+  <div class="reviews-more"><a href="https://www.houzz.com/professionals/general-contractors/coda-construction-inc-pfvwus-pf~1992973856" target="_blank" rel="noopener">Read more reviews on Houzz</a></div>
+</section>
+
+<section class="mid-cta">
+  <h2>Your project deserves a contractor who shows up.</h2>
+  <p>Free estimates. Written timelines. One team, start to finish.</p>
+  <a href="#contact" class="btn-white">Schedule a Free Consultation</a>
+</section>
+
+<section class="section areas-section">
+  <span class="section-eyebrow">Where We Work</span>
+  <h2 class="section-title">Serving homeowners across the East Bay and Tri-Valley.</h2>
+  <div class="rule"></div>
+  <div class="areas-pills">
+    <span class="area-pill">Dublin</span>
+    <span class="area-pill">Pleasanton</span>
+    <span class="area-pill">Livermore</span>
+    <span class="area-pill">San Ramon</span>
+    <span class="area-pill">Danville</span>
+    <span class="area-pill">Walnut Creek</span>
+    <span class="area-pill">Blackhawk</span>
+    <span class="area-pill">Alamo</span>
+    <span class="area-pill">Lafayette</span>
+    <span class="area-pill">Pleasant Hill</span>
+    <span class="area-pill">Concord</span>
+  </div>
+</section>
+
+<section class="section faq-section" id="faq">
+  <span class="section-eyebrow">Good To Know</span>
+  <h2 class="section-title">Questions homeowners ask.</h2>
+  <div class="rule"></div>
+  <div class="faq-list">
+    <details class="faq-item"><summary>Are you licensed and insured?</summary><p>Yes. Coda Construction is a licensed California general contractor, CSLB #949820, and fully insured with liability and workers compensation coverage.</p></details>
+    <details class="faq-item"><summary>Which areas do you serve?</summary><p>We work across the East Bay and Tri-Valley, including Dublin, Pleasanton, Livermore, San Ramon, Danville, Walnut Creek, and the surrounding communities.</p></details>
+    <details class="faq-item"><summary>Do you handle permits?</summary><p>Yes. We pull every permit your project needs and coordinate the inspections, so you are never left dealing with the city on your own.</p></details>
+    <details class="faq-item"><summary>How much does a remodel cost?</summary><p class="faq-placeholder">Placeholder - add typical cost ranges by project type once confirmed with Elias.</p></details>
+    <details class="faq-item"><summary>How long does a project take?</summary><p class="faq-placeholder">Placeholder - add typical timelines for a kitchen, a bathroom, and an addition.</p></details>
+    <details class="faq-item"><summary>Do you offer financing?</summary><p class="faq-placeholder">Placeholder - confirm financing options with Elias.</p></details>
+  </div>
+</section>
+
+<section class="section contact-section" id="contact">
+  <div class="contact-grid">
+    <div class="contact-copy">
+      <span class="section-eyebrow">Get Started</span>
+      <h2 class="section-title">Ready to talk about your project?</h2>
+      <div class="rule"></div>
+      <p>Call or send the details and Elias will get back to you the same day. No sales pitch, just a straight conversation about what you want to build and what it will take.</p>
+      <a href="tel:9257856367" class="contact-phone">925-785-6367</a>
+    </div>
+    <form class="estimate-form" name="estimate" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+      <input type="hidden" name="form-name" value="estimate">
+      <p class="hidden-field"><label>Do not fill this out if you are human: <input name="bot-field"></label></p>
+      <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="project">Project type</label>
+        <select id="project" name="project">
+          <option>Kitchen Remodel</option>
+          <option>Bathroom Remodel</option>
+          <option>Room Addition</option>
+          <option>ADU / In-Law Suite</option>
+          <option>Whole-Home Renovation</option>
+          <option>Outdoor Living</option>
+          <option>Other</option>
+        </select></div>
+      <div class="field"><label for="message">Tell us about your project</label><textarea id="message" name="message" placeholder="What are you hoping to build?"></textarea></div>
+      <button type="submit">Request My Free Estimate</button>
+      <p class="form-note">No obligation. Free estimate. We reply the same day.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="Coda Construction">
+      <p class="footer-tagline">Owner-led general contractor serving the East Bay since 2010. Kitchens, bathrooms, additions, and ADUs, built right the first time.</p>
+      <div class="footer-contact-item"><strong>925-785-6367</strong></div>
+      <div class="footer-contact-item">info@coda-construction.com</div>
+      <div class="footer-contact-item">8095 Aldea Street, Dublin, CA 94568</div>
+      <div class="footer-contact-item">CSLB Licensed &amp; Insured #949820</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Kitchen Remodeling</a></li>
+        <li><a href="#services">Bathroom Remodeling</a></li>
+        <li><a href="#services">Room Additions</a></li>
+        <li><a href="#services">ADU / In-Law Suite</a></li>
+        <li><a href="#services">Whole-Home Renovation</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Elias</a></li>
+        <li><a href="#work">Portfolio</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:9257856367">925-785-6367</a></li>
+        <li><a href="mailto:info@coda-construction.com">info@coda-construction.com</a></li>
+        <li><a href="#contact">Free Estimate</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Coda Construction Inc. All rights reserved.</span>
+    <span>CSLB Licensed General Contractor #949820 - Dublin, CA</span>
+  </div>
+</footer>
+
+<div class="mobile-cta-bar">
+  <a href="tel:9257856367" class="mcb-call">Call Elias</a>
+  <a href="#contact" class="mcb-quote">Free Estimate</a>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"GeneralContractor",
+  "name":"Coda Construction Inc",
+  "image":"images/hero.jpg",
+  "telephone":"+1-925-785-6367",
+  "email":"info@coda-construction.com",
+  "url":"https://coda-construction.com",
+  "priceRange":"$$",
+  "foundingDate":"2010",
+  "address":{"@type":"PostalAddress","streetAddress":"8095 Aldea Street","addressLocality":"Dublin","addressRegion":"CA","postalCode":"94568","addressCountry":"US"},
+  "areaServed":["Dublin","Pleasanton","Livermore","San Ramon","Danville","Walnut Creek","Blackhawk","Alamo","Lafayette","Pleasant Hill","Concord"],
+  "sameAs":["https://www.facebook.com/codaconstructioninc/","https://www.houzz.com/professionals/general-contractors/coda-construction-inc-pfvwus-pf~1992973856"]
+}
+</script>
+
+</body>
+</html>

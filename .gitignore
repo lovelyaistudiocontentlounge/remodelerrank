@@ -11,3 +11,6 @@ client_secret*.json
 *.json.key
 remodelerrank/
 .omc/
+
+# Local Netlify folder
+.netlify

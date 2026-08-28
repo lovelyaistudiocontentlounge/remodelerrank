@@ -1,19 +1,34 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1780355378886,
-  "projectRoot": "/Users/jenniferrocha/Desktop/remodelerrank",
+  "lastScanned": 1783034452833,
+  "projectRoot": "/Users/jenniferrocha/Desktop/remodelerrank/remodelerrank",
   "techStack": {
-    "languages": [],
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      }
+    ],
     "frameworks": [],
-    "packageManager": null,
+    "packageManager": "npm",
     "runtime": null
   },
   "build": {
     "buildCommand": null,
-    "testCommand": null,
+    "testCommand": "npm test",
     "lintCommand": null,
     "devCommand": null,
-    "scripts": {}
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "morning": "node server.js",
+      "scrape": "node index.js",
+      "check-approvals": "node index.js --check-approvals",
+      "schedule": "node index.js --schedule"
+    }
   },
   "conventions": {
     "namingStyle": null,
@@ -25,7 +40,8 @@
     "isMonorepo": false,
     "workspaces": [],
     "mainDirectories": [
-      "assets"
+      "assets",
+      "scripts"
     ],
     "gitBranches": {
       "defaultBranch": "main",
@@ -38,7 +54,7 @@
       "path": "CONTENT",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1780355378869,
+      "lastAccessed": 1783034452785,
       "keyFiles": [
         "contractor-marketing-five-pillar-campaign-workbook.md",
         "contractor-marketing-launch-assets.md",
@@ -51,7 +67,7 @@
       "path": "articles",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1780355378870,
+      "lastAccessed": 1783034452786,
       "keyFiles": [
         "ai-search-remodeling-contractors.html"
       ]
@@ -60,7 +76,7 @@
       "path": "assets",
       "purpose": "Static assets",
       "fileCount": 2,
-      "lastAccessed": 1780355378870,
+      "lastAccessed": 1783034452794,
       "keyFiles": [
         "goldmine-checklist-print.html",
         "project-content-goldmine-checklist.pdf"
@@ -70,7 +86,7 @@
       "path": "audit",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1780355378871,
+      "lastAccessed": 1783034452794,
       "keyFiles": [
         "index.html"
       ]
@@ -79,18 +95,34 @@
       "path": "audits",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1780355378872,
+      "lastAccessed": 1783034452794,
       "keyFiles": [
         "coda-construction-preview.html",
         "coda-construction.html",
         "kitchen-solutions-GRADER-FINAL.html"
       ]
     },
+    "automations": {
+      "path": "automations",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1783034452795,
+      "keyFiles": [
+        "grader-completion.md"
+      ]
+    },
+    "clients": {
+      "path": "clients",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1783034452795,
+      "keyFiles": []
+    },
     "goldmine": {
       "path": "goldmine",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1780355378872,
+      "lastAccessed": 1783034452795,
       "keyFiles": [
         "index.html",
         "project-content-goldmine-checklist.md",
@@ -100,15 +132,15 @@
     "guides": {
       "path": "guides",
       "purpose": null,
-      "fileCount": 1,
-      "lastAccessed": 1780355378872,
+      "fileCount": 0,
+      "lastAccessed": 1783034452795,
       "keyFiles": []
     },
     "images": {
       "path": "images",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1780355378872,
+      "lastAccessed": 1783034452796,
       "keyFiles": [
         "jennifer.png",
         "logo-icon.svg",
@@ -117,27 +149,166 @@
         "logo-white-512.png"
       ]
     },
+    "logs": {
+      "path": "logs",
+      "purpose": null,
+      "fileCount": 5,
+      "lastAccessed": 1783034452798,
+      "keyFiles": [
+        "morning-error.log",
+        "morning.log",
+        "pipeline.log",
+        "pm2-error.log",
+        "pm2.log"
+      ]
+    },
     "onboarding": {
       "path": "onboarding",
       "purpose": null,
-      "fileCount": 1,
-      "lastAccessed": 1780355378873,
+      "fileCount": 0,
+      "lastAccessed": 1783034452798,
       "keyFiles": []
     },
-    "remodelerrank": {
-      "path": "remodelerrank",
-      "purpose": null,
-      "fileCount": 26,
-      "lastAccessed": 1780355378873,
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 2,
+      "lastAccessed": 1783034452798,
       "keyFiles": [
-        "CLAUDE.md",
-        "client_secret_936049057266-hpl9jc7r2eip951d202idkbh568a3f6o.apps.googleusercontent.com.json",
-        "config.js",
-        "database.js",
-        "ecosystem.config.js"
+        "fix-gbp-scores.js",
+        "process-photos.sh"
+      ]
+    },
+    "skills": {
+      "path": "skills",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1783034452799,
+      "keyFiles": []
+    },
+    "templates": {
+      "path": "templates",
+      "purpose": null,
+      "fileCount": 6,
+      "lastAccessed": 1783034452799,
+      "keyFiles": [
+        "client-deliverable-system.md",
+        "content-calendar.md",
+        "email-d0.md",
+        "email-d3.md",
+        "email-d7.md"
       ]
     }
   },
-  "hotPaths": [],
+  "hotPaths": [
+    {
+      "path": "clients/coda-construction/website/COPY-home.md",
+      "accessCount": 13,
+      "lastAccessed": 1783642284980,
+      "type": "file"
+    },
+    {
+      "path": "clients/coda-construction/website/index.html",
+      "accessCount": 12,
+      "lastAccessed": 1783362746754,
+      "type": "file"
+    },
+    {
+      "path": "clients/coda-construction/website/BUILD-LOG.md",
+      "accessCount": 12,
+      "lastAccessed": 1783642364144,
+      "type": "file"
+    },
+    {
+      "path": "clients/coda-construction/website/DISCOVERY.md",
+      "accessCount": 8,
+      "lastAccessed": 1783471807024,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 5,
+      "lastAccessed": 1783056131500,
+      "type": "file"
+    },
+    {
+      "path": "clients/coda-construction/website/PROFILES.md",
+      "accessCount": 4,
+      "lastAccessed": 1783471972751,
+      "type": "file"
+    },
+    {
+      "path": "enricher.js",
+      "accessCount": 3,
+      "lastAccessed": 1781048077519,
+      "type": "file"
+    },
+    {
+      "path": "clients/coda-construction/website/COPY-FULL.md",
+      "accessCount": 3,
+      "lastAccessed": 1783642306492,
+      "type": "file"
+    },
+    {
+      "path": "scripts/photo-factory/export_crops.py",
+      "accessCount": 2,
+      "lastAccessed": 1783055728071,
+      "type": "file"
+    },
+    {
+      "path": "scripts/photo-factory/photolib.py",
+      "accessCount": 2,
+      "lastAccessed": 1783055774351,
+      "type": "file"
+    },
+    {
+      "path": "scripts/photo-factory/beforeafter.py",
+      "accessCount": 1,
+      "lastAccessed": 1783055791322,
+      "type": "file"
+    },
+    {
+      "path": "scripts/photo-factory/contactsheet.py",
+      "accessCount": 1,
+      "lastAccessed": 1783055812428,
+      "type": "file"
+    },
+    {
+      "path": "skills/portfolio-recovery/SKILL.md",
+      "accessCount": 1,
+      "lastAccessed": 1783055934902,
+      "type": "file"
+    },
+    {
+      "path": "skills/portfolio-recovery/generation-card-template.md",
+      "accessCount": 1,
+      "lastAccessed": 1783055973916,
+      "type": "file"
+    },
+    {
+      "path": "clients/coda-construction/mockup/index.html",
+      "accessCount": 1,
+      "lastAccessed": 1783323754654,
+      "type": "file"
+    },
+    {
+      "path": "clients/coda-construction/logo.png",
+      "accessCount": 1,
+      "lastAccessed": 1783323756364,
+      "type": "file"
+    },
+    {
+      "path": "clients/coda-construction/website/REVIEWS.md",
+      "accessCount": 1,
+      "lastAccessed": 1783329782898,
+      "type": "file"
+    },
+    {
+      "path": "clients/coda-construction/website/PICKUP.md",
+      "accessCount": 1,
+      "lastAccessed": 1783642354336,
+      "type": "file"
+    }
+  ],
   "userDirectives": []
 }
