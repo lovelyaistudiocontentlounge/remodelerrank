@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halloway &amp; Vance | RemodelerRank Studio Concept</title>
+<meta name="description" content="A concept build by RemodelerRank showing what's possible for a full-service, high-end design-build brand. Not a real business.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-padding-top: 80px; }
+
+  :root {
+    --plaster: #F4EFE7;
+    --plaster-deep: #EAE2D3;
+    --white: #FFFFFF;
+    --ink: #1C1B19;
+    --ink-deep: #111110;
+    --ink-soft: #3A3733;
+    --stone: #6B655C;
+    --stone-light: #9B9488;
+    --line: #DFD6C6;
+    --line-dark: rgba(255,255,255,0.14);
+    --clay: #B26A45;
+    --clay-light: #D69A76;
+    --clay-deep: #8C4F30;
+    --site-max-w: 1476px;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: 0.3s var(--ease);
+  }
+
+  html { background: var(--plaster); }
+  body {
+    font-family: 'Inter', -apple-system, Arial, sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    max-width: 1476px;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+
+  h1, h2, .display { font-family: 'Fraunces', Georgia, serif; }
+  em { font-style: italic; color: var(--clay-light); }
+  .dark-section em { color: var(--clay-light); }
+  .light-section em, .service-card em, .process-step em { color: var(--clay-deep); }
+
+  .concept-flag {
+    background: var(--ink); color: var(--plaster); text-align: center;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 9px 16px;
+    position: relative; z-index: 30;
+  }
+  .concept-flag strong { color: var(--clay-light); }
+
+  .diamond { width: 8px; height: 8px; background: var(--clay); transform: rotate(45deg); flex-shrink: 0; display: inline-block; }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--clay-deep); font-weight: 600; margin-bottom: 20px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .dark-section .eyebrow { color: var(--clay-light); }
+
+  /* ---- Nav: sticky and fully transparent over the hero photo, matching
+     Ridgecrest's real .nav CSS, only picks up a dark translucent blurred
+     band once scrolled (nav-scrolled class, toggled in JS). Sticky instead
+     of fixed so it naturally respects the concept-flag banner above it in
+     normal flow (no overlap) while still pinning to the viewport top on
+     scroll; the hero below is pulled up under it with a negative margin so
+     the transparent bar still overlays the photo. Two flex groups only
+     (logo, links+CTA clustered), so the right side reads as one
+     right-justified block instead of being spread across the bar. ---- */
+  nav {
+    position: sticky; top: 0;
+    z-index: 20; padding: 22px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: transparent; border-bottom: 1px solid transparent;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+  }
+  nav.nav-scrolled {
+    background: rgba(17,17,16,0.92);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+  .nav-word { font-family: 'Fraunces', serif; font-weight: 600; font-size: 19px; letter-spacing: -0.3px; color: var(--white); }
+  .nav-word em { font-style: italic; color: var(--clay-light); }
+  .nav-right { display: flex; align-items: center; gap: 34px; }
+  .nav-links { display: flex; gap: 30px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    border: 1px solid rgba(255,255,255,0.4); color: var(--white); padding: 10px 22px;
+    text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; transition: var(--transition);
+  }
+  .nav-cta:hover { background: rgba(255,255,255,0.12); border-color: var(--white); }
+  .nav-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 36px; height: 36px; padding: 7px; flex-direction: column;
+    justify-content: center; gap: 5px;
+  }
+  .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--white); }
+
+  /* ---- Hero: full-viewport photo, left-to-right dark scrim (text sits in the
+     dark left zone, photo stays visible on the right), the exact mechanic
+     found in Ridgecrest's real hero CSS. Slow Ken-Burns zoom on the art layer,
+     GSAP-driven, matches the same device already used on AF Woodworker's
+     hero. Pure CSS/gradient, no real photography exists for this concept. ---- */
+  .hero {
+    position: relative; height: 92vh; min-height: 640px; margin-top: -84px;
+    display: flex; align-items: center; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: -6%; z-index: 0;
+    background: linear-gradient(135deg, var(--plaster-deep) 0%, var(--ink-soft) 60%, var(--ink) 100%);
+  }
+  .hero-bg::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(115deg, rgba(244,239,231,0.06) 0 1px, transparent 1px 72px);
+  }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to right, rgba(17,17,16,0.92) 0%, rgba(17,17,16,0.62) 48%, transparent 92%);
+  }
+  .hero-photo-note {
+    position: absolute; right: 28px; bottom: 24px; z-index: 2;
+    font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600;
+    color: rgba(244,239,231,0.55);
+  }
+  .hero-content { position: relative; z-index: 2; padding: 0 40px; max-width: 1160px; margin: 0 auto; width: 100%; }
+  .hero-content .eyebrow { color: var(--clay-light); }
+  .hero h1 {
+    color: var(--white); max-width: 680px;
+    font-size: clamp(42px, 6.4vw, 88px); font-weight: 400; line-height: 1.04;
+    letter-spacing: -1.5px; margin-bottom: 24px;
+  }
+  .hero p { color: rgba(244,239,231,0.72); font-size: 18px; max-width: 480px; margin-bottom: 38px; font-weight: 300; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  /* ---- Buttons: sharp rectangles (no border-radius), uppercase tracked-out
+     labels, one shared transition timing. Real, specific "quiet luxury"
+     signals from Ridgecrest's actual .btn CSS, not a stylistic guess. ---- */
+  .btn-primary, .btn-outline {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 16px 34px; text-decoration: none; transition: var(--transition);
+  }
+  .btn-primary { background: var(--white); color: var(--ink); }
+  .btn-primary:hover { background: var(--clay); color: var(--white); }
+  .btn-outline {
+    border: 1px solid rgba(244,239,231,0.4); color: var(--white);
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: var(--white); }
+  .hero-scroll {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 2;
+  }
+  .hero-scroll span {
+    display: block; width: 1px; height: 56px;
+    background: linear-gradient(to bottom, transparent, rgba(244,239,231,0.55));
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.7); }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
+
+  .art-block {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, var(--plaster-deep) 0%, var(--plaster) 55%, var(--clay) 180%);
+  }
+  .art-block::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(115deg, rgba(28,27,25,0.05) 0 1px, transparent 1px 64px);
+  }
+  .art-block .art-label {
+    position: absolute; left: 18px; bottom: 16px;
+    font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600;
+    color: var(--ink-soft); background: rgba(244,239,231,0.85); padding: 6px 11px;
+  }
+  .art-block.dark {
+    background: linear-gradient(135deg, var(--ink-soft) 0%, var(--ink) 60%, var(--clay-deep) 190%);
+  }
+  .art-block.dark .art-label { color: var(--plaster); background: rgba(17,17,16,0.65); }
+
+  .reveal { opacity: 0; transform: translateY(24px); }
+  body.no-motion .reveal { opacity: 1; transform: none; }
+
+  /* ---- Statement: dark contrast block ---- */
+  .statement { background: var(--ink); color: var(--white); padding: 130px 40px; }
+  .statement-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .statement h2 { font-size: clamp(28px, 4.4vw, 46px); font-weight: 400; line-height: 1.3; }
+  .statement .eyebrow { justify-content: center; }
+
+  /* ---- Services: light section, image + text split rows ---- */
+  .services-section { padding: 130px 40px; max-width: 1160px; margin: 0 auto; }
+  .services-head { max-width: 640px; margin: 0 auto 64px; text-align: center; }
+  .services-head h2 { font-size: clamp(30px, 4.6vw, 48px); font-weight: 400; margin-bottom: 14px; }
+  .services-head p { color: var(--stone); font-size: 17px; }
+  .service-row { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 56px 0; border-top: 1px solid var(--line); }
+  .service-row:last-child { border-bottom: 1px solid var(--line); }
+  .service-row.reverse { direction: rtl; }
+  .service-row.reverse > * { direction: ltr; }
+  .service-row .art-block { aspect-ratio: 5/4; }
+  .service-row h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 400; margin-bottom: 12px; }
+  .service-row p { font-size: 15.5px; color: var(--stone); margin-bottom: 18px; max-width: 420px; }
+  .service-price {
+    font-size: 11.5px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700;
+    color: var(--clay-deep);
+  }
+
+  /* ---- Process: dark contrast block, photo strip ---- */
+  .process-section { background: var(--ink); color: var(--white); padding: 130px 40px; }
+  .process-inner { max-width: 1160px; margin: 0 auto; }
+  .process-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+  .process-head h2 { font-size: clamp(28px, 4.4vw, 46px); font-weight: 400; margin-bottom: 14px; }
+  .process-head p { color: rgba(244,239,231,0.6); font-size: 17px; }
+  .process-photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 64px; }
+  .process-photos .art-block { aspect-ratio: 3/4; }
+  .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+  .process-steps::before { content: ''; position: absolute; top: 19px; left: 30px; right: 30px; height: 1px; background: var(--line-dark); }
+  .process-step { position: relative; padding-right: 18px; }
+  .process-step .step-num {
+    width: 38px; height: 38px; border-radius: 999px; background: var(--ink); border: 2px solid var(--clay);
+    color: var(--clay-light); font-family: 'Fraunces', serif; font-weight: 600; font-size: 14px;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+  }
+  .process-step h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .process-step p { font-size: 12.5px; color: rgba(244,239,231,0.6); }
+
+  /* ---- Portfolio: light, larger imagery ---- */
+  .portfolio-section { padding: 130px 40px; max-width: 1160px; margin: 0 auto; }
+  .portfolio-head { max-width: 700px; margin: 0 auto 56px; text-align: center; }
+  .portfolio-head h2 { font-size: clamp(30px, 4.6vw, 48px); font-weight: 400; margin-bottom: 14px; }
+  .portfolio-head p { color: var(--stone); font-size: 17px; }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .portfolio-card .art-block { aspect-ratio: 3/4; margin-bottom: 0; }
+  .portfolio-card .art-overlay-text {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 20px;
+    background: linear-gradient(to top, rgba(17,17,16,0.82), transparent);
+  }
+  .portfolio-card .art-overlay-text h3 { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--white); margin-bottom: 2px; }
+  .portfolio-card .art-overlay-text p { font-size: 12.5px; color: rgba(244,239,231,0.75); }
+
+  /* ---- Service areas ---- */
+  .areas-strip { background: var(--ink-deep); color: rgba(255,255,255,0.9); padding: 90px 40px; text-align: center; }
+  .areas-strip .eyebrow { justify-content: center; color: var(--clay-light); }
+  .areas-strip h2 { font-size: clamp(26px, 3.6vw, 36px); font-weight: 400; margin-bottom: 34px; color: var(--white); }
+  .areas-list { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; max-width: 760px; margin: 0 auto; }
+  .area-pill {
+    border: 1px solid rgba(255,255,255,0.22); padding: 9px 18px; font-size: 13.5px;
+    color: rgba(255,255,255,0.85); text-decoration: none; transition: var(--transition);
+  }
+  .area-pill:hover { border-color: var(--clay); color: var(--white); }
+  .area-pill.linked { border-color: var(--clay); color: var(--white); }
+
+  .cta-section { text-align: center; background: var(--plaster); padding: 130px 40px; }
+  .cta-section .eyebrow { justify-content: center; display: flex; }
+  .cta-section h2 { font-size: clamp(30px, 4.6vw, 48px); font-weight: 400; margin: 0 auto 18px; }
+  .cta-section p { color: var(--stone); font-size: 17px; max-width: 520px; margin: 0 auto 32px; }
+  .cta-section .btn-primary { background: var(--ink); color: var(--white); }
+
+  footer { background: var(--ink); color: rgba(255,255,255,0.55); padding: 56px 40px; text-align: center; font-size: 13px; }
+  footer strong { color: var(--white); }
+  footer a { color: var(--clay-light); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .service-row, .service-row.reverse { grid-template-columns: 1fr; direction: ltr; gap: 24px; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .process-steps::before { display: none; }
+    .process-photos { grid-template-columns: repeat(2, 1fr); }
+    .portfolio-grid { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 16px 20px; }
+    nav:not(.nav-scrolled) { background: rgba(17,17,16,0.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    .nav-cta { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0; margin: 0; padding: 8px 0;
+      background: rgba(17,17,16,0.96); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.3);
+    }
+    nav.nav-open .nav-links { display: flex; }
+    .nav-links a { display: block; padding: 14px 20px; }
+    .hero-content { padding: 0 20px; }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-outline { width: 100%; text-align: center; }
+    .statement, .services-section, .process-section, .portfolio-section, .cta-section { padding-left: 20px; padding-right: 20px; }
+    .process-steps, .process-photos { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="concept-flag">Concept demo by RemodelerRank <strong>&middot; not a real business &middot;</strong> built to show what's possible for a high-end design-build brand</div>
+
+<nav id="siteNav">
+  <span class="nav-word">Halloway <em>&amp;</em> Vance</span>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#areas">Service Areas</a></li>
+    </ul>
+    <a class="nav-cta" href="#start">Start a Conversation</a>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <span class="hero-photo-note">Real project photography would run here</span>
+  <div class="hero-content">
+    <span class="eyebrow"><span class="diamond"></span>Danville, CA. Design-Build.</span>
+    <h1>Your Home, <em>Considered Completely</em></h1>
+    <p>Design, pricing, and construction under one roof, so nothing about your project is a surprise you find out about later.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#start">Start a Conversation</a>
+      <a class="btn-outline" href="#portfolio">See the Work</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span></span></div>
+</section>
+
+<section class="statement dark-section">
+  <div class="statement-inner reveal">
+    <span class="eyebrow"><span class="diamond"></span>The Difference</span>
+    <h2>Most firms hand you off between design and construction. We don't, because that handoff is where budgets and timelines actually break.</h2>
+  </div>
+</section>
+
+<section class="services-section light-section" id="services">
+  <div class="services-head reveal">
+    <span class="eyebrow"><span class="diamond"></span>Services</span>
+    <h2>Four ways to work with us, priced honestly up front</h2>
+    <p>Real starting points, not a number you have to ask three times to get.</p>
+  </div>
+
+  <div class="service-row reveal">
+    <div class="art-block"><span class="art-label">Photography placeholder</span></div>
+    <div>
+      <h3>Custom Homes</h3>
+      <p>Ground-up design and construction, one team from the first sketch to the final walkthrough.</p>
+      <span class="service-price">Starting at $2.5M</span>
+    </div>
+  </div>
+  <div class="service-row reverse reveal">
+    <div class="art-block"><span class="art-label">Photography placeholder</span></div>
+    <div>
+      <h3>Whole-Home Remodels</h3>
+      <p>A full reimagining of the house you already have, without moving out to get it.</p>
+      <span class="service-price">Starting at $650K</span>
+    </div>
+  </div>
+  <div class="service-row reveal">
+    <div class="art-block"><span class="art-label">Photography placeholder</span></div>
+    <div>
+      <h3>Kitchens</h3>
+      <p>The room that gets used hardest, designed and built to actually hold up to it.</p>
+      <span class="service-price">Starting at $120K</span>
+    </div>
+  </div>
+  <div class="service-row reverse reveal">
+    <div class="art-block"><span class="art-label">Photography placeholder</span></div>
+    <div>
+      <h3>Primary Suites</h3>
+      <p>Bedroom, bath, and closet reworked together, not as three separate small projects.</p>
+      <span class="service-price">Starting at $85K</span>
+    </div>
+  </div>
+</section>
+
+<div class="process-section dark-section" id="process">
+  <div class="process-inner">
+    <div class="process-head reveal">
+      <span class="eyebrow"><span class="diamond"></span>Process</span>
+      <h2>Five stages, the same team the entire way</h2>
+      <p>No handoff between the people who designed it and the people who build it.</p>
+    </div>
+    <div class="process-photos reveal">
+      <div class="art-block dark"><span class="art-label">Design phase</span></div>
+      <div class="art-block dark"><span class="art-label">Framing</span></div>
+      <div class="art-block dark"><span class="art-label">Detail work</span></div>
+      <div class="art-block dark"><span class="art-label">Finished</span></div>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>Discover</h3>
+        <p>Real budget, real timeline, real priorities, before a single drawing starts.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>Design</h3>
+        <p>Full drawings and renders, so you're deciding on what it'll look like, not imagining it.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>Price It Clearly</h3>
+        <p>A real number against the real drawings, not a rough estimate that grows later.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h3>Build</h3>
+        <p>The same team that designed it runs the job site, start to finish.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">05</div>
+        <h3>Walkthrough</h3>
+        <p>A real final walkthrough against the original drawings, not a rushed handoff.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="portfolio-section light-section" id="portfolio">
+  <div class="portfolio-head reveal">
+    <span class="eyebrow"><span class="diamond"></span>Portfolio</span>
+    <h2>The kind of work this concept is built to hold</h2>
+    <p>Placeholder panels standing in for real project photography, not real completed projects.</p>
+  </div>
+  <div class="portfolio-grid reveal">
+    <div class="portfolio-card">
+      <div class="art-block dark">
+        <div class="art-overlay-text"><h3>Whole-Home Remodel</h3><p>Danville, CA</p></div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="art-block dark">
+        <div class="art-overlay-text"><h3>Kitchen &amp; Primary Suite</h3><p>Lafayette, CA</p></div>
+      </div>
+    </div>
+    <div class="portfolio-card">
+      <div class="art-block dark">
+        <div class="art-overlay-text"><h3>Custom Home</h3><p>Orinda, CA</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="areas-strip" id="areas">
+  <span class="eyebrow"><span class="diamond"></span>Service Areas</span>
+  <h2>One real example page per city, not a generic list</h2>
+  <div class="areas-list">
+    <a class="area-pill linked" href="service-area-danville.html">Danville</a>
+    <span class="area-pill">Lafayette</span>
+    <span class="area-pill">Orinda</span>
+    <span class="area-pill">Walnut Creek</span>
+    <span class="area-pill">Alamo</span>
+    <span class="area-pill">Moraga</span>
+  </div>
+</div>
+
+<section class="cta-section" id="start">
+  <span class="eyebrow"><span class="diamond"></span>Start a Conversation</span>
+  <h2>This is a concept, not a client</h2>
+  <p>Built by RemodelerRank to show what's possible for a full-service, high-end design-build brand: honest pricing, a real process, and a page for every real place you actually work.</p>
+  <a class="btn-primary" href="mailto:hey@remodelerrank.com">Talk to RemodelerRank</a>
+</section>
+
+<footer>
+  <strong>Halloway &amp; Vance</strong> is a fictional concept, built by RemodelerRank as a portfolio demo. No real business, license, or address is associated with this name.<br>
+  Want something like this built for your real business? <a href="mailto:hey@remodelerrank.com">hey@remodelerrank.com</a>
+</footer>
+
+<script>
+function toggleNav() {
+  var nav = document.querySelector('nav');
+  var open = nav.classList.toggle('nav-open');
+  nav.querySelector('.nav-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+(function () {
+  var nav = document.getElementById('siteNav');
+  function onScroll() {
+    nav.classList.toggle('nav-scrolled', window.scrollY > window.innerHeight * 0.7);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+(function () {
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var librariesLoaded = window.gsap && window.ScrollTrigger;
+
+  if (reduceMotion || !librariesLoaded) {
+    document.body.classList.add('no-motion');
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* Slow Ken-Burns zoom on the hero art layer, same device as the real
+     Ridgecrest hero and AF Woodworker's own build. */
+  gsap.to('#heroBg', {
+    scale: 1.12, duration: 16, ease: 'none', repeat: -1, yoyo: true, transformOrigin: 'center center'
+  });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: 0.9, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 85%' }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

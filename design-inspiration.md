@@ -115,16 +115,18 @@ starting prices stated per service instead of hidden behind "contact
 us." A five-stage process section explains exactly how a project runs.
 Likely built on Webflow (clean markup, no visible custom framework).
 
-**The real structural lesson, not just the look:** this is a 40+ page
-site, and that's deliberate, not bloat. Service x location architecture
-(4 core service pages x 12 real named service-area cities: Alamo,
-Danville, Diablo, Dublin, Lafayette, Moraga, Orinda, Pleasanton,
-Rossmoor, San Ramon, Sunol, Walnut Creek) means every city gets its own
-real page to rank for, instead of one generic "service area" list. Plus
-a blog ("The RD Edit"), a Press page, individual project pages per real
-build, a Team page. The design is the visible layer; the page-count and
-IA are what actually let it outrank a nicer-looking but thinner
-competitor site.
+**The real structural lesson, not just the look:** this is a 379-page
+site (confirmed via sitemap.xml), and that's deliberate, not bloat.
+**Correction, 2026-09-18:** originally assumed a dedicated landing page
+per service x city combination. Pulling the real sitemap disproved
+that, the actual local-SEO engine is a ~350-post blog, split into
+hyper-local guide posts (one per real neighborhood + angle, e.g.
+"remodeling-in-blackhawk-danville," "bathroom-remodeling-in-moraga-a-
+local-homeowners-guide") and design/lifestyle content (color trends,
+seasonal styling, project features). That's where the 12 service-area
+cities actually get their SEO surface area, not a thin landing-page
+grid. Full spec, real colors/type/buttons/spacing/effects pulled from
+raw CSS: `ridgecrest-design-spec.md`.
 
 **What's actually missing, worth noting before treating it as flawless:**
 no visible client quotes or real case-study breakdowns despite four
