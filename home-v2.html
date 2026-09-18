@@ -226,6 +226,29 @@
   .about-teaser p { color: var(--ink-soft); font-size: 16.5px; margin-bottom: 18px; }
   .about-teaser .conclusion { font-size: 18px; font-weight: 700; color: var(--charcoal); margin: 30px 0; }
 
+  /* ---- Inspection preview: the real 5 points, not just a button ---- */
+  .inspection-preview { background: var(--charcoal); color: var(--white); padding: 120px 40px; }
+  .inspection-inner { max-width: 900px; margin: 0 auto; }
+  .inspection-head { max-width: 680px; margin: 0 auto 56px; text-align: center; }
+  .inspection-head h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 14px; }
+  .inspection-head p { color: rgba(255,255,255,0.7); font-size: 16.5px; }
+  .inspection-points { display: flex; flex-direction: column; gap: 0; margin-bottom: 44px; }
+  .inspection-point { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-top: 1px solid rgba(255,255,255,0.14); align-items: center; }
+  .inspection-point:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .inspection-point .num { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 14px; color: var(--sage); }
+  .inspection-point p { margin: 0; font-size: 17px; font-weight: 700; }
+  .inspection-cta { text-align: center; }
+  .inspection-cta .fine-print { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.5); }
+
+  /* ---- FAQ ---- */
+  .faq-section { padding: 120px 40px; max-width: 860px; margin: 0 auto; }
+  .faq-head { max-width: 640px; margin: 0 auto 50px; text-align: center; }
+  .faq-head h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; }
+  .faq-item { padding: 26px 0; border-top: 1px solid var(--line); }
+  .faq-item:last-child { border-bottom: 1px solid var(--line); }
+  .faq-item h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  .faq-item p { font-size: 15.5px; color: var(--ink-soft); margin: 0; }
+
   /* ---- Final CTA ---- */
   .final-cta { background: var(--sage-deep); color: var(--white); text-align: center; padding: 130px 40px; }
   .final-cta h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 6px; }
@@ -284,6 +307,7 @@
     <li><a href="what-we-do.html">What We Do</a></li>
     <li><a href="how-we-work.html">How We Work</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="guides/">Shop Notes</a></li>
   </ul>
   <a class="nav-cta" href="marketing-inspection.html">Get an Inspection</a>
   <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
@@ -501,6 +525,60 @@
     <p>That matters because I don't have to start by learning why a beautiful portfolio isn't enough, why a bad-fit lead can be worse than no lead, or why "we need more leads" isn't always the real problem.</p>
     <p class="conclusion">I understand the industry. RemodelerRank brings the marketing side with it.</p>
     <a class="link-arrow" href="about.html">More About Jenn &#8594;</a>
+  </div>
+</section>
+
+<section class="inspection-preview" id="inspection">
+  <div class="inspection-inner">
+    <div class="inspection-head reveal">
+      <span class="eyebrow"><span class="diamond"></span>Marketing Inspection</span>
+      <h2>Let's see what's actually going on.</h2>
+      <p>Not sure what you need? Good, you don't need to know. This is what I actually look at first.</p>
+    </div>
+    <div class="inspection-points reveal">
+      <div class="inspection-point"><span class="num">01</span><p>Can they find you?</p></div>
+      <div class="inspection-point"><span class="num">02</span><p>Do they understand what you do?</p></div>
+      <div class="inspection-point"><span class="num">03</span><p>Can they see why you're good?</p></div>
+      <div class="inspection-point"><span class="num">04</span><p>Do they have enough reason to trust you?</p></div>
+      <div class="inspection-point"><span class="num">05</span><p>What happens when they raise their hand?</p></div>
+    </div>
+    <div class="inspection-cta reveal">
+      <a class="btn-primary" href="marketing-inspection.html">Get a Marketing Inspection</a>
+      <div class="fine-print">No giant marketing plan. No jargon. Just what I'd fix first.</div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="faq-head reveal">
+    <span class="eyebrow"><span class="diamond"></span>Common Questions</span>
+    <h2>What contractors ask before signing on</h2>
+  </div>
+  <div class="reveal">
+    <div class="faq-item">
+      <h3>Can I just get a website without a monthly retainer?</h3>
+      <p>Yes. The Launch package is a one-time site build with no ongoing commitment. You get a conversion-focused site, GBP setup, and core listings. Many contractors start here and add a retainer once they see results.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I have to sign a long-term contract?</h3>
+      <p>No. We work month-to-month after an initial 3-month commitment. SEO takes time to work, 3 months is the minimum to see real movement. After that, you stay because it's working, not because you're locked in.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How long until I see results?</h3>
+      <p>Most clients start seeing ranking improvements within 60 to 90 days. Lead volume typically increases meaningfully by month 3 to 4. We track everything and show you the numbers monthly.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if I already have a website?</h3>
+      <p>We audit it first. If your existing site has a solid foundation, we may be able to optimize it rather than rebuild. We'll tell you honestly which makes more sense for your situation.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do you work with contractors outside Northern California?</h3>
+      <p>Right now, no. We're focused exclusively on Northern California remodelers, cabinet shops, and specialty trades. That focus is what makes us good at this. We may expand later, but not yet.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What makes you different from a general marketing agency?</h3>
+      <p>We only work with businesses that build things. Every template, every keyword list, every piece of copy has been built for this industry. A generalist agency learns your business on your dime. We already know it.</p>
+    </div>
   </div>
 </section>
 
