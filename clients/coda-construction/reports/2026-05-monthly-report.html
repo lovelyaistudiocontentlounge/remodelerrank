@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>May 2026 Performance Report - Coda Construction</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --off-white: #FAFAF8;
+    --warm-sage-tint: #EEF2EF;
+    --sage: #8BA89A;
+    --sage-dark: #6E8E7E;
+    --sage-deeper: #4A6E5E;
+    --charcoal: #2C2C2C;
+    --body-text: #4A4A4A;
+    --muted-sage: #7A8A80;
+    --faint-sage: #B0BDB5;
+    --border: #DDE6E1;
+    --green: #2D7A4F;
+    --red: #C0392B;
+    --amber: #D4801A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Karla', sans-serif;
+    color: var(--body-text);
+    background: #F0F0EE;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .demo-banner {
+    background: var(--amber);
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    font-family: 'Karla', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .report-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+  }
+
+  /* ── Header ── */
+  .header {
+    background: var(--charcoal);
+    padding: 36px 40px 32px;
+  }
+  .header-logo {
+    margin-bottom: 24px;
+  }
+  .header-logo img {
+    height: 28px;
+    width: auto;
+    display: block;
+  }
+  .header-logo-text {
+    font-family: 'Karla', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--faint-sage);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .header-meta {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--faint-sage);
+    margin-bottom: 6px;
+  }
+  .header-name {
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .header-badge {
+    display: inline-block;
+    background: var(--sage);
+    color: white;
+    font-family: 'Karla', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ── Section base ── */
+  .section {
+    padding: 48px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:nth-child(even) { background: var(--off-white); }
+  .section-label {
+    font-family: 'Karla', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sage);
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 24px;
+  }
+
+  /* ── Win cards ── */
+  .wins {
+    background: var(--warm-sage-tint);
+    padding: 40px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .wins-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .win-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 20px;
+  }
+  .win-stat {
+    font-family: 'Lora', serif;
+    font-size: 44px;
+    font-weight: 400;
+    color: var(--sage-deeper);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .win-label {
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+    color: var(--body-text);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .win-change {
+    font-family: 'Karla', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .win-change.up { color: var(--green); }
+  .win-change.down { color: var(--red); }
+  .win-change.flat { color: var(--muted-sage); }
+
+  /* ── Tables ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Karla', sans-serif;
+    margin-bottom: 24px;
+  }
+  th {
+    background: var(--warm-sage-tint);
+    color: var(--sage-deeper);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--body-text);
+    font-size: 15px;
+  }
+  tr:last-child td { border-bottom: none; }
+  td.up { color: var(--green); font-weight: 500; }
+  td.down { color: var(--red); font-weight: 500; }
+  td.flat { color: var(--muted-sage); }
+  td.num { font-family: 'Lora', serif; }
+
+  .interpret {
+    font-size: 15px;
+    color: var(--body-text);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    background: var(--warm-sage-tint);
+    border-left: 3px solid var(--sage);
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* ── Top pages list ── */
+  .top-pages { margin-top: 8px; }
+  .top-pages-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--sage);
+    margin-bottom: 12px;
+  }
+  .page-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+  }
+  .page-row:last-child { border-bottom: none; }
+  .page-rank {
+    font-size: 12px;
+    color: var(--muted-sage);
+    width: 20px;
+  }
+  .page-name { flex: 1; padding: 0 12px; color: var(--charcoal); }
+  .page-count {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    color: var(--sage-deeper);
+  }
+  .page-unit { font-size: 12px; color: var(--muted-sage); margin-left: 4px; }
+
+  /* ── Review quote ── */
+  .review-quote {
+    background: var(--warm-sage-tint);
+    border-left: 3px solid var(--sage);
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--charcoal);
+  }
+  .review-source {
+    font-style: normal;
+    font-size: 13px;
+    color: var(--muted-sage);
+    margin-top: 6px;
+  }
+
+  /* ── Rankings ── */
+  .rank-new { font-size: 12px; color: var(--muted-sage); font-style: italic; }
+
+  /* ── Lead table ── */
+  .lead-total {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: var(--warm-sage-tint);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .lead-total-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--sage-deeper);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .lead-total-num {
+    font-family: 'Lora', serif;
+    font-size: 28px;
+    color: var(--sage-deeper);
+  }
+  .revenue-note {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--muted-sage);
+    font-style: italic;
+  }
+
+  /* ── Work done ── */
+  .work-list {
+    list-style: none;
+    padding: 0;
+  }
+  .work-list li {
+    padding: 10px 0 10px 24px;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    position: relative;
+  }
+  .work-list li:last-child { border-bottom: none; }
+  .work-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 8px;
+    height: 8px;
+    background: var(--sage);
+    border-radius: 50%;
+  }
+
+  /* ── Next month ── */
+  .priority-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: priority;
+  }
+  .priority-list li {
+    counter-increment: priority;
+    padding: 14px 0 14px 48px;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    position: relative;
+  }
+  .priority-list li:last-child { border-bottom: none; }
+  .priority-list li::before {
+    content: counter(priority);
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 28px;
+    height: 28px;
+    background: var(--sage-deeper);
+    color: white;
+    border-radius: 50%;
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .client-action {
+    margin-top: 20px;
+    padding: 14px 18px;
+    background: #FFF8ED;
+    border: 1px solid var(--amber);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--charcoal);
+  }
+  .client-action strong {
+    color: var(--amber);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--charcoal);
+    padding: 48px 40px;
+    text-align: center;
+  }
+  .footer-headline {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .footer-sub {
+    font-size: 14px;
+    color: var(--faint-sage);
+    margin-bottom: 24px;
+  }
+  .footer-cta {
+    display: inline-block;
+    background: var(--sage);
+    color: white;
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 12px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-bottom: 32px;
+  }
+  .footer-contact {
+    font-size: 13px;
+    color: var(--muted-sage);
+    margin-bottom: 32px;
+  }
+  .footer-logo-text {
+    font-family: 'Karla', sans-serif;
+    font-size: 12px;
+    color: var(--faint-sage);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .section, .wins, .header, .footer { padding: 28px 20px; }
+    .wins-grid { grid-template-columns: 1fr; }
+    .win-stat { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Sample Report - Demo Data Only</div>
+
+<div class="report-wrap">
+
+  <!-- Section 1: Header -->
+  <div class="header">
+    <div class="header-logo">
+      <div class="header-logo-text">RemodelerRank</div>
+    </div>
+    <div class="header-meta">May 2026 Performance Report</div>
+    <div class="header-name">Coda Construction</div>
+    <span class="header-badge">Month 3 of your partnership</span>
+  </div>
+
+  <!-- Section 2: Executive Summary -->
+  <div class="wins">
+    <div class="wins-grid">
+
+      <div class="win-card">
+        <div class="win-stat">312</div>
+        <div class="win-label">Website visits this month</div>
+        <div class="win-change up">&#8593; 24% from April</div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-stat">18</div>
+        <div class="win-label">Calls from your Google listing</div>
+        <div class="win-change up">&#8593; 6 more than April</div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-stat">4.9</div>
+        <div class="win-label">Google rating - 3 new reviews</div>
+        <div class="win-change up">&#8593; up from 4.8</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Section 3: Website Traffic -->
+  <div class="section">
+    <div class="section-label">Website</div>
+    <div class="section-title">Traffic Overview</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>May 2026</th>
+          <th>April 2026</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Total Sessions</td>
+          <td class="num">312</td>
+          <td class="num">251</td>
+          <td class="up">&#8593; +24%</td>
+        </tr>
+        <tr>
+          <td>Organic Search Sessions</td>
+          <td class="num">248</td>
+          <td class="num">198</td>
+          <td class="up">&#8593; +25%</td>
+        </tr>
+        <tr>
+          <td>New Users</td>
+          <td class="num">187</td>
+          <td class="num">152</td>
+          <td class="up">&#8593; +23%</td>
+        </tr>
+        <tr>
+          <td>Avg. Engagement Time</td>
+          <td class="num">2:14</td>
+          <td class="num">1:58</td>
+          <td class="up">&#8593; +14%</td>
+        </tr>
+        <tr>
+          <td>Form Completions</td>
+          <td class="num">3</td>
+          <td class="num">1</td>
+          <td class="up">&#8593; +2</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="interpret">
+      Organic traffic is up 25% month-over-month. The kitchen remodeling page is now pulling consistent search traffic - your homepage ranking for "kitchen remodeling Walnut Creek" moved from page two to position 4 this month and that shift is showing up in the numbers.
+    </div>
+
+    <div class="top-pages">
+      <div class="top-pages-label">Top Pages - May 2026</div>
+      <div class="page-row">
+        <span class="page-rank">1</span>
+        <span class="page-name">Homepage</span>
+        <span class="page-count">180<span class="page-unit">visits</span></span>
+      </div>
+      <div class="page-row">
+        <span class="page-rank">2</span>
+        <span class="page-name">Kitchen Remodeling</span>
+        <span class="page-count">54<span class="page-unit">visits</span></span>
+      </div>
+      <div class="page-row">
+        <span class="page-rank">3</span>
+        <span class="page-name">Contact</span>
+        <span class="page-count">38<span class="page-unit">visits</span></span>
+      </div>
+      <div class="page-row">
+        <span class="page-rank">4</span>
+        <span class="page-name">Bathroom Remodeling</span>
+        <span class="page-count">26<span class="page-unit">visits</span></span>
+      </div>
+      <div class="page-row">
+        <span class="page-rank">5</span>
+        <span class="page-name">About</span>
+        <span class="page-count">14<span class="page-unit">visits</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: GBP -->
+  <div class="section">
+    <div class="section-label">Google Business Profile</div>
+    <div class="section-title">Local Presence</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>May 2026</th>
+          <th>April 2026</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Profile Views</td>
+          <td class="num">847</td>
+          <td class="num">712</td>
+          <td class="up">&#8593; +19%</td>
+        </tr>
+        <tr>
+          <td>Calls from GBP</td>
+          <td class="num">18</td>
+          <td class="num">12</td>
+          <td class="up">&#8593; +6</td>
+        </tr>
+        <tr>
+          <td>Direction Requests</td>
+          <td class="num">12</td>
+          <td class="num">8</td>
+          <td class="up">&#8593; +4</td>
+        </tr>
+        <tr>
+          <td>Website Clicks from GBP</td>
+          <td class="num">64</td>
+          <td class="num">51</td>
+          <td class="up">&#8593; +25%</td>
+        </tr>
+        <tr>
+          <td>Photo Views</td>
+          <td class="num">2,140</td>
+          <td class="num">1,820</td>
+          <td class="up">&#8593; +18%</td>
+        </tr>
+        <tr>
+          <td>Review Count</td>
+          <td class="num">34</td>
+          <td class="num">31</td>
+          <td class="up">&#8593; +3</td>
+        </tr>
+        <tr>
+          <td>Avg. Rating</td>
+          <td class="num">4.9</td>
+          <td class="num">4.8</td>
+          <td class="up">&#8593; +0.1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="interpret">
+      Your listing is gaining momentum. Photo views crossed 2,000 for the first time - the 8 project photos we added in April are driving that. Calls are up 50% from last month, which is the number that matters most for your business.
+    </div>
+
+    <div class="top-pages-label" style="margin-top: 24px;">Reviews Received - May 2026</div>
+
+    <div class="review-quote">
+      "Coda did our kitchen and we could not be happier. Showed up when they said they would, finished ahead of schedule, and the quality is outstanding. We already recommended them to two neighbors."
+      <div class="review-source">- Google Review, May 14 2026 - 5 stars</div>
+    </div>
+
+    <div class="review-quote">
+      "Honest estimate, clean job site, zero surprises. That is rare in this industry. We will use Coda again for our master bath."
+      <div class="review-source">- Google Review, May 22 2026 - 5 stars</div>
+    </div>
+
+    <div class="review-quote">
+      "They handled our ADU permit process start to finish. Took longer than expected due to the city but Coda kept us informed the whole time. Highly recommend."
+      <div class="review-source">- Google Review, May 29 2026 - 4 stars</div>
+    </div>
+  </div>
+
+  <!-- Section 5: Rankings -->
+  <div class="section">
+    <div class="section-label">Search Rankings</div>
+    <div class="section-title">Local Keyword Positions</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Position</th>
+          <th>Change</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>kitchen remodeling walnut creek</td>
+          <td class="num">4</td>
+          <td class="up">&#8593; +3</td>
+          <td style="color: var(--muted-sage); font-size: 13px;">Moved from 7 to 4 this month</td>
+        </tr>
+        <tr>
+          <td>bathroom remodeling walnut creek</td>
+          <td class="num">8</td>
+          <td class="up">&#8593; +4</td>
+          <td style="color: var(--muted-sage); font-size: 13px;">Moved from 12 to 8</td>
+        </tr>
+        <tr>
+          <td>general contractor walnut creek</td>
+          <td class="num">11</td>
+          <td class="flat">- new</td>
+          <td style="color: var(--muted-sage); font-size: 13px;">First time tracking</td>
+        </tr>
+        <tr>
+          <td>room addition contractor walnut creek</td>
+          <td class="num">14</td>
+          <td class="flat">- new</td>
+          <td style="color: var(--muted-sage); font-size: 13px;">First time tracking</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="interpret">
+      The kitchen page is doing real work now - position 4 puts you on the first page for the highest-value term in your market. The goal for June is pushing bathroom remodeling into the top 5 and getting room additions under page two.
+    </div>
+  </div>
+
+  <!-- Section 6: Leads -->
+  <div class="section">
+    <div class="section-label">Business Impact</div>
+    <div class="section-title">Leads and Revenue</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Lead Source</th>
+          <th>Count</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Website contact form</td>
+          <td class="num">3</td>
+          <td style="color: var(--muted-sage); font-size: 13px;">All Walnut Creek and Pleasant Hill</td>
+        </tr>
+        <tr>
+          <td>GBP direct call</td>
+          <td class="num">18</td>
+          <td style="color: var(--muted-sage); font-size: 13px;">Verified via call log</td>
+        </tr>
+        <tr>
+          <td>Direction requests (intent signal)</td>
+          <td class="num">12</td>
+          <td style="color: var(--muted-sage); font-size: 13px;">High-intent homeowners researching</td>
+        </tr>
+        <tr>
+          <td>Referral (attributed to site)</td>
+          <td class="num">2</td>
+          <td style="color: var(--muted-sage); font-size: 13px;">Client mentioned they checked your site first</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="lead-total">
+      <span class="lead-total-label">Total qualified contacts this month</span>
+      <span class="lead-total-num">35</span>
+    </div>
+
+    <div class="revenue-note">
+      At your average kitchen project value of $32,000, converting 2 of these leads covers your annual retainer 4x over. These numbers do not include referrals or repeat clients who found your site before calling directly.
+    </div>
+  </div>
+
+  <!-- Section 7: Work Done -->
+  <div class="section">
+    <div class="section-label">This Month</div>
+    <div class="section-title">What We Did in May</div>
+
+    <ul class="work-list">
+      <li>Published 2 GBP posts - kitchen remodel project photos with location-specific captions targeting "Walnut Creek" and "Contra Costa County"</li>
+      <li>Added 8 new project photos to the website gallery - kitchen before/after set from the Danville job</li>
+      <li>Responded to all 3 new Google reviews on your behalf within 24 hours</li>
+      <li>Updated your GBP service list to include room additions and ADU construction as separate line items</li>
+      <li>Fixed a display issue on the contact form on mobile - form fields were clipping on iPhone Safari</li>
+      <li>Submitted your listing to Houzz - profile is live and in review queue</li>
+      <li>Added LocalBusiness schema to the kitchen and bathroom service pages to improve AI search visibility</li>
+    </ul>
+  </div>
+
+  <!-- Section 8: Next Month -->
+  <div class="section">
+    <div class="section-label">June Priorities</div>
+    <div class="section-title">What We Are Working On Next</div>
+
+    <ol class="priority-list">
+      <li>Target "room addition Walnut Creek" with a dedicated GBP post and an updated service page - this term has low competition and your portfolio is strong here.</li>
+      <li>Send review requests to the Nguyen family and the Samuels (jobs closed in April) - the 6-week timing is right and both mentioned they would leave a review.</li>
+      <li>Build out the ADU page with project photos and a FAQ section - this is your highest-value service and the page is currently thin.</li>
+    </ol>
+
+    <div class="client-action">
+      <strong>Action needed from you</strong>
+      Please send 4-6 photos from the Pleasant Hill bathroom project - finished tiles, the vanity, and the shower if possible. We will have them live on the site and posted to GBP within 48 hours of receipt.
+    </div>
+  </div>
+
+  <!-- Section 9: Footer -->
+  <div class="footer">
+    <div class="footer-headline">Questions about this report?</div>
+    <div class="footer-sub">Book a quick call and we will walk through it together.</div>
+    <a href="https://calendly.com/hey-remodelerrank/review-meeting-15-minutes" class="footer-cta">Book a 15-Minute Call</a>
+    <div class="footer-contact">hey@remodelerrank.com &nbsp;|&nbsp; 925-940-9484</div>
+    <div class="footer-logo-text">RemodelerRank</div>
+  </div>
+
+</div><!-- /report-wrap -->
+
+</body>
+</html>

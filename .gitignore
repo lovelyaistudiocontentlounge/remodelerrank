@@ -1,3 +1,16 @@
-remodelerrank/
-.DS_Store
 node_modules/
+.env
+.last-scrape
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+logs/
+.DS_Store
+client_secret*.json
+*.json.key
+remodelerrank/
+.omc/
+
+# Local Netlify folder
+.netlify

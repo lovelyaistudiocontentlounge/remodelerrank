@@ -1,0 +1,34 @@
+{
+  "name": "remodelerrank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "morning": "node server.js",
+    "scrape": "node index.js",
+    "check-approvals": "node index.js --check-approvals",
+    "schedule": "node index.js --schedule"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lovelyaistudiocontentlounge/remodelerrank.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lovelyaistudiocontentlounge/remodelerrank/issues"
+  },
+  "homepage": "https://github.com/lovelyaistudiocontentlounge/remodelerrank#readme",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.97.1",
+    "axios": "^1.16.1",
+    "better-sqlite3": "^12.10.0",
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
+    "googleapis": "^172.0.0",
+    "node-cron": "^4.2.1"
+  }
+}
