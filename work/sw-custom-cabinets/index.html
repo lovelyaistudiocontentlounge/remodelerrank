@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SW Custom Cabinets | Field Rebuild 001 | RemodelerRank</title>
+<meta name="description" content="Twenty-five years of real work, split across two competing websites under two different names. How RemodelerRank consolidated SW Custom Cabinets into one brand.">
+<link rel="canonical" href="https://remodelerrank.com/work/sw-custom-cabinets">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Lora:ital,wght@1,500;1,600&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bone: #F6F3EC; --bone-deep: #EDE8DC; --charcoal: #1B1A17; --charcoal-soft: #26241F;
+    --ink-soft: #5C594F; --line: #DDD6C6; --sage: #7E9A8B; --sage-deep: #5E7B6D; --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Karla', Arial, sans-serif; background: var(--bone); color: var(--charcoal);
+    font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, .display { font-family: 'Archivo', Arial, sans-serif; }
+  .label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--sage-deep); font-weight: 600;
+  }
+
+  nav {
+    background: var(--charcoal); padding: 18px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.5px; }
+  nav a:hover { color: var(--sage); }
+  nav img { height: 22px; width: auto; display: block; }
+
+  section { position: relative; }
+  .light { background: var(--bone); }
+  .dark { background: var(--charcoal); color: rgba(255,255,255,0.92); }
+  .dark .label { color: var(--sage); }
+  .tinted { background: var(--bone-deep); }
+
+  .inner { max-width: 900px; margin: 0 auto; padding: 90px 24px; }
+  .inner.tight { padding-top: 64px; padding-bottom: 64px; }
+
+  /* ---- Hero ---- */
+  .hero { min-height: 92vh; display: flex; align-items: flex-end; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,26,23,0.35) 0%, rgba(27,26,23,0.55) 55%, rgba(27,26,23,0.92) 100%); }
+  .hero-body { position: relative; max-width: 900px; margin: 0 auto; padding: 0 24px 64px; color: var(--white); width: 100%; }
+  .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .hero-meta .divider { width: 22px; height: 1px; background: var(--sage); }
+  .hero-client { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(26px, 4.6vw, 42px); margin-bottom: 22px; }
+  .hero-problem {
+    font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px;
+    font-size: clamp(24px, 4.2vw, 40px); line-height: 1.1; max-width: 780px; margin-bottom: 24px; text-wrap: balance;
+  }
+  .hero-hand {
+    font-family: 'Caveat', cursive; font-weight: 600; font-size: clamp(20px, 2.6vw, 25px);
+    color: var(--sage); line-height: 1.3; transform: rotate(-1deg); max-width: 320px;
+  }
+
+  /* ---- Problem statement ---- */
+  .problem-head { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(30px, 5.2vw, 52px); line-height: 1; margin-bottom: 36px; text-wrap: balance; }
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .diagnosis-list { list-style: none; }
+  .diagnosis-list li {
+    display: flex; gap: 12px; padding: 13px 0; border-top: 1px solid var(--line);
+    font-size: 15px; color: var(--ink-soft);
+  }
+  .diagnosis-list li:last-child { border-bottom: 1px solid var(--line); }
+  .diagnosis-list .x { color: var(--sage-deep); font-weight: 700; flex-shrink: 0; }
+  .problem-note { font-family: 'Caveat', cursive; font-weight: 600; font-size: 24px; color: var(--sage-deep); line-height: 1.35; transform: rotate(-1deg); align-self: center; }
+
+  /* ---- Before comparison ---- */
+  .before-head { text-align: center; margin-bottom: 48px; }
+  .before-head h2 { font-weight: 900; text-transform: uppercase; font-size: clamp(24px, 4vw, 36px); letter-spacing: -0.4px; }
+  .before-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .before-panel { background: var(--white); border: 1px solid var(--line); padding: 28px 26px; }
+  .before-panel .site-label { font-weight: 700; margin-bottom: 14px; font-size: 15px; }
+  .before-panel .site-quote { font-family: 'Lora', serif; font-style: italic; font-size: 15px; color: var(--ink-soft); margin-bottom: 14px; line-height: 1.6; }
+  .before-panel .site-note { font-size: 12.5px; color: var(--sage-deep); font-weight: 600; }
+  .before-annot { text-align: center; margin-top: 32px; font-family: 'Caveat', cursive; font-weight: 600; font-size: 24px; color: var(--sage-deep); transform: rotate(-1deg); }
+  .before-flag { text-align: center; margin-top: 28px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.5px; }
+
+  /* ---- Rebuild reveal ---- */
+  .rebuild-head { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(26px, 4.6vw, 44px); line-height: 1.05; margin-bottom: 20px; text-wrap: balance; }
+  .rebuild-sub { color: rgba(255,255,255,0.62); font-size: 16px; max-width: 60ch; margin-bottom: 44px; }
+  .rebuild-media { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; align-items: center; }
+  .rebuild-laptop { background: #100F0D; border-radius: 6px; padding: 8px; box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+  .rebuild-screen { aspect-ratio: 16/10; overflow: hidden; position: relative; background: var(--white); }
+  .rebuild-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .rebuild-screen-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,26,23,0.15), rgba(27,26,23,0.55)); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 16px; }
+  .rebuild-screen-overlay img.logo { height: 26px; width: auto; margin-bottom: 8px; filter: brightness(0) invert(1); }
+  .rebuild-screen-overlay .tag { font-family: 'Lora', serif; font-style: italic; color: var(--white); font-size: 12px; }
+  .rebuild-checklist { list-style: none; }
+  .rebuild-checklist li { display: flex; gap: 10px; padding: 10px 0; font-size: 13.5px; color: rgba(255,255,255,0.75); }
+  .rebuild-checklist .check { color: var(--sage); flex-shrink: 0; }
+  .rebuild-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .rebuild-link::after { content: ''; width: 20px; height: 1px; background: var(--white); }
+
+  /* ---- X-ray ---- */
+  .xray-head { text-align: center; margin-bottom: 56px; }
+  .xray-head h2 { font-weight: 900; text-transform: uppercase; font-size: clamp(26px, 4.4vw, 42px); letter-spacing: -0.4px; line-height: 1.1; }
+  .xray-head .sub { color: var(--ink-soft); font-size: 15px; margin-top: 14px; }
+  .xray-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .xray-item { background: var(--bone); padding: 28px 26px; }
+  .xray-item h3 { font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 0.3px; margin-bottom: 8px; }
+  .xray-item p { font-size: 14px; color: var(--ink-soft); }
+  .xray-item .meta { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--sage-deep); letter-spacing: 1px; text-transform: uppercase; margin-top: 10px; display: block; }
+
+  /* ---- Business outcome ---- */
+  .outcome-block { margin-bottom: 56px; }
+  .outcome-block:last-child { margin-bottom: 0; }
+  .outcome-tag {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; font-weight: 700; padding: 5px 12px; margin-bottom: 20px;
+  }
+  .outcome-tag.strategy { background: var(--sage); color: var(--charcoal); }
+  .outcome-tag.verified { background: var(--line); color: var(--ink-soft); }
+  .outcome-list { list-style: none; }
+  .outcome-list li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; color: var(--ink-soft); }
+  .outcome-list li:last-child { border-bottom: 1px solid var(--line); }
+  .outcome-empty { padding: 24px; border: 1px dashed var(--line); text-align: center; font-size: 14px; color: var(--ink-soft); font-style: italic; }
+
+  .strategic-story {
+    background: var(--white); border: 1px solid var(--line); padding: 32px 30px; margin-top: 8px;
+  }
+  .strategic-story .flow { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--sage-deep); letter-spacing: 0.5px; margin-bottom: 16px; line-height: 2; }
+  .strategic-story p { font-size: 14.5px; color: var(--ink-soft); }
+
+  /* ---- Quote block ---- */
+  .quote-block { text-align: center; }
+  .quote-placeholder {
+    border: 1px dashed var(--line); padding: 44px 32px; max-width: 640px; margin: 0 auto;
+  }
+  .quote-placeholder .qmark { font-family: 'Lora', serif; font-style: italic; font-size: 40px; color: var(--line); margin-bottom: 10px; }
+  .quote-placeholder p { color: var(--ink-soft); font-size: 15px; }
+  .quote-placeholder .label { display: block; margin-top: 16px; }
+
+  /* ---- Field note ---- */
+  .field-note-final { text-align: center; }
+  .field-note-final .hand { font-family: 'Caveat', cursive; font-weight: 700; font-size: clamp(26px, 4vw, 36px); color: var(--sage-deep); line-height: 1.3; transform: rotate(-1deg); display: inline-block; }
+
+  /* ---- Next project ---- */
+  .next-project { display: block; text-decoration: none; color: inherit; }
+  .next-media { width: 100%; aspect-ratio: 21/9; overflow: hidden; }
+  .next-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .next-body { max-width: 900px; margin: 0 auto; padding: 56px 24px 90px; text-align: center; }
+  .next-label { margin-bottom: 18px; }
+  .next-client { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(24px, 4.4vw, 40px); margin-bottom: 16px; }
+  .next-problem { font-weight: 900; text-transform: uppercase; font-size: clamp(18px, 3vw, 26px); color: var(--ink-soft); margin-bottom: 24px; }
+  .next-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--charcoal); }
+  .next-link::after { content: ''; width: 20px; height: 1px; background: var(--charcoal); }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.5); padding: 40px 24px; text-align: center; font-size: 13px; }
+
+  @media (max-width: 760px) {
+    .problem-grid, .before-panels, .rebuild-media, .xray-grid { grid-template-columns: 1fr; }
+    .inner { padding: 56px 20px; }
+    .problem-note { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/work">&#8592; All Work</a>
+  <img src="/images/logo-reversed.svg" alt="RemodelerRank">
+  <span style="width: 60px;"></span>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"><img src="images/sw-kitchen-walnut-brass-sink.jpg" alt="SW Custom Cabinets, walnut kitchen with brass fixtures"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-body">
+    <div class="hero-meta">
+      <span class="label">Field Rebuild 001</span>
+      <span class="divider"></span>
+      <span class="label">Livermore, CA</span>
+    </div>
+    <div class="hero-client">SW Custom Cabinets</div>
+    <div class="hero-problem">25 years of work. Two websites. Two names. One confused customer.</div>
+    <div class="hero-hand">The business wasn't broken.<br>The way it showed up was.</div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="inner">
+    <div class="problem-head">Good work.<br>Hard to find.</div>
+    <div class="problem-grid">
+      <ul class="diagnosis-list">
+        <li><span class="x">&#10005;</span> Two separate websites, one license</li>
+        <li><span class="x">&#10005;</span> No clear positioning between them</li>
+        <li><span class="x">&#10005;</span> Real, strong work, undersold presentation</li>
+        <li><span class="x">&#10005;</span> A real asset (4,633 Instagram followers, organized by project) not connected to either site</li>
+        <li><span class="x">&#10005;</span> One domain plain and family-owned, one selling "luxury estates"</li>
+      </ul>
+      <div class="problem-note">Great work.<br>Poor presentation.</div>
+    </div>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="inner tight">
+    <div class="before-head">
+      <span class="label">The Before</span>
+      <h2 style="margin-top: 14px;">Confusing for the customer</h2>
+    </div>
+    <div class="before-panels">
+      <div class="before-panel">
+        <div class="site-label">sw-cabinets.com</div>
+        <div class="site-quote">"Operating for over 20 years, SW is family-owned and services all of the Bay Area and Northern California."</div>
+        <div class="site-note">Plain, family-owned tone</div>
+      </div>
+      <div class="before-panel">
+        <div class="site-label">702kitchens.com</div>
+        <div class="site-quote">"Premium Bay Area Kitchens" &#183; "luxury estates"</div>
+        <div class="site-note">Same license, same address, sales-heavy voice</div>
+      </div>
+    </div>
+    <div class="before-annot">Which one is the real company?</div>
+    <div class="before-flag">Real side-by-side screenshots pending, both domains still live. Real quoted copy above, verified against each site directly.</div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="inner">
+    <span class="label">The Rebuild</span>
+    <div class="rebuild-head" style="margin-top: 18px;">One brand. A clearer story. A website built to work.</div>
+    <p class="rebuild-sub">Consolidated onto sw-cabinets.com, one voice instead of two, and real project photography carrying the premium feeling instead of adjective-heavy copy.</p>
+    <div class="rebuild-media">
+      <div class="rebuild-laptop">
+        <div class="rebuild-screen">
+          <img src="images/sw-butlers-pantry-archway.jpg" alt="SW Custom Cabinets rebuilt site preview">
+          <div class="rebuild-screen-overlay">
+            <img class="logo" src="images/sw-logo-large.png" alt="SW Custom Cabinets">
+            <div class="tag">Crafted for how you live.</div>
+          </div>
+        </div>
+      </div>
+      <ul class="rebuild-checklist">
+        <li><span class="check">&#10003;</span> Unified brand identity</li>
+        <li><span class="check">&#10003;</span> Modern, SEO-ready website</li>
+        <li><span class="check">&#10003;</span> Project gallery with real detail</li>
+        <li><span class="check">&#10003;</span> Clear process, real guides</li>
+        <li><span class="check">&#10003;</span> Local search consolidated to one domain</li>
+        <li><span class="check">&#10003;</span> Built for long-term transferability</li>
+      </ul>
+    </div>
+    <a class="rebuild-link" href="https://claude.ai/code/artifact/86b70401-5a49-4460-9d7f-bc4877886fe8" target="_blank" rel="noopener">View the live concept draft</a>
+  </div>
+</section>
+
+<section class="light">
+  <div class="inner">
+    <div class="xray-head">
+      <span class="label">You See A Website</span>
+      <h2 style="margin-top: 10px;">I See Everything It Needs To Do</h2>
+      <p class="sub">Every part of the rebuild has a job. Here's what each one is actually for.</p>
+    </div>
+    <div class="xray-grid">
+      <div class="xray-item">
+        <h3>Get The Right Calls</h3>
+        <p>Attract the projects SW actually wants, not just more calls.</p>
+        <span class="meta">Positioning</span>
+      </div>
+      <div class="xray-item">
+        <h3>Let The Work Sell For You</h3>
+        <p>Show prospects SW has already built work at their level.</p>
+        <span class="meta">Social Proof</span>
+      </div>
+      <div class="xray-item">
+        <h3>Make It Easier To Say Yes</h3>
+        <p>Use real reviews and project proof to reduce uncertainty before the call.</p>
+        <span class="meta">Conversion</span>
+      </div>
+      <div class="xray-item">
+        <h3>Answer It Before They Ask</h3>
+        <p>Handle the common questions before the sales conversation has to.</p>
+        <span class="meta">Content</span>
+      </div>
+      <div class="xray-item">
+        <h3>Show Up Where You Want To Work</h3>
+        <p>Build real geographic relevance around the areas SW actually wants more of.</p>
+        <span class="meta">Local SEO</span>
+      </div>
+      <div class="xray-item">
+        <h3>Make The Next Step Obvious</h3>
+        <p>Give an interested prospect one clear path forward, not five.</p>
+        <span class="meta">Conversion</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="inner">
+    <span class="label">The Results</span>
+
+    <div class="outcome-block" style="margin-top: 24px;">
+      <span class="outcome-tag strategy">Strategy / Current Build</span>
+      <ul class="outcome-list">
+        <li>Attract better-fit, higher-value projects</li>
+        <li>Reduce dependence on Steve for every sales conversation</li>
+        <li>Build a digital presence that matches the real book of business</li>
+        <li>Move toward a business that can function, and eventually sell, without the owner in every conversation</li>
+      </ul>
+    </div>
+
+    <div class="outcome-block">
+      <span class="outcome-tag verified">Verified Results</span>
+      <div class="outcome-empty">Nothing has launched yet. This stays empty until there's a real number to put here, not a guess.</div>
+    </div>
+
+    <div class="outcome-block">
+      <div class="label" style="margin-bottom: 14px; display: block;">The Larger Story</div>
+      <div class="strategic-story">
+        <div class="flow">Owner-dependent business<br>&#8594; Company-owned brand<br>&#8594; Documented sales process<br>&#8594; Business that can function, and eventually sell, without the owner</div>
+        <p>Steve mentioned during the visit that he's looking to exit in roughly five years, and the business isn't ready yet, still deeply owner-dependent for sales. This reframes the long-term opportunity. It's a direction, not something built or proven. This case study updates once there's real progress to show, not before.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="inner quote-block">
+    <div class="quote-placeholder">
+      <div class="qmark">"</div>
+      <p>Quote not yet collected. This is a concept draft Steve hasn't necessarily seen or reacted to yet, nothing gets attributed to him until he actually has.</p>
+      <span class="label">Real Reaction Pending</span>
+    </div>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="inner tight field-note-final">
+    <span class="hand">The business wasn't broken.<br>The way it showed up was.</span>
+  </div>
+</section>
+
+<a class="next-project dark" href="../af-woodworker/">
+  <div class="next-media"><img src="images/sw-wine-bar-builtin-oak.jpg" alt="Next project preview"></div>
+  <div class="next-body">
+    <div class="label next-label">Next / Field Rebuild 002</div>
+    <div class="next-client">AF Woodworker</div>
+    <div class="next-problem">Good shop. Bad showroom.</div>
+    <span class="next-link">View the rebuild</span>
+  </div>
+</a>
+
+<footer>
+  RemodelerRank. Marketing for remodeling contractors across Northern California.
+</footer>
+
+</body>
+</html>

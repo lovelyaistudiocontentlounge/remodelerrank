@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coda Construction | Field Rebuild 004 | RemodelerRank</title>
+<meta name="description" content="Fifteen years of real work, split across three pages fighting each other for the same search. How RemodelerRank consolidated Coda Construction's site without losing its rankings.">
+<link rel="canonical" href="https://remodelerrank.com/work/coda-construction">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Lora:ital,wght@1,500;1,600&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bone: #F6F3EC; --bone-deep: #EDE8DC; --charcoal: #1B1A17; --charcoal-soft: #26241F;
+    --ink-soft: #5C594F; --line: #DDD6C6; --sage: #7E9A8B; --sage-deep: #5E7B6D; --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Karla', Arial, sans-serif; background: var(--bone); color: var(--charcoal);
+    font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, .display { font-family: 'Archivo', Arial, sans-serif; }
+  .label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--sage-deep); font-weight: 600;
+  }
+
+  nav {
+    background: var(--charcoal); padding: 18px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.5px; }
+  nav a:hover { color: var(--sage); }
+  nav img { height: 22px; width: auto; display: block; }
+
+  section { position: relative; }
+  .light { background: var(--bone); }
+  .dark { background: var(--charcoal); color: rgba(255,255,255,0.92); }
+  .dark .label { color: var(--sage); }
+  .tinted { background: var(--bone-deep); }
+
+  .inner { max-width: 900px; margin: 0 auto; padding: 90px 24px; }
+  .inner.tight { padding-top: 64px; padding-bottom: 64px; }
+
+  /* ---- Hero ---- */
+  .hero { min-height: 92vh; display: flex; align-items: flex-end; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,26,23,0.35) 0%, rgba(27,26,23,0.55) 55%, rgba(27,26,23,0.92) 100%); }
+  .hero-body { position: relative; max-width: 900px; margin: 0 auto; padding: 0 24px 64px; color: var(--white); width: 100%; }
+  .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .hero-meta .divider { width: 22px; height: 1px; background: var(--sage); }
+  .hero-client { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(26px, 4.6vw, 42px); margin-bottom: 22px; }
+  .hero-problem {
+    font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px;
+    font-size: clamp(24px, 4.2vw, 40px); line-height: 1.1; max-width: 780px; margin-bottom: 24px; text-wrap: balance;
+  }
+  .hero-hand {
+    font-family: 'Caveat', cursive; font-weight: 600; font-size: clamp(20px, 2.6vw, 25px);
+    color: var(--sage); line-height: 1.3; transform: rotate(-1deg); max-width: 320px;
+  }
+
+  /* ---- Problem statement ---- */
+  .problem-head { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(30px, 5.2vw, 52px); line-height: 1; margin-bottom: 36px; text-wrap: balance; }
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .diagnosis-list { list-style: none; }
+  .diagnosis-list li {
+    display: flex; gap: 12px; padding: 13px 0; border-top: 1px solid var(--line);
+    font-size: 15px; color: var(--ink-soft);
+  }
+  .diagnosis-list li:last-child { border-bottom: 1px solid var(--line); }
+  .diagnosis-list .x { color: var(--sage-deep); font-weight: 700; flex-shrink: 0; }
+  .problem-note { font-family: 'Caveat', cursive; font-weight: 600; font-size: 24px; color: var(--sage-deep); line-height: 1.35; transform: rotate(-1deg); align-self: center; }
+
+  /* ---- Pages fighting each other (Coda's own signature block: three
+     near-duplicate keyword pages, shown as literally overlapping) ---- */
+  .fight-head { text-align: center; margin-bottom: 48px; }
+  .fight-head h2 { font-weight: 900; text-transform: uppercase; font-size: clamp(24px, 4vw, 36px); letter-spacing: -0.4px; }
+  .fight-rows { max-width: 700px; margin: 0 auto; }
+  .fight-row {
+    display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center;
+    padding: 18px 22px; border: 1px solid var(--line); background: var(--white);
+  }
+  .fight-row + .fight-row { border-top: none; }
+  .fight-url { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--charcoal); }
+  .fight-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--sage-deep); background: var(--bone-deep); padding: 4px 10px; white-space: nowrap; }
+  .fight-vs { text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-soft); padding: 6px 0; letter-spacing: 1px; }
+  .fight-annot { text-align: center; margin-top: 32px; font-family: 'Caveat', cursive; font-weight: 600; font-size: 24px; color: var(--sage-deep); transform: rotate(-1deg); }
+  .fight-flag { text-align: center; margin-top: 28px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.5px; }
+
+  /* ---- Rebuild reveal ---- */
+  .rebuild-head { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(26px, 4.6vw, 44px); line-height: 1.05; margin-bottom: 20px; text-wrap: balance; }
+  .rebuild-sub { color: rgba(255,255,255,0.62); font-size: 16px; max-width: 60ch; margin-bottom: 44px; }
+  .rebuild-media { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; align-items: center; }
+  .rebuild-laptop { background: #100F0D; border-radius: 6px; padding: 8px; box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+  .rebuild-screen { aspect-ratio: 16/10; overflow: hidden; position: relative; background: var(--white); }
+  .rebuild-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .rebuild-screen-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,26,23,0.15), rgba(27,26,23,0.55)); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 16px; }
+  .rebuild-screen-overlay .wordmark { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 18px; color: var(--white); margin-bottom: 8px; }
+  .rebuild-screen-overlay .tag { font-family: 'Lora', serif; font-style: italic; color: var(--white); font-size: 12px; }
+  .rebuild-checklist { list-style: none; }
+  .rebuild-checklist li { display: flex; gap: 10px; padding: 10px 0; font-size: 13.5px; color: rgba(255,255,255,0.75); }
+  .rebuild-checklist .check { color: var(--sage); flex-shrink: 0; }
+
+  /* ---- X-ray ---- */
+  .xray-head { text-align: center; margin-bottom: 56px; }
+  .xray-head h2 { font-weight: 900; text-transform: uppercase; font-size: clamp(26px, 4.4vw, 42px); letter-spacing: -0.4px; line-height: 1.1; }
+  .xray-head .sub { color: var(--ink-soft); font-size: 15px; margin-top: 14px; }
+  .xray-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .xray-item { background: var(--bone); padding: 28px 26px; }
+  .xray-item h3 { font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 0.3px; margin-bottom: 8px; }
+  .xray-item p { font-size: 14px; color: var(--ink-soft); }
+  .xray-item .meta { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--sage-deep); letter-spacing: 1px; text-transform: uppercase; margin-top: 10px; display: block; }
+
+  /* ---- Business outcome ---- */
+  .outcome-block { margin-bottom: 56px; }
+  .outcome-block:last-child { margin-bottom: 0; }
+  .outcome-tag {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; font-weight: 700; padding: 5px 12px; margin-bottom: 20px;
+  }
+  .outcome-tag.strategy { background: var(--sage); color: var(--charcoal); }
+  .outcome-tag.verified { background: var(--line); color: var(--ink-soft); }
+  .outcome-list { list-style: none; }
+  .outcome-list li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; color: var(--ink-soft); }
+  .outcome-list li:last-child { border-bottom: 1px solid var(--line); }
+  .outcome-empty { padding: 24px; border: 1px dashed var(--line); text-align: center; font-size: 14px; color: var(--ink-soft); font-style: italic; }
+
+  /* ---- Quote block: real, unlike the other three ---- */
+  .quote-block { text-align: center; }
+  .quote-real { border: 1px solid var(--line); background: var(--white); padding: 44px 32px; max-width: 640px; margin: 0 auto; }
+  .quote-real .qmark { font-family: 'Lora', serif; font-style: italic; font-size: 40px; color: var(--sage); margin-bottom: 10px; }
+  .quote-real p { font-family: 'Lora', serif; font-style: italic; color: var(--charcoal); font-size: 18px; line-height: 1.6; }
+  .quote-real .attr { display: block; margin-top: 20px; }
+
+  /* ---- Field note ---- */
+  .field-note-final { text-align: center; }
+  .field-note-final .hand { font-family: 'Caveat', cursive; font-weight: 700; font-size: clamp(26px, 4vw, 36px); color: var(--sage-deep); line-height: 1.3; transform: rotate(-1deg); display: inline-block; }
+
+  .back-link { text-align: center; padding: 56px 24px 90px; }
+  .back-link a { display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--charcoal); text-decoration: none; }
+  .back-link a::before { content: ''; width: 20px; height: 1px; background: var(--charcoal); }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.5); padding: 40px 24px; text-align: center; font-size: 13px; }
+
+  @media (max-width: 760px) {
+    .problem-grid, .rebuild-media, .xray-grid { grid-template-columns: 1fr; }
+    .inner { padding: 56px 20px; }
+    .problem-note { text-align: left; }
+    .fight-row { grid-template-columns: 1fr; text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/work">&#8592; All Work</a>
+  <img src="/images/logo-reversed.svg" alt="RemodelerRank">
+  <span style="width: 60px;"></span>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"><img src="images/hero.jpg" alt="Coda Construction, finished kitchen remodel"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-body">
+    <div class="hero-meta">
+      <span class="label">Field Rebuild 004</span>
+      <span class="divider"></span>
+      <span class="label">Dublin, CA</span>
+    </div>
+    <div class="hero-client">Coda Construction</div>
+    <div class="hero-problem">Good contractor. Competing with himself.</div>
+    <div class="hero-hand">The pages weren't wrong.<br>They were just fighting each other.</div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="inner">
+    <div class="problem-head">Fifteen years.<br>Three pages, one search.</div>
+    <div class="problem-grid">
+      <ul class="diagnosis-list">
+        <li><span class="x">&#10005;</span> Three near-duplicate pages targeting the same overlapping keywords</li>
+        <li><span class="x">&#10005;</span> A generic homepage headline, repeated, with no real proof above the fold</li>
+        <li><span class="x">&#10005;</span> Keyword-stuffed slugs instead of clean, intent-clear URLs</li>
+        <li><span class="x">&#10005;</span> Real, glowing reviews sitting on Houzz and Yelp, not surfaced on the site itself</li>
+        <li><span class="x">&#10005;</span> Fifteen years and a real, specific founder story, told nowhere</li>
+      </ul>
+      <div class="problem-note">Not thin content.<br>Self-competing content.</div>
+    </div>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="inner tight">
+    <div class="fight-head">
+      <span class="label">The Diagnosis</span>
+      <h2 style="margin-top: 14px;">Three pages, chasing the same search</h2>
+    </div>
+    <div class="fight-rows">
+      <div class="fight-row">
+        <span class="fight-url">/interior-remodeling-contractor/</span>
+        <span class="fight-tag">Overlaps</span>
+      </div>
+      <div class="fight-vs">competing for the same terms as</div>
+      <div class="fight-row">
+        <span class="fight-url">/home-improvement-contractor/</span>
+        <span class="fight-tag">Overlaps</span>
+      </div>
+      <div class="fight-vs">and</div>
+      <div class="fight-row">
+        <span class="fight-url">/home-remodeling-company/</span>
+        <span class="fight-tag">Overlaps</span>
+      </div>
+    </div>
+    <div class="fight-annot">Three pages splitting one ranking, instead of one page earning it.</div>
+    <div class="fight-flag">Pulled directly from the live site's page inventory during the audit, not estimated. Kitchen and bathroom pages, the two real keyword winners, were left untouched.</div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="inner">
+    <span class="label">The Rebuild</span>
+    <div class="rebuild-head" style="margin-top: 18px;">One lean site. Every redirect mapped so nothing gets lost.</div>
+    <p class="rebuild-sub">The three overlapping pages fold into one clear services structure, kitchen and bathroom keep their proven URLs, and every changed page gets a 301 so the ranking equity already earned doesn't disappear on launch day.</p>
+    <div class="rebuild-media">
+      <div class="rebuild-laptop">
+        <div class="rebuild-screen">
+          <img src="images/work-1.jpg" alt="Coda Construction rebuilt site preview">
+          <div class="rebuild-screen-overlay">
+            <div class="wordmark">Coda Construction</div>
+            <div class="tag">Built the way you'd build it yourself.</div>
+          </div>
+        </div>
+      </div>
+      <ul class="rebuild-checklist">
+        <li><span class="check">&#10003;</span> Three overlapping pages consolidated to one</li>
+        <li><span class="check">&#10003;</span> Full 301 redirect map, ranking equity protected</li>
+        <li><span class="check">&#10003;</span> Real reviews from Houzz and Yelp, finally on-site</li>
+        <li><span class="check">&#10003;</span> Elias's real story, told in his own words</li>
+        <li><span class="check">&#10003;</span> A homepage built around real proof, not a repeated generic headline</li>
+        <li><span class="check">&#10003;</span> Built and switched at launch, the live site never touched mid-build</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="inner">
+    <div class="xray-head">
+      <span class="label">You See A Website</span>
+      <h2 style="margin-top: 10px;">I See Fifteen Years Stopped From Competing With Itself</h2>
+      <p class="sub">Every part of the rebuild has a job. Here's what each one is actually for.</p>
+    </div>
+    <div class="xray-grid">
+      <div class="xray-item">
+        <h3>Stop The Self-Competition</h3>
+        <p>Consolidate three near-duplicate pages into one, so a search stops splitting between Coda's own URLs.</p>
+        <span class="meta">SEO</span>
+      </div>
+      <div class="xray-item">
+        <h3>Protect What's Already Ranking</h3>
+        <p>A full redirect map means the kitchen and bathroom pages, the real keyword winners, keep everything they've earned.</p>
+        <span class="meta">Technical SEO</span>
+      </div>
+      <div class="xray-item">
+        <h3>Put The Real Proof Up Front</h3>
+        <p>Real reviews from real platforms, on the homepage, instead of a generic headline repeated with nothing behind it.</p>
+        <span class="meta">Trust</span>
+      </div>
+      <div class="xray-item">
+        <h3>Tell The Real Story</h3>
+        <p>Elias left corporate America and built the contractor he wished he'd hired. That's the differentiator, not a stock line.</p>
+        <span class="meta">Positioning</span>
+      </div>
+      <div class="xray-item">
+        <h3>Clean URLs, Not Keyword Stuffing</h3>
+        <p>Clear, intent-matched slugs instead of the old keyword-stuffed structure.</p>
+        <span class="meta">Technical SEO</span>
+      </div>
+      <div class="xray-item">
+        <h3>Ship Without Losing Ground</h3>
+        <p>Built separately, switched at launch, the live site untouched until it's ready.</p>
+        <span class="meta">Migration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="inner">
+    <span class="label">The Results</span>
+
+    <div class="outcome-block" style="margin-top: 24px;">
+      <span class="outcome-tag strategy">Strategy / Current Build</span>
+      <ul class="outcome-list">
+        <li>Stop three real pages from splitting one search instead of winning it together</li>
+        <li>Protect fifteen years of earned ranking equity through the migration, not just after it</li>
+        <li>Put real, already-earned reviews to work instead of leaving them on Houzz and Yelp alone</li>
+        <li>Replace a generic, repeated headline with Elias's own real story and process</li>
+      </ul>
+    </div>
+
+    <div class="outcome-block">
+      <span class="outcome-tag verified">Verified Results</span>
+      <div class="outcome-empty">The rebuild hasn't launched yet. This stays empty until there's a real number to put here, not a guess.</div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="inner quote-block">
+    <div class="quote-real">
+      <div class="qmark">"</div>
+      <p>I have used Coda Construction on every major remodel job over the years. I love the guidance Elias provides as well as his attention to detail.</p>
+      <span class="label attr">Pat Thomas, Houzz Review</span>
+    </div>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="inner tight field-note-final">
+    <span class="hand">The pages weren't wrong.<br>They were just fighting each other.</span>
+  </div>
+</section>
+
+<div class="back-link light">
+  <a href="/work">See more work</a>
+</div>
+
+<footer>
+  RemodelerRank. Marketing for remodeling contractors across Northern California.
+</footer>
+
+</body>
+</html>

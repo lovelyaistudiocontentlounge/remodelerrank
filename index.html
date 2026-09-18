@@ -738,6 +738,72 @@
     text-align: center;
   }
 
+  .work-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .work-preview-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--white);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    border-bottom: 3px solid var(--sage);
+    transition: transform 0.15s ease-out;
+  }
+
+  .work-preview-card:hover { transform: translateY(-3px); }
+
+  .work-preview-media { aspect-ratio: 4/3; overflow: hidden; background: var(--light-sage-tint); }
+  .work-preview-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .work-preview-body { padding: 20px; }
+
+  .work-preview-tag {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted-sage);
+    margin-bottom: 10px;
+  }
+
+  .work-preview-client {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+  }
+
+  .work-preview-problem {
+    font-size: 13px;
+    color: var(--body-text);
+    line-height: 1.5;
+  }
+
+  .work-preview-cta {
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  .work-preview-see-all {
+    color: var(--sage-dark);
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+
+  .work-preview-see-all:hover { color: var(--sage-deeper); }
+
   /* MID CTA */
   .mid-cta {
     background: var(--sage-dark);
@@ -1060,6 +1126,7 @@
     /* Results */
     .results-header { grid-template-columns: 1fr; gap: 20px; }
     .results-grid { grid-template-columns: 1fr; }
+    .work-preview-grid { grid-template-columns: 1fr; }
 
     /* Mid CTA */
     .mid-cta { padding: 48px 20px; }
@@ -1122,7 +1189,7 @@
 <nav>
   <a href="/" class="nav-logo"><img src="images/logo-reversed.svg" alt="RemodelerRank" height="30" width="auto"></a>
   <ul class="nav-links">
-    <li><a href="#results">Results</a></li>
+    <li><a href="#results">Our Work</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#lead-capture">Contact</a></li>
@@ -1363,42 +1430,48 @@
   <div class="section-inner">
     <div class="results-header">
       <div>
-        <span class="section-tag">Real results</span>
-        <h2 class="section-h2">Contractors who rank,<br>win more jobs.</h2>
+        <span class="section-tag">Real work</span>
+        <h2 class="section-h2">No case studies yet.<br>Real work you can inspect.</h2>
       </div>
-      <p class="section-intro">We're early. These are the results we're building toward — and the benchmark we hold ourselves to for every client we take on.</p>
+      <p class="section-intro">We're early, so there are no client results to point to yet. Here's what that early work actually looks like instead — real audits and real rebuild concepts, built from each business's own photos and facts. Click through and judge it yourself.</p>
     </div>
-    <div class="results-grid">
-      <div class="result-card">
-        <div class="result-company">Northern California Kitchen + Bath Contractor</div>
-        <p class="result-quote">"We went from page 3 to the top 3 results in Walnut Creek within 90 days. The phone started ringing differently — better projects, bigger budgets."</p>
-        <div class="result-metrics">
-          <div class="result-metric">
-            <strong>+340%</strong>
-            <span>Organic traffic</span>
-          </div>
-          <div class="result-metric">
-            <strong>14</strong>
-            <span>Qualified leads / mo</span>
-          </div>
+    <div class="work-preview-grid">
+      <a class="work-preview-card" href="https://claude.ai/code/artifact/86b70401-5a49-4460-9d7f-bc4877886fe8" target="_blank" rel="noopener">
+        <div class="work-preview-media"><img src="images/work/sw-custom-cabinets-01.jpg" alt="SW Custom Cabinets project photo, walnut kitchen with brass fixtures"></div>
+        <div class="work-preview-body">
+          <div class="work-preview-tag">Field Rebuild 001 · Livermore, CA</div>
+          <div class="work-preview-client">SW Custom Cabinets</div>
+          <p class="work-preview-problem">25 years of work. Two websites. Two names. One confused customer.</p>
         </div>
-      </div>
-      <div class="result-card">
-        <div class="result-company">Whole-Home Remodeler · Dublin, CA</div>
-        <p class="result-quote">"Before RemodelerRank, I was living referral to referral. Now I have a pipeline. I actually turn down jobs that aren't the right fit."</p>
-        <div class="result-metrics">
-          <div class="result-metric">
-            <strong>2×</strong>
-            <span>Average project value</span>
-          </div>
-          <div class="result-metric">
-            <strong>$0</strong>
-            <span>Spent on ads</span>
-          </div>
+      </a>
+      <a class="work-preview-card" href="https://claude.ai/code/artifact/b2b87a87-7465-484d-b335-5214a3b0b234" target="_blank" rel="noopener">
+        <div class="work-preview-media"><img src="images/work/af-woodworker-01.jpg" alt="AF Woodworker project photo, walnut kitchen with vaulted ceiling"></div>
+        <div class="work-preview-body">
+          <div class="work-preview-tag">Field Rebuild 002 · Richmond, CA</div>
+          <div class="work-preview-client">AF Woodworker</div>
+          <p class="work-preview-problem">Good shop. Bad showroom.</p>
         </div>
-      </div>
+      </a>
+      <a class="work-preview-card" href="https://claude.ai/code/artifact/7a2cc35a-d39b-48eb-8ad5-99b7665bc8b9" target="_blank" rel="noopener">
+        <div class="work-preview-media"><img src="images/work/arnold-egan-01.jpg" alt="Arnold + Egan project photo, custom walnut diamond-lattice screen"></div>
+        <div class="work-preview-body">
+          <div class="work-preview-tag">Field Rebuild 003 · San Francisco, CA</div>
+          <div class="work-preview-client">Arnold + Egan</div>
+          <p class="work-preview-problem">89 years of work. Zero reviews. One mission finally on the homepage.</p>
+        </div>
+      </a>
+      <a class="work-preview-card" href="https://claude.ai/artifact/QkYmzvRf77276eb5AnYSFZ" target="_blank" rel="noopener">
+        <div class="work-preview-media"><img src="images/work/coda-construction-01.jpg" alt="Coda Construction project photo, white kitchen with brass lighting, Dublin CA"></div>
+        <div class="work-preview-body">
+          <div class="work-preview-tag">Field Rebuild 004 · Dublin, CA</div>
+          <div class="work-preview-client">Coda Construction</div>
+          <p class="work-preview-problem">Good contractor. Competing with himself.</p>
+        </div>
+      </a>
     </div>
-    <p class="results-note">*Illustrative projections based on comparable market results. Case studies published as clients are onboarded.</p>
+    <div class="work-preview-cta">
+      <a href="https://claude.ai/artifact/TGX7kCX5YGZzsV4kALdZSr" target="_blank" rel="noopener" class="work-preview-see-all">See all the work →</a>
+    </div>
   </div>
 </section>
 

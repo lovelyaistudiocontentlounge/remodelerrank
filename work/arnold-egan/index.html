@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arnold + Egan | Field Rebuild 003 | RemodelerRank</title>
+<meta name="description" content="89 years of real, named work. Zero reviews anywhere. How RemodelerRank gave Arnold + Egan's decades of standing a place to actually show.">
+<link rel="canonical" href="https://remodelerrank.com/work/arnold-egan">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Lora:ital,wght@1,500;1,600&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bone: #F6F3EC; --bone-deep: #EDE8DC; --charcoal: #1B1A17; --charcoal-soft: #26241F;
+    --ink-soft: #5C594F; --line: #DDD6C6; --bronze: #A9855A; --bronze-deep: #7E6240; --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Karla', Arial, sans-serif; background: var(--bone); color: var(--charcoal);
+    font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, .display { font-family: 'Archivo', Arial, sans-serif; }
+  .label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--bronze-deep); font-weight: 600;
+  }
+
+  nav {
+    background: var(--charcoal); padding: 18px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.5px; }
+  nav a:hover { color: var(--bronze); }
+  nav img { height: 22px; width: auto; display: block; }
+
+  section { position: relative; }
+  .light { background: var(--bone); }
+  .dark { background: var(--charcoal); color: rgba(255,255,255,0.92); }
+  .dark .label { color: var(--bronze); }
+  .tinted { background: var(--bone-deep); }
+
+  .inner { max-width: 900px; margin: 0 auto; padding: 90px 24px; }
+  .inner.tight { padding-top: 64px; padding-bottom: 64px; }
+
+  /* ---- Hero ---- */
+  .hero { min-height: 92vh; display: flex; align-items: flex-end; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,21,26,0.35) 0%, rgba(22,21,26,0.55) 55%, rgba(22,21,26,0.92) 100%); }
+  .hero-body { position: relative; max-width: 900px; margin: 0 auto; padding: 0 24px 64px; color: var(--white); width: 100%; }
+  .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .hero-meta .divider { width: 22px; height: 1px; background: var(--bronze); }
+  .hero-client { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(26px, 4.6vw, 42px); margin-bottom: 22px; }
+  .hero-problem {
+    font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px;
+    font-size: clamp(24px, 4.2vw, 40px); line-height: 1.1; max-width: 780px; margin-bottom: 24px; text-wrap: balance;
+  }
+  .hero-hand {
+    font-family: 'Caveat', cursive; font-weight: 600; font-size: clamp(20px, 2.6vw, 25px);
+    color: var(--bronze); line-height: 1.3; transform: rotate(-1deg); max-width: 340px;
+  }
+
+  /* ---- Problem statement ---- */
+  .problem-head { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(30px, 5.2vw, 52px); line-height: 1; margin-bottom: 36px; text-wrap: balance; }
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .diagnosis-list { list-style: none; }
+  .diagnosis-list li {
+    display: flex; gap: 12px; padding: 13px 0; border-top: 1px solid var(--line);
+    font-size: 15px; color: var(--ink-soft);
+  }
+  .diagnosis-list li:last-child { border-bottom: 1px solid var(--line); }
+  .diagnosis-list .x { color: var(--bronze-deep); font-weight: 700; flex-shrink: 0; }
+  .problem-note { font-family: 'Caveat', cursive; font-weight: 600; font-size: 24px; color: var(--bronze-deep); line-height: 1.35; transform: rotate(-1deg); align-self: center; }
+
+  /* ---- Standing ledger (A+E's own signature block: real, named clients and
+     real decades of standing, never publicly stated anywhere) ---- */
+  .ledger-cs { background: var(--charcoal); color: var(--white); padding: 10px 0; }
+  .ledger-cs-inner { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  .ledger-cs-head { text-align: center; margin-bottom: 48px; }
+  .ledger-cs-head h2 { font-weight: 900; text-transform: uppercase; font-size: clamp(24px, 4vw, 36px); letter-spacing: -0.4px; }
+  .ledger-cs-row {
+    display: grid; grid-template-columns: 70px 1fr; gap: 24px; align-items: start;
+    padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.14);
+  }
+  .ledger-cs-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .ledger-cs-num { font-family: 'Archivo', sans-serif; font-size: 14px; font-weight: 700; color: var(--bronze); letter-spacing: 1px; }
+  .ledger-cs-row h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .ledger-cs-row p { font-size: 14px; color: rgba(255,255,255,0.65); }
+  .ledger-cs-annot { text-align: center; margin-top: 40px; font-family: 'Caveat', cursive; font-weight: 600; font-size: 24px; color: var(--bronze); transform: rotate(-1deg); }
+
+  /* ---- Rebuild reveal ---- */
+  .rebuild-head { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(26px, 4.6vw, 44px); line-height: 1.05; margin-bottom: 20px; text-wrap: balance; }
+  .rebuild-sub { color: var(--ink-soft); font-size: 16px; max-width: 60ch; margin-bottom: 44px; }
+  .rebuild-media { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; align-items: center; }
+  .rebuild-laptop { background: #100F0D; border-radius: 6px; padding: 8px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+  .rebuild-screen { aspect-ratio: 16/10; overflow: hidden; position: relative; background: var(--white); }
+  .rebuild-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .rebuild-screen-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,21,26,0.1), rgba(22,21,26,0.6)); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 16px; }
+  .rebuild-screen-overlay img.logo { height: 24px; width: auto; margin-bottom: 8px; filter: brightness(0) invert(1); }
+  .rebuild-screen-overlay .tag { font-family: 'Lora', serif; font-style: italic; color: var(--white); font-size: 12px; }
+  .rebuild-checklist { list-style: none; }
+  .rebuild-checklist li { display: flex; gap: 10px; padding: 10px 0; font-size: 13.5px; color: var(--ink-soft); }
+  .rebuild-checklist .check { color: var(--bronze-deep); flex-shrink: 0; }
+  .rebuild-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--charcoal); text-decoration: none; }
+  .rebuild-link::after { content: ''; width: 20px; height: 1px; background: var(--charcoal); }
+
+  /* ---- X-ray ---- */
+  .xray-head { text-align: center; margin-bottom: 56px; }
+  .xray-head h2 { font-weight: 900; text-transform: uppercase; font-size: clamp(26px, 4.4vw, 42px); letter-spacing: -0.4px; line-height: 1.1; }
+  .xray-head .sub { color: var(--ink-soft); font-size: 15px; margin-top: 14px; }
+  .xray-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .xray-item { background: var(--bone); padding: 28px 26px; }
+  .xray-item h3 { font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 0.3px; margin-bottom: 8px; }
+  .xray-item p { font-size: 14px; color: var(--ink-soft); }
+  .xray-item .meta { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--bronze-deep); letter-spacing: 1px; text-transform: uppercase; margin-top: 10px; display: block; }
+
+  /* ---- Business outcome ---- */
+  .outcome-block { margin-bottom: 56px; }
+  .outcome-block:last-child { margin-bottom: 0; }
+  .outcome-tag {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; font-weight: 700; padding: 5px 12px; margin-bottom: 20px;
+  }
+  .outcome-tag.strategy { background: var(--bronze); color: var(--charcoal); }
+  .outcome-tag.verified { background: var(--line); color: var(--ink-soft); }
+  .outcome-list { list-style: none; }
+  .outcome-list li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; color: var(--ink-soft); }
+  .outcome-list li:last-child { border-bottom: 1px solid var(--line); }
+  .outcome-empty { padding: 24px; border: 1px dashed var(--line); text-align: center; font-size: 14px; color: var(--ink-soft); font-style: italic; }
+
+  /* ---- Quote block ---- */
+  .quote-block { text-align: center; }
+  .quote-placeholder { border: 1px dashed var(--line); padding: 44px 32px; max-width: 640px; margin: 0 auto; }
+  .quote-placeholder .qmark { font-family: 'Lora', serif; font-style: italic; font-size: 40px; color: var(--line); margin-bottom: 10px; }
+  .quote-placeholder p { color: var(--ink-soft); font-size: 15px; }
+  .quote-placeholder .label { display: block; margin-top: 16px; }
+
+  /* ---- Field note ---- */
+  .field-note-final { text-align: center; }
+  .field-note-final .hand { font-family: 'Caveat', cursive; font-weight: 700; font-size: clamp(26px, 4vw, 36px); color: var(--bronze-deep); line-height: 1.3; transform: rotate(-1deg); display: inline-block; }
+
+  /* ---- Next project ---- */
+  .next-project { display: block; text-decoration: none; color: inherit; }
+  .next-media { width: 100%; aspect-ratio: 21/9; overflow: hidden; }
+  .next-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .next-body { max-width: 900px; margin: 0 auto; padding: 56px 24px 90px; text-align: center; }
+  .next-label { margin-bottom: 18px; }
+  .next-client { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(24px, 4.4vw, 40px); margin-bottom: 16px; }
+  .next-problem { font-weight: 900; text-transform: uppercase; font-size: clamp(18px, 3vw, 26px); color: var(--ink-soft); margin-bottom: 24px; }
+  .next-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--charcoal); }
+  .next-link::after { content: ''; width: 20px; height: 1px; background: var(--charcoal); }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.5); padding: 40px 24px; text-align: center; font-size: 13px; }
+
+  @media (max-width: 760px) {
+    .problem-grid, .rebuild-media, .xray-grid { grid-template-columns: 1fr; }
+    .inner, .ledger-cs-inner { padding: 56px 20px; }
+    .problem-note { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/work">&#8592; All Work</a>
+  <img src="/images/logo-reversed.svg" alt="RemodelerRank">
+  <span style="width: 60px;"></span>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"><img src="images/ae-site-resolute-lattice-hero.jpg" alt="Arnold + Egan, diamond-pattern walnut lattice screen"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-body">
+    <div class="hero-meta">
+      <span class="label">Field Rebuild 003</span>
+      <span class="divider"></span>
+      <span class="label">San Francisco, CA</span>
+    </div>
+    <div class="hero-client">Arnold + Egan</div>
+    <div class="hero-problem">89 years of work. Zero reviews. One mission finally on the homepage.</div>
+    <div class="hero-hand">No reviews to point to.<br>Ninety years you can check instead.</div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="inner">
+    <div class="problem-head">Ninety years.<br>Zero proof of it.</div>
+    <div class="problem-grid">
+      <ul class="diagnosis-list">
+        <li><span class="x">&#10005;</span> In business in San Francisco since 1937, zero reviews on Google, Yelp, or BuildZoom</li>
+        <li><span class="x">&#10005;</span> Real, named clients (Champion's Bar, Blue Bottle, Twitch), never stated publicly</li>
+        <li><span class="x">&#10005;</span> LinkedIn: 13 followers, zero posts, on the one channel their actual buyers (architects, designers) are on</li>
+        <li><span class="x">&#10005;</span> The site's own /work page hadn't changed since December 2023</li>
+        <li><span class="x">&#10005;</span> No one-line mission statement anywhere, despite having a real one in their own words</li>
+      </ul>
+      <div class="problem-note">The work speaks.<br>Nobody could hear it.</div>
+    </div>
+  </div>
+</section>
+
+<div class="ledger-cs tinted">
+  <div class="ledger-cs-inner inner tight">
+    <div class="ledger-cs-head">
+      <span class="label">The Standing</span>
+      <h2 style="margin-top: 14px;">What ninety years actually looks like, stated plainly</h2>
+    </div>
+    <div class="ledger-cs-row">
+      <div class="ledger-cs-num">01</div>
+      <div>
+        <h3>Eighty-nine years, same city</h3>
+        <p>In business in San Francisco continuously since 1937. Real continuity, not a marketing number, never stated on the site itself.</p>
+      </div>
+    </div>
+    <div class="ledger-cs-row">
+      <div class="ledger-cs-num">02</div>
+      <div>
+        <h3>Top 20% of licensed California contractors</h3>
+        <p>Ranked from public licensing and performance records, not self-reported, and not mentioned anywhere either.</p>
+      </div>
+    </div>
+    <div class="ledger-cs-row">
+      <div class="ledger-cs-num">03</div>
+      <div>
+        <h3>License #389545, bonded, insured</h3>
+        <p>Cabinet, millwork, and finish carpentry. Verifiable directly with the state, currently invisible to a visitor deciding whether to trust the business.</p>
+      </div>
+    </div>
+    <div class="ledger-cs-row">
+      <div class="ledger-cs-num">04</div>
+      <div>
+        <h3>Real clients, real places</h3>
+        <p>Champion's Bar at the Olympic Club, Blue Bottle Coffee, Twitch. Locations a prospect can walk into and check themselves, never named on the site before this.</p>
+      </div>
+    </div>
+    <div class="ledger-cs-annot">Zero reviews isn't nothing to say. It's a reason to lead with what's actually verifiable instead.</div>
+  </div>
+</div>
+
+<section class="light">
+  <div class="inner">
+    <span class="label">The Rebuild</span>
+    <div class="rebuild-head" style="margin-top: 18px;">The mission stated once. The standing led with, not hidden.</div>
+    <p class="rebuild-sub">A hero built around their own real mission statement, a standing ledger leading with the honest gap instead of avoiding it, and the real client names finally doing the work they'd always earned.</p>
+    <div class="rebuild-media">
+      <div class="rebuild-laptop">
+        <div class="rebuild-screen">
+          <img src="images/ae-club-bar-champions-olympic-club.jpg" alt="Arnold + Egan rebuilt site preview">
+          <div class="rebuild-screen-overlay">
+            <img class="logo" src="images/ae-logo-real-horizontal.png" alt="Arnold + Egan">
+            <div class="tag">To build projects inspired by architects and designers.</div>
+          </div>
+        </div>
+      </div>
+      <ul class="rebuild-checklist">
+        <li><span class="check">&#10003;</span> Opens on the real mission, not a finished kitchen</li>
+        <li><span class="check">&#10003;</span> The standing ledger, leading with the honest gap</li>
+        <li><span class="check">&#10003;</span> Work organized by real sector, not a flat grid</li>
+        <li><span class="check">&#10003;</span> Modern and traditional range shown side by side, same shop</li>
+        <li><span class="check">&#10003;</span> A Guides section built for the GCs and designers actually searching</li>
+        <li><span class="check">&#10003;</span> A real path onto LinkedIn, where their actual buyers already are</li>
+      </ul>
+    </div>
+    <a class="rebuild-link" href="https://claude.ai/code/artifact/7a2cc35a-d39b-48eb-8ad5-99b7665bc8b9" target="_blank" rel="noopener">View the live concept draft</a>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="inner">
+    <div class="xray-head">
+      <span class="label">You See A Website</span>
+      <h2 style="margin-top: 10px;">I See Ninety Years Finally Doing Its Job</h2>
+      <p class="sub">Every part of the rebuild has a job. Here's what each one is actually for.</p>
+    </div>
+    <div class="xray-grid">
+      <div class="xray-item">
+        <h3>Open On The Real Mission</h3>
+        <p>Their own words, not a stock kitchen photo, so a designer knows who this shop builds for in three seconds.</p>
+        <span class="meta">Positioning</span>
+      </div>
+      <div class="xray-item">
+        <h3>Lead With The Honest Gap</h3>
+        <p>No reviews to point to, so lead with what's actually verifiable: license, standing, real named clients.</p>
+        <span class="meta">Trust</span>
+      </div>
+      <div class="xray-item">
+        <h3>Organize By Sector, Not Just Photos</h3>
+        <p>Hospitality, retail, wellness, residential, so range reads as real capability, not an implied claim.</p>
+        <span class="meta">Proof</span>
+      </div>
+      <div class="xray-item">
+        <h3>Show Modern And Traditional, Same Hands</h3>
+        <p>Answer the real worry, can they build MY version, before anyone has to ask it.</p>
+        <span class="meta">Differentiation</span>
+      </div>
+      <div class="xray-item">
+        <h3>Answer Before The First Call</h3>
+        <p>Real guides for the GCs and designers weighing who to hire, not just a portfolio to scroll through.</p>
+        <span class="meta">Content</span>
+      </div>
+      <div class="xray-item">
+        <h3>Put The Work Where The Buyers Are</h3>
+        <p>An active LinkedIn presence, the one channel architects and designers are already on.</p>
+        <span class="meta">Distribution</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="inner">
+    <span class="label">The Results</span>
+
+    <div class="outcome-block" style="margin-top: 24px;">
+      <span class="outcome-tag strategy">Strategy / Current Build</span>
+      <ul class="outcome-list">
+        <li>Turn 89 years and real named clients into stated proof instead of an invisible fact</li>
+        <li>Give architects and designers, LinkedIn's real audience, a reason to actually find and follow the shop</li>
+        <li>Replace a silent zero-reviews gap with an honest, credible standing story</li>
+        <li>Make the real range, modern CNC work and traditional hand-detailed work, legible instead of implied</li>
+      </ul>
+    </div>
+
+    <div class="outcome-block">
+      <span class="outcome-tag verified">Verified Results</span>
+      <div class="outcome-empty">Nothing has launched yet. This stays empty until there's a real number to put here, not a guess.</div>
+    </div>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="inner quote-block">
+    <div class="quote-placeholder">
+      <div class="qmark">"</div>
+      <p>No review exists yet, full stop, that's the actual gap this rebuild is built to close. Nothing gets attributed to Arnold + Egan here until a real one exists to quote.</p>
+      <span class="label">Real Reaction Pending</span>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="inner tight field-note-final">
+    <span class="hand">No reviews to point to.<br>Ninety years you can check instead.</span>
+  </div>
+</section>
+
+<a class="next-project dark" href="../coda-construction/">
+  <div class="next-media"><img src="images/ae-site-traditional-moulded-kitchen.jpg" alt="Next project preview"></div>
+  <div class="next-body">
+    <div class="label next-label">Next / Field Rebuild 004</div>
+    <div class="next-client">Coda Construction</div>
+    <div class="next-problem">Good contractor. Competing with himself.</div>
+    <span class="next-link">View the rebuild</span>
+  </div>
+</a>
+
+<footer>
+  RemodelerRank. Marketing for remodeling contractors across Northern California.
+</footer>
+
+</body>
+</html>

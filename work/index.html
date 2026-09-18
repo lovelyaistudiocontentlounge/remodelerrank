@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Work | RemodelerRank</title>
+<meta name="description" content="Real businesses, real problems, built better. The work RemodelerRank has done and is doing for contractors and trades businesses.">
+<link rel="canonical" href="https://remodelerrank.com/work">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="RR">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Lora:ital,wght@1,500;1,600&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bone: #F6F3EC;
+    --bone-deep: #EDE8DC;
+    --charcoal: #1B1A17;
+    --charcoal-soft: #26241F;
+    --ink-soft: #5C594F;
+    --line: #DDD6C6;
+    --sage: #7E9A8B;
+    --sage-deep: #5E7B6D;
+    --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Karla', Arial, sans-serif;
+    background: var(--bone);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, .display { font-family: 'Archivo', Arial, sans-serif; }
+
+  .label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--sage-deep); font-weight: 600;
+  }
+
+  nav {
+    background: var(--charcoal); padding: 20px 32px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  nav img { height: 26px; width: auto; display: block; }
+
+  /* ---- Opening statement ---- */
+  .opening { max-width: 900px; margin: 0 auto; padding: 110px 24px 90px; text-align: center; }
+  .opening .label { justify-content: center; display: block; margin-bottom: 22px; }
+  .opening h1 {
+    font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px;
+    font-size: clamp(34px, 6vw, 62px); line-height: 1.08; margin-bottom: 28px;
+    text-wrap: balance;
+  }
+  .opening p {
+    font-size: 17px; color: var(--ink-soft); max-width: 560px; margin: 0 auto;
+  }
+
+  /* ---- Project feature: large, editorial, not a card ---- */
+  .feature { position: relative; overflow: hidden; }
+  .feature.light { background: var(--bone); }
+  .feature.dark { background: var(--charcoal); color: rgba(255,255,255,0.92); }
+  .feature.dark .label { color: var(--sage); }
+  .feature.dark .feature-problem { color: rgba(255,255,255,0.6); }
+  .feature.dark .feature-link { color: var(--white); }
+  .feature.dark .feature-link::after { border-color: rgba(255,255,255,0.4); }
+
+  .feature-media { width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--line); position: relative; }
+  .feature-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .feature-frame {
+    width: 100%; height: 100%; border: none; display: block;
+    pointer-events: none; background: var(--white);
+  }
+  .feature-hint {
+    position: absolute; right: 16px; bottom: 16px; z-index: 2;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px;
+    text-transform: uppercase; font-weight: 600; color: var(--white);
+    background: rgba(27,26,23,0.7); padding: 7px 14px; border-radius: 3px;
+    opacity: 1; transition: opacity 0.25s ease;
+  }
+  .feature:hover .feature-hint { opacity: 0; }
+  @media (max-width: 720px) { .feature-hint { display: none; } }
+
+  .feature-body { max-width: 1080px; margin: 0 auto; padding: 64px 24px 96px; }
+  .feature-meta { display: flex; align-items: center; gap: 18px; margin-bottom: 24px; flex-wrap: wrap; }
+  .feature-meta .divider { width: 24px; height: 1px; background: var(--sage-deep); }
+
+  .feature-client {
+    font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px;
+    font-size: clamp(26px, 4.4vw, 40px); line-height: 1; margin-bottom: 20px;
+  }
+  .feature-problem {
+    font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px;
+    font-size: clamp(22px, 3.6vw, 34px); line-height: 1.15; color: var(--ink-soft);
+    max-width: 780px; margin-bottom: 32px; text-wrap: balance;
+  }
+
+  .feature-note {
+    font-family: 'Caveat', cursive; font-weight: 600; color: var(--sage-deep);
+    font-size: clamp(20px, 2.8vw, 26px); line-height: 1.3; margin-bottom: 32px;
+    transform: rotate(-1deg); max-width: 340px;
+  }
+
+  .feature-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 1px;
+    text-transform: uppercase; font-weight: 600; color: var(--charcoal); text-decoration: none;
+  }
+  .feature-link::after {
+    content: ''; width: 22px; height: 1px; background: var(--charcoal);
+    transition: width 0.2s ease-out;
+  }
+  .feature-link:hover::after { width: 34px; }
+
+  footer {
+    background: var(--charcoal); color: rgba(255,255,255,0.55);
+    padding: 48px 24px; text-align: center; font-size: 13px;
+  }
+
+  @media (max-width: 720px) {
+    .opening { padding: 80px 20px 64px; }
+    .feature-body { padding: 44px 20px 64px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/"><img src="/images/logo-reversed.svg" alt="RemodelerRank"></a>
+</nav>
+
+<div class="opening">
+  <span class="label">Real Businesses / Real Problems / Built Better</span>
+  <h1>It can look finished and still not be built right.</h1>
+  <p>Real audits, real rebuilds, shown as they actually stand. The finished website is evidence of the thinking, not the entire product.</p>
+</div>
+
+<a class="feature light" href="/work/sw-custom-cabinets/" style="text-decoration: none; color: inherit; display: block;">
+  <div class="feature-media">
+    <iframe class="feature-frame" src="/work/sw-custom-cabinets/" loading="lazy" tabindex="-1" title="SW Custom Cabinets site preview"></iframe>
+    <span class="feature-hint">Hover to scroll the site</span>
+  </div>
+  <div class="feature-body">
+    <div class="feature-meta">
+      <span class="label">Field Rebuild 001</span>
+      <span class="divider"></span>
+      <span class="label">Livermore, CA</span>
+    </div>
+    <div class="feature-client">SW Custom Cabinets</div>
+    <div class="feature-problem">25 years of work. Two websites. Two names. One confused customer.</div>
+    <div class="feature-note">The business wasn't broken.<br>The way it showed up was.</div>
+    <span class="feature-link">View the rebuild</span>
+  </div>
+</a>
+
+<a class="feature dark" href="/work/af-woodworker/" style="text-decoration: none; display: block;">
+  <div class="feature-media">
+    <iframe class="feature-frame" src="/work/af-woodworker/" loading="lazy" tabindex="-1" title="AF Woodworker site preview"></iframe>
+    <span class="feature-hint">Hover to scroll the site</span>
+  </div>
+  <div class="feature-body">
+    <div class="feature-meta">
+      <span class="label">Field Rebuild 002</span>
+      <span class="divider"></span>
+      <span class="label">Richmond, CA</span>
+    </div>
+    <div class="feature-client">AF Woodworker</div>
+    <div class="feature-problem">Good shop. Bad showroom.</div>
+    <div class="feature-note">Their cabinets were already custom.<br>Their website should have been too.</div>
+    <span class="feature-link">View the rebuild</span>
+  </div>
+</a>
+
+<a class="feature light" href="/work/arnold-egan/" style="text-decoration: none; color: inherit; display: block;">
+  <div class="feature-media">
+    <iframe class="feature-frame" src="/work/arnold-egan/" loading="lazy" tabindex="-1" title="Arnold + Egan site preview"></iframe>
+    <span class="feature-hint">Hover to scroll the site</span>
+  </div>
+  <div class="feature-body">
+    <div class="feature-meta">
+      <span class="label">Field Rebuild 003</span>
+      <span class="divider"></span>
+      <span class="label">San Francisco, CA</span>
+    </div>
+    <div class="feature-client">Arnold + Egan</div>
+    <div class="feature-problem">89 years of work. Zero reviews. One mission finally on the homepage.</div>
+    <div class="feature-note">No reviews to point to.<br>Ninety years you can check instead.</div>
+    <span class="feature-link">View the rebuild</span>
+  </div>
+</a>
+
+<a class="feature dark" href="/work/coda-construction/" style="text-decoration: none; display: block;">
+  <div class="feature-media">
+    <iframe class="feature-frame" src="/work/coda-construction/" loading="lazy" tabindex="-1" title="Coda Construction site preview"></iframe>
+    <span class="feature-hint">Hover to scroll the site</span>
+  </div>
+  <div class="feature-body">
+    <div class="feature-meta">
+      <span class="label">Field Rebuild 004</span>
+      <span class="divider"></span>
+      <span class="label">Dublin, CA</span>
+    </div>
+    <div class="feature-client">Coda Construction</div>
+    <div class="feature-problem">Good contractor. Competing with himself.</div>
+    <div class="feature-note">The pages weren't wrong.<br>They were just fighting each other.</div>
+    <span class="feature-link">View the rebuild</span>
+  </div>
+</a>
+
+<footer>
+  RemodelerRank. Marketing for remodeling contractors across Northern California.
+</footer>
+
+<script>
+(function () {
+  var SCROLL_DURATION = 14000;
+  document.querySelectorAll('.feature').forEach(function (card) {
+    var frame = card.querySelector('.feature-frame');
+    if (!frame) return;
+    var rafId = null;
+    var startTime = null;
+    var loaded = false;
+
+    frame.addEventListener('load', function () { loaded = true; });
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var win, doc;
+      try {
+        win = frame.contentWindow;
+        doc = win.document;
+      } catch (e) {
+        return;
+      }
+      var maxScroll = doc.documentElement.scrollHeight - frame.clientHeight;
+      if (maxScroll <= 0) { rafId = requestAnimationFrame(step); return; }
+      var elapsed = timestamp - startTime;
+      var progress = Math.min(elapsed / SCROLL_DURATION, 1);
+      var eased = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+      win.scrollTo(0, eased * maxScroll);
+      if (progress < 1) {
+        rafId = requestAnimationFrame(step);
+      }
+    }
+
+    function startScroll() {
+      if (!loaded) return;
+      startTime = null;
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(step);
+    }
+
+    function resetScroll() {
+      cancelAnimationFrame(rafId);
+      try { frame.contentWindow.scrollTo(0, 0); } catch (e) {}
+    }
+
+    card.addEventListener('mouseenter', startScroll);
+    card.addEventListener('mouseleave', resetScroll);
+  });
+})();
+</script>
+
+</body>
+</html>
