@@ -1,15 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5KXKY3G0E5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5KXKY3G0E5');
+  gtag('config', 'AW-18182654739');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Get a Marketing Inspection | RemodelerRank</title>
 <meta name="description" content="A free, 5-point look at how your business shows up today: can they find you, understand you, see why you're good, trust you, and what happens when they raise their hand.">
+<link rel="canonical" href="https://remodelerrank.com/marketing-inspection.html">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="RR">
+<link rel="manifest" href="/site.webmanifest">
+
+<meta property="og:title" content="Get a Marketing Inspection">
+<meta property="og:description" content="A free, 5-point look at how your business shows up today: can they find you, understand you, see why you're good, trust you, and what happens when they raise their hand.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://remodelerrank.com/marketing-inspection.html">
+<meta property="og:image" content="https://remodelerrank.com/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Get a Marketing Inspection">
+<meta name="twitter:description" content="A free, 5-point look at how your business shows up today: can they find you, understand you, see why you're good, trust you, and what happens when they raise their hand.">
+<meta name="twitter:image" content="https://remodelerrank.com/images/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Lora:ital,wght@1,500;1,600&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://remodelerrank.com/home-v2.html" },
+    { "@type": "ListItem", "position": 2, "name": "Get a Marketing Inspection", "item": "https://remodelerrank.com/marketing-inspection.html" }
+  ]
+}
+</script>
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-padding-top: 76px; }
@@ -99,11 +139,24 @@
     .hero, .inspection-points, .close-line, .form-section, .back-bar { padding-left: 20px; padding-right: 20px; }
     .point { grid-template-columns: 40px 1fr; }
   }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute; top: -100px; left: 0;
+    background: var(--charcoal); color: var(--white);
+    padding: 14px 22px; z-index: 10000;
+    text-decoration: none; font-weight: 600; font-size: 15px;
+    border-radius: 0 0 6px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
 </style>
 </head>
 <body>
 
-<div class="draft-flag">New page concept, part of the site relaunch. Not yet live. Form is not wired to a backend yet.</div>
+<div class="draft-flag">New page concept, part of the site relaunch. Not yet live.</div>
+
+<a href="#main" class="skip-link">Skip to content</a>
 
 <nav id="siteNav">
   <a class="nav-logo" href="home-v2.html"><img src="images/logo-reversed.svg" alt="RemodelerRank"></a>
@@ -122,7 +175,7 @@
 
 <div class="back-bar"><a class="back-link" href="home-v2.html">&#8592; Back to Home</a></div>
 
-<div class="hero reveal">
+<div class="hero reveal" id="main">
   <span class="eyebrow"><span class="diamond"></span>Marketing Inspection</span>
   <h1>Let's see what's actually going on.</h1>
   <p>You don't need to know whether you need SEO, a new website, better content, follow-up, or none of the above.</p>
@@ -153,7 +206,9 @@
   <div class="form-inner reveal">
     <span class="eyebrow"><span class="diamond"></span>Get Started</span>
     <h2 style="font-size: clamp(22px, 3vw, 28px); font-weight: 900; text-transform: uppercase;">Tell me about your business</h2>
-    <form>
+    <form name="marketing-inspection" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="marketing-inspection" />
+      <p style="display:none;"><input name="bot-field" /></p>
       <div>
         <label for="insp-name">Name</label>
         <input type="text" id="insp-name" name="name" required>

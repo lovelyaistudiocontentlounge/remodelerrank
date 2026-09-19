@@ -15,6 +15,17 @@
 <title>RemodelerRank | Marketing for NorCal Remodeling Contractors</title>
 <meta name="description" content="RemodelerRank builds websites, GBP profiles, and marketing systems for licensed remodeling contractors in Northern California. Free audit available.">
 <link rel="canonical" href="https://remodelerrank.com/">
+<meta property="og:title" content="RemodelerRank">
+<meta property="og:description" content="RemodelerRank builds websites, GBP profiles, and marketing systems for licensed remodeling contractors in Northern California. Free audit available.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://remodelerrank.com/">
+<meta property="og:image" content="https://remodelerrank.com/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RemodelerRank">
+<meta name="twitter:description" content="RemodelerRank builds websites, GBP profiles, and marketing systems for licensed remodeling contractors in Northern California. Free audit available.">
+<meta name="twitter:image" content="https://remodelerrank.com/images/og-image.png">
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="shortcut icon" href="/favicon.ico" />
@@ -633,6 +644,11 @@
     gap: 12px;
   }
 
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
   .lead-form input {
     font-family: 'Karla', sans-serif;
     font-size: 15px;
@@ -1085,6 +1101,10 @@
   .hero-actions { animation-delay: 0.4s; }
   .hero-stats { animation-delay: 0.2s; }
 
+  @media (prefers-reduced-motion: reduce) {
+    .hero-content > * { animation: none; opacity: 1; }
+  }
+
   .divider {
     height: 1px;
     background: var(--border);
@@ -1162,6 +1182,17 @@
     .footer-contact { text-align: left; }
     .footer-copy { flex-direction: column; gap: 6px; }
   }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute; top: -100px; left: 0;
+    background: var(--charcoal); color: var(--white);
+    padding: 14px 22px; z-index: 10000;
+    text-decoration: none; font-weight: 600; font-size: 15px;
+    border-radius: 0 0 6px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
 </style>
 <script type="application/ld+json">
 {
@@ -1202,6 +1233,8 @@
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <!-- NAV -->
 <nav id="siteNav">
   <a href="/" class="nav-logo"><img src="images/logo-reversed.svg" alt="RemodelerRank" height="30" width="auto"></a>
@@ -1218,7 +1251,7 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="main">
   <div class="hero-inner">
     <div class="hero-content">
       <span class="hero-tag">Northern California</span>
@@ -1261,12 +1294,17 @@
     <form class="lead-form" name="audit-request" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="audit-request" />
       <p style="display:none;"><input name="bot-field" /></p>
-      <input type="text" name="name" placeholder="Your name" required />
-      <input type="text" name="company" placeholder="Company name" required />
-      <input type="email" name="email" placeholder="Your email address" required />
-      <input type="text" name="website" placeholder="Your website URL (e.g. mycompany.com)" />
-      <input type="tel" name="phone" placeholder="Best phone number" required />
-      <button type="submit">Send Me My Free Audit →</button>
+      <label class="sr-only" for="lead-name">Your name</label>
+      <input type="text" id="lead-name" name="name" placeholder="Your name" required />
+      <label class="sr-only" for="lead-company">Company name</label>
+      <input type="text" id="lead-company" name="company" placeholder="Company name" required />
+      <label class="sr-only" for="lead-email">Your email address</label>
+      <input type="email" id="lead-email" name="email" placeholder="Your email address" required />
+      <label class="sr-only" for="lead-website">Your website URL</label>
+      <input type="text" id="lead-website" name="website" placeholder="Your website URL (e.g. mycompany.com)" />
+      <label class="sr-only" for="lead-phone">Best phone number</label>
+      <input type="tel" id="lead-phone" name="phone" placeholder="Best phone number" required />
+      <button type="submit">Send Me My Free Audit &#8594;</button>
       <p class="lead-form-note">By providing your phone number, you consent to receive text messages from RemodelerRank regarding your audit request and our services. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. View our <a href="/privacy" style="color:inherit;text-decoration:underline;">Privacy Policy</a>.</p>
     </form>
   </div>
