@@ -12,9 +12,10 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How We Work | RemodelerRank</title>
-<meta name="description" content="Walk the Job, Draw the Plan, Prep the Materials, Build, Punch List, Turn the Lights On. How RemodelerRank actually builds a site, step by step.">
-<link rel="canonical" href="https://remodelerrank.com/how-we-work.html">
+<title>The Build Plan | RemodelerRank</title>
+<meta name="description" content="A clear view of what RemodelerRank builds, what gets developed alongside it, and what we need from you to keep the project moving.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://remodelerrank.com/build-schedule.html">
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="shortcut icon" href="/favicon.ico">
@@ -22,33 +23,20 @@
 <meta name="apple-mobile-web-app-title" content="RR">
 <link rel="manifest" href="/site.webmanifest">
 
-<meta property="og:title" content="How We Work">
-<meta property="og:description" content="Walk the Job, Draw the Plan, Prep the Materials, Build, Punch List, Turn the Lights On. How RemodelerRank actually builds a site, step by step.">
+<meta property="og:title" content="The Build Plan | RemodelerRank">
+<meta property="og:description" content="A clear view of what RemodelerRank builds, what gets developed alongside it, and what we need from you to keep the project moving.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://remodelerrank.com/how-we-work.html">
+<meta property="og:url" content="https://remodelerrank.com/build-schedule.html">
 <meta property="og:image" content="https://remodelerrank.com/images/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How We Work">
-<meta name="twitter:description" content="Walk the Job, Draw the Plan, Prep the Materials, Build, Punch List, Turn the Lights On. How RemodelerRank actually builds a site, step by step.">
+<meta name="twitter:title" content="The Build Plan | RemodelerRank">
+<meta name="twitter:description" content="A clear view of what RemodelerRank builds, what gets developed alongside it, and what we need from you to keep the project moving.">
 <meta name="twitter:image" content="https://remodelerrank.com/images/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Lora:ital,wght@1,500;1,600&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://remodelerrank.com/home-v2.html" },
-    { "@type": "ListItem", "position": 2, "name": "How We Work", "item": "https://remodelerrank.com/how-we-work.html" }
-  ]
-}
-</script>
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -67,10 +55,20 @@
     font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
     color: var(--sage-deep); font-weight: 600; margin-bottom: 18px; display: inline-flex; align-items: center; gap: 10px;
   }
-  .dark-section .eyebrow { color: var(--sage); }
-  .reveal { opacity: 0; transform: translateY(24px); }
-  body.no-motion .reveal { opacity: 1; transform: none; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
 
+  /* Skip link */
+  .skip-link {
+    position: absolute; top: -100px; left: 0;
+    background: var(--charcoal); color: var(--white);
+    padding: 14px 22px; z-index: 10000;
+    text-decoration: none; font-weight: 600; font-size: 15px;
+    border-radius: 0 0 6px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
+
+  /* NAV */
   nav {
     background: var(--charcoal); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between;
     position: sticky; top: 0; z-index: 20;
@@ -85,85 +83,21 @@
   .nav-toggle { display: none; background: none; border: none; cursor: pointer; width: 36px; height: 36px; padding: 7px; flex-direction: column; justify-content: center; gap: 5px; }
   .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--white); }
 
-  .back-bar { max-width: 1000px; margin: 28px auto 0; padding: 0 40px; }
+  .back-bar { max-width: 1160px; margin: 28px auto 0; padding: 0 40px; }
   .back-link { font-size: 13px; color: var(--ink-soft); text-decoration: none; }
   .back-link:hover { color: var(--sage-deep); }
 
-  .hero { padding: 60px 40px 100px; max-width: 780px; margin: 0 auto; text-align: center; }
-  .hero .eyebrow { justify-content: center; }
-  .hero h1 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(28px, 4.6vw, 48px); line-height: 1.15; margin-bottom: 20px; }
-  .hero p { color: var(--ink-soft); font-size: 17px; margin-bottom: 8px; }
+  /* HERO / INTRO */
+  .plan-hero { max-width: 780px; margin: 0 auto; padding: 56px 40px 8px; text-align: center; }
+  .plan-hero .eyebrow { justify-content: center; }
+  .plan-hero h1 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-size: clamp(28px, 4.4vw, 44px); line-height: 1.18; margin-bottom: 18px; text-wrap: balance; }
+  .plan-hero p { color: var(--ink-soft); font-size: 16.5px; max-width: 580px; margin: 0 auto; }
 
-  .steps { padding: 0 40px 40px; max-width: 1000px; margin: 0 auto; }
-  .step {
-    display: grid; grid-template-columns: 200px 1fr; gap: 40px; padding: 60px 0;
-    border-top: 1px solid var(--line); align-items: start;
-  }
-  .step:last-child { border-bottom: 1px solid var(--line); }
-  .step-label { display: flex; flex-direction: column; gap: 12px; }
-  .step-num {
-    width: 44px; height: 44px; border-radius: 999px; border: 2px solid var(--sage);
-    color: var(--sage-deep); font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 15px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .step-label .tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-deep); font-weight: 600; }
-  .step h3 { font-size: clamp(19px, 2.4vw, 24px); font-weight: 900; text-transform: uppercase; margin-bottom: 16px; line-height: 1.3; }
-  .step .caps { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 18px; }
-  .step blockquote {
-    font-family: 'Lora', serif; font-style: italic; font-size: 16px; color: var(--charcoal);
-    border-left: 3px solid var(--sage); padding-left: 18px; margin-bottom: 18px;
-  }
-  .step .body-note { font-size: 15px; color: var(--ink-soft); margin-bottom: 18px; }
-  .step .output {
-    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase;
-    color: var(--sage-deep); font-weight: 700;
-  }
-  .step .output span { color: var(--ink-soft); font-weight: 500; text-transform: none; letter-spacing: normal; }
-
-  .transition { background: var(--charcoal); color: var(--white); text-align: center; padding: 110px 40px; }
-  .transition h2 { font-size: clamp(24px, 3.4vw, 34px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 10px; }
-  .transition p { color: var(--sage); font-size: 18px; font-weight: 700; text-transform: uppercase; margin-bottom: 34px; }
-  .btn-primary { background: var(--sage); color: var(--white); padding: 16px 32px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-block; }
-  .btn-primary:hover { background: var(--sage-deep); }
-
-  footer { background: var(--charcoal); color: rgba(255,255,255,0.55); padding: 56px 40px 32px; text-align: center; font-size: 13px; }
-  footer a { color: var(--sage); text-decoration: none; }
-
-  @media (max-width: 640px) {
-    nav { padding: 16px 20px; position: relative; }
-    .nav-toggle { display: flex; }
-    .nav-links {
-      display: none; position: absolute; top: 100%; left: 0; right: 0;
-      flex-direction: column; gap: 0; margin: 0; padding: 8px 0;
-      background: var(--charcoal); border-bottom: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.3);
-    }
-    nav.nav-open .nav-links { display: flex; }
-    .nav-links a { display: block; padding: 14px 20px; }
-    .hero, .steps, .transition, .back-bar { padding-left: 20px; padding-right: 20px; }
-    .step { grid-template-columns: 1fr; gap: 16px; }
-  }
-
-  /* Skip link */
-  .skip-link {
-    position: absolute; top: -100px; left: 0;
-    background: var(--charcoal); color: var(--white);
-    padding: 14px 22px; z-index: 10000;
-    text-decoration: none; font-weight: 600; font-size: 15px;
-    border-radius: 0 0 6px 0;
-    transition: top 0.15s ease;
-  }
-  .skip-link:focus { top: 0; }
-
-  /* ===== SAMPLE BUILD SCHEDULE ===== */
-  .schedule-section { padding: 100px 40px 20px; max-width: 1200px; margin: 0 auto; }
-  .schedule-head { max-width: 680px; margin: 0 auto 36px; text-align: center; }
-  .schedule-head h2 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; font-size: clamp(24px, 3.4vw, 34px); margin-bottom: 14px; }
-  .schedule-head p { color: var(--ink-soft); font-size: 15.5px; }
-
+  /* LEGEND + SAMPLE NOTE */
   .plan-meta {
+    max-width: 1160px; margin: 40px auto 0; padding: 0 40px;
     display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 32px;
-    border-bottom: 1px solid var(--line); padding-bottom: 22px; margin-bottom: 8px;
+    border-bottom: 1px solid var(--line); padding-bottom: 22px;
   }
   .legend { display: flex; flex-wrap: wrap; gap: 18px 26px; }
   .legend-item { display: flex; align-items: center; gap: 9px; font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
@@ -175,7 +109,8 @@
   .sample-note { text-align: right; font-size: 12.5px; color: var(--ink-soft); max-width: 320px; }
   .sample-note strong { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--charcoal); margin-bottom: 4px; }
 
-  .gantt-wrap { overflow-x: auto; padding-top: 8px; }
+  /* GANTT (desktop) */
+  .gantt-wrap { max-width: 1160px; margin: 0 auto; padding: 0 40px 8px; overflow-x: auto; }
   .gantt {
     display: grid;
     grid-template-columns: 250px repeat(8, minmax(74px, 1fr));
@@ -243,19 +178,50 @@
   .detail-close { grid-column: 1 / -1; justify-self: end; background: none; border: none; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-soft); cursor: pointer; padding: 4px 0; }
   .detail-close:hover { color: var(--charcoal); }
 
+  /* MOBILE SEQUENCE (hidden on desktop) */
   .gantt-mobile { display: none; }
-  .dependency-callout { margin-top: 40px; }
-  .dependency-inner { background: var(--bone-deep); border-left: 3px solid var(--sage-pale); padding: 28px 32px; }
-  .dependency-inner h3 { font-size: clamp(17px, 2.2vw, 21px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.2px; margin-bottom: 12px; }
-  .dependency-inner p { color: var(--ink-soft); font-size: 14.5px; max-width: 640px; }
+
+  /* CLIENT DEPENDENCY CALLOUT */
+  .dependency-callout {
+    max-width: 1160px; margin: 56px auto 0; padding: 32px 40px; margin-left: auto; margin-right: auto;
+  }
+  .dependency-inner {
+    background: var(--bone-deep); border-left: 3px solid var(--sage-pale); padding: 28px 32px;
+  }
+  .dependency-inner h2 { font-size: clamp(19px, 2.4vw, 24px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.2px; margin-bottom: 12px; }
+  .dependency-inner p { color: var(--ink-soft); font-size: 15px; max-width: 640px; }
   .dependency-inner p + p { margin-top: 10px; }
 
+  /* BOTTOM STATEMENT */
+  .plan-close { text-align: center; padding: 80px 40px 64px; max-width: 640px; margin: 0 auto; }
+  .plan-close .statement { font-size: clamp(24px, 3.6vw, 34px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 18px; }
+  .plan-close .sub { color: var(--ink-soft); font-size: 14.5px; margin-bottom: 34px; }
+  .plan-close .sub span { display: block; margin-top: 3px; }
+  .wordmark { font-family: 'Karla', sans-serif; font-size: 17px; display: inline-flex; align-items: center; gap: 8px; }
+  .wordmark .wm-light { color: var(--ink-soft); }
+  .wordmark .wm-sq { width: 7px; height: 7px; background: var(--sage-deep); display: inline-block; }
+  .wordmark .wm-bold { font-weight: 700; color: var(--charcoal); }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.55); padding: 56px 40px 32px; text-align: center; font-size: 13px; }
+  footer a { color: var(--sage); text-decoration: none; }
+
   @media (max-width: 900px) {
-    .schedule-section { padding: 72px 20px 8px; }
+    nav { padding: 16px 20px; position: relative; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0; margin: 0; padding: 8px 0;
+      background: var(--charcoal); border-bottom: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.3);
+    }
+    nav.nav-open .nav-links { display: flex; }
+    .nav-links a { display: block; padding: 14px 20px; }
+    .plan-hero, .plan-meta, .gantt-wrap, .dependency-callout, .plan-close, .back-bar { padding-left: 20px; padding-right: 20px; }
     .plan-meta { flex-direction: column; align-items: flex-start; }
     .sample-note { text-align: left; }
+
     .gantt-wrap { display: none; }
-    .gantt-mobile { display: block; }
+    .gantt-mobile { display: block; max-width: 640px; margin: 0 auto; padding: 0 20px; }
 
     .m-phase { border-top: 1px solid var(--line); padding: 30px 0; }
     .m-phase:first-child { border-top: none; padding-top: 6px; }
@@ -281,12 +247,14 @@
     .m-milestone .diamond2 { width: 9px; height: 9px; border: 1.5px solid var(--charcoal); transform: rotate(45deg); flex-shrink: 0; margin-top: 4px; background: var(--bone); }
     .m-milestone strong { display: block; font-size: 13.5px; text-transform: uppercase; letter-spacing: 0.3px; }
     .m-milestone span { font-size: 12.5px; color: var(--ink-soft); }
+
+    footer { padding: 32px 20px; }
   }
 </style>
 </head>
 <body>
 
-<div class="draft-flag">New page concept, part of the site relaunch. Not yet live.</div>
+<div class="draft-flag">Component preview, not yet linked from the site. Not live.</div>
 
 <a href="#main" class="skip-link">Skip to content</a>
 
@@ -295,7 +263,7 @@
   <ul class="nav-links">
     <li><a href="work/index.html">Work</a></li>
     <li><a href="what-we-do.html">What We Do</a></li>
-    <li><a href="how-we-work.html" aria-current="page">How We Work</a></li>
+    <li><a href="how-we-work.html">How We Work</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="guides/">Shop Notes</a></li>
   </ul>
@@ -305,72 +273,15 @@
   </button>
 </nav>
 
-<div class="back-bar"><a class="back-link" href="home-v2.html">&#8592; Back to Home</a></div>
+<div class="back-bar"><a class="back-link" href="how-we-work.html">&#8592; Back to How We Work</a></div>
 
-<div class="hero reveal" id="main">
-  <span class="eyebrow"><span class="diamond"></span>How We Work</span>
-  <h1>How We Build.</h1>
-  <p>Good marketing doesn't start with a template.</p>
-  <p>We learn the business, inventory what already exists, figure out what customers need to see and understand, then build around it.</p>
-</div>
+<main id="main">
 
-<div class="steps">
-  <div class="step reveal">
-    <div class="step-label"><div class="step-num">01</div><span class="tag">Walk the Job</span></div>
-    <div>
-      <h3>Understand the business. See what we have.</h3>
-      <p class="caps">Business &middot; Customers &middot; Projects &middot; Goals &middot; Photography &middot; Reviews &middot; Drawings &middot; Credentials &middot; Existing marketing</p>
-      <blockquote>Don't organize it first. That's my job.</blockquote>
-      <p class="output">Output: <span>Discovery + asset inventory + gap list</span></p>
-    </div>
-  </div>
-  <div class="step reveal">
-    <div class="step-label"><div class="step-num">02</div><span class="tag">Draw the Plan</span></div>
-    <div>
-      <h3>Decide what we're building, and why.</h3>
-      <p class="caps">Customer journey &middot; Messaging &middot; Site structure &middot; Search opportunities &middot; Project strategy &middot; Content plan</p>
-      <p class="output">Output: <span>Site plan + messaging direction + content plan</span></p>
-    </div>
-  </div>
-  <div class="step reveal">
-    <div class="step-label"><div class="step-num">03</div><span class="tag">Prep the Materials</span></div>
-    <div>
-      <h3>Turn the raw material into something we can build with.</h3>
-      <p class="body-note">Projects selected. Photos organized. Stories extracted. Reviews gathered. Credentials verified. Partners identified. Missing pieces filled.</p>
-      <p class="output">Output: <span>Build-ready content + asset library</span></p>
-    </div>
-  </div>
-  <div class="step reveal">
-    <div class="step-label"><div class="step-num">04</div><span class="tag">Build</span></div>
-    <div>
-      <h3>Put it together.</h3>
-      <p class="caps">Copy &middot; Design &middot; Projects &middot; Search &middot; Mobile &middot; Contact flow</p>
-      <p class="body-note">And while the site is being built, the supporting content is being built with it.</p>
-    </div>
-  </div>
-  <div class="step reveal">
-    <div class="step-label"><div class="step-num">05</div><span class="tag">Punch List</span></div>
-    <div>
-      <h3>Check everything.</h3>
-      <p class="caps">Copy &middot; Projects &middot; Credits &middot; Mobile &middot; Forms &middot; Links &middot; Search &middot; Analytics &middot; Technical QA</p>
-      <p class="output" style="color: var(--charcoal);">Measure twice. Launch once.</p>
-    </div>
-  </div>
-  <div class="step reveal">
-    <div class="step-label"><div class="step-num">06</div><span class="tag">Turn the Lights On</span></div>
-    <div>
-      <h3>Don't just launch it. Put it to work.</h3>
-      <p class="caps">Website &middot; Social &middot; Project features &middot; Partner amplification &middot; Google &middot; Email &middot; Search</p>
-    </div>
-  </div>
-</div>
-
-<section class="schedule-section reveal">
-  <div class="schedule-head">
-    <span class="eyebrow"><span class="diamond"></span>See It As a Schedule</span>
-    <h2>Same six phases. Week by week.</h2>
-    <p>What we're building, what we're developing alongside it, and what we need from you to keep the project moving.</p>
-  </div>
+  <section class="plan-hero">
+    <span class="eyebrow"><span class="diamond"></span>RemodelerRank &middot; The Build Plan</span>
+    <h1>From raw materials to working marketing.</h1>
+    <p>A clear view of what we're building, what we're developing alongside it, and what we need from you to keep the project moving.</p>
+  </section>
 
   <div class="plan-meta">
     <div class="legend">
@@ -385,25 +296,29 @@
     </div>
   </div>
 
+  <!-- DESKTOP GANTT (JS-rendered from projectSchedule) -->
   <div class="gantt-wrap">
     <div class="gantt" id="ganttDesktop" role="group" aria-label="Project build schedule, week 1 through week 8"></div>
   </div>
+
+  <!-- MOBILE SEQUENCE (JS-rendered from the same projectSchedule) -->
   <div class="gantt-mobile" id="ganttMobile"></div>
 
-  <div class="dependency-callout">
+  <section class="dependency-callout">
     <div class="dependency-inner">
-      <h3>Client dependencies are part of the schedule.</h3>
+      <h2>Client dependencies are part of the schedule.</h2>
       <p>Photography, project details, account access and approvals unlock the work that follows them. If one moves, the work attached to it may move too.</p>
       <p>The goal isn't to rush the build. It's to keep everyone clear on what unlocks the next step.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="transition reveal">
-  <h2>The website is live.</h2>
-  <p>Now it can go to work.</p>
-  <a class="btn-primary" href="marketing-inspection.html">Start With an Inspection</a>
-</div>
+  <section class="plan-close">
+    <div class="statement">Measure twice. Launch once.</div>
+    <p class="sub">Strategy before production.<span>Proof before claims.</span><span>Review before launch.</span></p>
+    <div class="wordmark"><span class="wm-light">Remodeler</span><span class="wm-sq"></span><span class="wm-bold">Rank</span></div>
+  </section>
+
+</main>
 
 <footer>
   RemodelerRank. Marketing for businesses that build things, across Northern California.<br>
@@ -418,7 +333,7 @@ function toggleNav() {
 }
 
 /* ============================================================
-   SAMPLE BUILD SCHEDULE
+   PROJECT SCHEDULE DATA
    Reusable shape: projectSchedule.phases[].tasks[] / .milestones[]
    category: 'build' | 'story' | 'client' | 'review'
    ============================================================ */
@@ -518,6 +433,9 @@ var projectSchedule = {
   ]
 };
 
+/* ============================================================
+   RENDER: DESKTOP GANTT
+   ============================================================ */
 function timingLabel(a, b) {
   return a === b ? ("WK " + String(a).padStart(2, "0")) : ("WK " + String(a).padStart(2, "0") + "–" + String(b).padStart(2, "0"));
 }
@@ -527,7 +445,6 @@ function catLabel(cat) {
 
 function renderDesktop(data) {
   var el = document.getElementById("ganttDesktop");
-  if (!el) return;
   var html = "";
 
   html += '<div class="gantt-head"><div class="label-col">Phase / Task</div>';
@@ -545,8 +462,8 @@ function renderDesktop(data) {
     html += '</div></div>';
 
     phase.tasks.forEach(function (task, tIndex) {
-      var start = task.startWeek + 1;
-      var end = task.endWeek + 2;
+      var start = task.startWeek + 1; // grid col 1 is label, weeks start at col 2
+      var end = task.endWeek + 2;     // end is exclusive in grid-column
       var taskId = "p" + pIndex + "t" + tIndex;
       html += '<div class="task-row">';
       html += '<div class="label-col"><span class="task-name">' + task.name + '</span><span class="task-timing">' + timingLabel(task.startWeek, task.endWeek) + ' &middot; ' + task.owner + '</span></div>';
@@ -578,16 +495,18 @@ function renderDesktop(data) {
       html += '</div></div>';
     });
 
-    html += '</div>';
+    html += '</div>'; // .phase-divider
   });
 
   el.innerHTML = html;
 
+  // interaction: toggle detail panels, one open per task, closing others in the same phase
   el.querySelectorAll(".bar").forEach(function (bar) {
     bar.addEventListener("click", function () {
       var targetId = bar.getAttribute("data-target");
       var panel = document.getElementById(targetId);
       var isOpen = panel.classList.contains("open");
+      // close all panels + reset all bars
       el.querySelectorAll(".detail-panel.open").forEach(function (p) { p.classList.remove("open"); });
       el.querySelectorAll('.bar[aria-expanded="true"]').forEach(function (b) { b.setAttribute("aria-expanded", "false"); });
       if (!isOpen) {
@@ -606,9 +525,11 @@ function renderDesktop(data) {
   });
 }
 
+/* ============================================================
+   RENDER: MOBILE SEQUENCE
+   ============================================================ */
 function renderMobile(data) {
   var el = document.getElementById("ganttMobile");
-  if (!el) return;
   var html = "";
 
   data.phases.forEach(function (phase) {
@@ -646,17 +567,6 @@ function renderMobile(data) {
 
 renderDesktop(projectSchedule);
 renderMobile(projectSchedule);
-
-(function () {
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var librariesLoaded = window.gsap && window.ScrollTrigger;
-  if (reduceMotion || !librariesLoaded) { document.body.classList.add('no-motion'); return; }
-  gsap.registerPlugin(ScrollTrigger);
-  document.querySelectorAll('.reveal').forEach(function (el) {
-    gsap.to(el, { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
-  });
-})();
 </script>
-
 </body>
 </html>

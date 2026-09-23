@@ -89,12 +89,10 @@
   .action {
     display: block;
     background: #FFFFFF;
-    border: 0.5px solid var(--border);
-    border-radius: 8px;
+    border: 1px solid var(--border);
     padding: 20px 22px;
     text-decoration: none;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    transition: transform 0.15s, border-color 0.15s, background 0.15s;
   }
 
   .action:active {
@@ -120,19 +118,17 @@
   .action.primary {
     background: var(--sage-deeper);
     border-color: var(--sage-deeper);
-    box-shadow: 0 2px 12px rgba(74,110,94,0.25);
   }
 
   .action.primary .action-label { color: #FFFFFF; }
   .action.primary .action-sub { color: rgba(255,255,255,0.7); }
 
-  .action:hover { box-shadow: 0 3px 14px rgba(0,0,0,0.08); }
+  .action:hover { border-color: var(--charcoal); }
   .action.primary:hover { background: var(--sage-dark); border-color: var(--sage-dark); }
 
   .action.call {
     background: var(--warm-sage);
     border-color: var(--border);
-    box-shadow: none;
   }
 
   .action.call .action-label { color: var(--sage-deeper); }
@@ -170,7 +166,7 @@
 
     <header>
       <img src="/images/logo.svg" alt="RemodelerRank" width="200" height="35">
-      <p class="tagline">Over 20 years in construction. Now growing remodeling businesses online.</p>
+      <p class="tagline">Over 20 years in construction. Marketing for businesses that build things.</p>
     </header>
 
     <div class="actions">

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Sets of Tools | Print Flyer Review</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --charcoal: #2C2C2C;
+    --sage: #4A6E5E;
+    --warm-white: #FAFAF8;
+    --hatch: #EDEAE3;
+    --line: #DCD7CC;
+  }
+  body { font-family: 'Karla', Arial, sans-serif; background: #EFEBE2; color: var(--charcoal); -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+
+  @page { size: 8.5in 11in; margin: 0; }
+
+  .review-chrome { }
+  .review-flag {
+    background: var(--charcoal); color: var(--warm-white); text-align: center; font-size: 11.5px;
+    letter-spacing: 1.3px; text-transform: uppercase; padding: 10px 16px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .page-head { max-width: 8.5in; margin: 0 auto; padding: 36px 24px 26px; }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 1.4px; text-transform: uppercase;
+    color: var(--sage); font-weight: 600; margin-bottom: 12px; display: inline-flex; align-items: center; gap: 9px;
+  }
+  .diamond { width: 7px; height: 7px; background: var(--sage); transform: rotate(45deg); flex-shrink: 0; display: inline-block; }
+  .page-head h1 { font-size: 26px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 8px; }
+  .page-head p { color: #6B675C; font-size: 14px; max-width: 560px; line-height: 1.6; }
+  .spec-row { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.4px; color: #8A8577; text-transform: uppercase; }
+
+  /* ===== ARTBOARD: full bleed 8.75 x 11.25in, trim 8.5 x 11in centered, safe area 0.25in inside trim ===== */
+  .artboard-wrap { max-width: 8.75in; margin: 0 auto 20px; padding: 0 24px; }
+  .artboard {
+    position: relative; width: 8.75in; height: 11.25in; background: var(--warm-white);
+    margin: 0 auto; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.14);
+  }
+  .trim-guide {
+    position: absolute; top: 0.125in; left: 0.125in; right: 0.125in; bottom: 0.125in;
+    border: 1px dashed rgba(44,44,44,0.35); pointer-events: none; z-index: 50;
+  }
+  .safe-guide {
+    position: absolute; top: 0.375in; left: 0.375in; right: 0.375in; bottom: 0.375in;
+    border: 1px dotted rgba(74,110,94,0.5); pointer-events: none; z-index: 50;
+  }
+  .guide-label {
+    position: absolute; font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.6px;
+    text-transform: uppercase; color: rgba(44,44,44,0.45); z-index: 50; background: var(--warm-white); padding: 1px 4px;
+  }
+
+  /* content sits inside the trim box, 0.125in bleed on all sides outside it */
+  .content { position: absolute; top: 0.125in; left: 0.125in; width: 8.5in; height: 11in; display: flex; flex-direction: column; }
+  .safe { padding-left: 0.25in; padding-right: 0.25in; }
+
+  /* ---- TOP: contractor tools ---- */
+  .sec-top { flex: 0 0 auto; min-height: 4.6in; display: flex; flex-direction: column; }
+  .photo-top { flex: 1 1 auto; min-height: 3.35in; position: relative; background: repeating-linear-gradient(135deg, var(--hatch), var(--hatch) 11px, var(--warm-white) 11px, var(--warm-white) 22px); border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: center; }
+  .photo-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.6px; text-transform: uppercase; color: #8A8577; background: var(--warm-white); border: 1px solid var(--line); padding: 6px 10px; text-align: center; line-height: 1.6; }
+  .annotation {
+    position: absolute; bottom: 10px; right: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 8px;
+    letter-spacing: 0.5px; text-transform: uppercase; color: rgba(44,44,44,0.55); text-align: right; line-height: 1.5;
+  }
+  .headline-band { flex: 0 0 auto; padding: 16pt 0.25in 10pt; }
+  .headline-band h2 {
+    font-family: 'Karla', Arial, sans-serif; font-weight: 800; text-transform: uppercase;
+    font-size: 22pt; line-height: 1.14; letter-spacing: -0.2px; max-width: 5.6in;
+  }
+
+  /* ---- MIDDLE: marketing tools (asymmetric, inset) ---- */
+  .sec-mid { flex: 0 0 auto; min-height: 2.95in; display: flex; align-items: stretch; border-top: 1px solid var(--line); }
+  .photo-mid { flex: 0 0 58%; position: relative; background: repeating-linear-gradient(135deg, var(--hatch), var(--hatch) 11px, var(--warm-white) 11px, var(--warm-white) 22px); border-right: 1px solid var(--line); display: flex; align-items: center; justify-content: center; }
+  .mid-copy { flex: 1 1 42%; display: flex; align-items: center; padding: 0 0.25in; }
+  .mid-copy h2 {
+    font-family: 'Karla', Arial, sans-serif; font-weight: 800; text-transform: uppercase;
+    font-size: 15.5pt; line-height: 1.2; letter-spacing: -0.1px;
+  }
+
+  /* ---- PAYOFF ---- */
+  .sec-payoff { flex: 0 0 auto; min-height: 0.85in; background: var(--charcoal); color: var(--warm-white); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 10pt 0.25in; }
+  .sec-payoff .l1 { font-family: 'Karla', Arial, sans-serif; font-weight: 700; text-transform: uppercase; font-size: 15pt; color: rgba(250,250,248,0.62); letter-spacing: -0.1px; }
+  .sec-payoff .l2 { font-family: 'Karla', Arial, sans-serif; font-weight: 800; text-transform: uppercase; font-size: 17pt; color: var(--warm-white); letter-spacing: -0.1px; margin-top: 1px; }
+
+  /* ---- BOTTOM: referral CTA ---- */
+  .sec-bottom { flex: 1 1 auto; min-height: 2.6in; display: flex; flex-direction: column; justify-content: center; padding: 14pt 0.25in 12pt; border-top: 1px solid var(--line); }
+  .cta-ask {
+    font-family: 'Karla', Arial, sans-serif; font-weight: 800; text-transform: uppercase;
+    font-size: 14.5pt; line-height: 1.2; letter-spacing: -0.1px; text-align: center; max-width: 5.4in; margin: 0 auto 10pt;
+  }
+  .cta-cats {
+    font-family: 'IBM Plex Mono', monospace; font-size: 9.5pt; letter-spacing: 0.4px; text-align: center;
+    color: var(--sage); font-weight: 600; margin-bottom: 16pt;
+  }
+  .cta-row { display: flex; align-items: center; justify-content: center; gap: 22pt; }
+  .cta-intro { text-align: right; max-width: 2.9in; }
+  .cta-intro .line { font-family: 'Karla', Arial, sans-serif; font-weight: 700; text-transform: uppercase; font-size: 11pt; line-height: 1.28; letter-spacing: -0.1px; }
+  .cta-intro .line.accent { color: var(--sage); }
+  .qr-block { text-align: center; flex: 0 0 auto; }
+  .qr-block img { width: 0.95in; height: 0.95in; display: block; border: 1px solid var(--line); }
+  .qr-block .url { font-family: 'IBM Plex Mono', monospace; font-size: 8pt; letter-spacing: 0.4px; color: #8A8577; margin-top: 5pt; text-transform: uppercase; }
+
+  .identity-row { display: flex; align-items: center; justify-content: center; margin-top: 16pt; }
+  .wordmark { font-family: 'Karla', sans-serif; font-size: 11pt; display: inline-flex; align-items: center; gap: 6px; }
+  .wordmark .wm-light { color: #8A8577; }
+  .wordmark .wm-sq { width: 5px; height: 5px; background: var(--sage); display: inline-block; }
+  .wordmark .wm-bold { font-weight: 700; color: var(--charcoal); }
+
+  /* ===== SHOT NOTES (review only, outside the artboard) ===== */
+  .notes { max-width: 8.5in; margin: 0 auto; padding: 0 24px 80px; }
+  .notes h3 {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--charcoal); margin-bottom: 16px; padding-bottom: 9px; border-bottom: 1px solid var(--line);
+  }
+  .note-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--line); background: var(--warm-white); }
+  .note-card { padding: 20px 22px; }
+  .note-card + .note-card { border-left: 1px solid var(--line); }
+  .note-card .n-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--sage); font-weight: 700; margin-bottom: 9px;
+  }
+  .note-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 9px; }
+  .note-card ul { list-style: none; margin-bottom: 12px; }
+  .note-card li { font-size: 13px; color: var(--charcoal); padding: 3px 0 3px 14px; position: relative; }
+  .note-card li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; background: var(--sage); transform: rotate(45deg); }
+  .note-card .spec-line { font-size: 12.5px; color: #6B675C; line-height: 1.6; }
+  .note-card .spec-line strong { color: var(--charcoal); font-weight: 700; }
+  .flag-note { background: var(--hatch); border: 1px solid var(--line); padding: 14px 18px; font-size: 12.5px; color: #6B675C; line-height: 1.6; margin-top: 18px; }
+  .flag-note strong { color: var(--charcoal); }
+
+  @media print {
+    body { background: var(--warm-white); }
+    .review-chrome, .page-head, .notes { display: none !important; }
+    .artboard-wrap { max-width: none; margin: 0; padding: 0; }
+    .artboard { box-shadow: none; margin: 0; }
+    .trim-guide, .safe-guide, .guide-label { display: none !important; }
+    .photo-label, .annotation { color: transparent; } /* placeholders shouldn't print as if final */
+  }
+
+  @media (max-width: 900px) {
+    .artboard-wrap { overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="review-chrome">
+  <div class="review-flag">Print flyer review &middot; US Letter, 0.125&quot; bleed, 0.25&quot; safe area &middot; placeholder photography</div>
+
+  <div class="page-head">
+    <span class="eyebrow"><span class="diamond"></span>RemodelerRank &middot; Referral Flyer</span>
+    <h1>Two Sets of Tools</h1>
+    <p>Rebuilt to the print spec: US Letter, portrait, editorial composition (not a 50/50 split), exact approved copy, referral CTA with QR. Real photography still needed for the two placeholder panels below, see shot notes at the bottom.</p>
+    <div class="spec-row">
+      <span>8.5 &times; 11 in trim</span>
+      <span>8.75 &times; 11.25 in bleed</span>
+      <span>0.25 in safe area</span>
+      <span>Dashed line = trim &middot; dotted line = safe area (guides only, hidden on print)</span>
+    </div>
+  </div>
+</div>
+
+<div class="artboard-wrap">
+  <div class="artboard">
+    <div class="trim-guide"></div>
+    <div class="safe-guide"></div>
+    <span class="guide-label" style="top:0.14in; left:0.16in;">TRIM</span>
+
+    <div class="content">
+
+      <div class="sec-top">
+        <div class="photo-top">
+          <span class="photo-label">PHOTO 1<br>Contractor tools: drill, saw, tape measure,<br>speed square, clamps, pencil, utility knife<br>on a clean plywood workbench</span>
+          <span class="annotation">TAPE MEASURE &rarr; PROJECT ANALYTICS</span>
+        </div>
+        <div class="headline-band safe">
+          <h2>These are the tools<br>they use to build<br>beautiful projects.</h2>
+        </div>
+      </div>
+
+      <div class="sec-mid">
+        <div class="photo-mid">
+          <span class="photo-label">PHOTO 2<br>Laptop, camera, notebook + pen,<br>printed project photos, project page.<br>Same light, same surface as Photo 1</span>
+          <span class="annotation" style="right:auto; left:14px;">DRAWING &rarr; WEBSITE ARCHITECTURE</span>
+        </div>
+        <div class="mid-copy">
+          <h2>These are the tools I use to make sure the right people see them.</h2>
+        </div>
+      </div>
+
+      <div class="sec-payoff">
+        <div class="l1">Different Tools.</div>
+        <div class="l2">Same Respect for the Work.</div>
+      </div>
+
+      <div class="sec-bottom safe">
+        <div class="cta-ask">Know a good business whose marketing doesn't match their work?</div>
+        <div class="cta-cats">Remodelers &middot; Cabinet Shops &middot; Millwork &middot; Design-Build &middot; Specialty Trades</div>
+        <div class="cta-row">
+          <div class="cta-intro">
+            <div class="line">Make the</div>
+            <div class="line accent">introduction.</div>
+            <div class="line">I'll take it</div>
+            <div class="line accent">from there.</div>
+          </div>
+          <div class="qr-block">
+            <img src="two-sets-of-tools-qr.png" alt="QR code linking to RemodelerRank.com/start">
+            <div class="url">RemodelerRank.com</div>
+          </div>
+        </div>
+        <div class="identity-row">
+          <div class="wordmark"><span class="wm-light">Remodeler</span><span class="wm-sq"></span><span class="wm-bold">Rank</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="notes">
+  <h3>Shot notes, for whoever takes the real photos</h3>
+  <div class="note-grid">
+    <div class="note-card">
+      <span class="n-label">Photo 1</span>
+      <h4>Contractor tools</h4>
+      <ul>
+        <li>Cordless drill</li>
+        <li>Circular saw</li>
+        <li>Tape measure</li>
+        <li>Speed square</li>
+        <li>Clamps</li>
+        <li>Carpenter's pencil</li>
+        <li>Utility knife</li>
+        <li>Hearing protection</li>
+      </ul>
+      <p class="spec-line">
+        <strong>Surface:</strong> clean plywood or wood workbench.<br>
+        <strong>Light:</strong> natural, directional, real shadows.<br>
+        <strong>Wear:</strong> genuinely used, light believable wear, clean and cared for. Not new, not filthy, not staged like a hardware-store ad.<br>
+        <strong>Avoid:</strong> visible manufacturer logos, sawdust styling, duplicated tools.
+      </p>
+    </div>
+    <div class="note-card">
+      <span class="n-label">Photo 2</span>
+      <h4>Marketing tools</h4>
+      <ul>
+        <li>Laptop</li>
+        <li>Camera</li>
+        <li>Notebook + pen</li>
+        <li>Printed project photographs</li>
+        <li>Project page / wireframe</li>
+      </ul>
+      <p class="spec-line">
+        <strong>Match Photo 1</strong> exactly on surface, light direction, and color treatment, so these read as one matched pair, not two shoots.<br>
+        <strong>Avoid:</strong> coffee-cup/flower lifestyle styling, pink accessories, neon app icons, fake charts, influencer desk aesthetic. This is a workspace that takes construction businesses seriously, not a "girl boss" flat lay.
+      </p>
+    </div>
+  </div>
+  <div class="flag-note">
+    <strong>QR code:</strong> generated locally, points to <span class="mono">https://remodelerrank.com/start</span>, your real link-in-bio page. Swapped from the original <span class="mono">/card</span> spec since that page doesn't exist yet. If you'd rather use the QR image Claude Desktop already generated for you, drop that file into <span class="mono">visuals/</span> and I'll wire it in instead of this one.<br><br>
+    <strong>Print note:</strong> this HTML is built to true 8.5&times;11in scale with bleed/trim/safe-area guides for an accurate review, and prints close to spec via your browser's print dialog. A production-grade bleed PDF (true bleed extension, CMYK, embedded fonts) is a separate export step once the layout and real photography are approved. I'd hand this off to whatever you're using for final print production rather than treating a browser print as the finished file.
+  </div>
+</div>
+
+</body>
+</html>
