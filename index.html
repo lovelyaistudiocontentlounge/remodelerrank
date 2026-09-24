@@ -12,11 +12,18 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RemodelerRank | Marketing for NorCal Remodeling Contractors</title>
-<meta name="description" content="RemodelerRank builds websites, GBP profiles, and marketing systems for licensed remodeling contractors in Northern California. Free audit available.">
+<title>RemodelerRank | Marketing for Businesses That Build Things</title>
+<meta name="description" content="RemodelerRank helps remodelers, cabinet shops, and specialty trades turn the work they've already built into marketing that gets found, builds trust, and wins better work.">
 <link rel="canonical" href="https://remodelerrank.com/">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="RR">
+<link rel="manifest" href="/site.webmanifest">
+
 <meta property="og:title" content="RemodelerRank">
-<meta property="og:description" content="RemodelerRank builds websites, GBP profiles, and marketing systems for licensed remodeling contractors in Northern California. Free audit available.">
+<meta property="og:description" content="RemodelerRank helps remodelers, cabinet shops, and specialty trades turn the work they've already built into marketing that gets found, builds trust, and wins better work.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://remodelerrank.com/">
 <meta property="og:image" content="https://remodelerrank.com/images/og-image.png">
@@ -24,1182 +31,20 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="RemodelerRank">
-<meta name="twitter:description" content="RemodelerRank builds websites, GBP profiles, and marketing systems for licensed remodeling contractors in Northern California. Free audit available.">
+<meta name="twitter:description" content="RemodelerRank helps remodelers, cabinet shops, and specialty trades turn the work they've already built into marketing that gets found, builds trust, and wins better work.">
 <meta name="twitter:image" content="https://remodelerrank.com/images/og-image.png">
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="RR" />
-<link rel="manifest" href="/site.webmanifest" />
-<link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --white: #FFFFFF;
-    --off-white: #FAFAF8;
-    --warm-sage-tint: #EEF2EF;
-    --light-sage-tint: #E4EBE7;
-    --sage: #8BA89A;
-    --sage-dark: #6E8E7E;
-    --sage-deeper: #4A6E5E;
-    --charcoal: #2C2C2C;
-    --body-text: #4A4A4A;
-    --muted-sage: #7A8A80;
-    --faint-sage: #B0BDB5;
-    --border: #DDE6E1;
-  }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Lora:ital,wght@1,500;1,600&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Karla', sans-serif;
-    color: var(--body-text);
-    background: var(--white);
-    font-size: 16px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: var(--charcoal);
-    padding: 0 48px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .nav-logo {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-logo img {
-    height: 30px;
-    width: auto;
-    display: block;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-    align-items: center;
-  }
-
-  .nav-links a {
-    font-family: 'Karla', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--white); }
-
-  .nav-toggle {
-    display: none; background: none; border: none; cursor: pointer;
-    width: 36px; height: 36px; padding: 7px; flex-direction: column;
-    justify-content: center; gap: 5px;
-  }
-  .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--white); }
-
-  .nav-cta {
-    background: var(--sage) !important;
-    color: var(--white) !important;
-    padding: 9px 22px;
-    border-radius: 3px;
-    font-weight: 600 !important;
-    transition: background 0.2s !important;
-  }
-
-  .nav-cta:hover { background: var(--sage-dark) !important; }
-
-  /* HERO */
-  .hero {
-    margin-top: 64px;
-    background: var(--charcoal);
-    min-height: 92vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding: 100px 48px;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(ellipse 60% 80% at 75% 50%, rgba(139,168,154,0.15) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(110,142,126,0.08) 0%, transparent 60%);
-  }
-
-  .hero-inner {
-    max-width: 1160px;
-    margin: 0 auto;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-tag {
-    font-family: 'Karla', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3.5px;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 20px;
-    display: block;
-  }
-
-  .hero h1 {
-    font-family: 'Lora', serif;
-    font-size: clamp(38px, 4.5vw, 58px);
-    font-weight: 500;
-    color: var(--white);
-    line-height: 1.18;
-    letter-spacing: -0.5px;
-    margin-bottom: 24px;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--sage);
-  }
-
-  .hero-sub {
-    font-size: 17px;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 40px;
-    max-width: 480px;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    background: var(--sage);
-    color: var(--white);
-    padding: 14px 32px;
-    border-radius: 3px;
-    font-family: 'Karla', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-    letter-spacing: 0.02em;
-  }
-
-  .btn-primary:hover {
-    background: var(--sage-dark);
-    transform: translateY(-1px);
-  }
-
-  .btn-ghost {
-    color: rgba(255,255,255,0.7);
-    font-family: 'Karla', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.2s;
-  }
-
-  .btn-ghost:hover { color: var(--white); }
-
-  .hero-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 6px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .stat-box {
-    padding: 32px 28px;
-    background: rgba(255,255,255,0.03);
-  }
-
-  .stat-num {
-    font-family: 'Lora', serif;
-    font-size: 40px;
-    font-weight: 500;
-    color: var(--sage);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .stat-label {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.4;
-  }
-
-  /* SECTION BASE */
-  section { padding: 96px 48px; }
-
-  .section-inner {
-    max-width: 1160px;
-    margin: 0 auto;
-  }
-
-  .section-tag {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3.5px;
-    text-transform: uppercase;
-    color: var(--muted-sage);
-    margin-bottom: 16px;
-    display: block;
-  }
-
-  .section-h2 {
-    font-family: 'Lora', serif;
-    font-size: clamp(28px, 3vw, 40px);
-    font-weight: 500;
-    color: var(--charcoal);
-    line-height: 1.25;
-    letter-spacing: -0.3px;
-    margin-bottom: 20px;
-  }
-
-  .section-intro {
-    font-size: 17px;
-    color: var(--body-text);
-    line-height: 1.8;
-    max-width: 620px;
-  }
-
-  /* PAIN */
-  .pain {
-    background: var(--off-white);
-  }
-
-  .pain-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
-    margin-top: 56px;
-  }
-
-  .pain-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .pain-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    padding: 24px;
-    background: var(--white);
-    border-radius: 4px;
-    border-left: 3px solid var(--sage);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-  }
-
-  .pain-icon {
-    width: 36px;
-    height: 36px;
-    background: var(--warm-sage-tint);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 16px;
-  }
-
-  .pain-text strong {
-    display: block;
-    font-weight: 600;
-    color: var(--charcoal);
-    font-size: 15px;
-    margin-bottom: 4px;
-  }
-
-  .pain-text p {
-    font-size: 14px;
-    color: var(--muted-sage);
-    line-height: 1.6;
-  }
-
-  .pain-callout {
-    background: var(--charcoal);
-    border-radius: 6px;
-    padding: 40px;
-    color: var(--white);
-    position: sticky;
-    top: 88px;
-  }
-
-  .pain-callout .script-accent {
-    font-family: 'Sacramento', cursive;
-    font-size: 48px;
-    color: var(--sage);
-    display: block;
-    margin-bottom: 12px;
-    line-height: 1;
-  }
-
-  .pain-callout h3 {
-    font-family: 'Lora', serif;
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 1.3;
-    margin-bottom: 16px;
-    color: var(--white);
-  }
-
-  .pain-callout p {
-    font-size: 15px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.75;
-    margin-bottom: 28px;
-  }
-
-  /* BENEFITS */
-  .benefits {
-    background: var(--white);
-  }
-
-  .benefits-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: end;
-    margin-bottom: 64px;
-  }
-
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-  }
-
-  .benefit-card {
-    background: var(--white);
-    padding: 36px 28px;
-    transition: background 0.2s;
-  }
-
-  .benefit-card:hover { background: var(--warm-sage-tint); }
-
-  .benefit-num {
-    font-family: 'Lora', serif;
-    font-size: 13px;
-    color: var(--sage);
-    font-weight: 400;
-    margin-bottom: 16px;
-    font-style: italic;
-  }
-
-  .benefit-card h3 {
-    font-family: 'Lora', serif;
-    font-size: 19px;
-    font-weight: 500;
-    color: var(--charcoal);
-    margin-bottom: 12px;
-    line-height: 1.3;
-  }
-
-  .benefit-card p {
-    font-size: 14px;
-    color: var(--muted-sage);
-    line-height: 1.7;
-  }
-
-  /* INTRO / ABOUT */
-  .intro {
-    background: var(--warm-sage-tint);
-    padding: 96px 48px;
-  }
-
-  .intro-inner {
-    max-width: 1160px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .intro-img {
-    background: var(--light-sage-tint);
-    border-radius: 6px;
-    aspect-ratio: 4/3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .intro-img-placeholder {
-    text-align: center;
-    color: var(--muted-sage);
-  }
-
-  .intro-img-placeholder span {
-    font-family: 'Sacramento', cursive;
-    font-size: 64px;
-    color: var(--sage);
-    display: block;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .intro-img-placeholder p {
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  .intro-content .section-h2 {
-    margin-bottom: 20px;
-  }
-
-  .intro-body {
-    font-size: 16px;
-    line-height: 1.85;
-    color: var(--body-text);
-    margin-bottom: 16px;
-  }
-
-  /* SERVICES / STACK */
-  .stack {
-    background: var(--charcoal);
-    padding: 96px 48px;
-  }
-
-  .stack .section-tag { color: var(--sage); }
-  .stack .section-h2 { color: var(--white); }
-  .stack .section-intro { color: rgba(255,255,255,0.6); }
-
-  .stack-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin-top: 56px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 6px;
-    overflow: visible;
-  }
-
-  .stack-card {
-    background: rgba(255,255,255,0.03);
-    padding: 40px 32px;
-    border-top: 3px solid transparent;
-    transition: all 0.2s;
-    position: relative;
-  }
-
-  .stack-card:hover {
-    background: rgba(139,168,154,0.12);
-    border-top-color: var(--sage);
-  }
-
-  .stack-price {
-    font-family: 'Lora', serif;
-    font-size: 32px;
-    font-weight: 500;
-    color: var(--sage);
-    margin-bottom: 4px;
-  }
-
-  .stack-price-sub {
-    font-size: 13px;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 24px;
-  }
-
-  .stack-card h3 {
-    font-family: 'Lora', serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 12px;
-  }
-
-  .stack-card p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.7;
-    margin-bottom: 24px;
-  }
-
-  .stack-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .stack-features li {
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-  }
-
-  .stack-features li::before {
-    content: '✓';
-    color: var(--sage);
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .stack-card.featured {
-    background: rgba(139,168,154,0.15);
-    border-top-color: var(--sage);
-  }
-
-  .stack-badge {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--sage);
-    color: var(--white);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 5px 14px;
-    border-radius: 20px;
-    white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-  }
-
-  /* LEAD CAPTURE */
-  .lead-capture {
-    background: var(--warm-sage-tint);
-    padding: 56px 48px;
-    border-bottom: 1px solid var(--border);
-    scroll-margin-top: 64px;
-  }
-
-  .lead-capture-inner {
-    max-width: 1160px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .lead-capture h2 {
-    font-family: 'Lora', serif;
-    font-size: clamp(22px, 2.5vw, 32px);
-    font-weight: 500;
-    color: var(--charcoal);
-    line-height: 1.3;
-    margin-bottom: 12px;
-  }
-
-  .lead-capture p {
-    font-size: 15px;
-    color: var(--muted-sage);
-    line-height: 1.7;
-  }
-
-  .lead-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .sr-only {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-  }
-
-  .lead-form input {
-    font-family: 'Karla', sans-serif;
-    font-size: 15px;
-    padding: 13px 18px;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    background: var(--white);
-    color: var(--charcoal);
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .lead-form input:focus { border-color: var(--sage); }
-  .lead-form input::placeholder { color: var(--faint-sage); }
-
-  .lead-form button {
-    font-family: 'Karla', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    padding: 14px 24px;
-    background: var(--sage-dark);
-    color: var(--white);
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    letter-spacing: 0.02em;
-  }
-
-  .lead-form button:hover {
-    background: var(--sage-deeper);
-    transform: translateY(-1px);
-  }
-
-  .lead-form-note {
-    font-size: 12px;
-    color: var(--faint-sage);
-    text-align: center;
-  }
-
-  /* RESULTS */
-  .results {
-    background: var(--off-white);
-  }
-
-  .results-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: end;
-    margin-bottom: 56px;
-  }
-
-  .results-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .result-card {
-    background: var(--white);
-    border-radius: 6px;
-    padding: 36px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-    border-bottom: 3px solid var(--sage);
-  }
-
-  .result-company {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--muted-sage);
-    margin-bottom: 16px;
-  }
-
-  .result-quote {
-    font-family: 'Lora', serif;
-    font-size: 17px;
-    font-style: italic;
-    color: var(--charcoal);
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  .result-metrics {
-    display: flex;
-    gap: 24px;
-  }
-
-  .result-metric strong {
-    display: block;
-    font-family: 'Lora', serif;
-    font-size: 26px;
-    color: var(--sage-dark);
-    font-weight: 500;
-  }
-
-  .result-metric span {
-    font-size: 12px;
-    color: var(--muted-sage);
-    font-weight: 500;
-  }
-
-  .results-note {
-    font-size: 13px;
-    color: var(--faint-sage);
-    font-style: italic;
-    margin-top: 24px;
-    text-align: center;
-  }
-
-  .work-preview-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .work-preview-card {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    background: var(--white);
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-    border-bottom: 3px solid var(--sage);
-    transition: transform 0.15s ease-out;
-  }
-
-  .work-preview-card:hover { transform: translateY(-3px); }
-
-  .work-preview-media { aspect-ratio: 4/3; overflow: hidden; background: var(--light-sage-tint); }
-  .work-preview-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  .work-preview-body { padding: 20px; }
-
-  .work-preview-tag {
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted-sage);
-    margin-bottom: 10px;
-  }
-
-  .work-preview-client {
-    font-weight: 700;
-    font-size: 15px;
-    color: var(--charcoal);
-    margin-bottom: 6px;
-  }
-
-  .work-preview-problem {
-    font-size: 13px;
-    color: var(--body-text);
-    line-height: 1.5;
-  }
-
-  .work-preview-cta {
-    text-align: center;
-    margin-top: 32px;
-  }
-
-  .work-preview-see-all {
-    color: var(--sage-dark);
-    font-family: 'Karla', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.2s;
-  }
-
-  .work-preview-see-all:hover { color: var(--sage-deeper); }
-
-  /* MID CTA */
-  .mid-cta {
-    background: var(--sage-dark);
-    padding: 80px 48px;
-    text-align: center;
-  }
-
-  .mid-cta .script-accent {
-    font-family: 'Sacramento', cursive;
-    font-size: 52px;
-    color: rgba(255,255,255,0.4);
-    display: block;
-    margin-bottom: 8px;
-    line-height: 1;
-  }
-
-  .mid-cta h2 {
-    font-family: 'Lora', serif;
-    font-size: clamp(26px, 3vw, 38px);
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 16px;
-    line-height: 1.25;
-  }
-
-  .mid-cta p {
-    font-size: 17px;
-    color: rgba(255,255,255,0.7);
-    max-width: 520px;
-    margin: 0 auto 36px;
-    line-height: 1.75;
-  }
-
-  .btn-white {
-    background: var(--white);
-    color: var(--sage-dark);
-    padding: 15px 36px;
-    border-radius: 3px;
-    font-family: 'Karla', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-
-  .btn-white:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  }
-
-  /* FAQ */
-  .faq {
-    background: var(--white);
-  }
-
-  .faq-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    margin-top: 56px;
-    align-items: start;
-  }
-
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding: 24px 0;
-  }
-
-  .faq-item h3 {
-    font-family: 'Lora', serif;
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--charcoal);
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-
-  .faq-item p {
-    font-size: 14px;
-    color: var(--muted-sage);
-    line-height: 1.75;
-  }
-
-  .faq-callout {
-    background: var(--warm-sage-tint);
-    border-radius: 6px;
-    padding: 40px;
-    position: sticky;
-    top: 88px;
-  }
-
-  .faq-callout .section-tag { margin-bottom: 20px; }
-
-  .faq-callout h3 {
-    font-family: 'Lora', serif;
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--charcoal);
-    margin-bottom: 16px;
-    line-height: 1.3;
-  }
-
-  .faq-callout p {
-    font-size: 15px;
-    color: var(--body-text);
-    line-height: 1.75;
-    margin-bottom: 28px;
-  }
-
-  .contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 24px;
-  }
-
-  .contact-detail {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    font-size: 14px;
-    color: var(--charcoal);
-    font-weight: 500;
-  }
-
-  .contact-detail span:first-child {
-    color: var(--sage);
-    font-size: 16px;
-  }
-
-  /* FINAL CTA */
-  .final-cta {
-    background: var(--charcoal);
-    padding: 112px 48px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .final-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(139,168,154,0.12) 0%, transparent 70%);
-  }
-
-  .final-cta-inner { position: relative; z-index: 1; }
-
-  .final-cta .script-accent {
-    font-family: 'Sacramento', cursive;
-    font-size: 60px;
-    color: var(--sage);
-    display: block;
-    margin-bottom: 8px;
-    line-height: 1;
-  }
-
-  .final-cta h2 {
-    font-family: 'Lora', serif;
-    font-size: clamp(30px, 3.5vw, 48px);
-    font-weight: 500;
-    color: var(--white);
-    line-height: 1.2;
-    margin-bottom: 20px;
-    letter-spacing: -0.3px;
-  }
-
-  .final-cta p {
-    font-size: 17px;
-    color: rgba(255,255,255,0.6);
-    max-width: 480px;
-    margin: 0 auto 40px;
-    line-height: 1.8;
-  }
-
-  .final-cta-actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .phone-link {
-    color: rgba(255,255,255,0.55);
-    font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .phone-link:hover { color: var(--white); }
-
-  /* FOOTER */
-  footer {
-    background: #1E1E1E;
-    padding: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-
-  .footer-logo {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    margin-bottom: 6px;
-  }
-
-  .footer-logo img {
-    height: 26px;
-    width: auto;
-    display: block;
-  }
-
-  .footer-tagline {
-    font-size: 13px;
-    color: rgba(255,255,255,0.35);
-    margin-top: 4px;
-    letter-spacing: 0.02em;
-  }
-
-  .footer-contact {
-    text-align: right;
-  }
-
-  .footer-contact a {
-    display: block;
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    line-height: 1.8;
-    transition: color 0.2s;
-  }
-
-  .footer-contact a:hover { color: var(--sage); }
-
-  .footer-copy {
-    width: 100%;
-    font-size: 12px;
-    color: rgba(255,255,255,0.2);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding-top: 24px;
-    margin-top: 8px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-content > * {
-    animation: fadeUp 0.7s ease forwards;
-    opacity: 0;
-  }
-
-  .hero-tag { animation-delay: 0.1s; }
-  .hero h1 { animation-delay: 0.2s; }
-  .hero-sub { animation-delay: 0.3s; }
-  .hero-actions { animation-delay: 0.4s; }
-  .hero-stats { animation-delay: 0.2s; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-content > * { animation: none; opacity: 1; }
-  }
-
-  .divider {
-    height: 1px;
-    background: var(--border);
-    max-width: 1160px;
-    margin: 0 auto;
-  }
-
-  /* ── MOBILE ── */
-  @media (max-width: 768px) {
-
-    /* Nav */
-    nav { padding: 0 20px; height: 56px; }
-    .nav-toggle { display: flex; }
-    .nav-links {
-      display: none; position: absolute; top: 56px; left: 0; right: 0;
-      flex-direction: column; align-items: stretch; gap: 0; padding: 8px 0;
-      background: var(--charcoal); border-bottom: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.3);
-    }
-    nav.nav-open .nav-links { display: flex; }
-    .nav-links li { width: 100%; }
-    .nav-links a { display: block; padding: 14px 20px; }
-    .nav-links .nav-cta { margin: 8px 20px; text-align: center; }
-
-    /* Hero */
-    .hero { padding: 48px 20px 56px; min-height: unset; }
-    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-    .hero-stats { grid-template-columns: 1fr 1fr; }
-    .stat-box { padding: 20px 16px; }
-    .stat-num { font-size: 28px; }
-
-    /* Lead capture */
-    .lead-capture { padding: 36px 20px; }
-    .lead-capture-inner { grid-template-columns: 1fr; gap: 28px; }
-
-    /* Sections */
-    section { padding: 56px 20px; }
-
-    /* Pain */
-    .pain-grid { grid-template-columns: 1fr; gap: 36px; }
-    .pain-callout { position: static; }
-
-    /* Benefits */
-    .benefits-header { grid-template-columns: 1fr; gap: 20px; }
-    .benefits-grid { grid-template-columns: 1fr; }
-
-    /* Intro / About */
-    .intro { padding: 56px 20px; }
-    .intro-inner { grid-template-columns: 1fr; gap: 32px; }
-    .intro-img { aspect-ratio: 4/3; }
-
-    /* Services */
-    .stack-grid { grid-template-columns: 1fr !important; }
-    .stack-card { padding: 28px 20px; }
-
-    /* Results */
-    .results-header { grid-template-columns: 1fr; gap: 20px; }
-    .results-grid { grid-template-columns: 1fr; }
-    .work-preview-grid { grid-template-columns: 1fr; }
-
-    /* Mid CTA */
-    .mid-cta { padding: 48px 20px; }
-
-    /* FAQ */
-    .faq-grid { grid-template-columns: 1fr; gap: 32px; }
-    .faq-callout { position: static; }
-
-    /* Final CTA */
-    .final-cta { padding: 64px 20px; }
-    .final-cta-actions { flex-direction: column; align-items: stretch; }
-    .btn-primary { text-align: center; display: block; }
-
-    /* Footer */
-    footer { padding: 32px 20px; flex-direction: column; gap: 20px; }
-    .footer-contact { text-align: left; }
-    .footer-copy { flex-direction: column; gap: 6px; }
-  }
-
-  /* Skip link */
-  .skip-link {
-    position: absolute; top: -100px; left: 0;
-    background: var(--charcoal); color: var(--white);
-    padding: 14px 22px; z-index: 10000;
-    text-decoration: none; font-weight: 600; font-size: 15px;
-    border-radius: 0 0 6px 0;
-    transition: top 0.15s ease;
-  }
-  .skip-link:focus { top: 0; }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "MarketingAgency",
   "name": "RemodelerRank",
-  "description": "RemodelerRank builds websites, GBP profiles, and marketing systems for licensed remodeling contractors in Northern California.",
+  "description": "RemodelerRank helps remodelers, cabinet shops, and specialty trades turn the work they've already built into marketing that gets found, builds trust, and wins better work.",
   "url": "https://remodelerrank.com",
   "telephone": "+17072086399",
   "email": "hey@remodelerrank.com",
@@ -1230,408 +75,672 @@
   ]
 }
 </script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-padding-top: 76px; }
+
+  :root {
+    --bone: #F6F3EC;
+    --bone-deep: #EDE8DC;
+    --charcoal: #1B1A17;
+    --charcoal-soft: #26241F;
+    --ink-soft: #5C594F;
+    --line: #DDD6C6;
+    --sage: #7E9A8B;
+    --sage-deep: #5E7B6D;
+    --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Karla', Arial, sans-serif;
+    background: var(--white);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display { font-family: 'Archivo', Arial, sans-serif; }
+
+  .draft-flag {
+    background: var(--charcoal); color: var(--bone); text-align: center;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px;
+  }
+
+  .diamond { width: 8px; height: 8px; background: var(--sage); transform: rotate(45deg); flex-shrink: 0; display: inline-block; }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--sage-deep); font-weight: 600; margin-bottom: 18px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .dark-section .eyebrow { color: var(--sage); }
+
+  .reveal { opacity: 0; transform: translateY(24px); }
+  body.no-motion .reveal { opacity: 1; transform: none; }
+
+  nav {
+    background: var(--charcoal); padding: 20px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 20;
+  }
+  .nav-logo { display: flex; align-items: center; }
+  .nav-logo img { height: 28px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13.5px; font-weight: 600; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--sage); color: var(--white); padding: 11px 22px;
+    text-decoration: none; font-size: 12.5px; font-weight: 700; letter-spacing: 0.3px;
+  }
+  .nav-cta:hover { background: var(--sage-deep); }
+  .nav-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 36px; height: 36px; padding: 7px; flex-direction: column;
+    justify-content: center; gap: 5px;
+  }
+  .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--white); }
+
+  /* ---- Hero: text + a real photo mosaic, one project per tile, so the
+     proof this business runs on is visible from the first screen. ---- */
+  .hero { background: var(--charcoal); color: var(--white); padding: 110px 40px; }
+  .hero-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; }
+  .hero-inner { text-align: left; }
+  .hero-mosaic { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 8px; aspect-ratio: 1/1; }
+  .hero-mosaic figure { position: relative; overflow: hidden; margin: 0; background: var(--bone-deep); }
+  .hero-mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-mosaic figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 10px 12px;
+    background: linear-gradient(to top, rgba(27,26,23,0.82), transparent);
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--white); font-weight: 600;
+  }
+  .hero-mosaic .tl { grid-column: 1 / 2; grid-row: 1 / 2; }
+  .hero-mosaic .tr { grid-column: 2 / 3; grid-row: 1 / 3; }
+  .hero-mosaic .bl { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .hero-tag {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--sage); margin-bottom: 26px; display: block;
+  }
+  .hero h1 {
+    font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px;
+    font-size: clamp(32px, 5.6vw, 60px); line-height: 1.1; margin-bottom: 30px;
+    text-wrap: balance;
+  }
+  .hero p { color: rgba(255,255,255,0.72); font-size: 18px; max-width: 520px; margin-bottom: 36px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; }
+  .btn-primary {
+    background: var(--sage); color: var(--white); padding: 16px 30px;
+    text-decoration: none; font-weight: 700; font-size: 14px;
+  }
+  .btn-primary:hover { background: var(--sage-deep); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.35); color: var(--white); padding: 16px 30px;
+    text-decoration: none; font-weight: 700; font-size: 14px;
+  }
+  .btn-outline:hover { border-color: var(--white); }
+  .hero-qualifier {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.45); text-transform: uppercase;
+  }
+
+  /* ---- Lead capture: a real, working Netlify form (same mechanism as the
+     live homepage's), embedded directly instead of only linking out to the
+     Marketing Inspection page, so a visitor can convert without leaving. ---- */
+  .lead-capture { background: var(--bone); padding: 100px 40px; }
+  .lead-capture-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .lead-capture-copy .eyebrow { color: var(--sage-deep); }
+  .lead-capture-copy h2 { font-size: clamp(26px, 3.6vw, 38px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 16px; line-height: 1.25; }
+  .lead-capture-copy p { color: var(--ink-soft); font-size: 16.5px; }
+  .lead-form { display: flex; flex-direction: column; gap: 14px; background: var(--white); padding: 32px; border: 1px solid var(--line); }
+  .lead-form label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; display: block; margin-bottom: 6px; }
+  .lead-form input {
+    width: 100%; border: 1px solid var(--line); background: var(--bone); padding: 13px 14px;
+    font-family: 'Karla', sans-serif; font-size: 15px; color: var(--charcoal);
+  }
+  .lead-form input:focus { outline: none; border-color: var(--sage); }
+  .lead-form button {
+    background: var(--sage); color: var(--white); border: none; padding: 16px 28px;
+    font-family: 'Karla', sans-serif; font-weight: 700; font-size: 14.5px; cursor: pointer; margin-top: 4px;
+  }
+  .lead-form button:hover { background: var(--sage-deep); }
+  .lead-form-note { font-size: 11.5px; color: var(--ink-soft); line-height: 1.6; margin-top: 4px; }
+  .lead-form-note a { color: var(--sage-deep); }
+
+  /* ---- Statement ---- */
+  .statement { padding: 120px 40px; max-width: 820px; margin: 0 auto; }
+  .statement h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 30px; line-height: 1.25; }
+  .statement .maybe-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 34px; }
+  .statement .maybe-list p { color: var(--ink-soft); font-size: 16.5px; }
+  .statement .conclusion { font-size: 19px; font-weight: 700; }
+  .statement .conclusion span { display: block; color: var(--sage-deep); margin-top: 6px; }
+
+  /* ---- The Journey ---- */
+  .journey { background: var(--charcoal); color: var(--white); padding: 120px 40px; text-align: center; }
+  .journey-inner { max-width: 900px; margin: 0 auto; }
+  .journey h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 18px; }
+  .journey > .journey-inner > p { color: rgba(255,255,255,0.65); font-size: 17px; margin-bottom: 44px; }
+  .journey-chain { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 4px; margin-bottom: 44px; }
+  .journey-step {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 600; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--white); background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16); padding: 9px 14px;
+  }
+  .journey-arrow { color: var(--sage); font-family: 'IBM Plex Mono', monospace; font-size: 13px; align-self: center; }
+  .journey-close p { color: rgba(255,255,255,0.65); font-size: 16px; max-width: 600px; margin: 0 auto 8px; }
+  .journey-close strong { color: var(--white); display: block; margin-top: 14px; font-size: 17px; }
+
+  /* ---- What We Actually Do ---- */
+  .wwad { padding: 120px 40px; max-width: 1200px; margin: 0 auto; }
+  .wwad-head { max-width: 680px; margin: 0 auto 60px; text-align: center; }
+  .wwad-head h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; }
+  .wwad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 48px; }
+  .wwad-card { background: var(--white); padding: 30px 26px; }
+  .wwad-card .num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--sage-deep); font-weight: 600; margin-bottom: 12px; }
+  .wwad-card h3 { font-size: 15.5px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.1px; margin-bottom: 8px; }
+  .wwad-card p { font-size: 14px; color: var(--ink-soft); margin-bottom: 14px; }
+  .wwad-card .tags { font-size: 12px; color: var(--sage-deep); font-weight: 600; }
+  .wwad-card:last-child {
+    grid-column: 1 / -1; background: var(--bone-deep);
+    display: flex; align-items: center; flex-wrap: wrap; gap: 6px 24px;
+  }
+  .wwad-card:last-child .num, .wwad-card:last-child h3, .wwad-card:last-child p { margin-bottom: 0; }
+  .wwad-card:last-child .tags { margin-left: auto; }
+  .wwad-cta { text-align: center; }
+
+  /* ---- Camera roll / content section, dark. The doc's own note says this
+     "deserves a big visual" - a real photo grid pulled from every client's
+     project folder, not just the one already used per project on Work. ---- */
+  .camera { background: var(--sage-deep); color: var(--white); padding: 120px 40px; }
+  .camera-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+  .camera h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 28px; line-height: 1.25; }
+  .camera > .camera-inner > p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 8px; }
+  .camera-visual { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin: 44px 0; }
+  .camera-visual figure { aspect-ratio: 1/1; overflow: hidden; margin: 0; background: rgba(255,255,255,0.1); }
+  .camera-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .camera-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 34px 0 40px; }
+  .camera-list span {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 600; letter-spacing: 0.5px;
+    text-transform: uppercase; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    padding: 9px 14px;
+  }
+  .camera-close h3 { font-size: 19px; font-weight: 900; text-transform: uppercase; margin-bottom: 14px; line-height: 1.4; }
+  .camera-close p { color: rgba(255,255,255,0.85); font-size: 15.5px; max-width: 620px; margin: 0 auto; }
+
+  /* ---- Work preview (reused real Field Rebuild data) ---- */
+  .work-section { padding: 120px 40px; max-width: 1200px; margin: 0 auto; }
+  .work-head { max-width: 700px; margin: 0 auto 56px; text-align: center; }
+  .work-head h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 14px; }
+  .work-head p { color: var(--ink-soft); font-size: 16.5px; }
+  .work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 44px; }
+  .work-card {
+    display: block; text-decoration: none; color: inherit;
+    border-bottom: 3px solid var(--sage); box-shadow: 0 1px 6px rgba(27,26,23,0.08);
+  }
+  .work-card-media { aspect-ratio: 4/3; overflow: hidden; background: var(--bone-deep); }
+  .work-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .work-card-body { padding: 18px 4px; }
+  .work-card-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--sage-deep); margin-bottom: 8px; }
+  .work-card-client { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .work-card-problem { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+  .work-cta { text-align: center; }
+  .link-arrow { color: var(--sage-deep); text-decoration: none; font-weight: 700; font-size: 14.5px; }
+  .link-arrow:hover { color: var(--charcoal); }
+
+  /* ---- Process teaser, dark ---- */
+  .process-teaser { background: var(--charcoal); color: var(--white); padding: 120px 40px; }
+  .process-inner { max-width: 1200px; margin: 0 auto; }
+  .process-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+  .process-photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 56px; }
+  .process-photos figure { aspect-ratio: 3/4; overflow: hidden; margin: 0; position: relative; }
+  .process-photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .process-photos figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 10px 12px;
+    background: linear-gradient(to top, rgba(27,26,23,0.82), transparent);
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--white); font-weight: 600;
+  }
+  .process-head h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; }
+  .process-steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; position: relative; margin-bottom: 48px; }
+  .process-steps::before { content: ''; position: absolute; top: 19px; left: 20px; right: 20px; height: 1px; background: rgba(255,255,255,0.15); }
+  .process-step { position: relative; padding-right: 12px; }
+  .process-step .step-num {
+    width: 36px; height: 36px; border-radius: 999px; background: var(--charcoal); border: 2px solid var(--sage);
+    color: var(--sage); font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 12px;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+  }
+  .process-step h3 { font-size: 13.5px; font-weight: 900; text-transform: uppercase; margin-bottom: 6px; }
+  .process-step p { font-size: 12px; color: rgba(255,255,255,0.6); }
+  .process-cta { text-align: center; }
+  .process-cta .link-arrow { color: var(--sage); }
+  .process-cta .link-arrow:hover { color: var(--white); }
+
+  /* ---- About teaser ---- */
+  .about-teaser { padding: 120px 40px; max-width: 820px; margin: 0 auto; }
+  .about-teaser h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 26px; line-height: 1.25; }
+  .about-teaser p { color: var(--ink-soft); font-size: 16.5px; margin-bottom: 18px; }
+  .about-teaser .conclusion { font-size: 18px; font-weight: 700; color: var(--charcoal); margin: 30px 0; }
+
+  /* ---- Inspection preview: the real 5 points, not just a button ---- */
+  .inspection-preview { background: var(--charcoal); color: var(--white); padding: 120px 40px; }
+  .inspection-inner { max-width: 900px; margin: 0 auto; }
+  .inspection-head { max-width: 680px; margin: 0 auto 56px; text-align: center; }
+  .inspection-head h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 14px; }
+  .inspection-head p { color: rgba(255,255,255,0.7); font-size: 16.5px; }
+  .inspection-points { display: flex; flex-direction: column; gap: 0; margin-bottom: 44px; }
+  .inspection-point { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-top: 1px solid rgba(255,255,255,0.14); align-items: center; }
+  .inspection-point:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .inspection-point .num { font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 14px; color: var(--sage); }
+  .inspection-point p { margin: 0; font-size: 17px; font-weight: 700; }
+  .inspection-cta { text-align: center; }
+  .inspection-cta .fine-print { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.5); }
+
+  /* ---- FAQ ---- */
+  .faq-section { padding: 120px 40px; max-width: 860px; margin: 0 auto; }
+  .faq-head { max-width: 640px; margin: 0 auto 50px; text-align: center; }
+  .faq-head h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; }
+  .faq-item { padding: 26px 0; border-top: 1px solid var(--line); }
+  .faq-item:last-child { border-bottom: 1px solid var(--line); }
+  .faq-item h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  .faq-item p { font-size: 15.5px; color: var(--ink-soft); margin: 0; }
+
+  /* ---- Final CTA ---- */
+  .final-cta { background: var(--sage-deep); color: var(--white); text-align: center; padding: 130px 40px; }
+  .final-cta h2 { font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 6px; }
+  .final-cta .good { font-size: 17px; margin-bottom: 4px; }
+  .final-cta .no-diagnose { color: rgba(255,255,255,0.85); font-size: 16px; margin-bottom: 34px; }
+  .final-cta h3 { font-size: 22px; font-weight: 900; text-transform: uppercase; margin-bottom: 18px; }
+  .final-cta p.body { color: rgba(255,255,255,0.85); font-size: 16.5px; max-width: 560px; margin: 0 auto 32px; }
+  .final-cta .btn-primary { background: var(--white); color: var(--charcoal); }
+  .final-cta .btn-primary:hover { background: var(--bone-deep); }
+  .final-cta .small-note { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.6); }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.55); padding: 56px 40px 32px; text-align: center; font-size: 13px; }
+  footer a { color: var(--sage); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .lead-capture-inner { grid-template-columns: 1fr; gap: 32px; }
+    .hero-mosaic { max-width: 480px; margin: 0 auto; }
+    .wwad-grid { grid-template-columns: repeat(2, 1fr); }
+    .work-grid { grid-template-columns: repeat(2, 1fr); }
+    .camera-visual { grid-template-columns: repeat(3, 1fr); }
+    .process-photos { grid-template-columns: repeat(2, 1fr); }
+    .process-steps { grid-template-columns: repeat(3, 1fr); gap: 28px 16px; }
+    .process-steps::before { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 16px 20px; position: relative; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0; margin: 0; padding: 8px 0;
+      background: var(--charcoal); border-bottom: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.3);
+    }
+    nav.nav-open .nav-links { display: flex; }
+    .nav-links a { display: block; padding: 14px 20px; }
+    .hero, .lead-capture, .statement, .journey, .wwad, .camera, .work-section, .process-teaser, .about-teaser, .inspection-preview, .faq-section, .final-cta { padding-left: 20px; padding-right: 20px; }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-outline { width: 100%; text-align: center; }
+    .wwad-grid { grid-template-columns: 1fr; }
+    .wwad-card:last-child { display: block; }
+    .wwad-card:last-child .tags { margin-left: 0; }
+    .work-grid { grid-template-columns: 1fr; }
+    .camera-visual { grid-template-columns: repeat(2, 1fr); }
+    .process-photos { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+  }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute; top: -100px; left: 0;
+    background: var(--charcoal); color: var(--white);
+    padding: 14px 22px; z-index: 10000;
+    text-decoration: none; font-weight: 600; font-size: 15px;
+    border-radius: 0 0 6px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
+</style>
 </head>
 <body>
 
 <a href="#main" class="skip-link">Skip to content</a>
 
-<!-- NAV -->
 <nav id="siteNav">
-  <a href="/" class="nav-logo"><img src="images/logo-reversed.svg" alt="RemodelerRank" height="30" width="auto"></a>
+  <a class="nav-logo" href="/"><img src="images/logo-reversed.svg" alt="RemodelerRank"></a>
   <ul class="nav-links">
-    <li><a href="#results">Our Work</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#lead-capture">Contact</a></li>
-    <li><a href="#lead-capture" class="nav-cta">Get a Free Audit</a></li>
+    <li><a href="work/index.html">Work</a></li>
+    <li><a href="what-we-do.html">What We Do</a></li>
+    <li><a href="how-we-work.html">How We Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="guides/">Shop Notes</a></li>
   </ul>
+  <a class="nav-cta" href="marketing-inspection.html">Get an Inspection</a>
   <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="main">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <span class="hero-tag">Northern California</span>
-      <h1>More leads.<br><em>Better jobs.</em><br>Less guesswork.</h1>
-      <p class="hero-sub">RemodelerRank is the marketing agency built exclusively for remodeling contractors in Northern California. We rank your business, build your site, and fill your pipeline — so you can focus on the work.</p>
-      <div class="hero-actions">
-        <a href="#lead-capture" class="btn-primary">Get a Free Website Audit</a>
-        <a href="#services" class="btn-ghost">See how it works →</a>
+  <div class="hero-grid">
+    <div class="hero-inner reveal">
+      <span class="hero-tag">Marketing for businesses that build things.</span>
+      <h1>Get Found. Show the Work. Win Better Work.</h1>
+      <p>You've already built the reputation, the projects, the expertise, and the relationships. RemodelerRank helps turn what you've built into marketing that helps the right people find you, understand why you're good, trust you, and take the next step.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="marketing-inspection.html">Get a Marketing Inspection</a>
+        <a class="btn-outline" href="work/index.html">See the Work</a>
       </div>
+      <span class="hero-qualifier">Remodelers &middot; Cabinet Shops &middot; Architectural Millwork &middot; Design-Build &middot; Specialty Trades</span>
     </div>
-    <div class="hero-stats">
-      <div class="stat-box">
-        <div class="stat-num">$85K+</div>
-        <div class="stat-label">Average Northern California kitchen remodel. One missed job costs more than your site.</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">3×</div>
-        <div class="stat-label">More leads from Google than from referrals — for remodelers who rank.</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">97%</div>
-        <div class="stat-label">Of homeowners research contractors online before making contact.</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">Local</div>
-        <div class="stat-label">We only work with Northern California remodelers. Not everyone. Just you.</div>
-      </div>
+    <div class="hero-mosaic reveal">
+      <figure class="tl"><img src="work/sw-custom-cabinets/images/sw-kitchen-walnut-brass-sink.jpg" alt="SW Custom Cabinets, walnut kitchen with brass sink"><figcaption>SW Custom Cabinets</figcaption></figure>
+      <figure class="tr"><img src="work/arnold-egan/images/ae-site-traditional-moulded-kitchen.jpg" alt="Arnold + Egan, traditional kitchen with crown moulding"><figcaption>Arnold + Egan</figcaption></figure>
+      <figure class="bl"><img src="work/af-woodworker/images/af-kitchen-walnut-vaulted-hero.jpg" alt="AF Woodworker, walnut kitchen with vaulted ceiling"><figcaption>AF Woodworker</figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- LEAD CAPTURE -->
 <div class="lead-capture" id="lead-capture">
   <div class="lead-capture-inner">
-    <div>
-      <span class="section-tag">Free · No obligation · 48-hour turnaround</span>
-      <h2>Find out exactly where your website is losing you jobs.</h2>
-      <p>We'll audit your site, your Google rankings, and your local competition — and send you a plain-English report on what to fix. Most contractors are surprised by what they learn.</p>
+    <div class="lead-capture-copy reveal">
+      <span class="eyebrow"><span class="diamond"></span>Free &middot; No Obligation &middot; 48-Hour Turnaround</span>
+      <h2>Get a Marketing Inspection</h2>
+      <p>Can they find you, understand you, see why you're good, trust you, and know what to do next? I'll look at all five and send you a plain-English report on where to start.</p>
     </div>
-    <form class="lead-form" name="audit-request" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
+    <form class="lead-form reveal" name="audit-request" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="audit-request" />
       <p style="display:none;"><input name="bot-field" /></p>
-      <label class="sr-only" for="lead-name">Your name</label>
-      <input type="text" id="lead-name" name="name" placeholder="Your name" required />
-      <label class="sr-only" for="lead-company">Company name</label>
-      <input type="text" id="lead-company" name="company" placeholder="Company name" required />
-      <label class="sr-only" for="lead-email">Your email address</label>
-      <input type="email" id="lead-email" name="email" placeholder="Your email address" required />
-      <label class="sr-only" for="lead-website">Your website URL</label>
-      <input type="text" id="lead-website" name="website" placeholder="Your website URL (e.g. mycompany.com)" />
-      <label class="sr-only" for="lead-phone">Best phone number</label>
-      <input type="tel" id="lead-phone" name="phone" placeholder="Best phone number" required />
-      <button type="submit">Send Me My Free Audit &#8594;</button>
-      <p class="lead-form-note">By providing your phone number, you consent to receive text messages from RemodelerRank regarding your audit request and our services. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. View our <a href="/privacy" style="color:inherit;text-decoration:underline;">Privacy Policy</a>.</p>
+      <div>
+        <label for="lead-name">Your name</label>
+        <input type="text" id="lead-name" name="name" required />
+      </div>
+      <div>
+        <label for="lead-company">Company name</label>
+        <input type="text" id="lead-company" name="company" required />
+      </div>
+      <div>
+        <label for="lead-email">Your email address</label>
+        <input type="email" id="lead-email" name="email" required />
+      </div>
+      <div>
+        <label for="lead-website">Website URL <span style="text-transform:none;font-weight:400;">(optional)</span></label>
+        <input type="text" id="lead-website" name="website" placeholder="mycompany.com" />
+      </div>
+      <div>
+        <label for="lead-phone">Best phone number</label>
+        <input type="tel" id="lead-phone" name="phone" required />
+      </div>
+      <button type="submit">Get My Marketing Inspection &#8594;</button>
+      <p class="lead-form-note">By providing your phone number, you consent to receive text messages from RemodelerRank regarding your inspection request and our services. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. View our <a href="/privacy">Privacy Policy</a>.</p>
     </form>
   </div>
 </div>
 
-<!-- PAIN -->
-<section class="pain" id="pain">
-  <div class="section-inner">
-    <span class="section-tag">Why contractors come to us</span>
-    <h2 class="section-h2">Your work is excellent.<br>Your website isn't working.</h2>
-    <div class="pain-grid">
-      <ul class="pain-list">
-        <li class="pain-item">
-          <div class="pain-icon">📍</div>
-          <div class="pain-text">
-            <strong>You're invisible on Google</strong>
-            <p>Homeowners in Danville and Walnut Creek are searching right now. They're calling your competitor — not because they're better, but because they rank.</p>
-          </div>
-        </li>
-        <li class="pain-item">
-          <div class="pain-icon">📱</div>
-          <div class="pain-text">
-            <strong>Your site was built to exist, not to convert</strong>
-            <p>A GoDaddy template or an outdated site isn't just embarrassing — it's actively losing you jobs. Homeowners make a decision in 8 seconds.</p>
-          </div>
-        </li>
-        <li class="pain-item">
-          <div class="pain-icon">🔄</div>
-          <div class="pain-text">
-            <strong>You're living referral to referral</strong>
-            <p>Referrals are great — but you can't control them. You need a pipeline that works even when your last job doesn't send anyone your way.</p>
-          </div>
-        </li>
-        <li class="pain-item">
-          <div class="pain-icon">⏱</div>
-          <div class="pain-text">
-            <strong>You don't have time to figure out marketing</strong>
-            <p>You're running jobs, managing crews, and handling clients. Marketing is the thing that always gets pushed to next week.</p>
-          </div>
-        </li>
-      </ul>
-      <div class="pain-callout">
-        <span class="script-accent">The truth</span>
-        <h3>A missed kitchen remodel costs more than a year of marketing.</h3>
-        <p>One $85K job that went to a competitor because they ranked and you didn't. That's the math. RemodelerRank exists to make sure that doesn't keep happening.</p>
-        <a href="#lead-capture" class="btn-primary">Let's talk about your pipeline</a>
-      </div>
+<section class="statement">
+  <div class="reveal">
+    <span class="eyebrow"><span class="diamond"></span>Your company builds beautiful spaces</span>
+    <h2>Your marketing should make that obvious.</h2>
+    <div class="maybe-list">
+      <p>Maybe you're already busy.</p>
+      <p>Maybe most of your work comes from referrals.</p>
+      <p>Maybe you've got 20 years of project photos sitting in folders and camera rolls.</p>
+      <p>Maybe your website technically exists, but doesn't come close to showing the company you've actually built.</p>
+      <p>Maybe Google knows less about your business than your customers do.</p>
+      <p>Maybe good leads come in and sit too long because everyone's working.</p>
+    </div>
+    <p class="conclusion">You don't necessarily need more marketing.<span>You need the marketing you already have to work better together.</span></p>
+  </div>
+</section>
+
+<section class="journey dark-section">
+  <div class="journey-inner reveal">
+    <span class="eyebrow"><span class="diamond"></span>The Journey</span>
+    <h2>Your next customer is already looking.</h2>
+    <p>Before they ever call you, they're making decisions.</p>
+    <div class="journey-chain">
+      <span class="journey-step">Get Found</span><span class="journey-arrow">&#8594;</span>
+      <span class="journey-step">Get Understood</span><span class="journey-arrow">&#8594;</span>
+      <span class="journey-step">See the Work</span><span class="journey-arrow">&#8594;</span>
+      <span class="journey-step">Build Trust</span><span class="journey-arrow">&#8594;</span>
+      <span class="journey-step">Get Chosen</span><span class="journey-arrow">&#8594;</span>
+      <span class="journey-step">Respond</span><span class="journey-arrow">&#8594;</span>
+      <span class="journey-step">Follow Up</span>
+    </div>
+    <div class="journey-close">
+      <p>At every step, your marketing either gives them another reason to keep going, or another reason to leave.</p>
+      <strong>RemodelerRank works across that journey.</strong>
     </div>
   </div>
 </section>
 
-<!-- BENEFITS -->
-<section class="benefits" id="benefits">
-  <div class="section-inner">
-    <div class="benefits-header">
-      <div>
-        <span class="section-tag">What changes when you work with us</span>
-        <h2 class="section-h2">We combine strategy, design, and SEO into one focused system.</h2>
-      </div>
-      <p class="section-intro">We're not a generalist agency. We work exclusively with remodeling contractors, which means everything we do — the copy, the structure, the keywords — is built for your market.</p>
+<section class="wwad" id="what-we-do-preview">
+  <div class="wwad-head reveal">
+    <span class="eyebrow"><span class="diamond"></span>What We Actually Do</span>
+    <h2>Make the whole thing work together.</h2>
+  </div>
+  <div class="wwad-grid reveal">
+    <div class="wwad-card">
+      <div class="num">01</div>
+      <h3>Get Found</h3>
+      <p>Be there when the right customer starts looking.</p>
+      <div class="tags">Google &middot; Local search &middot; SEO &middot; AEO &middot; Business listings &middot; Search content</div>
     </div>
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="benefit-num">01 — Rankings</div>
-        <h3>You show up when homeowners search</h3>
-        <p>Local SEO built around the exact searches Northern California homeowners use — "kitchen remodel Danville," "bathroom contractor Walnut Creek." We own those results for you.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-num">02 — Website</div>
-        <h3>A site that converts visitors into calls</h3>
-        <p>Not a brochure — a conversion machine. Every page has a clear purpose, a clear call to action, and copy written to speak directly to homeowners ready to spend.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-num">03 — Listings</div>
-        <h3>Google Business Profile that closes deals</h3>
-        <p>Most contractors have a half-finished GBP. We build it out completely — photos, services, responses, Q&A — so you dominate the local map pack.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-num">04 — Reviews</div>
-        <h3>A steady stream of 5-star reviews</h3>
-        <p>We build the system that makes asking for reviews easy and automatic — so your reputation compounds over time without you thinking about it.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-num">05 — Reporting</div>
-        <h3>You know exactly what's working</h3>
-        <p>Monthly reports that show leads generated, rankings moved, and what we're doing next. No jargon. No vanity metrics. Just: here's what changed, here's why.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-num">06 — Focus</div>
-        <h3>We only work with remodelers</h3>
-        <p>Not plumbers. Not roofers. Remodelers. That means every lesson we've learned, every template we've refined, every keyword we've ranked — it's all for you.</p>
-      </div>
+    <div class="wwad-card">
+      <div class="num">02</div>
+      <h3>Get Understood</h3>
+      <p>Make it immediately clear what you do, who it's for, and why you're different.</p>
+      <div class="tags">Positioning &middot; Messaging &middot; Services &middot; Customer journey &middot; Copy</div>
+    </div>
+    <div class="wwad-card">
+      <div class="num">03</div>
+      <h3>Show the Work</h3>
+      <p>Turn the work you've already completed into proof.</p>
+      <div class="tags">Websites &middot; Project portfolios &middot; Photography strategy &middot; Social &middot; Case studies &middot; Content</div>
+    </div>
+    <div class="wwad-card">
+      <div class="num">04</div>
+      <h3>Build Trust</h3>
+      <p>Answer the questions customers are already asking themselves.</p>
+      <div class="tags">Reviews &middot; Credentials &middot; Process &middot; FAQs &middot; Expertise &middot; Partnerships</div>
+    </div>
+    <div class="wwad-card">
+      <div class="num">05</div>
+      <h3>Get Chosen</h3>
+      <p>Make the next step easy.</p>
+      <div class="tags">Website experience &middot; Calls to action &middot; Qualification &middot; Contact flow &middot; Sales materials</div>
+    </div>
+    <div class="wwad-card">
+      <div class="num">06</div>
+      <h3>Don't Lose the Hand-Raisers</h3>
+      <p>Good opportunities shouldn't disappear because everyone got busy.</p>
+      <div class="tags">Lead response &middot; Follow-up &middot; Email &middot; CRM connections &middot; Automation</div>
+    </div>
+    <div class="wwad-card">
+      <div class="num">07</div>
+      <h3>Know What's Working</h3>
+      <p>Stop guessing.</p>
+      <div class="tags">Analytics &middot; Lead sources &middot; Search performance &middot; Content performance &middot; Reporting</div>
+    </div>
+  </div>
+  <div class="wwad-cta reveal"><a class="link-arrow" href="what-we-do.html">See What We Do &#8594;</a></div>
+</section>
+
+<section class="camera">
+  <div class="camera-inner reveal">
+    <span class="eyebrow"><span class="diamond"></span>Your Real Material</span>
+    <h2>Your best marketing material may already be in your camera roll.</h2>
+    <p>A finished project isn't just a finished project.</p>
+    <p>It's proof.</p>
+    <div class="camera-visual">
+      <figure><img src="work/sw-custom-cabinets/images/sw-wine-bar-builtin-oak.jpg" alt="SW Custom Cabinets, built-in oak wine bar"></figure>
+      <figure><img src="work/af-woodworker/images/af-builtin-library-white.jpg" alt="AF Woodworker, white built-in library shelving"></figure>
+      <figure><img src="work/arnold-egan/images/ae-site-resolute-lattice-hero.jpg" alt="Arnold + Egan, diamond-pattern walnut lattice screen"></figure>
+      <figure><img src="work/coda-construction/images/work-1.jpg" alt="Coda Construction, finished project"></figure>
+      <figure><img src="work/sw-custom-cabinets/images/sw-butlers-pantry-archway.jpg" alt="SW Custom Cabinets, butler's pantry archway"></figure>
+      <figure><img src="work/af-woodworker/images/af-kitchen-custom-range-hood-blue.jpg" alt="AF Woodworker, custom range hood cabinetry"></figure>
+    </div>
+    <div class="camera-list">
+      <span>A Website Project</span><span>A Google Update</span><span>A Social Story</span>
+      <span>A Customer Question</span><span>An Article</span><span>An Email</span><span>A Sales Tool</span>
+    </div>
+    <div class="camera-close">
+      <h3>One piece of real work. More than one way to put it to work.</h3>
+      <p>We don't make one post and spray it everywhere. We take the real knowledge, projects, and stories inside your business and let each channel do what it's good at.</p>
     </div>
   </div>
 </section>
 
-<!-- INTRO -->
-<section class="intro" id="about">
-  <div class="intro-inner">
-    <div class="intro-img" style="aspect-ratio:3/4; background:#d8e4de;">
-      <img src="images/jennifer.png" alt="Jennifer, founder of RemodelerRank" style="width:100%;height:100%;object-fit:cover;border-radius:6px;" onerror="this.style.display='none'" />
+<section class="work-section" id="work">
+  <div class="work-head reveal">
+    <span class="eyebrow"><span class="diamond"></span>The Work</span>
+    <h2>Don't take my word for it. Look at the thinking.</h2>
+    <p>Real audits and real rebuild concepts, built from each business's own photos and facts.</p>
+  </div>
+  <div class="work-grid reveal">
+    <a class="work-card" href="https://claude.ai/code/artifact/86b70401-5a49-4460-9d7f-bc4877886fe8" target="_blank" rel="noopener">
+      <div class="work-card-media"><img src="images/work/sw-custom-cabinets-01.jpg" alt="SW Custom Cabinets project photo, walnut kitchen with brass fixtures"></div>
+      <div class="work-card-body">
+        <div class="work-card-tag">Field Rebuild 001 &middot; Livermore, CA</div>
+        <div class="work-card-client">SW Custom Cabinets</div>
+        <p class="work-card-problem">25 years of work. Two websites. Two names. One confused customer.</p>
+      </div>
+    </a>
+    <a class="work-card" href="https://claude.ai/code/artifact/b2b87a87-7465-484d-b335-5214a3b0b234" target="_blank" rel="noopener">
+      <div class="work-card-media"><img src="images/work/af-woodworker-01.jpg" alt="AF Woodworker project photo, walnut kitchen with vaulted ceiling"></div>
+      <div class="work-card-body">
+        <div class="work-card-tag">Field Rebuild 002 &middot; Richmond, CA</div>
+        <div class="work-card-client">AF Woodworker</div>
+        <p class="work-card-problem">Good shop. Bad showroom.</p>
+      </div>
+    </a>
+    <a class="work-card" href="https://claude.ai/code/artifact/7a2cc35a-d39b-48eb-8ad5-99b7665bc8b9" target="_blank" rel="noopener">
+      <div class="work-card-media"><img src="images/work/arnold-egan-01.jpg" alt="Arnold + Egan project photo, custom walnut diamond-lattice screen"></div>
+      <div class="work-card-body">
+        <div class="work-card-tag">Field Rebuild 003 &middot; San Francisco, CA</div>
+        <div class="work-card-client">Arnold + Egan</div>
+        <p class="work-card-problem">89 years of work. Zero reviews. One mission finally on the homepage.</p>
+      </div>
+    </a>
+    <a class="work-card" href="https://claude.ai/artifact/QkYmzvRf77276eb5AnYSFZ" target="_blank" rel="noopener">
+      <div class="work-card-media"><img src="images/work/coda-construction-01.jpg" alt="Coda Construction project photo, white kitchen with brass lighting, Dublin CA"></div>
+      <div class="work-card-body">
+        <div class="work-card-tag">Field Rebuild 004 &middot; Dublin, CA</div>
+        <div class="work-card-client">Coda Construction</div>
+        <p class="work-card-problem">Good contractor. Competing with himself.</p>
+      </div>
+    </a>
+  </div>
+  <div class="work-cta reveal"><a class="link-arrow" href="work/index.html">See All the Work &#8594;</a></div>
+</section>
+
+<section class="process-teaser dark-section">
+  <div class="process-inner">
+    <div class="process-head reveal">
+      <span class="eyebrow"><span class="diamond"></span>Process</span>
+      <h2>We don't start with a template.</h2>
     </div>
-    <div class="intro-content">
-      <span class="section-tag">About RemodelerRank</span>
-      <h2 class="section-h2">I didn't come to this from the outside.<br>I lived it.</h2>
-      <p class="intro-body">I spent over a decade as the General Manager and marketing director at a kitchen and bath design-build firm. I know what feast-and-famine feels like from the inside. I know what it costs — emotionally and financially — to wonder if you'll have to lay off your crew because the pipeline dried up.</p>
-      <p class="intro-body">I've managed the marketing, sat across from homeowners, and watched excellent contractors lose jobs simply because a competitor showed up higher on Google. That's a solvable problem. That's why RemodelerRank exists.</p>
-      <p class="intro-body">I'm based in Northern California. I work with a small number of contractors at a time — intentionally. You get a real partner, not a ticket number.</p>
-      <a href="#lead-capture" class="btn-primary" style="margin-top: 12px;">Work with us</a>
+    <div class="process-photos reveal">
+      <figure><img src="work/arnold-egan/images/ae-bronze-filigree-marble-counter-shop.jpg" alt="Arnold + Egan, bronze filigree hardware fitted in the shop"><figcaption>Arnold + Egan</figcaption></figure>
+      <figure><img src="work/sw-custom-cabinets/images/sw-molding-profile-01.jpg" alt="SW Custom Cabinets, custom moulding profile detail"><figcaption>SW Custom Cabinets</figcaption></figure>
+      <figure><img src="work/af-woodworker/images/af-kitchen-modern-twotone-wine-fridge.jpg" alt="AF Woodworker, two-tone kitchen with wine fridge wall"><figcaption>AF Woodworker</figcaption></figure>
+      <figure><img src="work/coda-construction/images/work-2.jpg" alt="Coda Construction, finished project"><figcaption>Coda Construction</figcaption></figure>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step"><div class="step-num">01</div><h3>Walk the Job</h3><p>Understand the business. See what we have.</p></div>
+      <div class="process-step"><div class="step-num">02</div><h3>Draw the Plan</h3><p>Decide what we're building, and why.</p></div>
+      <div class="process-step"><div class="step-num">03</div><h3>Prep the Materials</h3><p>Turn what you already have into something we can build with.</p></div>
+      <div class="process-step"><div class="step-num">04</div><h3>Build</h3><p>Bring the strategy, story, and work together.</p></div>
+      <div class="process-step"><div class="step-num">05</div><h3>Punch List</h3><p>Review it. Test it. Get it ready.</p></div>
+      <div class="process-step"><div class="step-num">06</div><h3>Turn the Lights On</h3><p>Launch it, and put it to work.</p></div>
+    </div>
+    <div class="process-cta reveal"><a class="link-arrow" href="how-we-work.html">See How We Work &#8594;</a></div>
+  </div>
+</section>
+
+<section class="about-teaser">
+  <div class="reveal">
+    <span class="eyebrow"><span class="diamond"></span>About</span>
+    <h2>Built around an industry I already know.</h2>
+    <p>I've spent roughly 20 years working in and around the kitchen, bath, cabinetry, and building-products industry, including several years in general management and marketing leadership roles.</p>
+    <p>I've worked with homeowners and people who make their living actually building things.</p>
+    <p>That matters because I don't have to start by learning why a beautiful portfolio isn't enough, why a bad-fit lead can be worse than no lead, or why "we need more leads" isn't always the real problem.</p>
+    <p class="conclusion">I understand the industry. RemodelerRank brings the marketing side with it.</p>
+    <a class="link-arrow" href="about.html">More About Jenn &#8594;</a>
+  </div>
+</section>
+
+<section class="inspection-preview" id="inspection">
+  <div class="inspection-inner">
+    <div class="inspection-head reveal">
+      <span class="eyebrow"><span class="diamond"></span>Marketing Inspection</span>
+      <h2>Let's see what's actually going on.</h2>
+      <p>Not sure what you need? Good, you don't need to know. This is what I actually look at first.</p>
+    </div>
+    <div class="inspection-points reveal">
+      <div class="inspection-point"><span class="num">01</span><p>Can they find you?</p></div>
+      <div class="inspection-point"><span class="num">02</span><p>Do they understand what you do?</p></div>
+      <div class="inspection-point"><span class="num">03</span><p>Can they see why you're good?</p></div>
+      <div class="inspection-point"><span class="num">04</span><p>Do they have enough reason to trust you?</p></div>
+      <div class="inspection-point"><span class="num">05</span><p>What happens when they raise their hand?</p></div>
+    </div>
+    <div class="inspection-cta reveal">
+      <a class="btn-primary" href="marketing-inspection.html">Get a Marketing Inspection</a>
+      <div class="fine-print">No giant marketing plan. No jargon. Just what I'd fix first.</div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="stack" id="services">
-  <div class="section-inner">
-    <span class="section-tag">Services + Pricing</span>
-    <h2 class="section-h2" style="color: var(--white);">Clear pricing.<br>No surprises.</h2>
-    <p class="section-intro">Start with just a site, or plug into ongoing marketing from day one. Every path begins with a free audit.</p>
-    <div class="stack-grid" style="grid-template-columns: repeat(4,1fr)">
-      <div class="stack-card">
-        <div class="stack-price">$2,500<span style="font-size:14px;color:rgba(255,255,255,0.35)"> once</span></div>
-        <div class="stack-price-sub">No monthly retainer required</div>
-        <h3>Launch</h3>
-        <p>A conversion-focused website built for your market. Great if you want to own your site and manage marketing yourself — for now.</p>
-        <ul class="stack-features">
-          <li>Conversion-focused website (5–7 pages)</li>
-          <li>Google Business Profile setup</li>
-          <li>Core local listings (Google, Apple, Yelp)</li>
-          <li>On-page SEO foundation</li>
-          <li>30-day post-launch support</li>
-        </ul>
-      </div>
-      <div class="stack-card">
-        <div class="stack-price">$497<span style="font-size:16px;color:rgba(255,255,255,0.35)">/mo</span></div>
-        <div class="stack-price-sub">+ $2,500 site build · one time</div>
-        <h3>Presence</h3>
-        <p>For contractors who need a solid foundation — a site that looks professional and starts showing up locally.</p>
-        <ul class="stack-features">
-          <li>Everything in Launch</li>
-          <li>Local SEO (5 target keywords)</li>
-          <li>GBP ongoing optimization</li>
-          <li>Monthly performance report</li>
-          <li>Review generation system</li>
-        </ul>
-      </div>
-      <div class="stack-card featured">
-        <div class="stack-badge">Most Popular</div>
-        <div class="stack-price">$897<span style="font-size:16px;color:rgba(255,255,255,0.35)">/mo</span></div>
-        <div class="stack-price-sub">+ $2,500 site build · one time</div>
-        <h3>Active</h3>
-        <p>For contractors ready to actively grow — more content, more keywords, more leads month over month.</p>
-        <ul class="stack-features">
-          <li>Everything in Presence</li>
-          <li>Expanded SEO (15 keywords)</li>
-          <li>2 blog + location pages/mo</li>
-          <li>Google Ads management</li>
-          <li>Bi-weekly check-in calls</li>
-        </ul>
-      </div>
-      <div class="stack-card">
-        <div class="stack-price">$1,497<span style="font-size:16px;color:rgba(255,255,255,0.35)">/mo</span></div>
-        <div class="stack-price-sub">+ $2,500 site build · one time</div>
-        <h3>Growth</h3>
-        <p>For established contractors who want to dominate their market and build a business they can eventually sell.</p>
-        <ul class="stack-features">
-          <li>Everything in Active</li>
-          <li>Full SEO (30+ keywords)</li>
-          <li>4 content pieces/mo</li>
-          <li>Email newsletter + social</li>
-          <li>Quarterly strategy sessions</li>
-          <li>Competitor monitoring</li>
-        </ul>
-      </div>
+<section class="faq-section">
+  <div class="faq-head reveal">
+    <span class="eyebrow"><span class="diamond"></span>Common Questions</span>
+    <h2>What contractors ask before signing on</h2>
+  </div>
+  <div class="reveal">
+    <div class="faq-item">
+      <h3>Can I just get a website without a monthly retainer?</h3>
+      <p>Yes. The Launch package is a one-time site build with no ongoing commitment. You get a conversion-focused site, GBP setup, and core listings. Many contractors start here and add a retainer once they see results.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I have to sign a long-term contract?</h3>
+      <p>No. We work month-to-month after an initial 3-month commitment. SEO takes time to work, 3 months is the minimum to see real movement. After that, you stay because it's working, not because you're locked in.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How long until I see results?</h3>
+      <p>Most clients start seeing ranking improvements within 60 to 90 days. Lead volume typically increases meaningfully by month 3 to 4. We track everything and show you the numbers monthly.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if I already have a website?</h3>
+      <p>We audit it first. If your existing site has a solid foundation, we may be able to optimize it rather than rebuild. We'll tell you honestly which makes more sense for your situation.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do you work with contractors outside Northern California?</h3>
+      <p>Right now, no. We're focused exclusively on Northern California businesses that build things. That focus is what makes us good at this. We may expand later, but not yet.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What makes you different from a general marketing agency?</h3>
+      <p>We only work with businesses that build things. Every template, every keyword list, every piece of copy has been built for this industry. A generalist agency learns your business on your dime. We already know it.</p>
     </div>
   </div>
 </section>
 
-<!-- RESULTS -->
-<section class="results" id="results">
-  <div class="section-inner">
-    <div class="results-header">
-      <div>
-        <span class="section-tag">Real work</span>
-        <h2 class="section-h2">No case studies yet.<br>Real work you can inspect.</h2>
-      </div>
-      <p class="section-intro">We're early, so there are no client results to point to yet. Here's what that early work actually looks like instead — real audits and real rebuild concepts, built from each business's own photos and facts. Click through and judge it yourself.</p>
-    </div>
-    <div class="work-preview-grid">
-      <a class="work-preview-card" href="https://claude.ai/code/artifact/86b70401-5a49-4460-9d7f-bc4877886fe8" target="_blank" rel="noopener">
-        <div class="work-preview-media"><img src="images/work/sw-custom-cabinets-01.jpg" alt="SW Custom Cabinets project photo, walnut kitchen with brass fixtures"></div>
-        <div class="work-preview-body">
-          <div class="work-preview-tag">Field Rebuild 001 · Livermore, CA</div>
-          <div class="work-preview-client">SW Custom Cabinets</div>
-          <p class="work-preview-problem">25 years of work. Two websites. Two names. One confused customer.</p>
-        </div>
-      </a>
-      <a class="work-preview-card" href="https://claude.ai/code/artifact/b2b87a87-7465-484d-b335-5214a3b0b234" target="_blank" rel="noopener">
-        <div class="work-preview-media"><img src="images/work/af-woodworker-01.jpg" alt="AF Woodworker project photo, walnut kitchen with vaulted ceiling"></div>
-        <div class="work-preview-body">
-          <div class="work-preview-tag">Field Rebuild 002 · Richmond, CA</div>
-          <div class="work-preview-client">AF Woodworker</div>
-          <p class="work-preview-problem">Good shop. Bad showroom.</p>
-        </div>
-      </a>
-      <a class="work-preview-card" href="https://claude.ai/code/artifact/7a2cc35a-d39b-48eb-8ad5-99b7665bc8b9" target="_blank" rel="noopener">
-        <div class="work-preview-media"><img src="images/work/arnold-egan-01.jpg" alt="Arnold + Egan project photo, custom walnut diamond-lattice screen"></div>
-        <div class="work-preview-body">
-          <div class="work-preview-tag">Field Rebuild 003 · San Francisco, CA</div>
-          <div class="work-preview-client">Arnold + Egan</div>
-          <p class="work-preview-problem">89 years of work. Zero reviews. One mission finally on the homepage.</p>
-        </div>
-      </a>
-      <a class="work-preview-card" href="https://claude.ai/artifact/QkYmzvRf77276eb5AnYSFZ" target="_blank" rel="noopener">
-        <div class="work-preview-media"><img src="images/work/coda-construction-01.jpg" alt="Coda Construction project photo, white kitchen with brass lighting, Dublin CA"></div>
-        <div class="work-preview-body">
-          <div class="work-preview-tag">Field Rebuild 004 · Dublin, CA</div>
-          <div class="work-preview-client">Coda Construction</div>
-          <p class="work-preview-problem">Good contractor. Competing with himself.</p>
-        </div>
-      </a>
-    </div>
-    <div class="work-preview-cta">
-      <a href="https://claude.ai/artifact/TGX7kCX5YGZzsV4kALdZSr" target="_blank" rel="noopener" class="work-preview-see-all">See all the work →</a>
-    </div>
+<section class="final-cta" id="start">
+  <div class="reveal">
+    <h2>Not sure what you need?</h2>
+    <p class="good">Good.</p>
+    <p class="no-diagnose">You don't need to diagnose your own marketing before talking to me.</p>
+    <h3>Start With an Inspection.</h3>
+    <p class="body">I'll look at how your business shows up today, from the website and search presence to your projects, proof, and customer journey, and show you where I'd start.</p>
+    <a class="btn-primary" href="marketing-inspection.html">Get a Marketing Inspection &#8594;</a>
+    <div class="small-note">No giant marketing plan. No jargon. Just what I'd fix first.</div>
   </div>
 </section>
 
-<!-- MID CTA -->
-<section class="mid-cta">
-  <span class="script-accent">ready?</span>
-  <h2>Find out exactly what's holding<br>your website back.</h2>
-  <p>We'll review your current site, your Google rankings, and your local competition — and tell you exactly what to fix. Free, no obligation.</p>
-  <a href="#lead-capture" class="btn-white">Get Your Free Website Audit</a>
-</section>
-
-<!-- FAQ -->
-<section class="faq" id="faq">
-  <div class="section-inner">
-    <span class="section-tag">Common questions</span>
-    <h2 class="section-h2">What contractors ask us<br>before signing on.</h2>
-    <div class="faq-grid">
-      <div class="faq-list">
-        <div class="faq-item">
-          <h3>Can I just get a website without a monthly retainer?</h3>
-          <p>Yes. Our Launch package is a one-time $2,500 site build with no ongoing commitment. You get a conversion-focused site, GBP setup, and core listings. Many contractors start here and add a retainer once they see results.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Do I have to sign a long-term contract?</h3>
-          <p>No. We work month-to-month after an initial 3-month commitment. SEO takes time to work — 3 months is the minimum to see real movement. After that, you stay because it's working, not because you're locked in.</p>
-        </div>
-        <div class="faq-item">
-          <h3>How long until I see results?</h3>
-          <p>Most clients start seeing ranking improvements within 60–90 days. Lead volume typically increases meaningfully by month 3–4. We track everything and show you the numbers monthly.</p>
-        </div>
-        <div class="faq-item">
-          <h3>What if I already have a website?</h3>
-          <p>We audit it first. If your existing site has a solid foundation, we may be able to optimize it rather than rebuild. We'll tell you honestly which makes more sense for your situation.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Do you work with contractors outside Northern California?</h3>
-          <p>Right now, no. We're focused exclusively on Northern California remodelers. That focus is what makes us good at this. We may expand later — but not yet.</p>
-        </div>
-        <div class="faq-item">
-          <h3>What makes you different from a general marketing agency?</h3>
-          <p>We only work with remodeling contractors. Every template, every keyword list, every piece of copy has been built for this industry. A generalist agency learns your business on your dime. We already know it.</p>
-        </div>
-      </div>
-      <div class="faq-callout" id="contact">
-        <span class="section-tag">Start here</span>
-        <h3>Get a free audit of your current web presence.</h3>
-        <p>We'll look at your website, your Google rankings, your Business Profile, and your local competition. You'll walk away knowing exactly where you stand — and what to do about it.</p>
-        <a href="#lead-capture" class="btn-primary">Request Your Free Audit</a>
-        <div class="contact-details">
-          <div class="contact-detail">
-            <span>—</span>
-            <a href="tel:7072086399" style="color:var(--charcoal);text-decoration:none;font-weight:500;">707-208-6399</a>
-          </div>
-          <div class="contact-detail">
-            <span>—</span>
-            <span>Serving Northern California, CA</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ARTICLE STRIP -->
-<section style="background:var(--warm-sage-tint);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-  <div>
-    <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted-sage);display:block;margin-bottom:6px;">From the blog</span>
-    <span style="font-family:'Lora',serif;font-size:17px;color:var(--charcoal);font-weight:600;">What AI Search Looks For When Recommending a Remodeling Contractor</span>
-  </div>
-  <a href="/guides/ai-search-remodeling-contractors/" style="flex-shrink:0;background:var(--charcoal);color:white;font-family:'Karla',sans-serif;font-size:13px;font-weight:700;padding:10px 20px;border-radius:6px;text-decoration:none;letter-spacing:0.3px;">Read the article</a>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="final-cta-inner">
-    <span class="script-accent">let's build something</span>
-    <h2>Your best clients are searching.<br>Make sure they find you.</h2>
-    <p>RemodelerRank works with a small number of Northern California contractors at a time. If you're ready to stop losing jobs to contractors who rank better, let's talk.</p>
-    <div class="final-cta-actions">
-      <a href="#lead-capture" class="btn-primary">Get Your Free Audit</a>
-      <a href="tel:7072086399" class="phone-link">or call 707-208-6399</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div>
-    <a href="/" class="footer-logo"><img src="images/logo-reversed.svg" alt="RemodelerRank" height="26" width="auto"></a>
-    <div class="footer-tagline">The marketing agency for Northern California remodelers.</div>
-  </div>
-  <div class="footer-contact">
-    <a href="mailto:hey@remodelerrank.com">hey@remodelerrank.com</a>
-    <a href="tel:7072086399">707-208-6399</a>
-    <a href="https://www.facebook.com/remodelerrank" target="_blank" rel="noopener">Facebook</a>
-    <a href="https://www.instagram.com/remodelerrank/" target="_blank" rel="noopener">Instagram</a>
-  </div>
-  <div class="footer-copy">
-    <span>© 2026 RemodelerRank. All rights reserved.</span>
-    <span>Built for remodelers. Focused on results.</span>
-    <span><a href="/privacy" style="color:var(--muted-sage);text-decoration:none;">Privacy Policy</a></span>
-  </div>
+  RemodelerRank. Marketing for businesses that build things, across Northern California.<br>
+  <a href="mailto:hey@remodelerrank.com">hey@remodelerrank.com</a> &middot; <a href="tel:7072086399">707-208-6399</a>
 </footer>
 
 <script>
@@ -1640,6 +749,23 @@ function toggleNav() {
   var open = nav.classList.toggle('nav-open');
   nav.querySelector('.nav-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
 }
+
+(function () {
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var librariesLoaded = window.gsap && window.ScrollTrigger;
+  if (reduceMotion || !librariesLoaded) {
+    document.body.classList.add('no-motion');
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: 0.9, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 85%' }
+    });
+  });
+})();
 </script>
+
 </body>
 </html>

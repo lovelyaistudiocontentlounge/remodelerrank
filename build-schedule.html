@@ -259,7 +259,7 @@
 <a href="#main" class="skip-link">Skip to content</a>
 
 <nav id="siteNav">
-  <a class="nav-logo" href="home-v2.html"><img src="images/logo-reversed.svg" alt="RemodelerRank"></a>
+  <a class="nav-logo" href="/"><img src="images/logo-reversed.svg" alt="RemodelerRank"></a>
   <ul class="nav-links">
     <li><a href="work/index.html">Work</a></li>
     <li><a href="what-we-do.html">What We Do</a></li>
@@ -477,7 +477,7 @@ function renderDesktop(data) {
       html += '<div><dt>Owner</dt><dd>' + task.owner + '</dd></div>';
       html += '<div><dt>Timing</dt><dd>' + timingLabel(task.startWeek, task.endWeek) + '</dd></div>';
       html += '<div><dt>Category</dt><dd>' + catLabel(task.category) + '</dd></div>';
-      html += '<div class="span-2"><dt>What happens</dt><dd>' + (task.detail || "—") + '</dd></div>';
+      html += '<div class="span-2"><dt>What happens</dt><dd>' + (task.detail || "No additional detail.") + '</dd></div>';
       if (task.unlocks && task.unlocks.length) {
         html += '<div class="span-2"><dt>Unlocks</dt><dd>' + task.unlocks.join(" &middot; ") + '</dd></div>';
       }
@@ -490,8 +490,8 @@ function renderDesktop(data) {
       var leftPct = (m.week / data.totalWeeks) * 100;
       html += '<div class="milestone-row"><div class="label-col"><span>Milestone</span></div>';
       html += '<div class="milestone-track">';
-      html += '<div class="milestone-marker" style="left:' + leftPct + '%" title="' + m.name + ' — ' + timingLabel(m.week, m.week) + '"></div>';
-      html += '<div class="milestone-caption" style="left:calc(' + leftPct + '% + 12px)">' + m.name + ' — End of Week ' + m.week + '</div>';
+      html += '<div class="milestone-marker" style="left:' + leftPct + '%" title="' + m.name + ', ' + timingLabel(m.week, m.week) + '"></div>';
+      html += '<div class="milestone-caption" style="left:calc(' + leftPct + '% + 12px)">' + m.name + ' (End of Week ' + m.week + ')' + '</div>';
       html += '</div></div>';
     });
 
@@ -556,7 +556,7 @@ function renderMobile(data) {
     });
 
     phase.milestones.forEach(function (m) {
-      html += '<div class="m-milestone"><span class="diamond2"></span><div><strong>' + m.name + '</strong><span>End of Week ' + m.week + (m.detail ? ' — ' + m.detail : '') + '</span></div></div>';
+      html += '<div class="m-milestone"><span class="diamond2"></span><div><strong>' + m.name + '</strong><span>End of Week ' + m.week + (m.detail ? '. ' + m.detail : '') + '</span></div></div>';
     });
 
     html += '</div>';

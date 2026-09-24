@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Get Started | RemodelerRank</title>
-<meta name="description" content="Book a free review, get your website audited, see our work, or check services and pricing. Everything RemodelerRank offers, one tap away.">
+<meta name="description" content="Schedule a call, request a free audit, see our work, or call now. Everything RemodelerRank offers, one tap away.">
 <link rel="canonical" href="https://remodelerrank.com/start">
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -24,7 +24,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -52,7 +52,7 @@
     justify-content: center;
     color: var(--charcoal);
     -webkit-font-smoothing: antialiased;
-    padding: 48px 20px 40px;
+    padding: 0 0 40px;
   }
 
   .wrap {
@@ -60,9 +60,38 @@
     max-width: 420px;
   }
 
+  .hero-photo {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 28px;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-photo::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(44,44,44,0.05), rgba(44,44,44,0.35));
+  }
+
+  .hero-photo .credit {
+    position: absolute; bottom: 8px; right: 10px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.75); font-weight: 600;
+  }
+
+  .content { padding: 0 20px; }
+
   header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 
   header img {
@@ -155,7 +184,7 @@
   footer a:hover { color: var(--sage-deeper); }
 
   @media (max-width: 380px) {
-    body { padding: 36px 16px 32px; }
+    .content { padding: 0 16px; }
     .action { padding: 18px 18px; }
   }
 </style>
@@ -164,44 +193,48 @@
 
   <div class="wrap">
 
-    <header>
-      <img src="/images/logo.svg" alt="RemodelerRank" width="200" height="35">
-      <p class="tagline">Over 20 years in construction. Marketing for businesses that build things.</p>
-    </header>
-
-    <div class="actions">
-
-      <a href="https://calendly.com/hey-remodelerrank/review-meeting-15-minutes" class="action primary">
-        <span class="action-label">Schedule a Call &#8594;</span>
-        <span class="action-sub">Book a 15-minute review</span>
-      </a>
-
-      <a href="/audit" class="action">
-        <span class="action-label">Free Website Audit</span>
-        <span class="action-sub">See where you're losing leads</span>
-      </a>
-
-      <a href="/portfolio" class="action">
-        <span class="action-label">See Our Work</span>
-        <span class="action-sub">Recent projects and results</span>
-      </a>
-
-      <a href="/services" class="action">
-        <span class="action-label">Services & Pricing</span>
-        <span class="action-sub">Packages and what's included</span>
-      </a>
-
-      <a href="tel:7072086399" class="action call">
-        <span class="action-label">Call Now</span>
-        <span class="action-sub">707-208-6399</span>
-      </a>
-
+    <div class="hero-photo">
+      <img src="../images/work/coda-construction-01.jpg" alt="Kitchen remodel by Coda Construction, a RemodelerRank client">
+      <span class="credit">Coda Construction</span>
     </div>
 
-    <footer>
-      <div class="footer-name">RemodelerRank</div>
-      <a href="mailto:hey@remodelerrank.com">hey@remodelerrank.com</a>
-    </footer>
+    <div class="content">
+
+      <header>
+        <img src="../images/logo.svg" alt="RemodelerRank" width="200" height="35">
+        <p class="tagline">Over 20 years in construction. Marketing for businesses that build things.</p>
+      </header>
+
+      <div class="actions">
+
+        <a href="https://calendly.com/hey-remodelerrank/review-meeting-15-minutes" class="action primary">
+          <span class="action-label">Schedule a Call &#8594;</span>
+          <span class="action-sub">Book a 15-minute review</span>
+        </a>
+
+        <a href="../audit/" class="action">
+          <span class="action-label">Request an Audit</span>
+          <span class="action-sub">See where you're losing leads</span>
+        </a>
+
+        <a href="../" class="action">
+          <span class="action-label">See Our Work</span>
+          <span class="action-sub">Real projects, real results</span>
+        </a>
+
+        <a href="tel:7072086399" class="action call">
+          <span class="action-label">Click to Call</span>
+          <span class="action-sub">707-208-6399</span>
+        </a>
+
+      </div>
+
+      <footer>
+        <div class="footer-name">RemodelerRank</div>
+        <a href="mailto:hey@remodelerrank.com">hey@remodelerrank.com</a>
+      </footer>
+
+    </div>
 
   </div>
 
