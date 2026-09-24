@@ -106,6 +106,8 @@
   .rebuild-checklist { list-style: none; }
   .rebuild-checklist li { display: flex; gap: 10px; padding: 10px 0; font-size: 13.5px; color: rgba(255,255,255,0.75); }
   .rebuild-checklist .check { color: var(--sage); flex-shrink: 0; }
+  .rebuild-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .rebuild-link::after { content: ''; width: 20px; height: 1px; background: var(--white); }
 
   /* ---- X-ray ---- */
   .xray-head { text-align: center; margin-bottom: 56px; }
@@ -246,6 +248,7 @@
         <li><span class="check">&#10003;</span> Built and switched at launch, the live site never touched mid-build</li>
       </ul>
     </div>
+    <a class="rebuild-link" href="https://coda-construction-eastbay-preview.netlify.app" target="_blank" rel="noopener">View the live preview</a>
   </div>
 </section>
 
