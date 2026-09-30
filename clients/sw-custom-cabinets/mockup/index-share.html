@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SW Custom Cabinets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white: #FFFFFF;
+    --off-white: #FAF9F6;
+    --charcoal: #1E1E1C;
+    --gray: #6B6B66;
+    --gray-light: #DEDEDA;
+    --wood: #B08C5E;
+    --wood-deep: #8A6A42;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, Arial, sans-serif;
+    background: var(--white);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .draft-flag {
+    background: var(--charcoal);
+    color: var(--off-white);
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+  }
+
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-light);
+    padding: 22px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .nav-logo { height: 46px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--charcoal); text-decoration: none; font-size: 14px; font-weight: 500; }
+  .nav-links a:hover { color: var(--wood-deep); }
+  .nav-cta {
+    background: var(--charcoal); color: var(--white); padding: 11px 22px;
+    border-radius: 2px; text-decoration: none; font-size: 13px; font-weight: 600;
+  }
+
+  /* ---- Pinned scroll-reveal hero, 4 scenes matching medallioncabinetry.com ----
+     Scene 1: full photo + shade + copy line (the resting state, no scroll yet)
+     Scene 2: photo clears to blank white, the real logo fades in
+     Scene 3: two photos fly in from left and right at different speeds
+     Scene 4: two more photos fly in from top and bottom, completing the collage
+     Logo + copy line + CTA stay put from scene 2 onward. */
+  .hero-pin {
+    position: relative; height: 100vh; min-height: 620px;
+    overflow: hidden; background: var(--white);
+  }
+  .hero-photo1 {
+    position: absolute; inset: 0;
+    background: url('photos/sw-kitchen-walnut-brass-sink.jpg') center 42% / cover no-repeat;
+  }
+  .hero-photo1-shade {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(20,18,14,0.42), rgba(20,18,14,0.52));
+  }
+  .hero-collage { position: absolute; inset: 0; z-index: 1; }
+  .hero-collage img {
+    position: absolute; object-fit: cover; display: block;
+    box-shadow: 0 24px 70px rgba(20,18,14,0.28);
+  }
+  .himg1 { width: 32vw; max-width: 440px; aspect-ratio: 4/5; top: 9%; left: 7%; }
+  .himg2 { width: 28vw; max-width: 380px; aspect-ratio: 4/5; bottom: 9%; right: 9%; }
+  .himg3 { width: 24vw; max-width: 320px; aspect-ratio: 3/4; top: 12%; right: 15%; }
+  .himg4 { width: 24vw; max-width: 300px; aspect-ratio: 3/4; bottom: 12%; left: 18%; }
+  .hero-big-logo { width: min(360px, 46vw); height: auto; margin: 0 auto 24px; opacity: 0; display: block; }
+  .hero-reveal {
+    position: relative; z-index: 5; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 0 32px;
+  }
+  .hero-reveal .hero-tag {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic; font-weight: 500;
+    font-size: clamp(28px, 3.6vw, 42px); line-height: 1.25;
+    color: var(--white); margin-bottom: 30px; max-width: 560px;
+  }
+  .hero-btns { display: flex; gap: 16px; }
+  .btn-primary {
+    background: var(--charcoal); color: var(--white); padding: 16px 34px;
+    border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14px;
+  }
+  .scroll-cue {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray);
+    z-index: 5;
+  }
+
+  /* ---- Statement / rhythm sections ---- */
+  .statement { padding: 140px 32px; text-align: center; }
+  .statement .inner { max-width: 780px; margin: 0 auto; }
+  .statement .eyebrow { justify-content: center; display: flex; }
+  .statement h2 {
+    font-size: clamp(28px, 4vw, 44px); font-weight: 700; line-height: 1.3;
+    letter-spacing: -0.5px; margin: 0 auto 22px;
+  }
+  .statement p { color: var(--gray); font-size: 17px; max-width: 620px; margin: 0 auto; }
+  .statement.alt { background: var(--off-white); }
+
+  .eyebrow {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--wood-deep); font-weight: 700; margin-bottom: 16px; display: block;
+  }
+
+  /* ---- Evidence: full-bleed marquee strip (mirrors the real work) ---- */
+  .marquee-wrap { overflow: hidden; padding: 0 0 140px; background: var(--white); }
+  .marquee-track {
+    display: flex; gap: 4px; width: max-content;
+    animation: marquee 42s linear infinite;
+  }
+  .marquee-track img {
+    width: 360px; height: 460px; object-fit: cover; display: block; flex-shrink: 0;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---- The Work: fewer, larger evidence images ---- */
+  .work-section { padding: 0 32px 140px; max-width: 1240px; margin: 0 auto; }
+  .work-head { max-width: 680px; margin: 0 auto 56px; text-align: center; }
+  .work-head h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .work-head p { color: var(--gray); font-size: 17px; }
+
+  .work-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px;
+  }
+  .work-grid figure { position: relative; overflow: hidden; background: var(--gray-light); }
+  .work-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .work-grid figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 18px;
+    background: linear-gradient(to top, rgba(20,18,14,0.78), transparent);
+    color: var(--white); font-size: 13px; font-weight: 500;
+  }
+  .wg-a { grid-column: span 4; grid-row: span 2; aspect-ratio: unset; }
+  .wg-b { grid-column: span 2; aspect-ratio: 3/4; }
+  .wg-c { grid-column: span 2; aspect-ratio: 3/4; }
+  .wg-d { grid-column: span 3; aspect-ratio: 4/3; }
+  .wg-e { grid-column: span 3; aspect-ratio: 4/3; }
+
+  .work-note { margin-top: 24px; font-size: 13px; color: var(--gray); font-style: italic; text-align: center; }
+
+  /* ---- Project Types (doubles as services) ---- */
+  .types-section { padding: 0 32px 140px; max-width: 1240px; margin: 0 auto; }
+  .types-head { max-width: 680px; margin: 0 auto 56px; text-align: center; }
+  .types-head h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .types-head p { color: var(--gray); font-size: 17px; }
+  .types-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .type-card { position: relative; aspect-ratio: 3/4; overflow: hidden; background: var(--gray-light); display: block; text-decoration: none; }
+  .type-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .type-card:hover img { transform: scale(1.05); }
+  .type-card .type-label {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 16px;
+    background: linear-gradient(to top, rgba(20,18,14,0.88), transparent 72%);
+    color: var(--white);
+  }
+  .type-card .type-label strong { display: block; font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .type-card .type-label span { font-size: 12px; color: rgba(255,255,255,0.78); line-height: 1.4; }
+
+  /* ---- Testimonials ---- */
+  .testimonials { background: var(--off-white); padding: 140px 32px; }
+  .testimonials-head { text-align: center; max-width: 600px; margin: 0 auto 56px; }
+  .testimonials-head h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -0.5px; }
+  .testi-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .testi-card { background: var(--white); padding: 32px 28px; border-radius: 2px; border: 1px solid var(--gray-light); }
+  .testi-card p { font-size: 15px; color: var(--charcoal); line-height: 1.65; margin-bottom: 22px; font-style: italic; }
+  .testi-card .testi-name { font-size: 13px; font-weight: 700; color: var(--wood-deep); }
+  .testi-card .testi-source { font-size: 12px; color: var(--gray); margin-top: 2px; }
+
+  /* ---- Guides (AEO/local-SEO content teaser) ---- */
+  .guides-section { padding: 0 32px 140px; max-width: 1120px; margin: 0 auto; }
+  .guides-head { max-width: 680px; margin: 0 auto 56px; text-align: center; }
+  .guides-head h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .guides-head p { color: var(--gray); font-size: 17px; }
+  .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .guide-card { border: 1px solid var(--gray-light); padding: 28px 24px; border-radius: 2px; }
+  .guide-tag {
+    display: inline-block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--wood-deep); font-weight: 700; background: var(--off-white);
+    padding: 5px 10px; border-radius: 2px; margin-bottom: 16px;
+  }
+  .guide-card h3 { font-size: 19px; font-weight: 700; line-height: 1.35; margin-bottom: 10px; }
+  .guide-card p { font-size: 14px; color: var(--gray); margin-bottom: 16px; }
+  .guide-card .guide-read { font-size: 13px; font-weight: 600; color: var(--charcoal); text-decoration: none; }
+  .guides-note { margin-top: 32px; font-size: 13px; color: var(--gray); font-style: italic; text-align: center; }
+
+  /* ---- Built ---- */
+  .built { padding: 0 32px 140px; max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 72px; align-items: center; }
+  .built img { width: 100%; border-radius: 2px; display: block; }
+  .built-copy h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 22px; line-height: 1.25; }
+  .built-copy p { color: var(--gray); font-size: 17px; margin-bottom: 18px; }
+
+  .trust-bar {
+    background: var(--charcoal); color: var(--white);
+    display: flex; justify-content: center; gap: 64px; padding: 56px 32px; flex-wrap: wrap;
+  }
+  .trust-item { text-align: center; }
+  .trust-item .num { font-size: 30px; font-weight: 800; color: var(--wood); }
+  .trust-item .label { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 8px; }
+
+  .cta-section { background: var(--off-white); text-align: center; padding: 140px 32px; }
+  .cta-section .eyebrow { justify-content: center; display: flex; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; max-width: 100%; margin: 0 auto 18px; letter-spacing: -0.5px; }
+  .cta-section p { color: var(--gray); font-size: 17px; max-width: 480px; margin: 0 auto 32px; }
+  .cta-details { display: flex; justify-content: center; gap: 48px; margin-top: 32px; flex-wrap: wrap; font-size: 15px; }
+  .cta-details strong { display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--wood-deep); margin-bottom: 4px; }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.65); padding: 80px 32px 32px; }
+  .footer-grid {
+    max-width: 1120px; margin: 0 auto; padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 48px;
+  }
+  .footer-brand img { height: 42px; width: auto; margin-bottom: 18px; filter: brightness(0) invert(1); }
+  .footer-brand p { font-size: 13px; line-height: 1.7; max-width: 260px; }
+  .footer-col h4 {
+    color: var(--white); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 18px; font-weight: 700;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 11px; font-size: 14px; }
+  .footer-col a { color: rgba(255,255,255,0.65); text-decoration: none; }
+  .footer-col a:hover { color: var(--wood); }
+  .footer-bottom {
+    max-width: 1120px; margin: 0 auto; padding-top: 24px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px;
+  }
+
+  @media (max-width: 900px) {
+    .built { grid-template-columns: 1fr; gap: 32px; }
+    .work-grid { grid-template-columns: repeat(2, 1fr); }
+    .wg-a, .wg-b, .wg-c, .wg-d, .wg-e { grid-column: span 1; aspect-ratio: 4/3; }
+    .types-grid { grid-template-columns: repeat(2, 1fr); }
+    .testi-grid { grid-template-columns: 1fr; }
+    .guides-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: span 2; }
+    .statement, .cta-section, .testimonials { padding: 96px 24px; }
+    .types-section, .guides-section { padding: 0 24px 96px; }
+    .marquee-wrap { padding-bottom: 96px; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero-tag { font-size: 18px; }
+    .hero-btns { flex-direction: column; width: 100%; }
+    .btn-primary { width: 100%; text-align: center; padding: 14px 20px; }
+    .himg1, .himg2, .himg3, .himg4 { width: 40vw; }
+    .work-section, .built, .types-section, .guides-section { padding-left: 20px; padding-right: 20px; }
+    .types-grid { grid-template-columns: 1fr 1fr; }
+    .cta-details { gap: 24px; flex-direction: column; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-brand { grid-column: span 1; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="draft-flag">Early concept draft for review, built from your own project photos. Not a live site.</div>
+
+<nav>
+  <img class="nav-logo" src="logo/sw-logo-large.png" alt="SW Custom Cabinets Inc.">
+  <ul class="nav-links">
+    <li><a href="#types">Services</a></li>
+    <li><a href="#work">The Work</a></li>
+    <li><a href="#built">How It's Built</a></li>
+    <li><a href="#guides">Guides</a></li>
+    <li><a href="#start">Start a Project</a></li>
+  </ul>
+  <a class="nav-cta" href="#start">Start a Project</a>
+</nav>
+
+<section class="hero-pin" id="hero-pin">
+  <div class="hero-photo1"></div>
+  <div class="hero-photo1-shade"></div>
+  <div class="hero-collage">
+    <img class="himg1" src="photos/sw-butlers-pantry-archway.jpg" alt="Arched butler's pantry entrance">
+    <img class="himg2" src="photos/sw-kitchen-island-brick-backsplash.jpg" alt="Kitchen island with brick-look backsplash">
+    <img class="himg3" src="photos/sw-vanity-reeded-dark-wood.jpg" alt="Reeded wood double vanity">
+    <img class="himg4" src="photos/sw-walkin-pantry-custom-bins.jpg" alt="Custom walk-in pantry with maple bins">
+  </div>
+  <div class="hero-reveal">
+    <!-- Real logo as the scene-2 payoff, no invented headline copy.
+         Jennifer rejected "One name. Real work." (2026-09-11). -->
+    <img class="hero-big-logo" src="logo/sw-logo-large.png" alt="SW Custom Cabinets Inc.">
+    <span class="hero-tag">Crafted for how you live.</span>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#start">Start a project</a>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<section class="statement">
+  <div class="inner">
+    <span class="eyebrow">Family owned and operated</span>
+    <h2>Servicing the construction industry for 25 years, all across the Bay Area.</h2>
+    <p>Steve's own words, from a business that has never needed to say more than that.</p>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <img src="photos/sw-kitchen-island-brick-backsplash.jpg" alt="Kitchen island with brick-look backsplash">
+    <img src="photos/sw-vanity-double-herringbone-floor.jpg" alt="Double vanity with herringbone floor">
+    <img src="photos/sw-wine-bar-builtin-oak.jpg" alt="Built-in oak wine bar">
+    <img src="photos/sw-kitchen-island-barstools-evening.jpg" alt="Kitchen island with barstools, evening light">
+    <img src="photos/sw-kitchen-oak-open-plan.jpg" alt="Open-plan oak kitchen">
+    <img src="photos/sw-burl-wood-piece-delivery.jpg" alt="Custom burl wood piece staged for delivery">
+    <!-- duplicate for seamless loop -->
+    <img src="photos/sw-kitchen-island-brick-backsplash.jpg" alt="Kitchen island with brick-look backsplash">
+    <img src="photos/sw-vanity-double-herringbone-floor.jpg" alt="Double vanity with herringbone floor">
+    <img src="photos/sw-wine-bar-builtin-oak.jpg" alt="Built-in oak wine bar">
+    <img src="photos/sw-kitchen-island-barstools-evening.jpg" alt="Kitchen island with barstools, evening light">
+    <img src="photos/sw-kitchen-oak-open-plan.jpg" alt="Open-plan oak kitchen">
+    <img src="photos/sw-burl-wood-piece-delivery.jpg" alt="Custom burl wood piece staged for delivery">
+  </div>
+</div>
+
+<section class="types-section" id="types">
+  <div class="types-head">
+    <span class="eyebrow">Services</span>
+    <h2>Every kind of custom cabinetry, one shop</h2>
+    <p>No pre-set packages. Each project starts with the room, not a catalog.</p>
+  </div>
+  <div class="types-grid">
+    <a class="type-card" href="#work">
+      <img src="photos/sw-kitchen-walnut-brass-sink.jpg" alt="Custom kitchen cabinetry">
+      <div class="type-label"><strong>Kitchens</strong><span>Full remodels to a single wall</span></div>
+    </a>
+    <a class="type-card" href="#work">
+      <img src="photos/sw-vanity-reeded-dark-wood.jpg" alt="Custom bathroom vanity">
+      <div class="type-label"><strong>Vanities &amp; Baths</strong><span>Vanities and bath storage</span></div>
+    </a>
+    <a class="type-card" href="#work">
+      <img src="photos/sw-walkin-pantry-custom-bins.jpg" alt="Custom walk-in pantry">
+      <div class="type-label"><strong>Pantries &amp; Storage</strong><span>Walk-ins and custom closets</span></div>
+    </a>
+    <a class="type-card" href="#work">
+      <img src="photos/sw-wine-bar-builtin-oak.jpg" alt="Custom wine and coffee bar">
+      <div class="type-label"><strong>Wine &amp; Coffee Bars</strong><span>Built-in beverage centers</span></div>
+    </a>
+    <a class="type-card" href="#work">
+      <img src="photos/sw-butlers-pantry-archway.jpg" alt="Custom built-in cabinetry">
+      <div class="type-label"><strong>Custom Built-ins</strong><span>Home offices, media, one-offs</span></div>
+    </a>
+  </div>
+</section>
+
+<section class="work-section" id="work">
+  <div class="work-head">
+    <span class="eyebrow">The Work</span>
+    <h2>Real projects, real homes</h2>
+    <p>A first pass at a proper gallery, pulled from Steve's own project photography.</p>
+  </div>
+  <div class="work-grid">
+    <figure class="wg-a">
+      <img src="photos/sw-butlers-pantry-archway.jpg" alt="Arched doorway into a butler's pantry with dark reeded cabinetry">
+      <figcaption>Butler's pantry, arched entry</figcaption>
+    </figure>
+    <figure class="wg-b">
+      <img src="photos/sw-vanity-reeded-dark-wood.jpg" alt="Dark wood double vanity with reeded drawer fronts and marble top">
+      <figcaption>Double vanity, reeded fronts</figcaption>
+    </figure>
+    <figure class="wg-c">
+      <img src="photos/sw-walkin-pantry-custom-bins.jpg" alt="Custom walk-in pantry with maple produce bins and brick tile walls">
+      <figcaption>Walk-in pantry, custom bins</figcaption>
+    </figure>
+    <figure class="wg-d">
+      <img src="photos/sw-kitchen-island-brick-backsplash.jpg" alt="White kitchen with large island, brick-look backsplash, walnut island base">
+      <figcaption>Kitchen island, brick-look backsplash</figcaption>
+    </figure>
+    <figure class="wg-e">
+      <img src="photos/sw-wine-bar-builtin-oak.jpg" alt="Oak wine bar built-in with mesh cabinet fronts and wine cooler">
+      <figcaption>Built-in wine bar, oak</figcaption>
+    </figure>
+  </div>
+  <p class="work-note">Five projects shown here as a first pass. The real gallery should be organized by room type, matching Steve's own Instagram highlights (kitchens, vanities, islands, custom doors, home offices, wine and coffee bars).</p>
+</section>
+
+<section class="testimonials">
+  <div class="testimonials-head">
+    <span class="eyebrow">What Clients Say</span>
+    <h2>From real reviews, not stock quotes</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p>"I was stressed out about the project, then when I met with Steve... felt reassured. They were very professional and always responded back."</p>
+      <div class="testi-name">Chris E.</div>
+      <div class="testi-source">Verified review, April 2024</div>
+    </div>
+    <div class="testi-card">
+      <p>"Steve's 25 years of experience is second to none... installation team was by far the best we have ever dealt with."</p>
+      <div class="testi-name">Melissa W.</div>
+      <div class="testi-source">Verified review, April 2024</div>
+    </div>
+    <div class="testi-card">
+      <p>"Quality and service was above and beyond expectations."</p>
+      <div class="testi-name">Curtis A.</div>
+      <div class="testi-source">Verified review, March 2023</div>
+    </div>
+  </div>
+</section>
+
+<section class="built" id="built">
+  <div class="built-copy">
+    <span class="eyebrow">How It's Built</span>
+    <h2>Every piece made for the space it goes in</h2>
+    <p>Twenty-five years servicing the construction industry across the Bay Area. Nothing here comes pre-sized. Doors, drawer boxes, and trim are built for the specific space, the specific material, and the specific finish a client chooses.</p>
+    <p>That's the difference between a cabinet company that sells you a line and a shop that builds you a piece.</p>
+  </div>
+  <img src="photos/sw-burl-wood-piece-delivery.jpg" alt="Custom burl wood cabinet piece staged in the driveway for delivery">
+</section>
+
+<section class="guides-section" id="guides">
+  <div class="guides-head">
+    <span class="eyebrow">From the Shop</span>
+    <h2>Straight answers on custom cabinetry</h2>
+    <p>Short guides on the questions people actually ask before starting a project.</p>
+  </div>
+  <div class="guides-grid">
+    <div class="guide-card">
+      <span class="guide-tag">Cost Guide</span>
+      <h3>What Custom Cabinetry Actually Costs in the Bay Area</h3>
+      <p>A plain breakdown of what drives the price up or down, before you ask for a quote.</p>
+      <a class="guide-read" href="#">Read the guide &#8594;</a>
+    </div>
+    <div class="guide-card">
+      <span class="guide-tag">Design Process</span>
+      <h3>Stock, Semi-Custom, or Full Custom: How to Choose</h3>
+      <p>What each option actually means, and when full custom is worth it.</p>
+      <a class="guide-read" href="#">Read the guide &#8594;</a>
+    </div>
+    <div class="guide-card">
+      <span class="guide-tag">Design Ideas</span>
+      <h3>Walk-In Pantry Layouts That Actually Work</h3>
+      <p>Lessons from real pantry builds, not a showroom mockup.</p>
+      <a class="guide-read" href="#">Read the guide &#8594;</a>
+    </div>
+  </div>
+  <p class="guides-note">Placeholder titles only, no articles written yet. These would run through RemodelerRank's existing AEO article pipeline once this moves past planning, not get built from scratch.</p>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item"><div class="num">25</div><div class="label">Years in the Trade</div></div>
+  <div class="trust-item"><div class="num">C6</div><div class="label">CSLB #979326</div></div>
+  <div class="trust-item"><div class="num">Family</div><div class="label">Owned &amp; Operated</div></div>
+  <div class="trust-item"><div class="num">Bay Area</div><div class="label">Livermore, CA</div></div>
+</div>
+
+<section class="cta-section" id="start">
+  <span class="eyebrow">Start a Project</span>
+  <h2>Tell us what you're building</h2>
+  <p>Kitchen, bathroom, closet, or a full custom build. Reach out and we'll talk through the project.</p>
+  <div class="cta-details">
+    <div><strong>Phone</strong>(925) 243-9062</div>
+    <div><strong>Shop</strong>6764 B Preston Ave, Livermore, CA 94551</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="logo/sw-logo-large.png" alt="SW Custom Cabinets Inc.">
+      <p>Family owned and operated custom cabinetry, serving the Bay Area for 25 years.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#types">Kitchens</a></li>
+        <li><a href="#types">Vanities &amp; Baths</a></li>
+        <li><a href="#types">Pantries &amp; Storage</a></li>
+        <li><a href="#types">Wine &amp; Coffee Bars</a></li>
+        <li><a href="#types">Custom Built-ins</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Service Area</h4>
+      <ul>
+        <li>Livermore</li>
+        <li>Pleasanton</li>
+        <li>Dublin</li>
+        <li>San Ramon</li>
+        <li>Danville</li>
+        <li>Walnut Creek</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:9252439062">(925) 243-9062</a></li>
+        <li>6764 B Preston Ave<br>Livermore, CA 94551</li>
+        <li><a href="https://www.instagram.com/swcabinetsinc" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>SW Custom Cabinets Inc. Family owned and operated. CSLB #979326.</div>
+    <div>Livermore, CA</div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (window.innerWidth > 900) {
+    // Four scenes, matching Jennifer's screenshot breakdown of
+    // medallioncabinetry.com's actual hero (2026-09-11):
+    //   Scene 1: full photo + shade + a copy line (the resting state)
+    //   Scene 2: photo clears to blank white, the real logo fades in
+    //   Scene 3: two photos fly in from left and right at different speeds
+    //   Scene 4: two more fly in from top and bottom, completing the collage
+    // Logo + copy line + CTA stay in place from scene 2 on. Corrects the
+    // earlier build, which had this backwards (images visible then swept
+    // away) - Medallion's images START off-screen and arrive, they don't exit.
+    gsap.set(".himg1", { xPercent: -160 });
+    gsap.set(".himg2", { xPercent: 160 });
+    gsap.set(".himg3", { yPercent: -160 });
+    gsap.set(".himg4", { yPercent: 160 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#hero-pin",
+        start: "top top",
+        end: "+=200%",
+        scrub: 1,
+        pin: true,
+      }
+    });
+    tl
+      // Scene 1 -> 2: photo fades to white, copy line shifts to a readable
+      // dark tone, logo fades and rises in
+      .to(".hero-photo1, .hero-photo1-shade", { opacity: 0, duration: 0.26 }, 0)
+      .to(".hero-tag", { color: "#8A6A42", duration: 0.2 }, 0.08)
+      .fromTo(".hero-big-logo", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.16 }, 0.2)
+      // Scene 3: left and right images arrive at different speeds
+      .to(".himg1", { xPercent: 0, duration: 0.3, ease: "power2.out" }, 0.32)
+      .to(".himg2", { xPercent: 0, duration: 0.22, ease: "power2.out" }, 0.38)
+      // Scene 4: top and bottom images arrive at different speeds
+      .to(".himg3", { yPercent: 0, duration: 0.26, ease: "power2.out" }, 0.64)
+      .to(".himg4", { yPercent: 0, duration: 0.34, ease: "power2.out" }, 0.68)
+      .to(".scroll-cue", { opacity: 0, duration: 0.1 }, 0.05);
+  } else {
+    // Skip the scroll-jacked sequence on small screens: show the end state.
+    gsap.set(".hero-photo1, .hero-photo1-shade", { opacity: 0 });
+    gsap.set(".hero-tag", { color: "#8A6A42" });
+    gsap.set(".hero-big-logo", { opacity: 1, y: 0 });
+    gsap.set(".himg1, .himg2", { xPercent: 0 });
+    gsap.set(".himg3, .himg4", { yPercent: 0 });
+    document.querySelector(".scroll-cue")?.remove();
+  }
+});
+</script>
+
+</body>
+</html>

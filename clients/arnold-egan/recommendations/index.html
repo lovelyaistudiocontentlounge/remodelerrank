@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arnold + Egan: Beyond the Site</title>
+<meta name="description" content="Free, no-obligation findings on Arnold + Egan's Google Business Profile, site performance, and platform presence, from RemodelerRank.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white: #FFFFFF;
+    --cream: #F5F7ED;
+    --charcoal: #16151A;
+    --charcoal-soft: #201F26;
+    --gray: #6B6A70;
+    --gray-light: #DEDDD6;
+    --bronze: #A9855A;
+    --bronze-deep: #7E6240;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', -apple-system, Arial, sans-serif;
+    background: var(--white);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .heading-face { font-family: 'Archivo', -apple-system, Arial, sans-serif; }
+
+  .draft-flag {
+    background: var(--charcoal); color: var(--cream); text-align: center;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px;
+  }
+
+  .diamond { width: 9px; height: 9px; background: var(--bronze); transform: rotate(45deg); flex-shrink: 0; display: inline-block; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--bronze-deep); font-weight: 700; margin-bottom: 16px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+
+  header {
+    background: var(--charcoal); color: var(--white); padding: 100px 40px 80px;
+    text-align: center;
+  }
+  header .eyebrow { color: var(--bronze); justify-content: center; }
+  header h1 {
+    font-size: clamp(30px, 4.4vw, 48px); font-weight: 700; line-height: 1.25;
+    max-width: 780px; margin: 0 auto 22px; letter-spacing: -0.5px;
+  }
+  header p { color: rgba(255,255,255,0.72); font-size: 17px; max-width: 620px; margin: 0 auto; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+
+  section.block { padding: 90px 0; border-bottom: 1px solid var(--gray-light); }
+  section.block:last-of-type { border-bottom: none; }
+  .block-head h2 { font-size: clamp(24px, 3.2vw, 34px); font-weight: 700; letter-spacing: -0.4px; margin-bottom: 14px; }
+  .block-head p { color: var(--gray); font-size: 16px; max-width: 600px; margin-bottom: 44px; }
+
+  .item-list { display: flex; flex-direction: column; gap: 0; }
+  .item {
+    display: grid; grid-template-columns: 56px 1fr; gap: 22px;
+    padding: 26px 0; border-top: 1px solid var(--gray-light);
+  }
+  .item:last-child { border-bottom: 1px solid var(--gray-light); }
+  .item-num { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; color: var(--bronze-deep); padding-top: 2px; }
+  .item h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .item p { font-size: 14.5px; color: var(--gray); }
+
+  .caption-example {
+    background: var(--cream); border-left: 3px solid var(--bronze); padding: 22px 26px;
+    margin-top: 28px; font-size: 15px;
+  }
+  .caption-example strong { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--bronze-deep); margin-bottom: 10px; font-family: 'Archivo', sans-serif; }
+  .caption-formula { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 14px; }
+  .caption-sample { font-style: italic; color: var(--charcoal); border-top: 1px dashed var(--gray-light); padding-top: 14px; margin-top: 14px; }
+  .tag-checklist { margin-top: 36px; }
+  .tag-checklist h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 16px; }
+  .tag-row { display: grid; grid-template-columns: 130px 1fr; gap: 18px; padding: 14px 0; border-top: 1px solid var(--gray-light); font-size: 14px; }
+  .tag-row:last-child { border-bottom: 1px solid var(--gray-light); }
+  .tag-label { font-family: 'Archivo', sans-serif; font-weight: 700; color: var(--bronze-deep); font-size: 12.5px; }
+  .tag-row p { color: var(--gray); }
+  .why-tag { margin-top: 18px; font-size: 13.5px; color: var(--gray); }
+  .why-tag strong { color: var(--charcoal); }
+
+  .offer-box {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--cream); border: 1px solid var(--gray-light); border-left: 3px solid var(--bronze);
+    padding: 20px 24px; margin-top: 32px; font-size: 14.5px; color: var(--charcoal);
+  }
+  .offer-box .diamond { margin-top: 5px; }
+  .offer-box strong { display: block; font-family: 'Archivo', sans-serif; font-size: 13px; letter-spacing: 0.3px; margin-bottom: 4px; }
+
+  .top-offer {
+    margin: 48px 0 0; padding: 24px 32px; background: var(--charcoal-soft);
+    color: rgba(255,255,255,0.88); font-size: 15px; text-align: center; border-radius: 4px;
+  }
+  .top-offer strong { color: var(--white); }
+
+  .project-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .project-card { border: 1px solid var(--gray-light); padding: 24px 20px; }
+  .project-card .cost-tag {
+    display: inline-block; font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--bronze-deep); font-weight: 700; background: var(--cream); padding: 4px 9px; margin-bottom: 14px;
+  }
+  .project-card h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 8px; }
+  .project-card p { font-size: 13.5px; color: var(--gray); }
+
+  .email-block { background: var(--cream); padding: 36px 32px; margin-top: 20px; }
+  .email-meta { font-size: 12px; color: var(--bronze-deep); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 18px; font-family: 'Archivo', sans-serif; }
+  .email-body { font-size: 15px; line-height: 1.85; white-space: pre-line; }
+  .why-this { margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--gray-light); font-size: 14px; color: var(--gray); }
+  .why-this strong { color: var(--charcoal); }
+
+  .further-block { background: var(--charcoal); color: rgba(255,255,255,0.85); padding: 90px 0; }
+  .further-block .block-head p { color: rgba(255,255,255,0.6); }
+  .further-block .eyebrow { color: var(--bronze); }
+  .further-item {
+    display: grid; grid-template-columns: 44px 1fr; gap: 20px;
+    padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.14);
+  }
+  .further-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .further-item .diamond { margin-top: 6px; }
+  .further-item h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
+  .further-item p { font-size: 14px; color: rgba(255,255,255,0.62); }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.55); padding: 56px 40px; text-align: center; font-size: 13px; }
+
+  @media (max-width: 640px) {
+    header { padding: 64px 24px 56px; }
+    main { padding: 0 24px; }
+    section.block { padding: 60px 0; }
+    .project-cards { grid-template-columns: 1fr; }
+    .item { grid-template-columns: 40px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="draft-flag">Prepared for Arnold + Egan by RemodelerRank. Free, no obligation.</div>
+
+<header>
+  <span class="eyebrow"><span class="diamond"></span>Beyond the Site</span>
+  <h1>The site is one piece. Here's the rest of what I'd move on first.</h1>
+  <p>A site rebuild takes time to plan and approve. These don't, most of this is a week of real, cheap work that starts compounding immediately, while the site itself gets built.</p>
+</header>
+
+<main>
+
+<div class="top-offer"><strong>Everything below is yours to keep either way.</strong> No obligation, no attached ask. If you'd rather not touch any of it yourself, it's the same work we'd do as part of building your real site, just say which ones and I'll load them onto the build list.</div>
+
+<section class="block">
+  <div class="block-head">
+    <span class="eyebrow"><span class="diamond"></span>Site Performance</span>
+    <h2>Same mobile problem as most sites this size. A few real on-page gaps on top of it.</h2>
+    <p>I ran your site through Lighthouse (pagespeed.web.dev) on 2026-09-16, real numbers, not estimated. Google ranks primarily on the mobile experience, so the mobile column is the one that actually matters.</p>
+  </div>
+  <div class="item-list">
+    <div class="item">
+      <div class="item-num">01</div>
+      <div>
+        <h3>Mobile Largest Contentful Paint: 10.3 seconds</h3>
+        <p>Well past Google's own "poor" threshold of 4 seconds, on the metric mobile-first indexing weighs most.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">02</div>
+      <div>
+        <h3>Desktop LCP: 0.9 seconds, faster than most sites get</h3>
+        <p>That gap between desktop and mobile is the tell: this isn't a heavy codebase, it's mobile image delivery specifically failing.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">03</div>
+      <div>
+        <h3>The same two fixes, slightly bigger numbers</h3>
+        <p>"Improve image delivery" (382 KiB of savings on mobile) and "Render-blocking requests" (990ms of savings). An image-optimization and script-loading pass, not a rebuild.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">04</div>
+      <div>
+        <h3>Real on-page gaps too, not just speed</h3>
+        <p>Your SEO score is 77: no meta description, images missing alt attributes, two links with non-descriptive text. Accessibility scores 88: the same missing alt text, low color contrast somewhere on the page, headings out of sequential order, non-unique ARIA IDs. None of these are big fixes individually, most are minutes of work each, but they're real and currently live on your site.</p>
+      </div>
+    </div>
+  </div>
+  <div class="offer-box"><span class="diamond"></span><div><strong>Want this handled for you?</strong>Every fix above is exactly what a real rebuild already includes, image optimization, meta descriptions, alt text, accessibility cleanup. You don't need to touch any of it yourself if you'd rather I just build it right the first time.</div></div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <span class="eyebrow"><span class="diamond"></span>Platform Presence</span>
+    <h2>Where your listings match, and where one's missing entirely</h2>
+    <p>I checked your name, address, and phone across every directory that turned up: BuildZoom, Yelp, Yellow Pages, Markate, Blue Book. All consistent, 1515 Griffith St, (415) 822-2700, no cleanup needed there.</p>
+  </div>
+  <div class="item-list">
+    <div class="item">
+      <div class="item-num">01</div>
+      <div>
+        <h3>No Houzz listing found, anywhere</h3>
+        <p>This is the real gap. Houzz is built specifically for the architects, designers, and homeowners your own mission is written for, and you have no presence there at all. A free profile with real project photos would likely outperform every other directory combined for your audience.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">02</div>
+      <div>
+        <h3>Your sitemap exists, the content behind it doesn't move</h3>
+        <p>arnoldandegan.com/sitemap.xml is live and correctly linked from robots.txt, that part's fine. But the last-modified date on your /work page is December 2023, nearly two years without a visible update. Google reads that as a site that stopped growing.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">03</div>
+      <div>
+        <h3>Confirm Search Console directly</h3>
+        <p>A sitemap existing and a sitemap actually submitted and verified in Google Search Console are two different things, the second isn't checkable from the outside. Worth five minutes to confirm it's connected, or connect it if it isn't.</p>
+      </div>
+    </div>
+  </div>
+  <div class="offer-box"><span class="diamond"></span><div><strong>Want this handled for you?</strong>Setting up the Houzz profile and confirming Search Console are both part of the launch checklist on a real build. Happy to just do both directly instead of walking you through them.</div></div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <span class="eyebrow"><span class="diamond"></span>Google Business Profile</span>
+    <h2>The single highest-leverage fix, and it's free</h2>
+    <p>You have no reviews on Google, Yelp, BuildZoom, or anywhere else, a real gap for a company with this much real work behind it. Your GBP is where that gets fixed first.</p>
+  </div>
+  <div class="item-list">
+    <div class="item">
+      <div class="item-num">01</div>
+      <div>
+        <h3>Rewrite your business description</h3>
+        <p>Lead with "Full-Service Casework & Millwork Manufacturing" and San Francisco. Include License #389545 and your union shop status directly in the text, a real qualification signal on commercial and institutional work. No promotional language ("best in the Bay Area"), just the real facts: founded 1937, commercial-focused, architect and designer-driven.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">02</div>
+      <div>
+        <h3>List every service, individually</h3>
+        <p>Custom Casework & Cabinetry, Architectural Millwork, Commercial & Hospitality Fixtures, Design & Specification, In-House Fabrication, Installation & Completion, each with its own one or two sentence description. Right now your profile almost certainly reads thin next to what you actually do.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">03</div>
+      <div>
+        <h3>Upload at least ten real photos</h3>
+        <p>Your logo, a shop exterior or interior shot, and eight or more finished projects, ideally spanning the same range the new site does: a hospitality piece, a retail fixture, a residential kitchen. This is the single easiest lever to pull, the photography already exists.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">04</div>
+      <div>
+        <h3>Seed the Q&amp;A section</h3>
+        <p>Google lets anyone ask a question, and lets you answer your own. Seed three to five real ones before a prospect does it first: "Are you licensed and insured?" (yes, #389545), "Are you a union shop?" (yes, carpenters on every crew, a real filter for GCs sourcing union labor), "What areas do you serve?", "Do you work directly with architects and designers?" (yes, it's your actual mission).</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">05</div>
+      <div>
+        <h3>Post one update a month, minimum</h3>
+        <p>A finished project photo with a short caption (see the format below) and a link back to your site. Google visibly rewards profiles that stay active, and it costs five minutes.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">06</div>
+      <div>
+        <h3>Add every real category, not just one</h3>
+        <p>Cabinet Maker as primary, but also Woodworker, Furniture Maker, and Carpenter if Google offers them, each secondary category is another way to surface in a search that doesn't use the word "cabinet." And set your actual service area to San Francisco plus the specific counties you work in, not just a pin on your shop address.</p>
+      </div>
+    </div>
+  </div>
+  <div class="offer-box"><span class="diamond"></span><div><strong>Want this handled for you?</strong>This is the single most valuable thing I can just do directly. Give me access to your GBP and I'll rewrite the description, load the services, upload the photos, and seed the Q&amp;A myself, no need for you to touch it at all.</div></div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <span class="eyebrow"><span class="diamond"></span>Social Content</span>
+    <h2>A format built to actually get found</h2>
+    <p>Your own Instagram captions already have a real voice, plain, factual, project-and-location-named. The one thing missing is a real hook before the facts, right now the captions open with the subject instead of earning the stop. Pair that fix with the tagging that actually drives reach and local search, not just a caption that reads well.</p>
+  </div>
+  <div class="caption-example">
+    <strong>Hook, Then Context</strong>
+    <div class="caption-formula">A real hook first (see social-captions/SKILL.md), the specific project details second, never the reverse.</div>
+    <div class="caption-sample">"A wine wall this size usually means a dozen panels fighting each other. This one reads as a single piece of walnut.<br>Book-matched walnut, custom wine wall at Resolute, San Francisco, built entirely in-house from planning through install."</div>
+    <div class="caption-sample">"Most bar counters look good on opening night. Fewer look good after a decade of real service.<br>Champion's Bar at the Olympic Club, San Francisco, walnut counter and back-bar millwork built to the same standard Arnold + Egan has run on hospitality work since 1937."</div>
+  </div>
+  <div class="tag-checklist">
+    <h3>What to tag, every time</h3>
+    <div class="tag-row">
+      <div class="tag-label">The Partners</div>
+      <p>Tag the architect, designer, and GC on every post where they're known. Each one has their own followers, most of whom are exactly the kind of client who hires a millwork shop, and a tagged post shows up on their profile too, real reach at zero cost.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tag-label">The Venue</div>
+      <p>Tag the client's own business account (Blue Bottle, Twitch, the restaurant or bar), if they post it or comment on it, that's visibility to their audience directly, not just yours.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tag-label">The Location</div>
+      <p>Use Instagram's actual location pin, not just the city name in the caption, dropped on the real project address or neighborhood. For any area where more work is actively wanted, this is the single most direct lever, Instagram and Google both use it to connect a business to that specific place.</p>
+    </div>
+  </div>
+  <div class="why-tag"><strong>Why this matters more than the caption itself:</strong> a great caption with no tags reaches your own followers. The same caption with the architect, the venue, and a real location pin reaches three networks and shows up in local discovery, for the same five minutes of work.</div>
+  <div class="offer-box"><span class="diamond"></span><div><strong>Want this handled for you?</strong>Writing and tagging every post yourself is the part that tends to slip. This is exactly what a monthly content cadence covers, hand me the photos and I'll write and tag the captions for you.</div></div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <span class="eyebrow"><span class="diamond"></span>Three Cheap Projects</span>
+    <h2>Real, small, high-return</h2>
+    <p>None of these need a site rebuild or a big budget. All three could be done this month.</p>
+  </div>
+  <div class="project-cards">
+    <div class="project-card">
+      <span class="cost-tag">A few hours</span>
+      <h3>Activate your LinkedIn</h3>
+      <p>Thirteen followers, zero posts, zero photos, genuinely inactive. Your entire mission is architects and designers, and that's the one channel those exact people are actually on. A real banner, your mission statement in the About section, and the first few project photos would put you ahead of most competitors by default.</p>
+    </div>
+    <div class="project-card">
+      <span class="cost-tag">One afternoon</span>
+      <h3>Move your real photos to where people actually look</h3>
+      <p>The Twitch, Blue Bottle, and Resolute photography already exists, shot well, sitting on your website. It doesn't appear to be circulating on Instagram or GBP. Redistributing what's already there costs nothing new to produce.</p>
+    </div>
+    <div class="project-card">
+      <span class="cost-tag">A few hours</span>
+      <h3>Write your first real guide</h3>
+      <p>The new site's Guides section has three real, planned topics, but no articles behind them yet. One real piece, built around an actual project like the Champion's Bar work, is worth more than three placeholder titles.</p>
+    </div>
+  </div>
+  <div class="offer-box"><span class="diamond"></span><div><strong>Want this handled for you?</strong>All three are the kind of quick wins I'd normally just knock out for a client rather than hand off as homework. Say the word on any of them and I'll take care of it.</div></div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <span class="eyebrow"><span class="diamond"></span>Proof, For the Right Audience</span>
+    <h2>Zero reviews matters less here than it looks</h2>
+    <p>Zero reviews on Google or Yelp is a real, visible gap, but weigh it against who's actually deciding: GCs, architects, and designers who already work off referral and direct reference, not homeowners comparing star ratings before they call. The stronger move for your audience is a direct reference or a LinkedIn recommendation from a GC or architect who's actually worked with you, not a public review campaign built for a residential business.</p>
+  </div>
+  <div class="email-block">
+    <div class="email-meta">Draft Email, Personalize Before Sending, GC or Architect Contact</div>
+    <div class="email-body">Subject: A quick ask, from Arnold + Egan
+
+Hi [Name],
+
+It's been a while since we wrapped [project name] together, and we're still glad we got to work with you on it.
+
+We're doing a better job of showing our real work and real relationships going forward. Would you be open to a short LinkedIn recommendation, or just giving us the OK to list you as a reference the next time a GC or architect asks who we've worked with? Either one helps, no pressure on which.
+
+Thank you for the work together. We'd take another project with you any time.
+
+Kenneth Egan
+Arnold + Egan</div>
+  </div>
+  <div class="why-this"><strong>Why this works:</strong> it targets the people who actually decide, not a mass review push. A LinkedIn recommendation or a named reference carries real weight with another GC or architect in a way a five-star Google rating doesn't.</div>
+  <div class="why-this" style="margin-top: 12px;"><strong>If a past homeowner client offers a Google review anyway:</strong> take it, it still helps a little. Just don't build the strategy around chasing more of them, that's solving for the wrong audience here.</div>
+  <div class="offer-box"><span class="diamond"></span><div><strong>Want this handled for you?</strong>This one needs your real relationships, so it's not something I can send on your behalf. But send me the names and project list and I'll draft a personalized version of this email for every one of them, ready for you to just review and send.</div></div>
+</section>
+
+</main>
+
+<div class="further-block">
+  <div style="max-width: 860px; margin: 0 auto; padding: 0 40px;">
+    <div class="block-head">
+      <span class="eyebrow"><span class="diamond"></span>If You Want to Take It Further</span>
+      <h2>Past the essentials, once the basics are running</h2>
+      <p>None of this is urgent. It's what separates a company that's present online from one that's actively building a reputation.</p>
+    </div>
+    <div class="further-item">
+      <span class="diamond"></span>
+      <div>
+        <h3>Give the posts an actual hook, on a real schedule</h3>
+        <p>The caption format above handles what to say. This is when and why: rotate three post types on a fixed cadence, a process shot mid-fabrication (like the bronze filigree work), a finished reveal, and a pure material detail. Two posts a week, same rotation, is what turns a feed people scroll past into one they check.</p>
+      </div>
+    </div>
+    <div class="further-item">
+      <span class="diamond"></span>
+      <div>
+        <h3>Scheduled email to the client list, not just the review ask</h3>
+        <p>The review email above is a one-time send. A quarterly note to the same list, past clients, GCs, architects worked with, recent projects and a reminder you're taking new work, keeps you top of mind for the referral that shows up eighteen months later.</p>
+      </div>
+    </div>
+    <div class="further-item">
+      <span class="diamond"></span>
+      <div>
+        <h3>An event at a past project, co-hosted with the client</h3>
+        <p>Champion's Bar, Blue Bottle, a real venue you already built, is a real reason for a small evening event, co-marketed with that business's own audience. It's a trade showcase that doesn't feel like one, and it's built on a relationship that already exists.</p>
+      </div>
+    </div>
+    <div class="further-item">
+      <span class="diamond"></span>
+      <div>
+        <h3>Sponsor something local, in the design community specifically</h3>
+        <p>A group like the Architectural Foundation of San Francisco (real organization, membership not yet confirmed) is exactly the room your mission statement is written for. Sponsoring or showing up consistently at one real, relevant local event does more for standing than a broad ad spend.</p>
+      </div>
+    </div>
+    <div class="further-item">
+      <span class="diamond"></span>
+      <div>
+        <h3>Publish real content on a real schedule, not just once</h3>
+        <p>One guide is the starting move. A monthly cadence, alternating a project story with a straight answer to a real question a GC or designer would search, is what actually builds search authority over time, the exact gap the stale 2023 sitemap dates point to.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Prepared for Arnold + Egan by RemodelerRank. Free, no obligation. Reply any time, happy to talk through any of it or just handle it.
+</footer>
+
+</body>
+</html>

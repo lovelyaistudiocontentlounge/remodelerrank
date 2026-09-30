@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arnold + Egan | Custom Casework &amp; Millwork Manufacturing, San Francisco</title>
+<meta name="description" content="Full-service casework and millwork manufacturing in San Francisco since 1937. Commercial, hospitality, and residential work, planning through installation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="photos/ae-site-resolute-lattice-hero.jpg">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js" defer></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-padding-top: 80px; }
+
+  :root {
+    --white: #FFFFFF;
+    --cream: #F5F7ED;
+    --charcoal: #16151A;
+    --charcoal-soft: #201F26;
+    --gray: #6B6A70;
+    --gray-light: #DEDDD6;
+    --bronze: #A9855A;
+    --bronze-deep: #7E6240;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', -apple-system, Arial, sans-serif;
+    background: var(--white);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .heading-face {
+    font-family: 'Archivo', -apple-system, Arial, sans-serif;
+  }
+
+  .draft-flag {
+    background: var(--charcoal); color: var(--cream); text-align: center;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px;
+  }
+
+  nav {
+    background: var(--white); border-bottom: 1px solid var(--gray-light);
+    padding: 20px 40px; display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 20;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+  .nav-brand img { height: 34px; width: auto; display: block; }
+  .nav-brand span {
+    font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 15px;
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--charcoal); text-decoration: none; font-size: 14px; font-weight: 500; }
+  .nav-links a:hover { color: var(--bronze-deep); }
+  .nav-item { position: relative; }
+  .nav-dropdown {
+    display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    padding-top: 14px; z-index: 40;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .nav-item:hover .nav-dropdown { display: block; }
+  }
+  .nav-item:focus-within .nav-dropdown { display: block; }
+  .nav-dropdown-inner {
+    background: var(--white); border: 1px solid var(--gray-light); min-width: 240px;
+    box-shadow: 0 16px 40px rgba(22,21,26,0.14); padding: 10px 0;
+  }
+  .nav-dropdown a {
+    display: block; padding: 11px 18px; font-size: 13.5px; white-space: nowrap;
+  }
+  .nav-dropdown a:hover { background: var(--cream); }
+  .nav-cta {
+    background: var(--charcoal); color: var(--white); padding: 11px 24px;
+    text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.3px;
+  }
+  .nav-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 36px; height: 36px; padding: 7px; flex-direction: column;
+    justify-content: center; gap: 5px;
+  }
+  .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--charcoal); }
+
+  /* ---- Hero: Territory C's mission-statement moment, with the photo
+     Jennifer asked back in. A continuous, self-playing Ken Burns zoom on
+     the lattice screen (their own signature piece) - NOT scroll-linked,
+     plays regardless of whether the visitor scrolls at all. ---- */
+  @keyframes heroKenBurns {
+    0%   { transform: scale(1); }
+    100% { transform: scale(1.32); }
+  }
+  .hero {
+    position: relative; min-height: 92vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; padding: 80px 40px;
+  }
+  .hero-bg {
+    position: absolute; inset: -8%;
+    animation: heroKenBurns 7s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  .hero-bg img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(22,21,26,0.72) 0%, rgba(22,21,26,0.55) 50%, rgba(22,21,26,0.78) 100%);
+  }
+  .hero-mark { position: relative; width: 100%; max-width: 340px; margin: 0 auto 28px; opacity: 0; transform: translateY(18px) scale(0.94); }
+  .hero-mark img { width: 100%; height: auto; display: block; }
+  .hero-content { position: relative; max-width: 820px; text-align: center; opacity: 0; transform: translateY(14px); color: var(--white); }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-mark, .hero-content { opacity: 1; transform: none; }
+    .hero-bg { animation: none; transform: scale(1.02); }
+  }
+  .hero-tag {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--bronze); font-weight: 700; margin-bottom: 22px; display: block;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 3.6vw, 44px); font-weight: 700; line-height: 1.32;
+    letter-spacing: -0.5px; margin-bottom: 20px; color: var(--white);
+  }
+  .hero p { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.82); max-width: 560px; margin: 0 auto 34px; }
+  .hero-btns { display: flex; gap: 14px; justify-content: center; }
+  .btn-primary {
+    background: var(--white); color: var(--charcoal); padding: 15px 28px;
+    text-decoration: none; font-weight: 600; font-size: 14px;
+  }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.5); color: var(--white); padding: 15px 28px;
+    text-decoration: none; font-weight: 600; font-size: 14px;
+  }
+  .scroll-cue {
+    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7);
+    z-index: 5;
+  }
+
+  .diamond {
+    width: 9px; height: 9px; background: var(--bronze); transform: rotate(45deg); flex-shrink: 0; display: inline-block;
+  }
+
+  .eyebrow {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--bronze-deep); font-weight: 700; margin-bottom: 16px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+
+  /* ---- Services: named, distinct from the Ledger's "why" list below -
+     this is "what," bordered cards, no photos, confident and plain ---- */
+  .services-section { padding: 0 40px 130px; max-width: 1240px; margin: 0 auto; }
+  .services-head { max-width: 680px; margin: 0 auto 56px; text-align: center; }
+  .services-head h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .services-head p { color: var(--gray); font-size: 17px; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--gray-light); border: 1px solid var(--gray-light); }
+  .service-card { background: var(--white); padding: 32px 28px; }
+  .service-card .diamond { margin-bottom: 18px; }
+  .service-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.2px; }
+  .service-card p { font-size: 14px; color: var(--gray); }
+
+  /* ---- Process: a connected horizontal timeline, distinct again from the
+     Ledger's rows and the Work's sector split ---- */
+  .process-section { background: var(--cream); padding: 110px 40px; }
+  .process-inner { max-width: 1160px; margin: 0 auto; }
+  .process-head { max-width: 680px; margin: 0 auto 64px; text-align: center; }
+  .process-head h2 { font-size: clamp(26px, 3.6vw, 38px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .process-head p { color: var(--gray); font-size: 17px; }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+  .process-steps::before {
+    content: ''; position: absolute; top: 19px; left: 40px; right: 40px; height: 1px;
+    background: var(--gray-light); z-index: 0;
+  }
+  .process-step { position: relative; z-index: 1; padding-right: 24px; }
+  .process-step .step-num {
+    width: 38px; height: 38px; border-radius: 999px; background: var(--white); border: 2px solid var(--bronze);
+    color: var(--bronze-deep); font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 14px;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+  }
+  .process-step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .process-step p { font-size: 13px; color: var(--gray); }
+
+  /* ---- Guides: AEO/content freshness device, same pattern proven on SW's
+     mockup, restyled in A+E's own palette and type ---- */
+  .guides-section { padding: 110px 40px; max-width: 1160px; margin: 0 auto; }
+  .guides-head { max-width: 680px; margin: 0 auto 56px; text-align: center; }
+  .guides-head h2 { font-size: clamp(26px, 3.6vw, 38px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .guides-head p { color: var(--gray); font-size: 17px; }
+  .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .guide-card { border: 1px solid var(--gray-light); padding: 28px 24px; }
+  .guide-tag {
+    display: inline-block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--bronze-deep); font-weight: 700; background: var(--cream);
+    padding: 5px 10px; margin-bottom: 16px;
+  }
+  .guide-card h3 { font-size: 17px; font-weight: 700; line-height: 1.35; margin-bottom: 10px; }
+  .guide-card p { font-size: 13px; color: var(--gray); margin-bottom: 16px; }
+  .guide-card .guide-read { font-size: 13px; font-weight: 600; color: var(--charcoal); text-decoration: none; }
+  .guides-note { margin-top: 28px; font-size: 13px; color: var(--gray); text-align: center; }
+
+  /* ---- Capabilities ledger: a vertical list, not a card grid ---- */
+  .ledger { background: var(--charcoal); color: var(--white); padding: 100px 40px; }
+  .ledger-inner { max-width: 1000px; margin: 0 auto; }
+  .ledger-head { max-width: 640px; margin-bottom: 56px; }
+  .ledger-head .eyebrow { color: var(--bronze); }
+  .ledger-head h2 { font-size: clamp(26px, 3.4vw, 36px); font-weight: 700; letter-spacing: -0.5px; }
+  .ledger-row {
+    display: grid; grid-template-columns: 90px 1fr; gap: 28px; align-items: start;
+    padding: 26px 0; border-top: 1px solid rgba(255,255,255,0.14);
+  }
+  .ledger-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .ledger-num { font-family: 'Archivo', sans-serif; font-size: 14px; font-weight: 600; color: var(--bronze); letter-spacing: 1px; padding-top: 3px; }
+  .ledger-body h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+  .ledger-body p { font-size: 14px; color: rgba(255,255,255,0.68); max-width: 620px; }
+
+  /* ---- The Work: organized by SECTOR, not a flat grid. The structural
+     signature of this build - range is legible, not just implied. ---- */
+  .work-section { padding: 130px 40px 0; max-width: 1280px; margin: 0 auto; }
+  .work-head { max-width: 700px; margin: 0 auto 70px; text-align: center; }
+  .work-head h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .work-head p { color: var(--gray); font-size: 17px; }
+
+  .sector { display: grid; grid-template-columns: 280px 1fr; gap: 48px; padding: 56px 0; border-top: 1px solid var(--gray-light); }
+  .sector:last-child { border-bottom: 1px solid var(--gray-light); margin-bottom: 130px; }
+  .sector-label .sector-index { font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 700; color: var(--bronze-deep); letter-spacing: 1.5px; margin-bottom: 12px; }
+  .sector-label h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 10px; }
+  .sector-label p { font-size: 14px; color: var(--gray); }
+  .sector-photos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .sector-photos.single { grid-template-columns: 1fr; }
+  .sector-photos figure { position: relative; overflow: hidden; background: var(--gray-light); aspect-ratio: 4/3; }
+  .sector-photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .sector-photos figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 16px;
+    background: linear-gradient(to top, rgba(22,21,26,0.75), transparent);
+    color: var(--white); font-size: 12px; font-weight: 500;
+  }
+
+  /* ---- Craft strip: cross-sector signature pieces, diamond corner tick ---- */
+  .craft-strip { background: var(--cream); padding: 100px 40px; }
+  .craft-inner { max-width: 1280px; margin: 0 auto; }
+  .craft-head { max-width: 640px; margin: 0 auto 48px; text-align: center; }
+  .craft-head h2 { font-size: clamp(24px, 3.2vw, 34px); font-weight: 700; letter-spacing: -0.4px; }
+  .craft-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .craft-grid figure { position: relative; overflow: hidden; background: var(--gray-light); aspect-ratio: 1/1; }
+  .craft-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .craft-grid figure::after {
+    content: ''; position: absolute; top: 8px; left: 8px; width: 10px; height: 10px;
+    background: var(--bronze); transform: rotate(45deg);
+  }
+  .craft-grid figcaption { margin-top: 10px; font-size: 12px; color: var(--gray); text-align: center; }
+  .craft-item { display: flex; flex-direction: column; }
+  .craft-register {
+    display: inline-block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    font-weight: 700; color: var(--bronze-deep); margin-bottom: 4px;
+  }
+
+  /* ---- History strip: a footnote, not a headline ---- */
+  .history-strip {
+    display: flex; justify-content: center; gap: 56px; padding: 48px 40px;
+    background: var(--white); border-top: 1px solid var(--gray-light); border-bottom: 1px solid var(--gray-light);
+    flex-wrap: wrap;
+  }
+  .history-item { text-align: center; }
+  .history-item .num { font-family: 'Archivo', sans-serif; font-size: 26px; font-weight: 700; color: var(--bronze-deep); }
+  .history-item .label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); margin-top: 6px; }
+
+  .cta-section { text-align: center; background: var(--cream); padding: 130px 40px; }
+  .cta-section .eyebrow { justify-content: center; display: flex; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 700; margin: 0 auto 18px; letter-spacing: -0.5px; }
+  .cta-section p { color: var(--gray); font-size: 17px; max-width: 480px; margin: 0 auto 32px; }
+  .cta-details { display: flex; justify-content: center; gap: 48px; margin-top: 30px; flex-wrap: wrap; font-size: 15px; }
+  .cta-details strong { display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--bronze-deep); margin-bottom: 4px; }
+  .cta-details a { color: var(--charcoal); text-decoration: none; }
+  .btn-dark {
+    background: var(--charcoal); color: var(--white); padding: 16px 34px;
+    text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block;
+  }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 72px 40px 32px; }
+  .footer-grid {
+    max-width: 1100px; margin: 0 auto; padding-bottom: 44px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px;
+  }
+  .footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .footer-brand img { height: 26px; width: auto; filter: brightness(0) invert(1); opacity: 0.9; }
+  .footer-brand span { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+  .footer-col p { font-size: 13px; line-height: 1.8; max-width: 260px; }
+  .footer-col h4 {
+    color: var(--white); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 16px; font-weight: 700;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; font-size: 13px; }
+  .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .footer-col a:hover { color: var(--bronze); }
+  .footer-bottom {
+    max-width: 1100px; margin: 24px auto 0; font-size: 12px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  @media (max-width: 900px) {
+    .hero-mark { max-width: 220px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .process-steps::before { display: none; }
+    .guides-grid { grid-template-columns: 1fr; }
+    .sector { grid-template-columns: 1fr; gap: 24px; }
+    .sector-photos { grid-template-columns: repeat(2, 1fr); }
+    .craft-grid { grid-template-columns: repeat(2, 1fr); }
+    .ledger, .work-section, .craft-strip, .cta-section, .services-section, .process-section, .guides-section { padding-left: 24px; padding-right: 24px; }
+    .work-section { padding-top: 96px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: span 2; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 16px 20px; position: relative; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0; margin: 0; padding: 8px 0;
+      background: var(--white); border-bottom: 1px solid var(--gray-light);
+      box-shadow: 0 16px 32px rgba(22,21,26,0.14);
+    }
+    nav.nav-open .nav-links { display: flex; }
+    .nav-links a { display: block; padding: 14px 20px; }
+    .nav-item { width: 100%; }
+    .nav-dropdown { display: none !important; position: static; padding-top: 0; }
+    .hero { padding: 56px 20px; }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-outline { width: 100%; text-align: center; padding: 14px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; gap: 32px; }
+    .sector-photos { grid-template-columns: 1fr; }
+    .craft-grid { grid-template-columns: repeat(2, 1fr); }
+    .history-strip { gap: 28px; }
+    .cta-details { flex-direction: column; gap: 22px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-brand { grid-column: span 1; }
+    .footer-bottom { flex-direction: column; }
+  }
+
+  /* ---- Presentation notes: a toggle for the room, explaining WHY each
+     choice serves them, not how it was built. Off by default. ---- */
+  .strategy-toggle {
+    position: fixed; bottom: 24px; right: 24px; z-index: 100;
+    background: var(--charcoal); color: var(--white); border: none;
+    padding: 13px 22px; font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
+    box-shadow: 0 10px 30px rgba(22,21,26,0.35);
+  }
+  .strategy-toggle .diamond { margin: 0; }
+  .strategy-toggle:hover { background: var(--charcoal-soft); }
+  body.strategy-on .strategy-toggle { background: var(--bronze-deep); }
+
+  /* Ambient corner note, always visible together when toggled on - no
+     clicking, no hunting for numbers. Light weight, shaded backdrop,
+     readable over any section background since the shade is its own. */
+  .strategy-note {
+    display: none; position: absolute; bottom: 16px; right: 16px; z-index: 30;
+    max-width: 260px; padding: 12px 16px;
+    background: rgba(22,21,26,0.78); backdrop-filter: blur(2px);
+    color: rgba(255,255,255,0.85); font-size: 12.5px; line-height: 1.55; font-weight: 400;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  body.strategy-on .strategy-note { display: block; }
+  .strategy-note strong {
+    display: block; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--bronze); margin-bottom: 6px; font-weight: 700; font-family: 'Archivo', sans-serif;
+  }
+
+  [data-strategy-anchor] { position: relative; }
+
+
+  .link-highlight-toggle {
+    position: fixed; bottom: 24px; left: 24px; z-index: 100;
+    background: var(--charcoal); color: var(--white); border: none;
+    padding: 13px 22px; font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
+    box-shadow: 0 10px 30px rgba(22,21,26,0.35);
+  }
+  .link-highlight-toggle:hover { background: var(--charcoal-soft); }
+  body.links-on .link-highlight-toggle { background: var(--bronze-deep); }
+  body.links-on a[href] { outline: 2px dashed var(--bronze); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<div class="draft-flag">Early concept draft for review, built from your own project photos. Not a live site.</div>
+
+<nav>
+  <a class="nav-brand" href="index.html">
+    <img src="logo/ae-logo-real-horizontal.png" alt="Arnold + Egan">
+  </a>
+  <ul class="nav-links">
+    <li class="nav-item">
+      <a href="#services">Services</a>
+      <div class="nav-dropdown">
+        <div class="nav-dropdown-inner">
+          <a href="#services">Commercial &amp; Hospitality Fixtures</a>
+          <a href="#services">Custom Casework &amp; Cabinetry</a>
+          <a href="#services">Architectural Millwork</a>
+          <a href="#services">Design &amp; Specification</a>
+          <a href="#services">In-House Fabrication</a>
+          <a href="#services">Installation &amp; Completion</a>
+        </div>
+      </div>
+    </li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="#guides">Guides</a></li>
+  </ul>
+  <a class="nav-cta" href="#start">Start a Project</a>
+  <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero" id="hero-pin" data-strategy-anchor>
+  <div class="strategy-note" style="z-index: 33;"><strong>Why open on the mission, not a room</strong>Most competitor sites open with a finished kitchen. This opens with your own words: "to build projects inspired by architects and designers, that exceeds the needs of our clients." A designer reads that in three seconds and knows exactly who you build for.</div>
+  <div class="hero-bg"><img src="photos/ae-site-resolute-lattice-hero.jpg" alt="" fetchpriority="high"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-mark"><img src="logo/ae-logo-real-vertical-white.png" alt="Arnold + Egan"></div>
+  <div class="hero-content">
+    <span class="hero-tag">San Francisco, CA. Full-Service Since 1937.</span>
+    <h1>To build projects inspired by architects and designers, that exceed the needs of our clients.</h1>
+    <p>Modern or traditional, hand off the vision and trust it comes back exactly as drawn.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#work">See the work</a>
+      <a class="btn-outline" href="#start">Start a project</a>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+<noscript><style>.hero-mark, .hero-content { opacity: 1 !important; transform: none !important; }</style></noscript>
+
+<section class="services-section" id="services" data-strategy-anchor>
+  <div class="strategy-note"><strong>Why each service earns its own page eventually</strong>Right now these are six cards on one page. Split into six real pages, each one can rank for its own specific search, "architectural millwork San Francisco" is a different search than "custom cabinetry," and Google can only match a page to a search that specific if the page exists.</div>
+  <div class="services-head">
+    <span class="eyebrow"><span class="diamond"></span>Services</span>
+    <h2>Modern or traditional, one shop carries the whole vision</h2>
+    <p>Full-service casework and millwork manufacturing, from a single custom kitchen to a full commercial buildout.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="diamond"></span>
+      <h3>Commercial &amp; Hospitality Fixtures</h3>
+      <p>Bars, retail displays, and banquette seating built to hold up to real daily service.</p>
+    </div>
+    <div class="service-card">
+      <span class="diamond"></span>
+      <h3>Custom Casework &amp; Cabinetry</h3>
+      <p>Kitchens, vanities, and built-ins, personalized to the space rather than pulled from a standard line.</p>
+    </div>
+    <div class="service-card">
+      <span class="diamond"></span>
+      <h3>Architectural Millwork</h3>
+      <p>Paneling, trim, and structural woodwork built into the architecture itself, not added after the fact.</p>
+    </div>
+    <div class="service-card">
+      <span class="diamond"></span>
+      <h3>Design &amp; Specification</h3>
+      <p>Involved from the architectural and planning stage, not handed a finished drawing to execute.</p>
+    </div>
+    <div class="service-card">
+      <span class="diamond"></span>
+      <h3>In-House Fabrication</h3>
+      <p>Built in their own San Francisco shop, the kind of precision hardware and detail work seen in the craft strip below.</p>
+    </div>
+    <div class="service-card">
+      <span class="diamond"></span>
+      <h3>Installation &amp; Completion</h3>
+      <p>Carried through to the finished, installed piece, one point of responsibility from start to finish.</p>
+    </div>
+  </div>
+</section>
+
+<div class="ledger" id="capabilities" data-strategy-anchor>
+  <div class="strategy-note"><strong>Why we lead with the honest gap</strong>There isn't a page of five-star reviews to point to, and hiding that would look worse than naming it. Leading with what's actually verifiable, license, standing, real clients, reads as more credible than review volume ever would, especially to a prospect who already knows reviews can be bought.</div>
+  <div class="ledger-inner">
+    <div class="ledger-head">
+      <span class="eyebrow"><span class="diamond"></span>Standing</span>
+      <h2>Over ninety years perfecting the craft, modernizing the whole way.</h2>
+      <p style="color: rgba(255,255,255,0.6); font-size: 14px; margin-top: 12px;">Look us up before you call. A real license, a public track record, and real clients you can ask directly.</p>
+    </div>
+    <div class="ledger-row">
+      <div class="ledger-num">01</div>
+      <div class="ledger-body">
+        <h3>Eighty-nine years, same city</h3>
+        <p>In business in San Francisco continuously since 1937. Real continuity, not a marketing number.</p>
+      </div>
+    </div>
+    <div class="ledger-row">
+      <div class="ledger-num">02</div>
+      <div class="ledger-body">
+        <h3>Top 20% of licensed California contractors</h3>
+        <p>Ranked from public licensing and contractor performance records, not self-reported.</p>
+      </div>
+    </div>
+    <div class="ledger-row">
+      <div class="ledger-num">03</div>
+      <div class="ledger-body">
+        <h3>License #389545</h3>
+        <p>Cabinet, Millwork, and Finish Carpentry. Bonded and workers' compensation insured, verifiable directly with the state.</p>
+      </div>
+    </div>
+    <div class="ledger-row">
+      <div class="ledger-num">04</div>
+      <div class="ledger-body">
+        <h3>Real clients, real places</h3>
+        <p>Champion's Bar at the Olympic Club, Blue Bottle Coffee, Twitch. Real locations you can walk into and see the quality yourself.</p>
+      </div>
+    </div>
+    <div class="ledger-row">
+      <div class="ledger-num">05</div>
+      <div class="ledger-body">
+        <h3>Union shop</h3>
+        <p>Carpenters on every crew. A real qualification signal on commercial and institutional work, not a decorative badge.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="process-section" id="process" data-strategy-anchor>
+  <div class="strategy-note"><strong>Why this answers questions instead of pitching</strong>A prospect who reads exactly how a project runs before calling is already qualified when they call. This isn't just about being found, it's about who reaches out, someone who's read the real process and still wants to talk is a better lead than a cold click.</div>
+  <div class="process-inner">
+    <div class="process-head">
+      <span class="eyebrow"><span class="diamond"></span>Process</span>
+      <h2>From the first drawing to the finished install</h2>
+      <p>Most shops start after the drawings are finished and stop when the piece ships. This is what "planning through completion" actually looks like step by step.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>Planning &amp; Specification</h3>
+        <p>Involved from the architectural and planning stage, before anything is finalized elsewhere.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>Design &amp; Detailing</h3>
+        <p>Every fixture detailed to the client's own specifications, not selected from a standard line.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>Fabrication</h3>
+        <p>Built in Arnold + Egan's own San Francisco shop, the same precision seen in the craft strip below.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h3>Installation &amp; Completion</h3>
+        <p>Carried through to the finished, installed piece, one point of responsibility start to finish.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="work-section" id="work" data-strategy-anchor>
+  <div class="strategy-note"><strong>Why real names, not just categories</strong>Champion's Bar, Blue Bottle, Twitch. When a prospect can check a name themselves, it does more work than any description could, and it's the strongest proof you have precisely because there's no review page to lean on instead.</div>
+  <div class="work-head">
+    <span class="eyebrow"><span class="diamond"></span>The Work</span>
+    <h2>Hospitality, retail, wellness, residential. Same standard, every time.</h2>
+    <p>The vision changes with every client. The precision doesn't.</p>
+  </div>
+
+  <div class="sector">
+    <div class="sector-label">
+      <div class="sector-index">01</div>
+      <h3>Hospitality</h3>
+      <p>Bars, restaurants, and private clubs, where the millwork has to hold up to a full service night after night.</p>
+    </div>
+    <div class="sector-photos">
+      <a href="project-champions-bar.html" style="text-decoration: none; color: inherit; display: block;">
+      <figure>
+        <img src="photos/ae-club-bar-champions-olympic-club.jpg" alt="Champion's Bar at the Olympic Club, San Francisco, custom walnut bar counter">
+        <figcaption>Champion's Bar, Olympic Club</figcaption>
+      </figure>
+      </a>
+      <figure>
+        <img src="photos/ae-site-resolute-wine-wall.jpg" alt="Custom walnut wine wall storage, Resolute restaurant project">
+        <figcaption>Resolute, custom wine wall</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="sector">
+    <div class="sector-label">
+      <div class="sector-index">02</div>
+      <h3>Retail &amp; Food Service</h3>
+      <p>Fixtures built for a customer to actually touch and shop from, not just look at.</p>
+    </div>
+    <div class="sector-photos">
+      <figure>
+        <img src="photos/ae-site-blue-bottle-south-park.jpg" alt="Blue Bottle Coffee South Park, custom wood retail fixtures and display shelving">
+        <figcaption>Blue Bottle Coffee, South Park</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/ae-site-twitch-cafe.jpg" alt="Twitch corporate cafe, custom wood millwork and open shelving">
+        <figcaption>Twitch, corporate caf&#233;</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="sector">
+    <div class="sector-label">
+      <div class="sector-index">03</div>
+      <h3>Wellness</h3>
+      <p>Quieter spaces, where the joinery has to read as precise up close, not just from across a room.</p>
+    </div>
+    <div class="sector-photos">
+      <figure>
+        <img src="photos/ae-bench-joinery-wood-steel.jpg" alt="Custom wood and steel bench with precise structural joinery">
+        <figcaption>Bench &amp; structural joinery</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/ae-dark-wood-veneer-powder-room.jpg" alt="Dark wood veneer powder room with custom paneling and vanity">
+        <figcaption>Wood veneer powder room</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="sector">
+    <div class="sector-label">
+      <div class="sector-index">04</div>
+      <h3>Residential</h3>
+      <p>The same precision, scaled down to a single kitchen instead of a commercial floor.</p>
+    </div>
+    <div class="sector-photos">
+      <figure>
+        <img src="photos/ae-site-rancheria-kitchen.jpg" alt="Custom white residential kitchen with quartz island, Rancheria project">
+        <figcaption>Rancheria residence, kitchen</figcaption>
+      </figure>
+      <figure>
+        <img src="photos/ae-site-jackson-closet.jpg" alt="Custom residential dressing room and closet millwork, Jackson project">
+        <figcaption>Jackson residence, dressing room</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="craft-strip" data-strategy-anchor>
+  <div class="strategy-note"><strong>Why modern and traditional, side by side</strong>The real worry a designer has isn't "can they build it," it's "can they build MY version of it." Putting the CNC-cut lattice screen next to a hand-detailed, crown-moulded kitchen answers that before anyone has to ask.</div>
+  <div class="craft-inner">
+    <div class="craft-head">
+      <span class="eyebrow"><span class="diamond"></span>The Range</span>
+      <h2>Modern precision. Traditional detail. Same hands.</h2>
+      <p>Whatever the design calls for, it comes out of the same shop, to the same standard.</p>
+    </div>
+    <div class="craft-grid">
+      <div class="craft-item">
+        <figure>
+          <img src="photos/ae-site-resolute-lattice-hero.jpg" alt="Diamond-pattern walnut lattice screen, extreme detail, Resolute project">
+        </figure>
+        <figcaption><span class="craft-register">Modern</span><br>Walnut lattice screen, CNC-cut</figcaption>
+      </div>
+      <div class="craft-item">
+        <figure>
+          <img src="photos/ae-bronze-filigree-marble-counter-shop.jpg" alt="Bronze filigree hardware being fitted to a marble counter, in their own shop">
+        </figure>
+        <figcaption><span class="craft-register">Modern</span><br>Bronze filigree hardware, in the shop</figcaption>
+      </div>
+      <div class="craft-item">
+        <figure>
+          <img src="photos/ae-site-traditional-moulded-kitchen.jpg" alt="Traditional kitchen with heavily detailed crown moulding and corbeled range hood">
+        </figure>
+        <figcaption><span class="craft-register">Traditional</span><br>Crown moulding, hand-detailed</figcaption>
+      </div>
+      <div class="craft-item">
+        <figure>
+          <img src="photos/ae-builtin-bookshelf-fireplace-lounge.jpg" alt="Built-in bookshelf wall with integrated fireplace surround">
+        </figure>
+        <figcaption><span class="craft-register">Traditional</span><br>Built-in library &amp; fireplace</figcaption>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="guides-section" id="guides" data-strategy-anchor>
+  <div class="strategy-note"><strong>Why real answers beat a thin site</strong>A site that's mostly photos and a few paragraphs has almost nothing for Google or an AI answer engine to actually match a real question to. Real guides, real service pages, even a page per city served, each one is a specific, findable answer instead of a vague impression. That's the difference between a nice-looking site and one that actually gets found.</div>
+  <div class="guides-head">
+    <span class="eyebrow"><span class="diamond"></span>From the Shop</span>
+    <h2>Straight answers to the questions that come up before the first meeting</h2>
+    <p>For the GCs, designers, and property owners weighing who to hire.</p>
+  </div>
+  <div class="guides-grid">
+    <div class="guide-card">
+      <span class="guide-tag">Hiring Guide</span>
+      <h3>What "Full-Service" Actually Means When You're Hiring a Millwork Shop</h3>
+      <p>The real difference between a shop that builds to a finished drawing and one that's involved from planning through completion.</p>
+      <a class="guide-read" href="guide-full-service.html">Read the guide &#8594;</a>
+    </div>
+    <div class="guide-card">
+      <span class="guide-tag">Cost Guide</span>
+      <h3>Custom Casework vs. Stock Cabinetry: What Actually Drives the Cost</h3>
+      <p>A plain breakdown of where the price comes from, before the first quote.</p>
+      <a class="guide-read" href="#">Read the guide &#8594;</a>
+    </div>
+    <div class="guide-card">
+      <span class="guide-tag">For GCs</span>
+      <h3>What a GC Should Ask Before Bringing In a Millwork Manufacturer</h3>
+      <p>The questions that actually predict whether a project stays on schedule.</p>
+      <a class="guide-read" href="#">Read the guide &#8594;</a>
+    </div>
+  </div>
+  <p class="guides-note">The first guide is live now, built through RemodelerRank's AEO article pipeline. The other two are titled and planned, not yet written.</p>
+</section>
+
+<div class="history-strip" id="history">
+  <div class="history-item"><div class="num">1937</div><div class="label">Founded</div></div>
+  <div class="history-item"><div class="num">89</div><div class="label">Years in the Trade</div></div>
+  <div class="history-item"><div class="num">4</div><div class="label">Sectors Served</div></div>
+  <div class="history-item"><div class="num">SF</div><div class="label">San Francisco, CA</div></div>
+</div>
+
+<section class="cta-section" id="start" data-strategy-anchor>
+  <div class="strategy-note"><strong>Built to move with you</strong>San Francisco is accurate today. Once the Oakland shop is confirmed, this address updates everywhere at once, footer, schema, Google listing, in one pass, not scattered fixes across a dozen old citations later.</div>
+  <span class="eyebrow"><span class="diamond"></span>Start a Project</span>
+  <h2>Modern or traditional, it's still just one shop to trust.</h2>
+  <p>Bring the sketch, the inspiration photo, or just the idea. One team carries it from the first meeting to the final install, so the only thing you have to manage is the vision.</p>
+  <a class="btn-dark" href="tel:4158222700">Call (415) 822-2700</a>
+  <div class="cta-details">
+    <div><strong>Phone</strong><a href="tel:4158222700">(415) 822-2700</a></div>
+    <div><strong>Shop</strong>San Francisco, CA 94124</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <img src="logo/ae-logo-real-horizontal.png" alt="Arnold + Egan">
+      </div>
+      <p>Full-service casework and millwork manufacturing, San Francisco, CA. Serving commercial, hospitality, retail, and residential clients since 1937.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Commercial &amp; Hospitality Fixtures</a></li>
+        <li><a href="#services">Custom Casework &amp; Cabinetry</a></li>
+        <li><a href="#services">Architectural Millwork</a></li>
+        <li><a href="#services">In-House Fabrication</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Service Area<span style="text-transform:none; font-weight: 400; opacity: 0.6;"> (unconfirmed)</span></h4>
+      <ul>
+        <li>San Francisco</li>
+        <li>Oakland &amp; East Bay</li>
+        <li>Marin County</li>
+        <li>The Peninsula</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:4158222700">(415) 822-2700</a></li>
+        <li>San Francisco, CA 94124</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>Arnold &amp; Egan Manufacturing Co., Inc. San Francisco, CA.</div>
+    <div>Founded 1937</div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+  // Territory C's signature moment: the monogram and mission statement
+  // resolve into focus on load. The lattice photo behind them runs its
+  // own continuous Ken Burns zoom (pure CSS, see .hero-bg), independent
+  // of scroll - it plays whether or not the visitor ever scrolls.
+  const tl = gsap.timeline({ delay: 0.15 });
+  tl
+    .to(".hero-mark", { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "power2.out" }, 0)
+    .to(".hero-content", { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 0.2);
+
+  gsap.to(".scroll-cue", {
+    opacity: 0,
+    scrollTrigger: { trigger: "#hero-pin", start: "top top", end: "+=15%", scrub: true }
+  });
+});
+</script>
+
+<button class="strategy-toggle" onclick="toggleStrategy()">
+  <span class="diamond"></span>
+  <span id="strategyToggleLabel">Show the reasoning</span>
+</button>
+
+<script>
+function toggleStrategy() {
+  var on = document.body.classList.toggle('strategy-on');
+  document.getElementById('strategyToggleLabel').textContent = on ? 'Hide the reasoning' : 'Show the reasoning';
+}
+</script>
+
+<button class="link-highlight-toggle" onclick="toggleLinks()">
+  <span class="diamond"></span>
+  <span id="linkToggleLabel">Show clickable areas</span>
+</button>
+
+<script>
+function toggleLinks() {
+  var on = document.body.classList.toggle('links-on');
+  document.getElementById('linkToggleLabel').textContent = on ? 'Hide clickable areas' : 'Show clickable areas';
+}
+</script>
+
+<script>
+function toggleNav() {
+  var nav = document.querySelector('nav');
+  var open = nav.classList.toggle('nav-open');
+  nav.querySelector('.nav-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+</script>
+
+</body>
+</html>

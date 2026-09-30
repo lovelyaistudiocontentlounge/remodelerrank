@@ -102,7 +102,24 @@ Never mix files between repos. Site files go in the website repo. Pipeline code 
 
 ## Files Still To Build
 
-Front-end design skill and humanizer skill not yet built.
+Humanizer skill not yet built. (Front-end design skill built Sep 2026 - see
+design-territories in the Skills Status table below.)
+
+## Portfolio/Lookbook Project (started Sep 2026)
+
+New sales asset in progress: a client-portfolio site + physical lookbook + iPad
+sales presentation, spec'd in the website repo at
+`CONTENT/contractor-portfolio-lookbook-master-brief.md`. Architecture, schemas, and
+backlog are in this repo at `portfolio-project-backlog.md` (new
+`templates/audit-dossier-template.md`, `brand-dna-template.md`,
+`design-territory-template.md`, `portfolio-case-study-schema.md`). Four items from
+that brief were also ported into the everyday client flow (not just the one-off
+portfolio project): target-buyer + voice capture added to
+`templates/client-deliverable-system.md` 1.5/1.6, design territories as its own
+skill (above), an anti-cloning check added to both `skills/mini-site/SKILL.md` and
+`client-deliverable-system.md` 2.2, and a "does this channel actually matter to
+this business" judgment call added to the lead-scoring prompt in `prompts.js`
+(affects nightly automated scoring, watch the next scrape's `best_hook` output).
 
 ---
 
@@ -417,6 +434,7 @@ Three phases:
 | Skill | Status | Location |
 |---|---|---|
 | ad-creative | Built | skills/ad-creative/SKILL.md |
+| design-territories | Built (Sep 2026) | skills/design-territories/SKILL.md - three art-direction concepts before a real client build, ported from the contractor-portfolio-lookbook brief. Real builds only (Active/Growth tier or portfolio-featured), not the fast grader mockup. Fills "Files Still To Build: Front-end design skill" gap noted below. |
 | mini-site | Built | skills/mini-site/SKILL.md |
 | monthly-report | Built | skills/monthly-report/SKILL.md |
 | onboarding | Built | skills/onboarding/SKILL.md |

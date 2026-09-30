@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commercial &amp; Hospitality Fixtures | Arnold + Egan</title>
+<meta name="description" content="Custom bars, retail displays, and banquette seating, designed and built by Arnold + Egan for bars, restaurants, and private clubs in San Francisco.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-padding-top: 80px; }
+  :root {
+    --white: #FFFFFF; --cream: #F5F7ED; --charcoal: #16151A; --charcoal-soft: #201F26;
+    --gray: #6B6A70; --gray-light: #DEDDD6; --bronze: #A9855A; --bronze-deep: #7E6240;
+  }
+  body { font-family: 'IBM Plex Sans', -apple-system, Arial, sans-serif; background: var(--white); color: var(--charcoal); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: 'Archivo', -apple-system, Arial, sans-serif; }
+  .draft-flag { background: var(--charcoal); color: var(--cream); text-align: center; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px; }
+  nav { background: var(--white); border-bottom: 1px solid var(--gray-light); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; }
+  .nav-brand img { height: 34px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--charcoal); text-decoration: none; font-size: 14px; font-weight: 500; }
+  .nav-cta { background: var(--charcoal); color: var(--white); padding: 11px 24px; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.3px; }
+  .nav-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 36px; height: 36px; padding: 7px; flex-direction: column;
+    justify-content: center; gap: 5px;
+  }
+  .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--charcoal); }
+  .diamond { width: 8px; height: 8px; background: var(--bronze); transform: rotate(45deg); flex-shrink: 0; display: inline-block; }
+  .eyebrow { font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--bronze-deep); font-weight: 700; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+
+  .service-hero { max-width: 900px; margin: 0 auto; padding: 80px 40px 48px; }
+  .service-hero h1 { font-size: clamp(32px, 5vw, 50px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.05; margin-bottom: 22px; max-width: 18ch; }
+  .service-hero .intro { font-size: 18px; color: var(--gray); max-width: 60ch; }
+
+  .service-hero-img { max-width: 1200px; margin: 0 auto 72px; padding: 0 40px; }
+  .service-hero-img img { width: 100%; aspect-ratio: 21/9; object-fit: cover; display: block; }
+
+  .included { max-width: 900px; margin: 0 auto; padding: 0 40px 72px; }
+  .included h2 { font-size: clamp(24px, 3.2vw, 32px); font-weight: 700; letter-spacing: -0.4px; margin-bottom: 28px; }
+  .included-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .included-list li { display: flex; gap: 12px; padding: 16px 0; border-top: 1px solid var(--gray-light); font-size: 15px; }
+  .included-list .diamond { margin-top: 6px; }
+
+  .service-gallery { max-width: 1200px; margin: 0 auto; padding: 0 40px 72px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .service-gallery figure { aspect-ratio: 4/3; overflow: hidden; background: var(--gray-light); position: relative; }
+  .service-gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .service-gallery figcaption { position: absolute; left: 10px; bottom: 10px; background: var(--charcoal); color: var(--white); font-size: 11px; font-weight: 700; padding: 5px 10px; }
+
+  .proof-strip { background: var(--cream); padding: 56px 40px; text-align: center; }
+  .proof-strip p { font-size: 16px; color: var(--charcoal); max-width: 60ch; margin: 0 auto; }
+  .proof-strip strong { color: var(--bronze-deep); }
+
+  .faq-sec { max-width: 800px; margin: 0 auto; padding: 72px 40px; }
+  .faq-sec h2 { font-size: clamp(24px, 3.2vw, 32px); font-weight: 700; letter-spacing: -0.4px; margin-bottom: 32px; }
+  .faq-item { border-top: 1px solid var(--gray-light); padding: 22px 0; }
+  .faq-item:last-child { border-bottom: 1px solid var(--gray-light); }
+  .faq-item h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  .faq-item p { font-size: 14.5px; color: var(--gray); }
+
+  .related-services { background: var(--charcoal); color: var(--white); padding: 64px 40px; }
+  .related-inner { max-width: 1160px; margin: 0 auto; }
+  .related-inner .eyebrow { color: var(--bronze); }
+  .related-inner h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 700; margin-bottom: 32px; max-width: 22ch; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.12); }
+  .related-card { background: var(--charcoal-soft); padding: 24px; text-decoration: none; color: var(--white); }
+  .related-card h3 { font-size: 15px; font-weight: 700; }
+  .related-card span { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  .final-cta { text-align: center; padding: 100px 40px; }
+  .final-cta h2 { font-size: clamp(26px, 3.6vw, 38px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .final-cta p { color: var(--gray); font-size: 16px; max-width: 48ch; margin: 0 auto 28px; }
+  .btn-dark { background: var(--charcoal); color: var(--white); padding: 16px 34px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.55); padding: 40px; text-align: center; font-size: 13px; }
+
+  @media (max-width: 760px) { .included-list, .service-gallery, .related-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) {
+    nav { padding: 16px 20px; position: relative; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0; margin: 0; padding: 8px 0;
+      background: var(--white); border-bottom: 1px solid var(--gray-light);
+      box-shadow: 0 16px 32px rgba(22,21,26,0.14);
+    }
+    nav.nav-open .nav-links { display: flex; }
+    .nav-links a { display: block; padding: 14px 20px; }
+    .service-hero, .service-hero-img, .included, .service-gallery, .faq-sec, .final-cta, .proof-strip, .related-inner { padding-left: 20px; padding-right: 20px; }
+  }
+
+
+  .link-highlight-toggle {
+    position: fixed; bottom: 24px; left: 24px; z-index: 100;
+    background: var(--charcoal); color: var(--white); border: none;
+    padding: 13px 22px; font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
+    box-shadow: 0 10px 30px rgba(22,21,26,0.35);
+  }
+  .link-highlight-toggle:hover { background: var(--charcoal-soft); }
+  body.links-on .link-highlight-toggle { background: var(--bronze-deep); }
+  body.links-on a[href] { outline: 2px dashed var(--bronze); outline-offset: 3px; }
+
+
+  .strategy-toggle {
+    position: fixed; bottom: 24px; right: 24px; z-index: 100;
+    background: var(--charcoal); color: var(--white); border: none;
+    padding: 13px 22px; font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
+    box-shadow: 0 10px 30px rgba(22,21,26,0.35);
+  }
+  .strategy-toggle .diamond { margin: 0; }
+  .strategy-toggle:hover { background: var(--charcoal-soft); }
+  body.strategy-on .strategy-toggle { background: var(--bronze-deep); }
+  .strategy-note {
+    display: none; position: absolute; bottom: 16px; right: 16px; z-index: 30;
+    max-width: 260px; padding: 12px 16px;
+    background: rgba(22,21,26,0.78); backdrop-filter: blur(2px);
+    color: rgba(255,255,255,0.85); font-size: 12.5px; line-height: 1.55; font-weight: 400;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  body.strategy-on .strategy-note { display: block; }
+  .strategy-note strong {
+    display: block; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--bronze); margin-bottom: 6px; font-weight: 700; font-family: 'Archivo', sans-serif;
+  }
+  [data-strategy-anchor] { position: relative; }
+</style>
+</head>
+<body>
+
+<div class="draft-flag">Sample page, format concept. Not yet built into a real site.</div>
+
+<nav>
+  <a class="nav-brand" href="index.html"><img src="logo/ae-logo-real-horizontal.png" alt="Arnold + Egan"></a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="index.html#guides">Guides</a></li>
+  </ul>
+  <a class="nav-cta" href="index.html#start">Start a Project</a>
+  <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="service-hero" data-strategy-anchor>
+  <div class="strategy-note"><strong>Why this service gets its own page</strong>Six services crammed onto one page compete with each other for the same search. Split apart, each one can actually rank for what someone's specifically searching, "commercial millwork San Francisco" is a different search than "custom cabinetry," and a page only shows up for a search if the page exists.</div>
+  <span class="eyebrow"><span class="diamond"></span>Services</span>
+  <h1>Commercial &amp; Hospitality Fixtures</h1>
+  <p class="intro">Bars, restaurants, and private clubs, where the millwork has to hold up to a full service night after night without ever reading as a commercial fixture rather than considered joinery.</p>
+</div>
+
+<div class="service-hero-img">
+  <img src="photos/ae-club-bar-champions-olympic-club.jpg" alt="Champion's Bar at the Olympic Club, San Francisco, custom walnut bar counter">
+</div>
+
+<div class="included">
+  <h2>What's included</h2>
+  <ul class="included-list">
+    <li><span class="diamond"></span> Involved from the planning and specification stage</li>
+    <li><span class="diamond"></span> Bar counters, back-bar millwork, and banquette seating</li>
+    <li><span class="diamond"></span> Built to hold up to real daily service volume</li>
+    <li><span class="diamond"></span> In-house fabrication in the San Francisco shop</li>
+    <li><span class="diamond"></span> Modern or traditional detail, same standard either way</li>
+    <li><span class="diamond"></span> Installation carried through by the same team</li>
+  </ul>
+</div>
+
+<div class="service-gallery">
+  <figure><img src="photos/ae-club-bar-champions-olympic-club.jpg" alt="Champion's Bar, Olympic Club, San Francisco"><figcaption>Champion's Bar</figcaption></figure>
+  <figure><img src="photos/ae-site-resolute-wine-wall.jpg" alt="Custom wine wall, Resolute restaurant"><figcaption>Resolute</figcaption></figure>
+  <figure><img src="photos/ae-restaurant-arched-windows-banquette.jpg" alt="Restaurant banquette seating with arched windows"><figcaption>Banquette Seating</figcaption></figure>
+</div>
+
+<div class="proof-strip">
+  <p>Real locations you can walk into and see the quality yourself: <strong>Champion's Bar at the Olympic Club</strong>, <strong>Resolute</strong>, <strong>Blue Bottle Coffee</strong>, <strong>Twitch</strong>.</p>
+</div>
+
+<div class="faq-sec">
+  <h2>Questions before you start</h2>
+  <div class="faq-item">
+    <h3>Do you work directly with our architect or designer?</h3>
+    <p>Yes. Involvement starts at the planning and specification stage, working alongside whoever else is already on the project.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can hospitality millwork actually hold up to daily service?</h3>
+    <p>That's the specific standard this category is built to. Champion's Bar is real, ongoing proof, not a claim.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Do you handle installation, or just fabrication?</h3>
+    <p>Both. The same team carries it from the shop to the finished, installed piece.</p>
+  </div>
+</div>
+
+<div class="related-services">
+  <div class="related-inner">
+    <span class="eyebrow"><span class="diamond"></span>Explore Other Services</span>
+    <h2>The rest of what one shop carries</h2>
+    <div class="related-grid">
+      <a class="related-card" href="index.html#services"><h3>Custom Casework &amp; Cabinetry</h3><span>See the work &#8594;</span></a>
+      <a class="related-card" href="index.html#services"><h3>Architectural Millwork</h3><span>See the work &#8594;</span></a>
+      <a class="related-card" href="index.html#services"><h3>In-House Fabrication</h3><span>See the work &#8594;</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="final-cta">
+  <h2>Building a space that needs to last?</h2>
+  <p>Bring the sketch, the inspiration photo, or just the idea. We'll walk it through the process from the first meeting.</p>
+  <a class="btn-dark" href="index.html#start">Start a Project</a>
+</div>
+
+<footer>Arnold &amp; Egan Manufacturing Co., Inc. San Francisco, CA.</footer>
+
+
+<button class="strategy-toggle" onclick="toggleStrategy()">
+  <span class="diamond"></span>
+  <span id="strategyToggleLabel">Show the reasoning</span>
+</button>
+
+<script>
+function toggleStrategy() {
+  var on = document.body.classList.toggle('strategy-on');
+  document.getElementById('strategyToggleLabel').textContent = on ? 'Hide the reasoning' : 'Show the reasoning';
+}
+</script>
+
+<button class="link-highlight-toggle" onclick="toggleLinks()">
+  <span class="diamond"></span>
+  <span id="linkToggleLabel">Show clickable areas</span>
+</button>
+
+<script>
+function toggleLinks() {
+  var on = document.body.classList.toggle('links-on');
+  document.getElementById('linkToggleLabel').textContent = on ? 'Hide clickable areas' : 'Show clickable areas';
+}
+</script>
+
+<script>
+function toggleNav() {
+  var nav = document.querySelector('nav');
+  var open = nav.classList.toggle('nav-open');
+  nav.querySelector('.nav-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+</script>
+
+</body>
+</html>

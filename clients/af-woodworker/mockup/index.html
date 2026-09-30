@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AF Woodworker | Custom Cabinetry &amp; Fine Fabrication, Richmond CA</title>
+<meta name="description" content="Custom cabinetry and fine fabrication in Richmond, CA. Every piece modeled in 3D before a single cut, built by Ahmed and Fernando directly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="photos/af-kitchen-walnut-vaulted-hero.jpg">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-padding-top: 96px; }
+
+  html, body { overflow-x: hidden; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
+
+  :root {
+    --white: #FFFFFF;
+    --off-white: #F7F5F2;
+    --charcoal: #14130F;
+    --charcoal-soft: #201E19;
+    --gray: #6E6B64;
+    --gray-light: #E4E0D8;
+    --wood: #C89B6C;
+    --wood-deep: #9C6F42;
+  }
+
+  body {
+    font-family: 'Manrope', -apple-system, Arial, sans-serif;
+    background: var(--white);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .draft-flag {
+    background: var(--charcoal); color: var(--off-white); text-align: center;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px;
+  }
+
+  nav {
+    background: var(--white); border-bottom: 1px solid var(--gray-light);
+    padding: 22px 40px; display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 20;
+  }
+  .nav-word {
+    font-weight: 800; font-size: 18px; letter-spacing: -0.5px; text-transform: lowercase;
+  }
+  .nav-word span { color: var(--wood-deep); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--charcoal); text-decoration: none; font-size: 14px; font-weight: 600; }
+  .nav-links a:hover { color: var(--wood-deep); }
+  .nav-item { position: relative; }
+  .nav-dropdown {
+    display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    padding-top: 14px; z-index: 40;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .nav-item:hover .nav-dropdown { display: block; }
+  }
+  .nav-item:focus-within .nav-dropdown { display: block; }
+  .nav-dropdown-inner {
+    background: var(--white); border: 1px solid var(--gray-light); min-width: 220px;
+    box-shadow: 0 16px 40px rgba(20,19,15,0.14); padding: 8px 0;
+  }
+  .nav-dropdown a { display: block; padding: 10px 16px; font-size: 13.5px; font-weight: 600; white-space: nowrap; }
+  .nav-dropdown a:hover { background: var(--off-white); }
+  .nav-cta {
+    background: var(--charcoal); color: var(--white); padding: 11px 22px;
+    border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 700;
+  }
+  .nav-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 36px; height: 36px; padding: 7px; flex-direction: column;
+    justify-content: center; gap: 5px;
+  }
+  .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--charcoal); }
+
+  /* ---- Hero: photography-forward, confident, no logo (none exists yet).
+     Background drifts on a slower scroll axis than the page, content fades
+     and lifts as you leave it, the cinematic-opener move both woolmers.com.au
+     and lingers.it use instead of a static banner. ---- */
+  .hero {
+    position: relative; height: 92vh; min-height: 620px;
+    display: flex; align-items: flex-end; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: -10% 0 0 0; height: 120%;
+    will-change: transform;
+  }
+  .hero-bg img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 38%; display: block;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(20,19,15,0.86) 0%, rgba(20,19,15,0.32) 48%, rgba(20,19,15,0.05) 75%);
+  }
+  .hero-content { position: relative; padding: 0 40px 72px; max-width: 800px; color: var(--white); will-change: transform, opacity; }
+  .hero-tag {
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--wood); font-weight: 700; margin-bottom: 20px; display: block;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 6vw, 76px); font-weight: 800; line-height: 1.02;
+    letter-spacing: -1.5px; margin-bottom: 22px;
+  }
+  .hero p { font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.85); max-width: 540px; margin-bottom: 30px; }
+  .hero-btns { display: flex; gap: 14px; }
+  .btn-primary {
+    background: var(--white); color: var(--charcoal); padding: 15px 28px;
+    border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 14px;
+  }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.55); color: var(--white); padding: 15px 28px;
+    border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 14px;
+  }
+
+  .section { padding: 110px 32px; max-width: 1160px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--wood-deep); font-weight: 800; margin-bottom: 16px;
+    display: inline-flex; align-items: center; gap: 9px;
+  }
+  .eyebrow::before {
+    content: ''; width: 7px; height: 7px; background: var(--wood);
+    transform: rotate(45deg); flex-shrink: 0;
+  }
+
+  /* ---- Scroll reveal: restrained fade + lift, applied via GSAP.
+     No animation until JS confirms it can run cleanly (see script). ---- */
+  .reveal { opacity: 0; transform: translateY(28px); }
+  body.no-motion .reveal { opacity: 1; transform: none; }
+
+  .statement { text-align: left; }
+  .statement .inner { max-width: 640px; border-left: 3px solid var(--gray-light); padding-left: 30px; }
+  .statement h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; line-height: 1.3; letter-spacing: -0.5px; margin-bottom: 18px; }
+  .statement p { color: var(--gray); font-size: 17px; max-width: 520px; }
+
+  .why-strip { background: var(--charcoal); color: var(--white); padding: 96px 32px; }
+  .why-inner { max-width: 1160px; margin: 0 auto; }
+  .why-head { text-align: center; max-width: 620px; margin: 0 auto 64px; }
+  .why-head span { color: var(--wood); }
+  .why-head h2 { font-size: clamp(26px, 3.6vw, 38px); font-weight: 800; letter-spacing: -0.5px; }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .why-item h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; color: var(--wood); }
+  .why-item p { font-size: 14px; color: rgba(255,255,255,0.72); }
+
+  /* ---- The Work: a cabinet of real drawers, not a photo grid. Each drawer
+     opens as it scrolls into view, replacing the flat grid with the signature
+     interaction, translated from a scroll-triggered reveal (the family of
+     motion woolmers.com.au / lingers.it use) into AF's own product instead
+     of a borrowed record-box metaphor. ---- */
+  .work-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+  .work-head h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 14px; }
+  .work-head p { color: var(--gray); font-size: 17px; }
+
+  .drawer-cabinet {
+    background: var(--charcoal); padding: 10px; border-radius: 4px;
+    box-shadow: 0 30px 70px rgba(20,19,15,0.28);
+  }
+  .drawer-cabinet::before {
+    content: ''; display: block; height: 10px; margin-bottom: 10px;
+    background: linear-gradient(180deg, var(--wood) 0%, var(--wood-deep) 100%);
+    border-radius: 2px;
+  }
+  .drawer {
+    position: relative; aspect-ratio: 16/6; overflow: hidden;
+    background: var(--charcoal-soft);
+  }
+  .drawer + .drawer { margin-top: 6px; }
+  .drawer-inside { position: absolute; inset: 0; }
+  .drawer-inside img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transform: scale(1.14); will-change: transform;
+  }
+  .drawer-inside::after {
+    content: ''; position: absolute; inset: 0;
+    box-shadow: inset 0 40px 50px -40px rgba(0,0,0,0.65);
+  }
+  .drawer-front {
+    position: absolute; inset: 0; z-index: 2;
+    background: linear-gradient(155deg, var(--wood) 0%, var(--wood-deep) 100%);
+    display: flex; align-items: center; justify-content: center;
+    will-change: transform; box-shadow: 0 18px 30px -6px rgba(20,19,15,0.4);
+  }
+  .drawer-front::before {
+    content: ''; width: min(220px, 30%); height: 6px; border-radius: 3px;
+    background: rgba(20,19,15,0.28);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.15), inset 0 -1px 2px rgba(0,0,0,0.3);
+  }
+  .drawer-label {
+    position: absolute; left: 18px; bottom: 16px; z-index: 1;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--charcoal); color: var(--white);
+    font-size: 12px; font-weight: 700; padding: 7px 13px 7px 11px;
+    opacity: 0; transform: translateY(10px); will-change: transform, opacity;
+  }
+  .drawer-label::before { content: ''; width: 6px; height: 6px; background: var(--wood); transform: rotate(45deg); flex-shrink: 0; }
+  body.no-motion .drawer-front { transform: translateY(100%); }
+  body.no-motion .drawer-inside img { transform: scale(1); }
+  body.no-motion .drawer-label { opacity: 1; transform: none; }
+  .work-note { margin-top: 22px; font-size: 13px; color: var(--gray); text-align: left; }
+
+  .testimonials { background: var(--off-white); }
+  .testi-grid {
+    max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--gray-light); border-left: 1px solid var(--gray-light);
+  }
+  .testi-card { padding: 36px 34px; border-right: 1px solid var(--gray-light); border-bottom: 1px solid var(--gray-light); }
+  .testi-mark { display: block; width: 13px; height: 13px; background: var(--wood); transform: rotate(45deg); margin-bottom: 22px; }
+  .testi-card p { font-size: 16px; color: var(--charcoal); line-height: 1.65; margin-bottom: 20px; }
+  .testi-card .testi-name { font-size: 13px; font-weight: 800; color: var(--charcoal); text-transform: uppercase; letter-spacing: 0.5px; }
+  .testi-card .testi-source { font-size: 12px; color: var(--gray); margin-top: 3px; }
+
+  /* ---- Closing CTA: bookends the page on real imagery instead of flat
+     color, the same "close on a photograph" instinct woolmers/lingers use
+     before their footer. ---- */
+  .cta-section { position: relative; text-align: center; color: var(--white); overflow: hidden; }
+  .cta-bg {
+    position: absolute; inset: 0;
+    background: url('photos/af-builtin-library-white.jpg') center 50% / cover no-repeat;
+  }
+  .cta-overlay { position: absolute; inset: 0; background: rgba(20,19,15,0.88); }
+  .cta-section > *:not(.cta-bg):not(.cta-overlay) { position: relative; z-index: 1; }
+  .cta-section .eyebrow { justify-content: center; display: flex; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin: 0 auto 18px; letter-spacing: -0.5px; }
+  .cta-section p { color: rgba(255,255,255,0.7); font-size: 17px; max-width: 460px; margin: 0 auto 32px; }
+  .cta-details { display: flex; justify-content: center; gap: 44px; margin-top: 28px; flex-wrap: wrap; font-size: 15px; }
+  .cta-details strong { display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--wood); margin-bottom: 4px; }
+  .cta-details a { color: var(--white); text-decoration: none; }
+
+  footer {
+    background: var(--charcoal-soft); color: rgba(255,255,255,0.6);
+    padding: 64px 32px 32px; font-size: 13px;
+  }
+
+  @media (max-width: 900px) {
+    .why-grid { grid-template-columns: 1fr; gap: 32px; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .testi-card { border-right: none; }
+    .drawer { aspect-ratio: 4/3; }
+    .statement .inner { padding-left: 22px; }
+    .section { padding: 72px 24px; }
+    .why-strip { padding: 72px 24px; }
+    .guides-grid { grid-template-columns: 1fr; }
+    .guides-section { padding: 72px 24px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: span 2; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 16px 20px; position: relative; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0; margin: 0; padding: 8px 0;
+      background: var(--white); border-bottom: 1px solid var(--gray-light);
+      box-shadow: 0 16px 32px rgba(20,19,15,0.14);
+    }
+    nav.nav-open .nav-links { display: flex; }
+    .nav-links a { display: block; padding: 14px 20px; }
+    .nav-dropdown { display: none !important; position: static; padding-top: 0; }
+    .hero-content { padding: 0 20px 44px; }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-outline { width: 100%; text-align: center; padding: 14px 20px; }
+    .cta-details { flex-direction: column; gap: 22px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; }
+  }
+
+  /* ---- Presentation notes: a toggle for the room, explaining WHY each
+     choice serves them, not how it was built. Off by default. Same ambient
+     pattern now standard on the A+E mockup: one note per section, always
+     visible together when toggled, no numbered pins to click through one
+     at a time. ---- */
+  .strategy-toggle {
+    position: fixed; bottom: 24px; right: 24px; z-index: 100;
+    background: var(--charcoal); color: var(--white); border: none;
+    padding: 13px 22px; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
+    box-shadow: 0 10px 30px rgba(20,19,15,0.35);
+  }
+  .strategy-toggle .diamond-ico { width: 8px; height: 8px; background: var(--wood); transform: rotate(45deg); flex-shrink: 0; }
+  .strategy-toggle:hover { background: var(--charcoal-soft); }
+  body.strategy-on .strategy-toggle { background: var(--wood-deep); }
+
+  .strategy-note {
+    display: none; position: absolute; bottom: 16px; right: 16px; z-index: 30;
+    max-width: 260px; padding: 12px 16px;
+    background: rgba(20,19,15,0.82); backdrop-filter: blur(2px);
+    color: rgba(255,255,255,0.88); font-size: 12.5px; line-height: 1.55; font-weight: 400;
+    font-family: 'Manrope', sans-serif;
+  }
+  body.strategy-on .strategy-note { display: block; }
+  .strategy-note strong {
+    display: block; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--wood); margin-bottom: 6px; font-weight: 700;
+  }
+
+  [data-strategy-anchor] { position: relative; }
+
+  /* ---- Guides: the AEO/content-freshness device, same pattern proven on
+     SW's and A+E's mockups, restyled in AF's own palette and type. ---- */
+  .guides-section { padding: 110px 32px; max-width: 1160px; margin: 0 auto; }
+  .guides-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+  .guides-head h2 { font-size: clamp(26px, 3.6vw, 38px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 14px; }
+  .guides-head p { color: var(--gray); font-size: 17px; }
+  .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .guide-card { border: 1px solid var(--gray-light); padding: 28px 24px; }
+  .guide-tag {
+    display: inline-block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--wood-deep); font-weight: 800; background: var(--off-white);
+    padding: 5px 10px; margin-bottom: 16px;
+  }
+  .guide-card h3 { font-size: 17px; font-weight: 800; line-height: 1.35; margin-bottom: 10px; }
+  .guide-card p { font-size: 13px; color: var(--gray); margin-bottom: 16px; }
+  .guide-card .guide-read { font-size: 13px; font-weight: 700; color: var(--charcoal); text-decoration: none; }
+  .guides-note { margin-top: 28px; font-size: 13px; color: var(--gray); text-align: center; }
+
+  /* ---- Footer: the same real-contact, real-projects footer pattern as
+     SW/A+E. "Service Area" becomes "Where We've Built" since AF's actual
+     coverage area was never confirmed with Ahmed/Fernando (brand-dna.md) -
+     these four cities are real project locations already used in the
+     drawer captions above, not an unverified marketing claim. No logo
+     image, since none exists yet: the same wordmark from the nav instead. ---- */
+  .footer-grid {
+    max-width: 1100px; margin: 0 auto; padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px;
+  }
+  .footer-brand { margin-bottom: 14px; }
+  .footer-brand .nav-word { display: inline-block; color: var(--white); }
+  .footer-brand .nav-word span { color: var(--wood); }
+  .footer-col p { font-size: 13px; line-height: 1.8; max-width: 260px; }
+  .footer-col h4 {
+    color: var(--white); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 16px; font-weight: 800;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; font-size: 13px; }
+  .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .footer-col a:hover { color: var(--wood); }
+  .footer-bottom {
+    max-width: 1100px; margin: 24px auto 0; font-size: 12px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="draft-flag">Early concept draft for review, built from your own project photos. Not a live site.</div>
+
+<nav data-strategy-anchor style="overflow: visible;">
+  <div class="strategy-note" style="bottom: auto; top: 100%; margin-top: 10px;"><strong>Real logo now in use, plus why the dropdown</strong>The real AF Woodworker mark (found on Yelp, not visible anywhere on afwoodworker.com itself) is now in the nav. It still needs a transparent-background version before it can sit cleanly on the dark footer or hero overlay, those still use the typographic wordmark for now. The Work drops down into the four real categories from the footer (same pattern as A+E's nav), and Guides has its own top-level link now that the section actually exists below.</div>
+  <a href="index.html" style="display: block; line-height: 0;"><img src="logo/af-logo.jpg" alt="AF Woodworker" style="height: 48px; width: auto; display: block;"></a>
+  <ul class="nav-links">
+    <li><a href="#why">Why AF</a></li>
+    <li class="nav-item">
+      <a href="#work">Services</a>
+      <div class="nav-dropdown">
+        <div class="nav-dropdown-inner">
+          <a href="service-kitchens.html">Kitchens</a>
+          <a href="#work">Closets &amp; Built-ins</a>
+          <a href="#work">Bench Seating</a>
+          <a href="#work">CNC &amp; Custom Fabrication</a>
+        </div>
+      </div>
+    </li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="#guides">Guides</a></li>
+  </ul>
+  <a class="nav-cta" href="#start">Start a Project</a>
+  <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero" data-strategy-anchor>
+  <div class="strategy-note"><strong>Why this photo</strong>Real, full-resolution project photography pulled from afwoodworker.com's own Portfolio page, replacing an Instagram reel screenshot that had a play-button icon burned into the frame. This is the first thing a visitor sees, so it carries the most weight of any single image on the page.</div>
+  <div class="hero-bg"><img src="photos/af-kitchen-walnut-vaulted-hero.jpg" alt="" fetchpriority="high"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Richmond, CA. Founder-built.</span>
+    <h1>Precision, made modern.</h1>
+    <p>Custom cabinetry and fine fabrication, designed in 3D before a single cut is made, built by the two people whose names are on the door.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#work">See the work</a>
+      <a class="btn-outline" href="#start">Start a project</a>
+    </div>
+  </div>
+</section>
+
+<section class="section statement" data-strategy-anchor>
+  <div class="strategy-note"><strong>Why the page moves like this</strong>Reference pull from woolmers.com.au and lingers.it: nothing scroll-jacks, but the hero photo drifts slower than the page and its text lifts away as you pass it, and every section below lifts gently into place instead of sitting static. Same restrained motion budget as before, just spent on scroll behavior instead of only layout.</div>
+  <div class="inner reveal">
+    <span class="eyebrow">Modern, sleek, fully customized</span>
+    <h2>Every piece designed and built for the space it goes in.</h2>
+    <p>No two projects are the same, so nothing here is templated. Ahmed and Fernando model every piece in 2D and 3D before it's built, then build it themselves.</p>
+  </div>
+</section>
+
+<div class="why-strip" id="why">
+  <div class="why-inner">
+    <div class="why-head reveal">
+      <span class="eyebrow" style="color: var(--wood)">Why AF Woodworker</span>
+      <h2>What most cabinet shops can't do</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <h3>See It First</h3>
+        <p>Full 2D and 3D modeling before production starts, so you know exactly what you're getting before the first cut.</p>
+      </div>
+      <div class="why-item">
+        <h3>CNC Precision</h3>
+        <p>In-house CNC fabrication for custom props, decorative elements, and detail work most cabinet shops simply can't offer.</p>
+      </div>
+      <div class="why-item">
+        <h3>Founder-Built</h3>
+        <p>Every piece is built by Ahmed and Fernando directly, not handed off to an anonymous crew.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="work" data-strategy-anchor>
+  <div class="strategy-note"><strong>Why drawers, not a grid</strong>Jennifer flagged three reference sites for the direction: music.zajno.com's scroll-triggered record box, woolmers.com.au and lingers.it's cinematic reveal-on-scroll. A record box is someone else's product. AF Woodworker's product is drawers, so the same idea (scroll pulls something open to reveal what's inside) is rebuilt here in their own material instead of borrowed wholesale. Same five real photos as the earlier grid draft, same captions, new mechanic.</div>
+  <div class="work-head reveal">
+    <span class="eyebrow">The Work</span>
+    <h2>Real projects, real homes</h2>
+    <p>Scroll to open each one.</p>
+  </div>
+  <div class="drawer-cabinet">
+    <div class="drawer">
+      <div class="drawer-inside"><img src="photos/af-kitchen-modern-twotone-wine-fridge.jpg" alt="Modern two-tone kitchen with built-in wine fridge wall, Oakland"></div>
+      <div class="drawer-front"></div>
+      <a class="drawer-label" href="project-oakland-kitchen.html" style="text-decoration: none;">Oakland, modern two-tone kitchen</a>
+    </div>
+    <div class="drawer">
+      <div class="drawer-inside"><img src="photos/af-builtin-glass-cabinet-lit-shelving.jpg" alt="Custom built-in glass cabinetry with interior lighting and open shelving"></div>
+      <div class="drawer-front"></div>
+      <div class="drawer-label">Mill Valley, built-in cabinetry</div>
+    </div>
+    <div class="drawer">
+      <div class="drawer-inside"><img src="photos/af-kitchen-custom-range-hood-blue.jpg" alt="Kitchen with custom range hood cabinetry and brass pendant lighting"></div>
+      <div class="drawer-front"></div>
+      <div class="drawer-label">Menlo Park, custom range hood</div>
+    </div>
+    <div class="drawer">
+      <div class="drawer-inside"><img src="photos/af-kitchen-white-modern-skylight.jpg" alt="Bright modern kitchen with skylight and light wood accents"></div>
+      <div class="drawer-front"></div>
+      <div class="drawer-label">Sunset SF, modern kitchen</div>
+    </div>
+    <div class="drawer">
+      <div class="drawer-inside"><img src="photos/af-builtin-library-white.jpg" alt="Custom white built-in library shelving"></div>
+      <div class="drawer-front"></div>
+      <div class="drawer-label">Custom built-in library</div>
+    </div>
+  </div>
+  <p class="work-note">Same five real projects pulled directly from afwoodworker.com's own portfolio page as the earlier draft. Full range includes kitchens, closets, built-ins, bench seating, and CNC/fabrication work, per their site and Instagram highlights.</p>
+</section>
+
+<section class="section testimonials" data-strategy-anchor>
+  <div class="strategy-note"><strong>Why these exact quotes</strong>Pulled verbatim from AF's own site reviews, not written to sound good. Real names, real project types (kitchen cabinets, custom bench seating). The flush, no-shadow card style is also its own design, not reused from another client.</div>
+  <div class="work-head reveal">
+    <span class="eyebrow">What Clients Say</span>
+    <h2>What it's like to work with us</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <span class="testi-mark"></span>
+      <p>"They did a fantastic job with our kitchen cabinet project." Praised their professional approach and high-quality inset cabinets.</p>
+      <div class="testi-name">Harry S.</div>
+      <div class="testi-source">Kitchen cabinet project</div>
+    </div>
+    <div class="testi-card reveal">
+      <span class="testi-mark"></span>
+      <p>"Ahmed and his team were amazing! Ahmed worked with me on the design... asked for my input each step of the way." Would 100% hire them again.</p>
+      <div class="testi-name">Alessandra E.</div>
+      <div class="testi-source">Custom bench seating and pantry</div>
+    </div>
+  </div>
+</section>
+
+<section class="guides-section" id="guides" data-strategy-anchor>
+  <div class="strategy-note"><strong>Why real answers beat a thin site</strong>Same reasoning as SW and A+E's mockups: a site that's mostly photos and a couple paragraphs gives Google, and an AI answer engine, almost nothing to match a real question to. Guide topics below come straight from AF's own already-stated differentiators (3D modeling first, in-house CNC), not invented claims.</div>
+  <div class="guides-head reveal">
+    <span class="eyebrow">From the Shop</span>
+    <h2>Straight answers before the first meeting</h2>
+    <p>For homeowners weighing a custom build against buying off the shelf.</p>
+  </div>
+  <div class="guides-grid">
+    <div class="guide-card">
+      <span class="guide-tag">Design Process</span>
+      <h3>Why We Model Every Piece in 3D Before We Build It</h3>
+      <p>What seeing the finished design first actually prevents once the crew shows up with saws running.</p>
+      <a class="guide-read" href="guide-3d-modeling.html">Read the guide &#8594;</a>
+    </div>
+    <div class="guide-card">
+      <span class="guide-tag">CNC Capability</span>
+      <h3>What In-House CNC Fabrication Adds That a Standard Cabinet Shop Can't</h3>
+      <p>Custom props, decorative elements, and detail work most shops have to sub out or skip.</p>
+      <a class="guide-read" href="#">Read the guide &#8594;</a>
+    </div>
+    <div class="guide-card">
+      <span class="guide-tag">Cost Guide</span>
+      <h3>What Actually Drives the Price on a Fully Custom Cabinet Project</h3>
+      <p>A plain breakdown before you ask for a quote, no template pricing.</p>
+      <a class="guide-read" href="#">Read the guide &#8594;</a>
+    </div>
+  </div>
+  <p class="guides-note">The first guide is live now, built through RemodelerRank's AEO article pipeline. The other two are titled and planned, not yet written.</p>
+</section>
+
+<section class="section cta-section" id="start">
+  <div class="cta-bg"></div>
+  <div class="cta-overlay"></div>
+  <div class="reveal">
+    <span class="eyebrow">Start a Project</span>
+    <h2>Tell us what you'd like built</h2>
+    <p>Kitchen, closet, built-in, or a custom fabrication piece. Reach out and we'll talk through the project.</p>
+    <div class="cta-details">
+      <div><strong>Phone</strong><a href="tel:5107177378">(510) 717-7378</a></div>
+      <div><strong>Email</strong><a href="mailto:a.alamir@afwoodworker.com">a.alamir@afwoodworker.com</a></div>
+      <div><strong>Shop</strong>650 S 13th St, Richmond, CA 94804</div>
+    </div>
+  </div>
+</section>
+
+<footer data-strategy-anchor>
+  <div class="strategy-note"><strong>Why "where we've built," not "service area"</strong>AF's actual coverage area was never confirmed with Ahmed/Fernando (flagged in brand-dna.md). Rather than guess at a service radius, this lists four real project locations already used in the drawer captions above, honest about what's verified.</div>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand"><span class="nav-word">af<span>woodworker</span></span></div>
+      <p>Custom cabinetry and fine fabrication, designed in 3D before a single cut is made. Richmond, CA.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#work">Kitchens</a></li>
+        <li><a href="#work">Closets &amp; Built-ins</a></li>
+        <li><a href="#work">Bench Seating</a></li>
+        <li><a href="#work">CNC &amp; Custom Fabrication</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Where We've Built</h4>
+      <ul>
+        <li><a href="location-oakland.html">Oakland</a></li>
+        <li>Mill Valley</li>
+        <li>Menlo Park</li>
+        <li>San Francisco</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:5107177378">(510) 717-7378</a></li>
+        <li><a href="mailto:a.alamir@afwoodworker.com">a.alamir@afwoodworker.com</a></li>
+        <li>650 S 13th St<br>Richmond, CA 94804</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>AF Woodworker, Inc. CSLB #1092127.</div>
+    <div>Richmond, CA</div>
+  </div>
+</footer>
+
+<button class="strategy-toggle" onclick="toggleStrategy()">
+  <span class="diamond-ico"></span>
+  <span id="strategyToggleLabel">Show the reasoning</span>
+</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+function toggleStrategy() {
+  var on = document.body.classList.toggle('strategy-on');
+  document.getElementById('strategyToggleLabel').textContent = on ? 'Hide the reasoning' : 'Show the reasoning';
+}
+
+function toggleNav() {
+  var nav = document.querySelector('nav');
+  var open = nav.classList.toggle('nav-open');
+  nav.querySelector('.nav-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+(function () {
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var librariesLoaded = window.gsap && window.ScrollTrigger && window.Lenis;
+
+  if (reduceMotion || !librariesLoaded) {
+    document.body.classList.add('no-motion');
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  var lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+  gsap.ticker.lagSmoothing(0);
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -96 });
+    });
+  });
+
+  gsap.to('.hero-bg', {
+    yPercent: 14, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+  gsap.to('.hero-content', {
+    yPercent: -22, opacity: 0.15, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: 0.9, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 85%' }
+    });
+  });
+
+  gsap.from('.why-item', {
+    opacity: 0, y: 30, duration: 0.8, stagger: 0.15, ease: 'power2.out',
+    scrollTrigger: { trigger: '.why-grid', start: 'top 80%' }
+  });
+
+  document.querySelectorAll('.drawer').forEach(function (drawer) {
+    var front = drawer.querySelector('.drawer-front');
+    var img = drawer.querySelector('.drawer-inside img');
+    var label = drawer.querySelector('.drawer-label');
+    var tl = gsap.timeline({
+      scrollTrigger: { trigger: drawer, start: 'top 72%', toggleActions: 'play none none reverse' }
+    });
+    tl.to(front, { yPercent: 100, duration: 1.0, ease: 'power3.inOut' })
+      .to(img, { scale: 1, duration: 1.3, ease: 'power2.out' }, '<')
+      .to(label, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.5');
+  });
+})();
+</script>
+
+</body>
+</html>

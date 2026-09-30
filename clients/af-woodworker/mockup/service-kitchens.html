@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Kitchen Cabinetry | AF Woodworker</title>
+<meta name="description" content="Custom kitchen cabinetry designed in 3D before a single cut, built in-house by AF Woodworker in Richmond, CA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-padding-top: 96px; }
+  :root {
+    --white: #FFFFFF; --off-white: #F7F5F2; --charcoal: #14130F; --charcoal-soft: #201E19;
+    --gray: #6E6B64; --gray-light: #E4E0D8; --wood: #C89B6C; --wood-deep: #9C6F42;
+  }
+  body { font-family: 'Manrope', -apple-system, Arial, sans-serif; background: var(--white); color: var(--charcoal); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .draft-flag { background: var(--charcoal); color: var(--off-white); text-align: center; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px; }
+  nav { background: var(--white); border-bottom: 1px solid var(--gray-light); padding: 22px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; }
+  .nav-word { font-weight: 800; font-size: 18px; letter-spacing: -0.5px; text-transform: lowercase; }
+  .nav-word span { color: var(--wood-deep); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--charcoal); text-decoration: none; font-size: 14px; font-weight: 600; }
+  .nav-item { position: relative; }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 14px; z-index: 40; }
+  @media (hover: hover) and (pointer: fine) { .nav-item:hover .nav-dropdown { display: block; } }
+  .nav-dropdown-inner { background: var(--white); border: 1px solid var(--gray-light); min-width: 220px; box-shadow: 0 16px 40px rgba(20,19,15,0.14); padding: 8px 0; }
+  .nav-dropdown a { display: block; padding: 10px 16px; font-size: 13.5px; font-weight: 600; white-space: nowrap; }
+  .nav-dropdown a:hover { background: var(--off-white); }
+  .nav-cta { background: var(--charcoal); color: var(--white); padding: 11px 22px; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 700; }
+  .nav-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 36px; height: 36px; padding: 7px; flex-direction: column;
+    justify-content: center; gap: 5px;
+  }
+  .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--charcoal); }
+  .eyebrow { font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--wood-deep); font-weight: 800; display: inline-flex; align-items: center; gap: 9px; margin-bottom: 16px; }
+  .eyebrow::before { content: ''; width: 7px; height: 7px; background: var(--wood); transform: rotate(45deg); flex-shrink: 0; }
+
+  .service-hero { max-width: 900px; margin: 0 auto; padding: 72px 40px 48px; }
+  .service-hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 800; letter-spacing: -0.5px; line-height: 1.05; margin-bottom: 22px; max-width: 16ch; }
+  .service-hero .intro { font-size: 18px; color: var(--gray); max-width: 58ch; }
+
+  .service-hero-img { max-width: 1160px; margin: 0 auto 72px; padding: 0 40px; }
+  .service-hero-img img { width: 100%; aspect-ratio: 21/9; object-fit: cover; border-radius: 4px; display: block; }
+
+  .included { max-width: 900px; margin: 0 auto; padding: 0 40px 72px; }
+  .included h2 { font-size: clamp(24px, 3.2vw, 32px); font-weight: 800; letter-spacing: -0.4px; margin-bottom: 28px; }
+  .included-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .included-list li { display: flex; gap: 12px; padding: 16px 0; border-top: 1px solid var(--gray-light); font-size: 15px; }
+  .included-list .check { color: var(--wood-deep); font-weight: 700; flex-shrink: 0; }
+
+  .service-gallery { max-width: 1160px; margin: 0 auto; padding: 0 40px 72px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .service-gallery figure { aspect-ratio: 4/3; overflow: hidden; background: var(--gray-light); position: relative; }
+  .service-gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .service-gallery figcaption { position: absolute; left: 10px; bottom: 10px; background: var(--charcoal); color: var(--white); font-size: 11px; font-weight: 700; padding: 5px 10px; }
+
+  .testimonial { background: var(--off-white); padding: 64px 40px; text-align: center; }
+  .testimonial-inner { max-width: 640px; margin: 0 auto; }
+  .testimonial p { font-size: 19px; color: var(--charcoal); line-height: 1.6; margin-bottom: 18px; }
+  .testimonial .name { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--wood-deep); }
+
+  .faq-sec { max-width: 800px; margin: 0 auto; padding: 72px 40px; }
+  .faq-sec h2 { font-size: clamp(24px, 3.2vw, 32px); font-weight: 800; letter-spacing: -0.4px; margin-bottom: 32px; }
+  .faq-item { border-top: 1px solid var(--gray-light); padding: 22px 0; }
+  .faq-item:last-child { border-bottom: 1px solid var(--gray-light); }
+  .faq-item h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+  .faq-item p { font-size: 14.5px; color: var(--gray); }
+
+  .related-services { background: var(--charcoal); color: var(--white); padding: 64px 40px; }
+  .related-inner { max-width: 1100px; margin: 0 auto; }
+  .related-inner .eyebrow { color: var(--wood); }
+  .related-inner h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 800; margin-bottom: 32px; max-width: 20ch; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.12); }
+  .related-card { background: var(--charcoal-soft); padding: 24px; text-decoration: none; color: var(--white); }
+  .related-card h3 { font-size: 15px; font-weight: 700; }
+  .related-card span { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  .final-cta { text-align: center; padding: 90px 40px; }
+  .final-cta h2 { font-size: clamp(26px, 3.6vw, 38px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .final-cta p { color: var(--gray); font-size: 16px; max-width: 46ch; margin: 0 auto 28px; }
+  .btn-primary { background: var(--charcoal); color: var(--white); padding: 14px 26px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-block; }
+
+  footer { background: var(--charcoal-soft); color: rgba(255,255,255,0.6); padding: 32px; text-align: center; font-size: 13px; }
+
+  @media (max-width: 760px) {
+    .included-list, .service-gallery, .related-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 16px 20px; position: relative; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0; margin: 0; padding: 8px 0;
+      background: var(--white); border-bottom: 1px solid var(--gray-light);
+      box-shadow: 0 16px 32px rgba(20,19,15,0.14);
+    }
+    nav.nav-open .nav-links { display: flex; }
+    .nav-links a { display: block; padding: 14px 20px; }
+    .service-hero, .service-hero-img, .included, .service-gallery, .faq-sec, .final-cta, .testimonial, .related-inner { padding-left: 20px; padding-right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="draft-flag">Sample page, format concept. Not yet built into a real site.</div>
+
+<nav>
+  <a href="index.html" style="display: block; line-height: 0;"><img src="logo/af-logo.jpg" alt="AF Woodworker" style="height: 48px; width: auto; display: block;"></a>
+  <ul class="nav-links">
+    <li><a href="index.html#why">Why AF</a></li>
+    <li class="nav-item">
+      <a href="index.html#work">Services</a>
+      <div class="nav-dropdown">
+        <div class="nav-dropdown-inner">
+          <a href="service-kitchens.html">Kitchens</a>
+          <a href="index.html#work">Closets &amp; Built-ins</a>
+          <a href="index.html#work">Bench Seating</a>
+          <a href="index.html#work">CNC &amp; Custom Fabrication</a>
+        </div>
+      </div>
+    </li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="index.html#guides">Guides</a></li>
+  </ul>
+  <a class="nav-cta" href="index.html#start">Start a Project</a>
+  <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="service-hero">
+  <span class="eyebrow">Kitchens</span>
+  <h1>Custom Kitchen Cabinetry</h1>
+  <p class="intro">Every kitchen starts as a full 2D and 3D model, not a sketch, so you see the finished cabinetry before a single cut is made. Built by Ahmed and Fernando directly, in Richmond, for homeowners across the Bay Area.</p>
+</div>
+
+<div class="service-hero-img">
+  <img src="photos/af-kitchen-walnut-vaulted-hero.jpg" alt="Custom walnut kitchen with vaulted ceiling, built by AF Woodworker">
+</div>
+
+<div class="included">
+  <h2>What's included</h2>
+  <ul class="included-list">
+    <li><span class="check">&#10003;</span> Full 2D and 3D modeling before production starts</li>
+    <li><span class="check">&#10003;</span> Cabinet boxes, doors, and drawer fronts built in-house</li>
+    <li><span class="check">&#10003;</span> Custom sizing for the actual space, not a stock module</li>
+    <li><span class="check">&#10003;</span> In-house CNC for detail work standard shops sub out</li>
+    <li><span class="check">&#10003;</span> Direct installation by the same team that built it</li>
+    <li><span class="check">&#10003;</span> One point of contact, start to finish: Ahmed or Fernando</li>
+  </ul>
+</div>
+
+<div class="service-gallery">
+  <figure><img src="photos/af-kitchen-modern-twotone-wine-fridge.jpg" alt="Two-tone kitchen with wine fridge wall, Oakland"><figcaption>Oakland</figcaption></figure>
+  <figure><img src="photos/af-kitchen-custom-range-hood-blue.jpg" alt="Kitchen with custom range hood cabinetry, Menlo Park"><figcaption>Menlo Park</figcaption></figure>
+  <figure><img src="photos/af-kitchen-white-modern-skylight.jpg" alt="Bright modern kitchen with skylight, Sunset SF"><figcaption>Sunset SF</figcaption></figure>
+</div>
+
+<div class="testimonial">
+  <div class="testimonial-inner">
+    <p>"They did a fantastic job with our kitchen cabinet project."</p>
+    <div class="name">Harry S., Kitchen Cabinet Project</div>
+  </div>
+</div>
+
+<div class="faq-sec">
+  <h2>Questions before you start</h2>
+  <div class="faq-item">
+    <h3>Do you work from my existing kitchen layout, or design a new one?</h3>
+    <p>Either. We model the space as it exists, then work with you on layout before any cabinetry gets designed around it.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can I see the design before anything is built?</h3>
+    <p>Yes, that's the point of the 2D/3D step. You're seeing the finished cabinetry, not imagining it from a drawing.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Do you handle installation too, or just the cabinets?</h3>
+    <p>Both. The same team that builds it installs it, so nothing gets lost in a handoff to someone else.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What areas do you serve?</h3>
+    <p>Richmond and across the Bay Area. Recent kitchens have been in Oakland, Menlo Park, and San Francisco.</p>
+  </div>
+</div>
+
+<div class="related-services">
+  <div class="related-inner">
+    <span class="eyebrow">Explore Other Services</span>
+    <h2>The rest of what we build</h2>
+    <div class="related-grid">
+      <a class="related-card" href="index.html#work"><h3>Closets &amp; Built-ins</h3><span>See the work &#8594;</span></a>
+      <a class="related-card" href="index.html#work"><h3>Bench Seating</h3><span>See the work &#8594;</span></a>
+      <a class="related-card" href="index.html#work"><h3>CNC &amp; Custom Fabrication</h3><span>See the work &#8594;</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="final-cta">
+  <h2>Tell us about your kitchen.</h2>
+  <p>Kitchen, closet, built-in, or a custom fabrication piece. Reach out and we'll talk through the project.</p>
+  <a class="btn-primary" href="index.html#start">Start a Project</a>
+</div>
+
+<footer>AF Woodworker, Inc. Richmond, CA. CSLB #1092127.</footer>
+
+<script>
+function toggleNav() {
+  var nav = document.querySelector('nav');
+  var open = nav.classList.toggle('nav-open');
+  nav.querySelector('.nav-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AF Woodworker: Beyond the Site</title>
+<meta name="description" content="Free, no-obligation findings on AF Woodworker's Google Business Profile, site performance, and platform presence, from RemodelerRank.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white: #FFFFFF;
+    --off-white: #F7F5F2;
+    --charcoal: #14130F;
+    --charcoal-soft: #201E19;
+    --gray: #6E6B64;
+    --gray-light: #E4E0D8;
+    --wood: #C89B6C;
+    --wood-deep: #9C6F42;
+  }
+
+  body {
+    font-family: 'Manrope', -apple-system, Arial, sans-serif;
+    background: var(--white);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .draft-flag {
+    background: var(--charcoal); color: var(--off-white); text-align: center;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px;
+  }
+
+  .diamond { width: 8px; height: 8px; background: var(--wood); transform: rotate(45deg); flex-shrink: 0; display: inline-block; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--wood-deep); font-weight: 800; margin-bottom: 16px;
+    display: inline-flex; align-items: center; gap: 9px;
+  }
+
+  header {
+    background: var(--charcoal); color: var(--white); padding: 100px 40px 80px;
+    text-align: center;
+  }
+  header .eyebrow { color: var(--wood); justify-content: center; }
+  header h1 {
+    font-weight: 800; letter-spacing: -0.5px;
+    font-size: clamp(30px, 4.4vw, 48px); line-height: 1.25;
+    max-width: 780px; margin: 0 auto 22px;
+  }
+  header p { color: rgba(255,255,255,0.72); font-size: 17px; max-width: 620px; margin: 0 auto; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+
+  section.block { padding: 90px 0; border-bottom: 1px solid var(--gray-light); }
+  section.block:last-of-type { border-bottom: none; }
+  .block-head h2 { font-size: clamp(24px, 3.2vw, 34px); font-weight: 800; letter-spacing: -0.4px; margin-bottom: 14px; }
+  .block-head p { color: var(--gray); font-size: 16px; max-width: 620px; margin-bottom: 44px; }
+
+  .item-list { display: flex; flex-direction: column; gap: 0; }
+  .item {
+    display: grid; grid-template-columns: 56px 1fr; gap: 22px;
+    padding: 26px 0; border-top: 1px solid var(--gray-light);
+  }
+  .item:last-child { border-bottom: 1px solid var(--gray-light); }
+  .item-num { font-weight: 800; font-size: 15px; color: var(--wood-deep); padding-top: 2px; }
+  .item h3 { font-size: 17px; font-weight: 800; margin-bottom: 8px; }
+  .item p { font-size: 14.5px; color: var(--gray); }
+
+  .verify-flag {
+    display: inline-block; margin-top: 10px; font-size: 11.5px; font-weight: 700;
+    color: var(--wood-deep); text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  .caption-example {
+    background: var(--off-white); border-left: 3px solid var(--wood); padding: 22px 26px;
+    margin-top: 28px; font-size: 15px;
+  }
+  .caption-example strong { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--wood-deep); margin-bottom: 10px; }
+  .caption-formula { font-weight: 800; font-size: 15px; margin-bottom: 14px; }
+  .caption-sample { font-style: italic; color: var(--charcoal); border-top: 1px dashed var(--gray-light); padding-top: 14px; margin-top: 14px; }
+  .tag-checklist { margin-top: 36px; }
+  .tag-checklist h3 { font-size: 15.5px; font-weight: 800; margin-bottom: 16px; }
+  .tag-row { display: grid; grid-template-columns: 140px 1fr; gap: 18px; padding: 14px 0; border-top: 1px solid var(--gray-light); font-size: 14px; }
+  .tag-row:last-child { border-bottom: 1px solid var(--gray-light); }
+  .tag-label { font-weight: 800; color: var(--wood-deep); font-size: 12.5px; }
+  .tag-row p { color: var(--gray); }
+  .why-tag { margin-top: 18px; font-size: 13.5px; color: var(--gray); }
+  .why-tag strong { color: var(--charcoal); }
+
+  .offer-box {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--off-white); border: 1px solid var(--gray-light); border-left: 3px solid var(--wood);
+    padding: 20px 24px; margin-top: 32px; font-size: 14.5px; color: var(--charcoal);
+  }
+  .offer-box .diamond { margin-top: 5px; width: 8px; height: 8px; background: var(--wood); transform: rotate(45deg); flex-shrink: 0; }
+  .offer-box strong { display: block; font-size: 13px; letter-spacing: 0.3px; margin-bottom: 4px; }
+
+  .top-offer {
+    margin: 48px 0 0; padding: 24px 32px; background: var(--charcoal-soft);
+    color: rgba(255,255,255,0.88); font-size: 15px; text-align: center; border-radius: 4px;
+  }
+  .top-offer strong { color: var(--white); }
+
+  .project-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .project-card { border: 1px solid var(--gray-light); padding: 24px 20px; }
+  .project-card .cost-tag {
+    display: inline-block; font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--wood-deep); font-weight: 800; background: var(--off-white); padding: 4px 9px; margin-bottom: 14px;
+  }
+  .project-card h3 { font-size: 15.5px; font-weight: 800; margin-bottom: 8px; }
+  .project-card p { font-size: 13.5px; color: var(--gray); }
+
+  .email-block { background: var(--off-white); padding: 36px 32px; margin-top: 20px; }
+  .email-meta { font-size: 12px; color: var(--wood-deep); font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 18px; }
+  .email-body { font-size: 15px; line-height: 1.85; white-space: pre-line; }
+  .why-this { margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--gray-light); font-size: 14px; color: var(--gray); }
+  .why-this strong { color: var(--charcoal); }
+
+  .further-block { background: var(--charcoal); color: rgba(255,255,255,0.85); padding: 90px 0; }
+  .further-block .block-head p { color: rgba(255,255,255,0.6); }
+  .further-block .eyebrow { color: var(--wood); }
+  .further-item {
+    display: grid; grid-template-columns: 44px 1fr; gap: 20px;
+    padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.14);
+  }
+  .further-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .further-item .diamond { margin-top: 6px; }
+  .further-item h3 { font-size: 16.5px; font-weight: 800; margin-bottom: 8px; color: var(--white); }
+  .further-item p { font-size: 14px; color: rgba(255,255,255,0.62); }
+
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.55); padding: 56px 40px; text-align: center; font-size: 13px; }
+
+  @media (max-width: 640px) {
+    header { padding: 64px 24px 56px; }
+    main { padding: 0 24px; }
+    section.block { padding: 60px 0; }
+    .project-cards { grid-template-columns: 1fr; }
+    .item { grid-template-columns: 40px 1fr; }
+    .tag-row { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="draft-flag">Prepared for AF Woodworker by RemodelerRank. Free, no obligation.</div>
+
+<header>
+  <span class="eyebrow"><span class="diamond"></span>Beyond the Site</span>
+  <h1>Real proof already exists online. It's just scattered, and none of it points back to you.</h1>
+  <p>Pulled directly from your live listings this week, not assumptions. Most of this costs nothing and doesn't wait on the new site being finished.</p>
+</header>
+
+<main>
+
+<div class="top-offer"><strong>Everything below is yours to keep either way.</strong> No obligation, no attached ask. If you'd rather not touch any of it yourself, it's the same work we'd do as part of building your real site, just say which ones and I'll load them onto the build list.</div>
+
+<section class="block">
+  <div class="block-head">
+    <span class="eyebrow"><span class="diamond"></span>Site Performance</span>
+    <h2>Fast on desktop. Slow enough on mobile to cost real rankings.</h2>
+    <p>I ran your site through Lighthouse (pagespeed.web.dev) on 2026-09-16, real numbers, not estimated. Google ranks primarily on the mobile experience, so the mobile column is the one that actually matters here.</p>
+  </div>
+  <div class="item-list">
+    <div class="item">
+      <div class="item-num">01</div>
+      <div>
+        <h3>Mobile Largest Contentful Paint: 10.5 seconds</h3>
+        <p>Google's own "poor" threshold starts at 4 seconds. This is more than double past it, on the exact metric mobile-first indexing weighs most.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">02</div>
+      <div>
+        <h3>Desktop LCP: 2.1 seconds, comfortably in the "good" range</h3>
+        <p>Same site, same code, a completely different outcome. That gap means the site isn't fundamentally heavy, mobile delivery specifically is what's failing.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">03</div>
+      <div>
+        <h3>Two fixes, same report, neither is a rebuild</h3>
+        <p>"Improve image delivery" (298 KiB of savings on mobile, almost certainly the uncompressed hero photo) and "Render-blocking requests" (1,030ms of savings). An image-optimization and script-loading pass, not new pages.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">04</div>
+      <div>
+        <h3>Everything else already passes clean</h3>
+        <p>100 on Accessibility, Best Practices, and SEO. Zero layout shift (CLS 0). Even a 2/2 on Lighthouse's newer "Agentic Browsing" check for AI-agent readability. One slow hero image and some unoptimized scripts are doing all the damage, not a deeper problem.</p>
+      </div>
+    </div>
+  </div>
+  <div class="offer-box"><span class="diamond"></span><div><strong>Want this handled for you?</strong>Image optimization and script-loading cleanup are exactly what a real rebuild already includes. You don't need to touch any of it yourself if you'd rather I just fix it directly.</div></div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <span class="eyebrow"><span class="diamond"></span>Platform Presence</span>
+    <h2>Where your proof already sits, unlinked</h2>
+    <p>I checked BBB, Thumbtack, BuildZoom, and Nextdoor directly. Your license and standing are clean everywhere they show up. What's missing is anything connecting those real credentials back to afwoodworker.com or to each other.</p>
+  </div>
+  <div class="item-list">
+    <div class="item">
+      <div class="item-num">01</div>
+      <div>
+        <h3>Thumbtack already has 15 real reviews at 4.7 stars, unused anywhere else</h3>
+        <p>Background-checked, license-verified, 35 real hires shown. That's the single strongest proof point I found in this whole pass, and it isn't referenced on your site, on Instagram, or (as far as I could confirm) on Google. It's sitting on one platform instead of doing work everywhere.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">02</div>
+      <div>
+        <h3>BuildZoom shows a 93 score, top 27% of California's 336,931 licensed contractors, zero reviews</h3>
+        <p>That score comes from license history and standing, not customer feedback, so it's a real, strong number with nothing backing it up publicly on that specific platform.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">03</div>
+      <div>
+        <h3>Nextdoor has the right phone number and the wrong city</h3>
+        <p>A listing exists ("Cabinet maker," "Woodworking," (510) 717-7378) but it's geo-tagged to Oakley, CA instead of Richmond, about 25 miles off. Nextdoor is exactly where a homeowner already asks their neighbors for a cabinet shop, and right now it can't surface for the neighborhood you actually work in.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">04</div>
+      <div>
+        <h3>No Houzz listing turned up</h3>
+        <p>Houzz is built for a homeowner planning a real kitchen or built-in project, searching by photo before they search by name, exactly your stated buyer. A free profile with your real portfolio photos would likely outperform every other directory here for your specific audience.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">05</div>
+      <div>
+        <h3>Your portfolio page exists now, and hasn't moved since it was built</h3>
+        <p>afwoodworker.com/portfolio is live with seven real projects (Saratoga, Menlo Park, Oakland, Sunset, Mill Valley, Sunset SF, a showcase page). Good, that's a real asset. But your site's own sitemap shows all fourteen pages, portfolio included, last modified in the same eight-day window in May 2025. Sixteen months without a single page changing reads to Google like a site that stopped growing.</p>
+      </div>
+    </div>
+  </div>
+  <div class="offer-box"><span class="diamond"></span><div><strong>Want this handled for you?</strong>Setting up the Houzz profile and fixing the Nextdoor listing are both part of the launch checklist on a real build. Happy to just do both directly instead of walking you through them.</div></div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <span class="eyebrow"><span class="diamond"></span>Google Business Profile</span>
+    <h2>The one thing this pass couldn't confirm from outside</h2>
+    <p>Unlike BBB or Thumbtack, a Google Business Profile isn't reliably checkable through a public search pass, whether it exists, is claimed, or sits empty has to be confirmed by logging into the account directly. Worth doing first: if it's missing or thin, it's very likely the highest-leverage single fix on this whole page.</p>
+  </div>
+  <div class="item-list">
+    <div class="item">
+      <div class="item-num">01</div>
+      <div>
+        <h3>Confirm it exists and is claimed</h3>
+        <p>Search "AF Woodworker Richmond CA" directly in Google Maps while logged into your business email. If nothing comes up, claiming it from scratch takes about fifteen minutes.</p>
+        <span class="verify-flag">Verify directly, not checkable from outside</span>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">02</div>
+      <div>
+        <h3>Write the description around what's actually real</h3>
+        <p>Custom cabinetry and CNC fabrication, Richmond, CA. CSLB #1092127 stated directly, no promotional language. That license line alone does more than any adjective would.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">03</div>
+      <div>
+        <h3>List every real service, individually</h3>
+        <p>Kitchens, Closets &amp; Built-ins, Bench Seating, CNC &amp; Custom Fabrication, the same four categories already built into the new site's nav and footer. One line each, no filler.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">04</div>
+      <div>
+        <h3>Upload the seven portfolio photos that already exist</h3>
+        <p>They're live on afwoodworker.com/portfolio right now and not posted anywhere else public-facing. This is the easiest lever on the page, the photography doesn't need to be taken, just moved.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">05</div>
+      <div>
+        <h3>Seed the Q&amp;A before a prospect does</h3>
+        <p>"Are you licensed and insured?" (yes, CSLB #1092127, active through 5/31/2028). "Do you design and build it yourselves?" (yes, Ahmed and Fernando model every piece in 2D and 3D before it's built, then build it directly).</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-num">06</div>
+      <div>
+        <h3>Add the EPA renovation license too, it isn't mentioned anywhere yet</h3>
+        <p>Renovation License #NAT-F238527-1 (lead-safe renovation certification) showed up in the BuildZoom pull but doesn't appear anywhere in your current site copy or testimonials. It's a real, separate credential worth stating once it's confirmed.</p>
+        <span class="verify-flag">Confirm status directly before publishing</span>
+      </div>
+    </div>
+  </div>
+  <div class="offer-box"><span class="diamond"></span><div><strong>Want this handled for you?</strong>This is the single most valuable thing I can just do directly. Give me access to your GBP and I'll write the description, load the services, upload the photos, and seed the Q&amp;A myself, no need for you to touch it at all.</div></div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <span class="eyebrow"><span class="diamond"></span>Social Content</span>
+    <h2>A voice that's already there, tagged for almost nothing</h2>
+    <p>116 followers after roughly two years of your real, organized posting (Kitchens, Pantries, Workshop, Crafted Corners highlights) is a reach problem, not a content problem. The fix isn't a new voice, it's a real hook before the context, not a caption that opens with the subject, plus the tagging that actually surfaces it locally.</p>
+  </div>
+  <div class="caption-example">
+    <strong>Hook, Then Context</strong>
+    <div class="caption-formula">A real hook first (see social-captions/SKILL.md), the specific project details second, never the reverse.</div>
+    <div class="caption-sample">"Most kitchens treat the wine fridge like an appliance. We treated it like cabinetry.<br>Two-tone kitchen in Oakland, the fridge wall runs in the same line, same reveal, same hardware as the rest of the run, modeled in 3D before a single cut."</div>
+    <div class="caption-sample">"The range hood is usually an afterthought. This one was the plan from day one.<br>Custom range hood cabinetry in Menlo Park, brass pendant lighting specified to match before anything was built."</div>
+  </div>
+  <div class="tag-checklist">
+    <h3>What to tag, every time</h3>
+    <div class="tag-row">
+      <div class="tag-label">The Client</div>
+      <p>Tag the homeowner's own account when they're willing to be tagged. A tagged post shows up on their profile too, reaching the friends and neighbors a direct-to-homeowner shop actually depends on for the next referral.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tag-label">The Neighborhood</div>
+      <p>Use Instagram's real location pin on the project's actual neighborhood, Oakland, Mill Valley, Menlo Park, not just the city typed into the caption. This is the lever for showing up in searches from a specific area you want more work in.</p>
+    </div>
+    <div class="tag-row">
+      <div class="tag-label">The Materials</div>
+      <p>Tag the hardware, appliance, or material brand when one's actually used, a wine fridge brand, a specific hardware line. A smaller audience, but one already shopping for exactly that kind of project.</p>
+    </div>
+  </div>
+  <div class="why-tag"><strong>Why this matters more than the caption itself:</strong> a good caption with no tags reaches your own 116 followers. The same caption with the client, the neighborhood pin, and the material tagged reaches three separate networks, for the same thirty seconds of work.</div>
+  <div class="offer-box"><span class="diamond"></span><div><strong>Want this handled for you?</strong>Writing and tagging every post yourself is the part that tends to slip. This is exactly what a monthly content cadence covers, hand me the photos and I'll write and tag the captions for you.</div></div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <span class="eyebrow"><span class="diamond"></span>Three Cheap Projects</span>
+    <h2>Real, small, high-return</h2>
+    <p>None of these wait on the new site. All three could be done this month.</p>
+  </div>
+  <div class="project-cards">
+    <div class="project-card">
+      <span class="cost-tag">A few hours</span>
+      <h3>Fix your Nextdoor listing</h3>
+      <p>Claim it and correct the city tag from Oakley to Richmond. A five-minute fix on a platform built entirely around neighborhood word-of-mouth, which is exactly how your real reviews describe finding you.</p>
+    </div>
+    <div class="project-card">
+      <span class="cost-tag">A few hours</span>
+      <h3>Link your Thumbtack proof back</h3>
+      <p>Fifteen real reviews at 4.7 stars already exist. Add the link to your site footer and to your Google profile once it's claimed, real proof that currently only lives on one platform.</p>
+    </div>
+    <div class="project-card">
+      <span class="cost-tag">One afternoon</span>
+      <h3>Move your seven portfolio photos everywhere else</h3>
+      <p>Already shot, already live at afwoodworker.com/portfolio, and not circulating on Instagram or any directory listing. Redistributing what's already there costs nothing new to produce.</p>
+    </div>
+  </div>
+  <div class="offer-box"><span class="diamond"></span><div><strong>Want this handled for you?</strong>All three are the kind of quick wins I'd normally just knock out for a client rather than hand off as homework. Say the word on any of them and I'll take care of it.</div></div>
+</section>
+
+<section class="block">
+  <div class="block-head">
+    <span class="eyebrow"><span class="diamond"></span>Get the Reviews</span>
+    <h2>The ask already worked once. Point it at Google next.</h2>
+    <p>Zero reviews on Google and BBB isn't a sign no one's happy, your fifteen Thumbtack reviews prove the opposite. It's a sign the ask has only ever gone out in one place. A short, personal note to your recent clients, the same kind of ask that already produced fifteen reviews once, closes most of this gap directly.</p>
+  </div>
+  <div class="email-block">
+    <div class="email-meta">Draft Email, Personalize Before Sending</div>
+    <div class="email-body">Subject: A quick favor, from AF Woodworker
+
+Hi [Name],
+
+It's been a while since we finished [project name or description] together, and we're still proud of how it turned out.
+
+We're updating our online presence and realized we've never actually asked, would you be willing to leave us a quick Google review? Even two or three sentences about the project and how it went would mean a lot.
+
+[Direct Google review link]
+
+Thank you for trusting us with your project. We'd love to work together again.
+
+Ahmed
+AF Woodworker</div>
+  </div>
+  <div class="why-this"><strong>Why this works:</strong> it's personal, not a mass blast, references the real project, and hands over the review link directly so there's no friction between "yes" and the review actually existing.</div>
+  <div class="why-this" style="margin-top: 12px;"><strong>If there's no reply in a week:</strong> one short follow-up, not a second full ask. "Just following up, no pressure either way, but if you have two minutes this week, it'd genuinely help." Most people who leave a review do it on the second nudge, not the first.</div>
+  <div class="offer-box"><span class="diamond"></span><div><strong>Want this handled for you?</strong>This one needs your real relationships, so it's not something I can send on your behalf. But send me your client list and I'll draft a personalized version of this email for every one of them, ready for you to just review and send.</div></div>
+</section>
+
+</main>
+
+<div class="further-block">
+  <div style="max-width: 860px; margin: 0 auto; padding: 0 40px;">
+    <div class="block-head">
+      <span class="eyebrow"><span class="diamond"></span>If You Want to Take It Further</span>
+      <h2>Past the essentials, once the basics are running</h2>
+      <p>None of this is urgent. It's what turns a shop that's present online into one people actively refer their neighbors to.</p>
+    </div>
+    <div class="further-item">
+      <span class="diamond"></span>
+      <div>
+        <h3>Claim Houzz properly, not just a placeholder profile</h3>
+        <p>The strongest homeowner-specific discovery platform on this whole list, and currently zero presence. Populate it with the same seven portfolio photos already sitting unused, this alone could outperform the other directories combined for your actual buyer.</p>
+      </div>
+    </div>
+    <div class="further-item">
+      <span class="diamond"></span>
+      <div>
+        <h3>Formalize the referral instinct that's already working</h3>
+        <p>Thumbtack's real numbers, 35 hires against 15 reviews, and testimonials that name specific first names, already look word-of-mouth-shaped. Worth considering a small, simple referral thank-you for past clients who send someone new. Costs little, and it's building on a pattern that's already real rather than starting one from nothing.</p>
+      </div>
+    </div>
+    <div class="further-item">
+      <span class="diamond"></span>
+      <div>
+        <h3>Write the first real guide behind the new site's Guides section</h3>
+        <p>Three real topics are already planned there, why the 3D modeling step matters, what CNC actually adds, what drives custom pricing, but no articles exist yet. One real piece is worth more than three placeholder titles.</p>
+      </div>
+    </div>
+    <div class="further-item">
+      <span class="diamond"></span>
+      <div>
+        <h3>A steady posting rhythm, not just finished reveals</h3>
+        <p>Rotate a process shot (the CNC actually running, a 2D or 3D render before the build) against a finished reveal. Two posts a month, same rotation, is what turns 116 followers into a feed people actually check before they call.</p>
+      </div>
+    </div>
+    <div class="further-item">
+      <span class="diamond"></span>
+      <div>
+        <h3>Get the site moving again</h3>
+        <p>One new portfolio project changes every lastmod date on the sitemap at once. It doesn't need to be a rebuild to signal an active business, it needs to stop sitting still for sixteen months.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Prepared for AF Woodworker by RemodelerRank. Free, no obligation. Reply any time, happy to talk through any of it or just handle it.
+</footer>
+
+</body>
+</html>
