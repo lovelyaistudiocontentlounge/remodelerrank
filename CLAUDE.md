@@ -77,7 +77,7 @@ Never mix files between repos. Site files go in the website repo. Pipeline code 
     /photo-pipeline/
       SKILL.md                  <- photo naming, sizing, WebP conversion (Session 9)
     /pre-launch/
-      SKILL.md                  <- 36-item pre-launch checklist (Session 9)
+      SKILL.md                  <- 37-item pre-launch checklist (Session 9)
     /seo-build/
       SKILL.md                  <- post-approval SEO layer (Session 9)
 
