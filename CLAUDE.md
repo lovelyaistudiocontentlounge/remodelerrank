@@ -33,6 +33,26 @@ Desktop/RemodelerRank/remodelerrank/   <- THIS REPO (pipeline)
 
 Never mix files between repos. Site files go in the website repo. Pipeline code stays here.
 
+Note (2026-09-30): the nested `remodelerrank/remodelerrank/` pipeline checkout this
+diagram describes was found to have drifted into a full duplicate clone of the website
+repo itself (same git remote, same site files), not a distinct pipeline repo. Two
+commits of real, unpushed client-portfolio work were rescued from it into the website
+repo before it was deleted for disk space (see the Portfolio/Lookbook Project note
+below). If a separate pipeline repo still exists somewhere, re-verify its actual path
+before trusting this diagram.
+
+---
+
+## Deploy Practice (standard as of 2026-09-30)
+
+Changes to the live site go out on a branch, not straight to `main`: push the branch,
+open a PR, review it on Netlify's deploy-preview URL (a full, real, working copy of the
+site with just that change, visible only via the preview link), then merge once it
+looks right. Nothing goes live by accident in between. This depends on Netlify's deploy
+previews being enabled for this site (check Site settings -> Build & deploy -> Deploy
+contexts in the Netlify dashboard, not verifiable from the repo itself); if they are not
+on, turn them on once, it is a one-time setting.
+
 ---
 
 ## Actual File Structure (verified May 23 2026)
