@@ -70,6 +70,8 @@ Work through each section in order. Mark each item as confirmed or flag it as bl
 34. Favicon present and correct (not a generic browser icon)
 35. OG tags set for social sharing: `og:title`, `og:description`, `og:image` (1200x630px)
 36. Logo renders correctly on all pages - no stretched or pixelated versions
+37. Footer includes a "Site Credit: RemodelerRank" link to remodelerrank.com/site-credit/
+    (standard as of 2026-09-30, on every client site we build)
 
 ---
 
